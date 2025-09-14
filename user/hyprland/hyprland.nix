@@ -14,7 +14,7 @@
     xwayland.enable = true;
     systemd.enable = false;
     extraConfig = ''
-      ${builtins.readFile ../../assets/config/hyprland.conf} 
+      ${builtins.readFile ../../assets/config/hyprland.conf}
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
     '';
@@ -45,7 +45,7 @@
   home.file.".config/hypr/hypridle.conf".source = ../../assets/config/hypridle.conf;
   home.file.".config/hypr/hyprlock.conf".source = ../../assets/config/hyprlock.conf;
   home.file.".config/waybar/config.jsonc".source = ../../assets/config/waybar.jsonc;
-  home.file.".config/waybar/style.css".source = ../../assets/config/waybar-style.css;
+  home.file.".config/waybar/style.css".source = ../../assets/config/waybar.css;
   home.file.".config/waybar/mocha.css".source = ../../assets/config/mocha.css;
   home.file.".config/waybar/scripts/caway.go".source = ../../assets/scripts/caway.go;
   home.file.".config/waybar/scripts/caway-go".source = ../../assets/scripts/caway-go;
