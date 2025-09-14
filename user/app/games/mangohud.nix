@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.mangohud.enable = true;
   programs.mangohud.settings = {
     horizontal = true;
-    # background_alpha = 0.6;
+    background_alpha = lib.mkDefault 0.6;
     round_corners = 0;
     position = "top-center";
 

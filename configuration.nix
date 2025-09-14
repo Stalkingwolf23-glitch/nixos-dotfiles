@@ -59,6 +59,7 @@
     ffmpeg
     killall
     egl-wayland
+    rnnoise-plugin
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
