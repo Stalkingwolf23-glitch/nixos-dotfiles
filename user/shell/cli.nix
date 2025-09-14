@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -107,4 +107,5 @@
       theme[process_end]="#cba6f7"
     '';
   };
+
 }

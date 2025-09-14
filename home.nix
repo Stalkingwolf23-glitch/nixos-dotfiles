@@ -7,6 +7,7 @@
     ./user/shell/sh.nix
     ./user/shell/tmux.nix
     ./user/shell/starship.nix
+    ./user/shell/fastfetch.nix
     ./user/shell/nh.nix
     ./user/shell/git.nix
     ./user/app/browser/zen.nix
