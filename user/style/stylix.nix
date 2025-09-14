@@ -11,6 +11,7 @@
       zen-browser.enable = false;
       mako.enable = false;
       btop.enable = false;
+      vesktop.enable = false;
     };
 
     iconTheme = {
@@ -26,7 +27,7 @@
     cursor = {
       name = "Catppuccin Cursors - Mocha Dark";
       package = pkgs.catppuccin-cursors.mochaDark;
-      size = 24;
+      size = 28;
     };
 
     fonts = {
