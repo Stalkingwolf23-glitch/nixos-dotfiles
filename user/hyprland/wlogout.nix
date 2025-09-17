@@ -31,7 +31,7 @@
 
       {
         label = "logout";
-        action = "systemctl restart sddm || loginctl kill-session $XDG_SESSION_ID";
+        action = "loginctl kill-session $XDG_SESSION_ID";
         text = "Logout";
         keybind = "e";
       }

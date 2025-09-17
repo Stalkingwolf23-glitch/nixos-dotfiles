@@ -8,6 +8,10 @@
   ];
 
   gtk.enable = true;
+  qt = {
+    enable = true;
+    # platformTheme = "gtk";
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -19,7 +23,9 @@
       exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
     '';
     plugins = [ 
-      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors 
+      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
+      inputs.hyprXPrimary.packages.${pkgs.system}.default
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
   };
@@ -33,23 +39,21 @@
     wl-clipboard
     cliphist
     swww
+    hyprpaper
     hyprlock
     hypridle
     easyeffects
     grimblast
     libappindicator
+    playerctl
+    youtube-music
   ];
 
   services.easyeffects.enable = true;
 
   home.file.".config/hypr/hypridle.conf".source = ../../assets/config/hypridle.conf;
   home.file.".config/hypr/hyprlock.conf".source = ../../assets/config/hyprlock.conf;
-  home.file.".config/waybar/config.jsonc".source = ../../assets/config/waybar.jsonc;
-  home.file.".config/waybar/style.css".source = ../../assets/config/waybar.css;
-  home.file.".config/waybar/mocha.css".source = ../../assets/config/mocha.css;
-  home.file.".config/waybar/scripts/caway.go".source = ../../assets/scripts/caway.go;
-  home.file.".config/waybar/scripts/caway-go".source = ../../assets/scripts/caway-go;
-  home.file.".config/waybar/scripts/caway".source = ../../assets/scripts/caway;
-  home.file.".config/waybar/scripts/go.mod".source = ../../assets/scripts/go.mod;
-  home.file.".config/waybar/scripts/getScratchOutput.sh".source= ../../assets/scripts/getScratchOutput.sh;
+  home.file.".config/hypr/hyprpaper.conf".source = ../../assets/config/hyprpaper.conf;
+
+  home.file.".config/waybar/".source = { ../../assets/config/waybar; recursive = true; };
 }

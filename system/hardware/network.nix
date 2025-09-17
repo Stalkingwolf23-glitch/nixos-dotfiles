@@ -1,7 +1,10 @@
 { pkgs, systemSettings, ... }:
 {
-  networking.hostName = systemSettings.hostname;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = systemSettings.hostname;
+    networkmanager.enable = true;
+    wireless.userControlled.enable = true;
+  };
 
   programs.nm-applet = {
     enable = true;

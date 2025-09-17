@@ -16,4 +16,5 @@
       options = "caps:escape";
     };
   };
+  services.libinput.enable = true;
 }

@@ -15,4 +15,6 @@
 
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+  programs.file-roller.enable = true;
+  services.udisks2.enable = true;
 }

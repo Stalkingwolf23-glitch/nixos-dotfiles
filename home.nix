@@ -10,16 +10,18 @@
     ./user/shell/fastfetch.nix
     ./user/shell/nh.nix
     ./user/shell/git.nix
-    ./user/app/browser/zen.nix
-    ./user/app/editor/vscode.nix
-    ./user/app/games/lutris.nix
-    ./user/app/games/mangohud.nix
-    ./user/app/terminal/foot.nix
-    ./user/app/runner/fuzzel.nix
-    ./user/app/vesktop/vesktop.nix
+    ./user/shell/yazi.nix
+    ./user/app/zen.nix
+    ./user/app/vscode.nix
+    ./user/app/lutris.nix
+    ./user/app/mangohud.nix
+    # ./user/app/games/aagl.nix
+    ./user/app/foot.nix
+    ./user/app/fuzzel.nix
+    ./user/app/vesktop.nix
     ./user/hardware/bluetooth.nix
     ./user/hyprland/hyprland.nix
-    ./user/style/stylix.nix
+    ./user/stylix.nix
   ];
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
@@ -41,6 +43,7 @@
     git
     syncthing
     mangohud
+    qview
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
