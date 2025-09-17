@@ -37,6 +37,7 @@
   # Environmental Variables
   environment.sessionVariables = rec {
     NH_FLAKE = "/home/${userSettings.username}/nixos";
+    NIXOS_OZONE_WL = "1";
   };
   # Optimization
   nix.optimise.automatic = true;
@@ -59,7 +60,11 @@
     ffmpeg
     killall
     egl-wayland
-    rnnoise-plugin
+    nixfmt-rfc-style
+    deepfilternet
+    steam-run
+    p7zip
+    brightnessctl
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];

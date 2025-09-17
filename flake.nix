@@ -1,8 +1,8 @@
 {
-  description = "Initial Flake";
+  description = "Starting flake into the rabbit hole of flakes and folders";
 
   outputs = inputs@{ 
-    self, nixpkgs, home-manager, hyprland, zen-browser, stylix, ... }:
+    self, nixpkgs, home-manager, hyprland, zen-browser, stylix, aagl, ... }:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -60,6 +60,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,7 +84,7 @@
     hyprlock = {
       type = "git";
       url = "https://code.hyprland.org/hyprwm/hyprlock.git";
-      rev = "73b0fc26c0e2f6f82f9d9f5b02e660a958902763";
+      # rev = "73b0fc26c0e2f6f82f9d9f5b02e660a958902763";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
@@ -93,6 +94,19 @@
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprsplit = {
+      url = "github:shezdy/hyprsplit";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprXPrimary = {
+      url = "github:zakk4223/hyprXPrimary";
+      inputs.hyprland.follows = "hyprland";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+    aagl = {
+     url = "github:ezKEa/aagl-gtk-on-nix";
+     inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

@@ -6,10 +6,13 @@
     consoleLogLevel = 0;
     loader = {
       grub = {
-        enable = true;
+        enable = false;
         device = "/dev/vda";
         useOSProber = true;
       };
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot";
     };
   };
 }

@@ -27,5 +27,9 @@ in  {
           InputMethod = "qtvirtualkeyboard";
         };
       };
+      setupScript = ''
+         xrandr --output DP-4 --auto --primary
+         xrandr --output HDMI-A-2 --off
+      '';
    };
 }

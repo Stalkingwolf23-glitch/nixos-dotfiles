@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   programs.steam.enable = true;
+  # programs.steam.extraCompatPackages = [ inputs.cachy-proton.packages.${pkgs.system}.proton-cachyos ];
   environment.systemPackages = [ pkgs.steam ];
 
   hardware.graphics = {
@@ -12,10 +13,23 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    capSysNice = false;
     args = [
       "--rt"
       "--expose-wayland"
+    ];
+  };
+
+  # gamescope niceness thingy
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-cpp;
+    extraRules = [
+      {
+        "name" = "gamescope";
+        "nice" = -20;
+      }
     ];
   };
 }

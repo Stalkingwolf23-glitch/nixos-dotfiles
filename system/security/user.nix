@@ -6,7 +6,6 @@
 
   users.users.${userSettings.username} = {
     isNormalUser = true;
-    password = "p";
     # description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" ];
     # packages = with pkgs; [];
