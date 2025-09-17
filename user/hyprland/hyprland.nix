@@ -54,6 +54,6 @@
   home.file.".config/hypr/hypridle.conf".source = ../../assets/config/hypridle.conf;
   home.file.".config/hypr/hyprlock.conf".source = ../../assets/config/hyprlock.conf;
   home.file.".config/hypr/hyprpaper.conf".source = ../../assets/config/hyprpaper.conf;
-
-  home.file.".config/waybar/".source = { ../../assets/config/waybar; recursive = true; };
+  home.file.".config/waybar/".recursive = true;
+  home.file.".config/waybar/".source = ../../assets/config/waybar;
 }
