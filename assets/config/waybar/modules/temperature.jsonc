@@ -1,7 +1,7 @@
 {
 	"temperature": {
 		"thermal-zone": 1,
-		// "hwmon-path":
+		"hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
 		// "hwmon-path-abs":
 		// "input-filename":
 		"critical-threshold": 90,
