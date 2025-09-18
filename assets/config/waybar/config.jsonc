@@ -13,14 +13,16 @@
 	------------*/
 
 	"modules-left": [
-		//"custom/left_div#1",
+		"group/theme_switcher",
+		"custom/left_div#1",
 		"hyprland/workspaces",
 		"custom/right_div#1",
 		"hyprland/window"
 	],
 	"modules-center": [
+		//"hyprland/windowcount",
 		"custom/left_div#2",
-		// "temperature",
+		"temperature",
 		"custom/left_div#3",
 		"memory",
 		"custom/left_div#4",

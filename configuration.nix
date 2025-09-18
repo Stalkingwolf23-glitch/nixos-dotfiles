@@ -62,9 +62,9 @@
     egl-wayland
     nixfmt-rfc-style
     deepfilternet
-    steam-run
     p7zip
     brightnessctl
+    samrewritten
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
@@ -76,6 +76,10 @@
 
   # Easyeffect
   programs.dconf.enable = true;
+
+  # RAM Stuff
+  services.earlyoom.enable = true;
+  zramSwap.enable = true
 
   # Security
   security.polkit.enable = true;
