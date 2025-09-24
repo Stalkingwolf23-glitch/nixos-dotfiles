@@ -38,6 +38,10 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "HMBackup";
             }
+            {
+              imports = [ aagl.nixosModules.default ];
+              programs.honkers-railway-launcher.enable = true;
+            }
           ];
         };
       };
@@ -64,6 +68,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";

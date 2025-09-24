@@ -18,6 +18,10 @@ in
     ];
   };
 
+  xdg.menus.enable = true;
+  xdg.icons.enable = true;
+  xdg.mime.enable = true;
+
   # Security
   security = {
     pam.services.login.enableGnomeKeyring = true;

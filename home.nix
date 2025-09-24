@@ -11,16 +11,19 @@
     ./user/shell/nh.nix
     ./user/shell/git.nix
     ./user/shell/yazi.nix
+
     ./user/app/zen.nix
     ./user/app/vscode.nix
     ./user/app/lutris.nix
     ./user/app/mangohud.nix
-    # ./user/app/games/aagl.nix
+    ./user/app/dolphin.nix
     ./user/app/foot.nix
     ./user/app/fuzzel.nix
     ./user/app/vesktop.nix
+
     ./user/hardware/bluetooth.nix
     ./user/hyprland/hyprland.nix
+    
     ./user/stylix.nix
   ];
   home.username = userSettings.username;
@@ -70,6 +73,10 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  home.sessionPath = [
+    "$HOME/local/scripts"
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

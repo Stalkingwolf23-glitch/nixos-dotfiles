@@ -2,10 +2,12 @@
 
 {
   # OpenGL
-  hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
     rocmPackages.clr.icd
-  ];
+    ];
+  };
 
   # Nvidia
   services.xserver.videoDrivers = [systemSettings.gpuType];
@@ -26,6 +28,6 @@
     powerManagement.finegrained = false;
 
     # Select appropriate driver version
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 }

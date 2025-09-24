@@ -144,4 +144,8 @@
 
 
   #urlbar:not([focused]) .urlbar-input{ text-align: center !important; }
-}
+  }
+
+  findbar {
+  background: var(--zen-themed-toolbar-bg) !important;
+  }
