@@ -18,6 +18,8 @@
           color: @dialog_fg_color;
         }
       '';
+      qt.enable = true;
+      qt.platform = "qtct";
     };
 
     iconTheme = {

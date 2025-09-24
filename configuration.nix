@@ -16,8 +16,8 @@
 
       ./system/app/steam.nix
       ./system/app/gamemode.nix
-      ./system/app/thunar.nix
       ./system/app/wine.nix
+      ./system/app/syncthing.nix
 
       ./system/security/automount.nix
       ./system/security/doas.nix
@@ -29,9 +29,9 @@
       ./system/style/stylix.nix
     ];
 
-  # Overlay to skip test temp until patched
   nixpkgs.overlays = [
-    (import ./overlays/python.nix)
+    (import ./overlays/python.nix)   # Overlay to skip test temp until patched
+    (import ./overlays/dolphin.nix)
   ];
 
   # Environmental Variables
@@ -56,7 +56,6 @@
     wpa_supplicant
     nextdns
     networkmanagerapplet
-    catppuccin-papirus-folders
     ffmpeg
     killall
     egl-wayland
@@ -65,6 +64,8 @@
     p7zip
     brightnessctl
     samrewritten
+    catppuccin-papirus-folders
+    steamtinkerlaunch
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
@@ -79,7 +80,9 @@
 
   # RAM Stuff
   services.earlyoom.enable = true;
-  zramSwap.enable = true
+  services.earlyoom.freeSwapThreshold = 2;
+  services.earlyoom.freeMemThreshold = 2;
+  zramSwap.enable = true;
 
   # Security
   security.polkit.enable = true;

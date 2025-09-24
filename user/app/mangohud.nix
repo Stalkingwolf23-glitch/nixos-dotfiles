@@ -42,7 +42,7 @@
     fps_limit_method = "early";
     toggle_fps_limit = "Shift_L+F1";
 
-    time = true;
-    time_format = "%R";
+    # time = true;
+    # time_format = "%R";
   };
 }

@@ -15,7 +15,7 @@
         sort_reverse = false;
         sort_dir_first = true;
         linemode = "none";
-        show_hidden = true;
+        show_hidden = false;
         show_symlink = true;
       };
 
@@ -41,5 +41,14 @@
         bizarre_retry = 5;
       };
     };
+    plugins = {
+      "starship" = pkgs.yaziPlugins.starship;
+      "smart-enter" = pkgs.yaziPlugins.smart-enter;
+      "wl-clipboard" = pkgs.yaziPlugins.wl-clipboard;
+      "yatline" = pkgs.yaziPlugins.yatline;
+      "rich-preview" = pkgs.yaziPlugins.rich-preview;
+      "no-status" = pkgs.yaziPlugins.no-status;
+    };
+
   };
 }

@@ -10,7 +10,6 @@
   gtk.enable = true;
   qt = {
     enable = true;
-    # platformTheme = "gtk";
   };
 
   wayland.windowManager.hyprland = {
@@ -26,7 +25,7 @@
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
       inputs.hyprXPrimary.packages.${pkgs.system}.default
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
   };
 
