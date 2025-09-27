@@ -64,6 +64,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    kickstart-nixvim.url = "github:Stalkingwolf23-glitch/kickstart.nixvim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
