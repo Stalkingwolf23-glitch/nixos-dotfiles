@@ -6,6 +6,7 @@
       ./system/hardware-configuration.nix
 
       ./system/hardware/bluetooth.nix
+      ./system/hardware/keyboard.nix
       ./system/hardware/kernel.nix
       ./system/hardware/nvidia.nix
       ./system/hardware/network.nix
@@ -48,7 +49,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
     wget
     zsh
     git
