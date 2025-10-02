@@ -1,50 +1,54 @@
-{ config, pkgs, systemSettings, userSettings, lib, ... }:
+{ pkgs, userSettings, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./system/hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./system/hardware-configuration.nix
 
-      ./system/hardware/bluetooth.nix
-      ./system/hardware/keyboard.nix
-      ./system/hardware/kernel.nix
-      ./system/hardware/nvidia.nix
-      ./system/hardware/network.nix
-      ./system/hardware/systemd.nix
-      ./system/hardware/time.nix
+    ./system/hardware/bluetooth.nix
+    ./system/hardware/keyboard.nix
+    ./system/hardware/kernel.nix
+    ./system/hardware/nvidia.nix
+    ./system/hardware/network.nix
+    ./system/hardware/systemd.nix
+    ./system/hardware/time.nix
 
-      ./system/wm/hyprland.nix
+    ./system/wm/hyprland.nix
 
-      ./system/app/steam.nix
-      ./system/app/gamemode.nix
-      ./system/app/wine.nix
-      ./system/app/syncthing.nix
+    ./system/app/steam.nix
+    ./system/app/gamemode.nix
+    ./system/app/wine.nix
+    ./system/app/syncthing.nix
 
-      ./system/security/automount.nix
-      ./system/security/doas.nix
-      ./system/security/user.nix
-      ./system/security/firejail.nix
-      ./system/security/firewall.nix
-      ./system/security/gpg.nix
+    ./system/security/automount.nix
+    ./system/security/doas.nix
+    ./system/security/user.nix
+    ./system/security/firejail.nix
+    ./system/security/firewall.nix
+    ./system/security/gpg.nix
 
-      ./system/style/stylix.nix
-    ];
+    ./system/style/stylix.nix
+  ];
 
   nixpkgs.overlays = [
-    (import ./overlays/python.nix)   # Overlay to skip test temp until patched
+    (import ./overlays/python.nix) # Overlay to skip test temp until patched
     (import ./overlays/dolphin.nix)
   ];
 
   # Environmental Variables
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     NH_FLAKE = "/home/${userSettings.username}/nixos";
     NIXOS_OZONE_WL = "1";
+    EDITOR = "nvim";
   };
   # Optimization
   nix.optimise.automatic = true;
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -60,12 +64,9 @@
     killall
     egl-wayland
     nixfmt-rfc-style
-    deepfilternet
-    p7zip
     brightnessctl
     samrewritten
     catppuccin-papirus-folders
-    steamtinkerlaunch
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];

@@ -1,4 +1,11 @@
-{ inputs, lib, pkgs, userSettings, systemSettings, ... }: 
+{
+  inputs,
+  lib,
+  pkgs,
+  userSettings,
+  systemSettings,
+  ...
+}:
 
 {
   imports = [
@@ -21,7 +28,7 @@
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
     '';
-    plugins = [ 
+    plugins = [
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
       inputs.hyprXPrimary.packages.${pkgs.system}.default
@@ -46,6 +53,10 @@
     libappindicator
     playerctl
     youtube-music
+    activate-linux
+    steamtinkerlaunch
+    deepfilternet
+    zathura
   ];
 
   services.easyeffects.enable = true;
