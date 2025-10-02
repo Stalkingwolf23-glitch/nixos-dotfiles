@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, flake, inputs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
 
@@ -20,14 +20,15 @@
     ./user/app/foot.nix
     ./user/app/fuzzel.nix
     ./user/app/vesktop.nix
+    ./user/app/nvim.nix
 
     ./user/hardware/bluetooth.nix
     ./user/hyprland/hyprland.nix
-    
+
     ./user/stylix.nix
   ];
   home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
+  home.homeDirectory = "/home/" + userSettings.username;
 
   home.stateVersion = "25.05"; # Just don't change unless Home Manaer release notes state otherwise.
 
@@ -49,3 +50,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+
