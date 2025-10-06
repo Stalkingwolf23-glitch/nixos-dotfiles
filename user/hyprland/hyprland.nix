@@ -1,12 +1,8 @@
 {
   inputs,
-  lib,
   pkgs,
-  userSettings,
-  systemSettings,
   ...
 }:
-
 {
   imports = [
     ./waybar.nix

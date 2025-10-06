@@ -1,5 +1,3 @@
-{ config, pkgs, lib, ... }:
-
 {
   programs.vesktop = {
     enable = true;
@@ -527,7 +525,7 @@
             settingsLocation = "top";
           };
           ShikiCodeblocks = {
-            enabled = false;
+            enabled = true;
           };
           ShowAllMessageButtons = {
             enabled = false;

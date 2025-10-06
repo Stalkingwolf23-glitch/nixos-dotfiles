@@ -1,16 +1,21 @@
-{ config, pkgs, systemSettings, ... }:
+{
+  config,
+  pkgs,
+  systemSettings,
+  ...
+}:
 
 {
   # OpenGL
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-    rocmPackages.clr.icd
+      rocmPackages.clr.icd
     ];
   };
 
   # Nvidia
-  services.xserver.videoDrivers = [systemSettings.gpuType];
+  services.xserver.videoDrivers = [ systemSettings.gpuType ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -31,3 +36,4 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 }
+
