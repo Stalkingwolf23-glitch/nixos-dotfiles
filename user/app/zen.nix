@@ -1,4 +1,7 @@
-{ inputs, system, pkgs, ... }:
+{
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +10,7 @@
 
   programs.zen-browser = {
     enable = true;
-    
+
     profiles."default" = {
       userChrome = ''
         ${builtins.readFile ../../assets/zen/userChrome.css}

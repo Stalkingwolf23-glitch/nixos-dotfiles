@@ -1,4 +1,9 @@
-{ pkgs, userSettings, ... }:
+{
+  pkgs,
+  userSettings,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -28,6 +33,9 @@
     ./system/security/gpg.nix
 
     ./system/style/stylix.nix
+
+    inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
+    inputs.hardware.nixosModules.common-pc-ssd
   ];
 
   nixpkgs.overlays = [

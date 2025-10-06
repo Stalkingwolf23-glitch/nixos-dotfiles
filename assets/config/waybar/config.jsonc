@@ -60,7 +60,7 @@
 	-------------*/
 
 	"layer": "top",
-	"output": ["DP-4"],
+	"output": ["DP-3"],
 	// "position":
 	"height": 41,
 	"width": 0,

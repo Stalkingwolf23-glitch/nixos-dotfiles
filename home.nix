@@ -13,7 +13,6 @@
     ./user/shell/yazi.nix
 
     ./user/app/zen.nix
-    ./user/app/vscode.nix
     ./user/app/lutris.nix
     ./user/app/mangohud.nix
     ./user/app/dolphin.nix
@@ -21,6 +20,7 @@
     ./user/app/fuzzel.nix
     ./user/app/vesktop.nix
     ./user/app/nvim.nix
+    ./user/app/obsidian.nix
 
     ./user/hardware/bluetooth.nix
     ./user/hyprland/hyprland.nix
@@ -50,4 +50,3 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
-
