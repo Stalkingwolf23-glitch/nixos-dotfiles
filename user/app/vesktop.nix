@@ -19,6 +19,7 @@
       themes = {
         "midnight-catppuccin-mocha" = ../../assets/vesktop/themes/midnight-catppuccin-mocha.theme.css;
         "server-columns" = ../../assets/vesktop/themes/ServerColumns.theme.css;
+        "scrollable-codeblocks-shiki" = ../../assets/vesktop/themes/scrollable-codeblocks-shiki.css;
       };
 
       settings = {
@@ -36,6 +37,7 @@
         enabledThemes = [
           "midnight-catppuccin-mocha.css"
           "server-columns.css"
+          "scrollable-codeblocks-shiki"
         ];
         frameless = true;
         macosTranslucency = false;

@@ -15,9 +15,9 @@
 
 body {
     /* font, change to '' for default discord font */
-    --font: 'MonoLisa'; /* change to '' for default discord font */
-    --code-font: ''; /* change to '' for default discord font */
-    font-weight: 400 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
+    --font: 'Moralerspace Argon'; /* change to '' for default discord font */
+    --code-font: 'Moralerspace Argon'; /* change to '' for default discord font */
+    font-weight: 500 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
 
     /* sizes */
     --gap: 12px; /* spacing between panels */
