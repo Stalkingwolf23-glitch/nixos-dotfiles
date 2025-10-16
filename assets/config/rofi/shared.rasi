@@ -1,0 +1,11 @@
+* {
+    font: "0xProtoNerdFont-Regular 9";
+    background: #1A1B26;
+    background-alt: #1A1B26E0;
+    foreground: #c0caf5;
+    selected: #89b4fa;
+    active: #9ece6a;
+    urgent: #f7768e;
+
+    img-background: url("./rofi.jpg", width);
+}
