@@ -4,7 +4,7 @@
 @import "theme.css";
 
 * {
-	font-family: "JetBrainsMonoNerd Font";
+	font-family: "0xProto Nerd Font";
 	font-weight: bold;
 	font-size: 16px;
 	color: @main-fg;
