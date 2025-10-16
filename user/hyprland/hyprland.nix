@@ -6,8 +6,8 @@
 {
   imports = [
     ./waybar.nix
-    ./wlogout.nix
     ./notif.nix
+    ./noctalia.nix
   ];
 
   gtk.enable = true;
@@ -22,13 +22,11 @@
     extraConfig = ''
       ${builtins.readFile ../../assets/config/hyprland.conf}
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-      exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
     '';
     plugins = [
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
       inputs.hyprXPrimary.packages.${pkgs.system}.default
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
   };
 
@@ -49,10 +47,15 @@
     libappindicator
     playerctl
     youtube-music
-    activate-linux
     steamtinkerlaunch
     deepfilternet
     zathura
+    zsh
+    alacritty
+    git
+    syncthing
+    mangohud
+    qview
   ];
 
   services.easyeffects.enable = true;
