@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ./waybar.nix
     ./notif.nix
     ./noctalia.nix
   ];
@@ -20,6 +19,7 @@
     xwayland.enable = true;
     systemd.enable = false;
     extraConfig = ''
+      env = NIXOS_OZONE_WL, 1
       ${builtins.readFile ../../assets/config/hyprland.conf}
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     '';
@@ -31,9 +31,9 @@
   };
 
   home.packages = with pkgs; [
+    equibop
     wlr-randr
     polkit_gnome
-    mako
     pamixer
     pavucontrol
     wl-clipboard
@@ -63,6 +63,6 @@
   home.file.".config/hypr/hypridle.conf".source = ../../assets/config/hypridle.conf;
   home.file.".config/hypr/hyprlock.conf".source = ../../assets/config/hyprlock.conf;
   home.file.".config/hypr/hyprpaper.conf".source = ../../assets/config/hyprpaper.conf;
-  home.file.".config/waybar/".recursive = true;
-  home.file.".config/waybar/".source = ../../assets/config/waybar;
+  home.file.".config/equibop/themes".recursive = true;
+  home.file.".config/equibop/themes".source = ../../assets/config/vesktop;
 }
