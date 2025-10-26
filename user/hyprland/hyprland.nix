@@ -31,6 +31,7 @@
   };
 
   home.packages = with pkgs; [
+    pcmanfm
     equibop
     wlr-randr
     polkit_gnome
@@ -39,7 +40,6 @@
     wl-clipboard
     cliphist
     swww
-    hyprpaper
     hyprlock
     hypridle
     easyeffects
@@ -51,9 +51,7 @@
     deepfilternet
     zathura
     zsh
-    alacritty
     git
-    syncthing
     mangohud
     qview
   ];
@@ -62,7 +60,6 @@
 
   home.file.".config/hypr/hypridle.conf".source = ../../assets/config/hypridle.conf;
   home.file.".config/hypr/hyprlock.conf".source = ../../assets/config/hyprlock.conf;
-  home.file.".config/hypr/hyprpaper.conf".source = ../../assets/config/hyprpaper.conf;
   home.file.".config/equibop/themes".recursive = true;
   home.file.".config/equibop/themes".source = ../../assets/config/vesktop;
 }
