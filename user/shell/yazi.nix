@@ -50,7 +50,6 @@
       "yatline-catppuccin" = pkgs.yaziPlugins.yatline-catppuccin;
       "yatline-githead" = pkgs.yaziPlugins.yatline-githead;
       "rich-preview" = pkgs.yaziPlugins.rich-preview;
-      # "no-status" = pkgs.yaziPlugins.no-status;
     };
 
     initLua = ''
