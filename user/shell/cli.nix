@@ -1,4 +1,7 @@
-{ inputs, lib, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -17,6 +20,8 @@
     scrcpy
     btop
     tmux
+    unrar
+    rmpc
   ];
 
   programs.btop.enable = true;
