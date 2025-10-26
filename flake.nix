@@ -28,7 +28,7 @@
         email = "stakingwolf23@gmail.com";
         wm = "hyprland";
         wmType = "wayland";
-        terminal = "foot";
+        terminal = "kitty";
       };
 
     in
@@ -44,12 +44,6 @@
           modules = [
             ./configuration.nix
             stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "HMBackup";
-            }
             {
               imports = [ aagl.nixosModules.default ];
               programs.honkers-railway-launcher.enable = true;
@@ -81,16 +75,9 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
     stylix = {
       url = "github:danth/stylix";
@@ -101,21 +88,16 @@
       inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     };
     hyprlock = {
-      type = "git";
-      url = "https://code.hyprland.org/hyprwm/hyprlock.git";
+      url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprsplit = {
       url = "github:shezdy/hyprsplit";
-      # inputs.hyprland.follows = "hyprland";
+      inputs.hyprland.follows = "hyprland";
     };
     hyprXPrimary = {
       url = "github:zakk4223/hyprXPrimary";
@@ -126,10 +108,14 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
     };
   };
 }
