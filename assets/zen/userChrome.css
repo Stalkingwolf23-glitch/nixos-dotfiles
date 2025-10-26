@@ -1,7 +1,6 @@
 /* Catppuccin Mocha Blue userChrome.css*/
 
 @media (prefers-color-scheme: dark) {
-
   :root {
     --zen-colors-primary: #313244 !important;
     --zen-primary-color: #89b4fa !important;
@@ -27,7 +26,7 @@
     --toolbox-bgcolor-inactive: #181825 !important;
   }
 
-  #permissions-granted-icon{
+  #permissions-granted-icon {
     color: #181825 !important;
   }
 
@@ -35,11 +34,15 @@
     background-color: #1e1e2e !important;
   }
 
+  #zen-workspaces-button {
+    background-color: #181825 !important;
+  }
+
   #TabsToolbar {
     background-color: #181825 !important;
   }
 
-  #urlbar-background {
+  .urlbar-background {
     background-color: #1e1e2e !important;
   }
 
@@ -56,9 +59,22 @@
     background: #11111b !important;
   }
 
+  #zen-media-controls-toolbar {
+    & #zen-media-progress-bar {
+      &::-moz-range-track {
+        background: #313244 !important;
+      }
+    }
+  }
+
   toolbar .toolbarbutton-1 {
     &:not([disabled]) {
-      &:is([open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack){
+      &:is([open], [checked])
+        > :is(
+          .toolbarbutton-icon,
+          .toolbarbutton-text,
+          .toolbarbutton-badge-stack
+        ) {
         fill: #11111b;
       }
     }
@@ -104,6 +120,15 @@
     --identity-icon-color: #cba6f7 !important;
   }
 
+  hbox#titlebar {
+    background-color: #181825 !important;
+  }
+
+  #zen-appcontent-navbar-container {
+    background-color: #181825 !important;
+  }
+}
+
   /*################ADDITIONAL CUSTOMIZATIONS###########*/
 
   /* Hide the audio playing and muted icons in tabs */
@@ -146,6 +171,6 @@
   #urlbar:not([focused]) .urlbar-input{ text-align: center !important; }
   }
 
-  findbar {
-  background: var(--zen-themed-toolbar-bg) !important;
+  #findbar {
+  background: var(--zen-main-browser-background) !important;
   }
