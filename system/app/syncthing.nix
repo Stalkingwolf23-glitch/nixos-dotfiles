@@ -9,14 +9,28 @@
     configDir = "/home/${userSettings.username}/.config/syncthing";
     settings = {
       devices = {
-        "Phone" = { id = "JQDSJXR-N2FPVJE-DOLO65G-GOEIUDF-MFCVLEV-TSI4QWZ-QKGSCJD-YBZLTQT"; };
+        "Phone" = {
+          id = "JQDSJXR-N2FPVJE-DOLO65G-GOEIUDF-MFCVLEV-TSI4QWZ-QKGSCJD-YBZLTQT";
+        };
       };
       folders = {
-        "9qsgl-trgej" = {
-          path = "/home/${userSettings.username}/Documents/sync";
-          devices = [
-            "Phone"
-          ];
+        Comics = {
+          label = "Comics";
+          path = "/home/stalkingwolf/Documents/sync/Comics";
+          id = "tygcc-vkduz";
+          devices = [ "Phone" ];
+        };
+        Wallpapers = {
+          label = "Wallpapers";
+          path = "/home/stalkingwolf/Documents/sync/Wallpapers";
+          id = "m2kja-39hpz";
+          devices = [ "Phone" ];
+        };
+        Misc = {
+          label = "Misc";
+          path = "/home/stalkingwolf/Documents/sync/Misc";
+          id = "05cv7-te2a8";
+          devices = [ "Phone" ];
         };
       };
     };
