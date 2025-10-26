@@ -5,7 +5,6 @@
     enable = true;
     plugins = with pkgs; [
       rofi-games
-      rofi-nerdy
     ];
   };
 
@@ -16,7 +15,7 @@
 
     [sort]
     order = "frecency"
-    reverse = false
+    reverse = true
 
     [[entries]]
     title = "Honkers Railway"
@@ -26,5 +25,4 @@
 
   home.file.".config/rofi/".recursive = true;
   home.file.".config/rofi/".source = ../../assets/config/rofi;
-  # home.file.".local/bin/rofi-power-menu".source = ../../assets/config/rofi/rofi-power-menu;
 }
