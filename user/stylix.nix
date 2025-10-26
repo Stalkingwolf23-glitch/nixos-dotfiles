@@ -1,24 +1,29 @@
-{ config, stylix, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   stylix = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
+    opacity = {
+      applications = 0.8;
+    };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     targets = {
-      waybar.enable = false;
-      zen-browser.enable = false;
-      mako.enable = false;
-      btop.enable = false;
-      vesktop.enable = false;
-      mangohud.enable = false;
+      yazi.enable = true;
+      gtk.enable = true;
+      kitty.enable = true;
+      qt.enable = true;
+      kde.enable = true;
+
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
           color: @dialog_fg_color;
         }
       '';
-      qt.enable = true;
       qt.platform = "qtct";
     };
 
@@ -31,25 +36,25 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
-    
+
     cursor = {
-      name = "catppuccin-cursors.mochaDark";
+      name = "catppuccin-mocha-dark-cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
       size = 28;
     };
 
     fonts = {
       serif = {
-      package = (pkgs.callPackage ../system/wm/monolisa.nix { });
-      name = "Monolisa";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Argon";
       };
       sansSerif = {
-        package = (pkgs.callPackage ../system/wm/monolisa.nix { });
-        name = "Monolisa";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Argon";
       };
       monospace = {
-        package = (pkgs.callPackage ../system/wm/monolisa.nix { });
-        name = "Monolisa";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Argon";
       };
     };
   };
