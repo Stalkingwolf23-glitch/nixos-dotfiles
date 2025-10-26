@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  userSettings,
   ...
 }:
 
@@ -220,8 +221,8 @@
         tooltipsEnabled = true;
       };
       wallpaper = {
-        defaultWallpaper = "/home/stalkingwolf/Pictures/Wallpaper/error-wallpaper-mocha-blue.png";
-        directory = "/home/stalkingwolf/Pictures/Wallpaper";
+        defaultWallpaper = "/home/${userSettings.username}/Pictures/Wallpaper/error-wallpaper-mocha-blue.png";
+        directory = "/home/${userSettings.username}/Pictures/Wallpaper";
         enableMultiMonitorDirectories = false;
         enabled = true;
         fillColor = "#1e1e2e";

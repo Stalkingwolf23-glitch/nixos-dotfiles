@@ -48,6 +48,7 @@
     NH_FLAKE = "/home/${userSettings.username}/nixos";
     NIXOS_OZONE_WL = "1";
     EDITOR = "nvim";
+    APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
   };
   # Optimization
   nix.optimise.automatic = true;
@@ -75,6 +76,7 @@
     brightnessctl
     samrewritten
     catppuccin-papirus-folders
+    app2unit
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
