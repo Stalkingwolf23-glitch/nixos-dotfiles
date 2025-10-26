@@ -1,13 +1,22 @@
-{ config, pkgs, userSettings, ... }:
+{
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   home.packages = [ pkgs.git ];
   programs.git.enable = true;
-  programs.git.userName = userSettings.name;
-  programs.git.userEmail = userSettings.email;
-  programs.git.extraConfig = {
+  programs.git.settings.user = {
+    name = userSettings.name;
+    email = userSettings.email;
+
+  };
+  programs.git.settings = {
     init.defaultBranch = "main";
-    safe.directory = [ ("/home/" + userSettings.username + "/nixos")
-                       ("/home/" + userSettings.username + "/nixos/.git") ];
+    safe.directory = [
+      ("/home/" + userSettings.username + "/nixos")
+      ("/home/" + userSettings.username + "/nixos/.git")
+    ];
   };
 }

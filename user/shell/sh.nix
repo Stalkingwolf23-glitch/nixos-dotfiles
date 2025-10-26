@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.zsh = {
     enable = true;
-    # enableCompletion = true; 
+    # enableCompletion = true;
     completionInit = "autoload -U compinit && compinit -i"; # prevents complaints about insecure directories
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -37,8 +37,8 @@
         [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
         bindkey '^P' history-beginning-search-backward
         bindkey '^N' history-beginning-search-forward
-        '';
-      };
+      '';
+    };
   };
 
   programs.fzf.enable = true;

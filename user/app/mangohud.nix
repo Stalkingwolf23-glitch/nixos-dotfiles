@@ -1,5 +1,3 @@
-{ pkgs, lib, ... }:
-
 {
   programs.mangohud.enable = true;
   programs.mangohud.settings = {
