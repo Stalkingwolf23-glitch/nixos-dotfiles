@@ -21,7 +21,6 @@
     btop
     tmux
     unrar
-    rmpc
   ];
 
   programs.btop.enable = true;
