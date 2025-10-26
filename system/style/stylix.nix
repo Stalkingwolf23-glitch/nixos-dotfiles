@@ -1,4 +1,7 @@
-{ config, stylix, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   stylix = {
@@ -8,21 +11,6 @@
     targets = {
       qt.enable = true;
       qt.platform = "qtct";
-    };
-    
-    fonts = {
-      serif = {
-      package = (pkgs.callPackage ../wm/monolisa.nix { });
-      name = "Monolisa";
-      };
-      sansSerif = {
-        package = (pkgs.callPackage ../wm/monolisa.nix { });
-        name = "Monolisa";
-      };
-      sizes = {
-        applications = 14;
-        terminal = 13;
-      };
     };
   };
 }
