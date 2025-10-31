@@ -19,7 +19,6 @@
     trash-cli
     scrcpy
     btop
-    tmux
     unrar
   ];
 
