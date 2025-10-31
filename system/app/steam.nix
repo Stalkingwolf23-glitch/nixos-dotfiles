@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  programs.steam.enable = true;
-  # programs.steam.extraCompatPackages = [ inputs.cachy-proton.packages.${pkgs.system}.proton-cachyos ];
-  environment.systemPackages = [ pkgs.steam ];
+  programs.steam = {
+    enable = true;
+  };
 
   hardware.graphics = {
     enable32Bit = true;
@@ -20,4 +20,3 @@
     ];
   };
 }
-
