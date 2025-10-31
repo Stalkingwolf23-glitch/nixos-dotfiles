@@ -20,7 +20,7 @@ in
     package = pkgs.kdePackages.sddm; # use qt6 version of sddm
     enable = true;
     wayland.enable = true;
-    # enableHidpi = true;
+    # wayland.compositor = "weston";
     theme = sddm-theme.pname;
     # the following changes will require sddm to be restarted to take
     # effect correctly. It is recomend to reboot after this
@@ -31,10 +31,12 @@ in
         GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
         InputMethod = "qtvirtualkeyboard";
       };
+      Theme = {
+        CursorTheme = "catppuccin-cursors.mochaDark";
+        CursorSize = 24;
+      };
     };
-    setupScript = ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-3 --primary --mode 2560x1440 --rate 144
-      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-3 --off
-    '';
   };
+  services.xserver.displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-3 --off --output DP-3 --primary --mode 2560x1440";
+  services.xserver.enable = true;
 }
