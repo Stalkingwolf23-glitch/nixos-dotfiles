@@ -1,8 +1,11 @@
-{ pkgs, systemSettings, ... }:
+{ systemSettings, ... }:
 {
   networking = {
     hostName = systemSettings.hostname;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
     wireless.userControlled.enable = true;
   };
 
@@ -13,7 +16,12 @@
 
   services.nextdns = {
     enable = true;
-    arguments = [ "-config" "a33b83" "-cache-size" "10MB" ];
+    arguments = [
+      "-config"
+      "a33b83"
+      "-cache-size"
+      "10MB"
+    ];
   };
 
   systemd.services.nextdns-activate = {
