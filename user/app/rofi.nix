@@ -14,13 +14,29 @@
     box_art_dir = "/home/stalkingwolf/.config/rofi/box-art"
 
     [sort]
-    order = "frecency"
+    order = "recency"
     reverse = true
 
     [[entries]]
     title = "Honkers Railway"
     launch_command = "honkers-railway-launcher"
     path_box_art = "honkaiRail.png"
+
+    [[entries]]
+    title = "Bloodlines 2"
+    path_box_art = "bloodlines.jpg"
+
+    [[entries]]
+    title = "Monster Hunter: World"
+    hide = true
+
+    [[entries]]
+    title = "Antimatter Dimensions"
+    hide = true
+
+    [[entries]]
+    title = "Tabletop Simulator"
+    hide = true
   '';
 
   home.file.".config/rofi/".recursive = true;
