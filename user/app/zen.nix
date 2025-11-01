@@ -7,8 +7,8 @@
   imports = [
     inputs.zen-browser.homeModules.beta
   ];
-  home.file.".zen/default/chrome".recursive = true;
-  home.file.".zen/default/chrome".source = ../../assets/zen/fx-autoconfig;
+  # home.file.".zen/default/chrome".recursive = true;
+  # home.file.".zen/default/chrome".source = ../../assets/zen/fx-autoconfig;
   programs.zen-browser = {
     enable = true;
 
