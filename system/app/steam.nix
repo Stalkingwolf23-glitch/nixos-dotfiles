@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
 {
+
+  nixpkgs.overlay = [ inputs.millennium.overlays.default ];
+
   programs.steam = {
     enable = true;
+    package = pkgs.steam-millennium;
   };
 
   hardware.graphics = {
