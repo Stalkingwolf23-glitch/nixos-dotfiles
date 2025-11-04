@@ -56,7 +56,7 @@ inputbar {
     background-color:               @primary;
     border:                         4px;
     border-color:                   @primary;
-    border-radius:                  8px;
+    border-radius:                  5px;
 }
 
 textbox-prompt {
