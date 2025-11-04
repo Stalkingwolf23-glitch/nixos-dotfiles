@@ -41,6 +41,7 @@
   nixpkgs.overlays = [
     (import ./overlays/python.nix) # Overlay to skip test temp until patched
     (import ./overlays/dolphin.nix)
+    inputs.millennium.overlays.default
   ];
 
   # Environmental Variables
