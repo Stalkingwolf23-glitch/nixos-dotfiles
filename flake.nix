@@ -72,6 +72,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     kickstart-nixvim.url = "path:/home/stalkingwolf/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
+    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium";
 
     home-manager = {
       url = "github:nix-community/home-manager";
