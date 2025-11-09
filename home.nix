@@ -15,13 +15,15 @@
     ./user/app/zen.nix
     ./user/app/lutris.nix
     ./user/app/mangohud.nix
-    # ./user/app/dolphin.nix
+    ./user/app/dolphin.nix
     ./user/app/nvim.nix
     ./user/app/obsidian.nix
     ./user/app/rofi.nix
 
     ./user/hardware/bluetooth.nix
-    ./user/hyprland/hyprland.nix
+    ./user/hardware/pipewire.nix
+
+    ./user/wm/hyprland.nix
 
     ./user/stylix.nix
   ];
