@@ -5,6 +5,8 @@
     kitty
   ];
 
+  home.file.".config/kitty/tab_bar.py".source = ../../assets/config/kitty_bar.py;
+
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
@@ -18,10 +20,18 @@
       open_url_with default
       detect_urls yes
 
-      tab_bar_min_tabs            1
-      tab_bar_edge                bottom
-      tab_bar_style               powerline
-      tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ""}
+      tab_bar_edge bottom
+      tab_bar_margin_height 1.0 1.0
+      tab_bar_style custom
+      tab_bar_align left
+      tab_bar_min_tabs 1
+      tab_switch_strategy previous
+      tab_activity_symbol "*"
+      active_tab_foreground #61afef
+      active_tab_font_style none
+      inactive_tab_foreground #303030
+      inactive_tab_font_style none
+      tab_title_template "{fmt.fg._689cc8}{activity_symbol}{fmt.fg.tab}{title}{fmt.fg._ff2942}{bell_symbol}"
 
       map alt+1 goto_tab 1
       map alt+2 goto_tab 2
