@@ -25,13 +25,13 @@
       mOnSurface = "#cdd6f4";
       mOnSurfaceVariant = "#a3b4eb";
       mOnTertiary = "#11111b";
-      mOutline = "#4c4f69";
+      mOutline = "#313244";
       mPrimary = "#89b4fa";
-      mSecondary = "#94e2d5";
+      mSecondary = "#b4befe";
       mShadow = "#11111b";
       mSurface = "#1e1e2e";
-      mSurfaceVariant = "#313244";
-      mTertiary = "#b4befe";
+      mSurfaceVariant = "#181825";
+      mTertiary = "#94e2d5";
     };
     settings = {
       appLauncher = {
@@ -104,15 +104,7 @@
               id = "MediaMini";
               scrollingMode = "hover";
               showAlbumArt = false;
-              showVisualizer = true;
-              visualizerType = "wave";
-            }
-            {
-              blacklist = [
-                "nm-applet"
-              ];
-              colorizeIcons = true;
-              id = "Tray";
+              showVisualizer = false;
             }
             {
               displayMode = "onhover";
@@ -123,7 +115,11 @@
               id = "Microphone";
             }
             {
-              id = "SessionMenu";
+              blacklist = [
+                "nm-applet"
+              ];
+              colorizeIcons = true;
+              id = "Tray";
             }
           ];
         };
@@ -184,6 +180,7 @@
         use12hourFormat = false;
         useFahrenheit = false;
         weatherEnabled = true;
+        analogClockInCalendar = true;
       };
       network = {
         wifiEnabled = true;
@@ -209,6 +206,9 @@
         monitors = [
           "DP-3"
         ];
+      };
+      dock = {
+        enabled = false;
       };
       settingsVersion = 16;
       setupCompleted = true;

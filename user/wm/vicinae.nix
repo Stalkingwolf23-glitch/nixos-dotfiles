@@ -2,6 +2,8 @@
   services.vicinae = {
     enable = true;
     autoStart = true;
-    theme.name = "catppuccin-mocha";
+    settings = {
+      theme.name = "catppuccin-mocha";
+    };
   };
 }
