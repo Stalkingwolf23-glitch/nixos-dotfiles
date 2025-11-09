@@ -12,7 +12,6 @@
     rsync
     fastfetch
     ripgrep
-    pandoc
     starship
     megatools
     eza
