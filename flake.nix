@@ -11,6 +11,7 @@
       stylix,
       aagl,
       kickstart-nixvim,
+      vicinae,
       ...
     }:
     let
@@ -47,6 +48,7 @@
             {
               imports = [ aagl.nixosModules.default ];
               programs.honkers-railway-launcher.enable = true;
+              programs.honkers-launcher.enable = true;
             }
           ];
         };
@@ -57,6 +59,7 @@
           modules = [
             ./home.nix
             stylix.homeModules.stylix
+            vicinae.homeModules.default
           ];
           extraSpecialArgs = {
             inherit systemSettings;
@@ -73,6 +76,7 @@
     kickstart-nixvim.url = "path:/home/stalkingwolf/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
     millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium";
+    vicinae.url = "github:tomromeo/vicinae-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
