@@ -78,6 +78,7 @@
     samrewritten
     catppuccin-papirus-folders
     app2unit
+    deepfilternet
   ];
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
