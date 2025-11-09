@@ -5,8 +5,8 @@
 }:
 {
   imports = [
-    ./notif.nix
     ./noctalia.nix
+    ./vicinae.nix
   ];
 
   gtk.enable = true;
@@ -31,7 +31,6 @@
   };
 
   home.packages = with pkgs; [
-    pcmanfm
     equibop
     wlr-randr
     polkit_gnome
@@ -48,7 +47,6 @@
     playerctl
     youtube-music
     steamtinkerlaunch
-    deepfilternet
     zathura
     zsh
     git
