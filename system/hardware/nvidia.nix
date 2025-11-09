@@ -28,7 +28,7 @@
     nvidiaSettings = true;
 
     #Nvidia power management, experimental and can cause sleep/suspend to fail. Enable if applications are crashing after sleep. Saves whole VRAM to /tmp/ instead of necessity}
-    powerManagement.enable = false;
+    powerManagement.enable = true;
 
     #Fine-grained power management. Turns off GPU when not used. Experimental and works only for Turing onwards
     powerManagement.finegrained = false;
