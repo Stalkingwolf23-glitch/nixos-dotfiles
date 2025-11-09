@@ -18,6 +18,7 @@
       kitty.enable = true;
       qt.enable = true;
       kde.enable = true;
+      hyprland.enable = true;
 
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
