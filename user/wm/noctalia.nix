@@ -16,6 +16,9 @@
 
   programs.noctalia-shell = {
     enable = true;
+    systemd = {
+      enable = true;
+    };
 
     colors = {
       mError = "#f38ba8";
@@ -99,6 +102,12 @@
             }
           ];
           right = [
+            {
+              colorName = "primary";
+              hideWhenIdle = true;
+              id = "AudioVisualizer";
+              width = 100;
+            }
             {
               hideMode = "transparent";
               id = "MediaMini";
