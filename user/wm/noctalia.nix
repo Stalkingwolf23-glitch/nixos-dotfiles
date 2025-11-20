@@ -16,9 +16,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    systemd = {
-      enable = true;
-    };
 
     colors = {
       mError = "#f38ba8";
@@ -114,6 +111,7 @@
               scrollingMode = "hover";
               showAlbumArt = false;
               showVisualizer = false;
+              showArtistFirst = false;
             }
             {
               displayMode = "onhover";
@@ -194,6 +192,36 @@
       network = {
         wifiEnabled = true;
       };
+      sessionMenu = {
+        enableCountdown = false;
+        position = "center";
+        powerOptions = [
+          {
+            action = "lock";
+            enabled = true;
+          }
+          {
+            action = "suspend";
+            enabled = true;
+          }
+          {
+            action = "hibernate";
+            enabled = false;
+          }
+          {
+            action = "reboot";
+            enabled = true;
+          }
+          {
+            action = "logout";
+            enabled = true;
+          }
+          {
+            action = "shutdown";
+            enabled = true;
+          }
+        ];
+      };
       notifications = {
         alwaysOnTop = false;
         criticalUrgencyDuration = 15;
@@ -219,7 +247,6 @@
       dock = {
         enabled = false;
       };
-      settingsVersion = 16;
       setupCompleted = true;
       ui = {
         fontDefault = "Moralerspace Argon";
