@@ -24,7 +24,6 @@
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     '';
     plugins = [
-      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
       inputs.hyprXPrimary.packages.${pkgs.system}.default
     ];
