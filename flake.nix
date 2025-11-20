@@ -88,10 +88,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hypr-dynamic-cursors = {
-      url = "github:VirtCode/hypr-dynamic-cursors";
-      inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
-    };
     hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -120,7 +116,6 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
     };
   };
 }
