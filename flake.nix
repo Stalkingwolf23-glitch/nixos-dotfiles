@@ -1,6 +1,5 @@
 {
   description = "Starting flake into the rabbit hole of flakes and folders";
-
   outputs =
     inputs@{
       self,
@@ -107,10 +106,6 @@
     };
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
