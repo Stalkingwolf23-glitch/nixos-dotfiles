@@ -3,14 +3,7 @@
 {
 
   imports = [
-    ./user/shell/term.nix
-    ./user/shell/cli.nix
-    ./user/shell/sh.nix
-    ./user/shell/starship.nix
-    ./user/shell/fetch.nix
-    ./user/shell/nh.nix
-    ./user/shell/git.nix
-    ./user/shell/yazi.nix
+    ./user/shell
 
     ./user/app/zen.nix
     ./user/app/lutris.nix
