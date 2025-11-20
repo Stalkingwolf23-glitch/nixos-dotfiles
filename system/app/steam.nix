@@ -3,7 +3,11 @@
 {
   programs.steam = {
     enable = true;
-    package = pkgs.steam-millennium;
+    package = pkgs.steam-millennium.override {
+      extraProfile = ''
+        unset TZ
+      '';
+    };
   };
 
   hardware.graphics = {
