@@ -25,6 +25,8 @@
       mOnSurface = "#cdd6f4";
       mOnSurfaceVariant = "#a3b4eb";
       mOnTertiary = "#11111b";
+      mOnHover = "#11111b";
+      mHover = "#89b4fa";
       mOutline = "#313244";
       mPrimary = "#89b4fa";
       mSecondary = "#b4befe";
@@ -173,13 +175,14 @@
         animationDisabled = false;
         animationSpeed = 1;
         avatarImage = "/home/stalkingwolf/.face";
-        compactLockScreen = false;
+        compactLockScreen = true;
         dimDesktop = false;
         forceBlackScreenCorners = false;
         radiusRatio = 1;
         scaleRatio = 1.1;
         screenRadiusRatio = 1;
         showScreenCorners = true;
+        allowPanelsOnScreenWithoutBar = true;
       };
       location = {
         name = "Singapore";
@@ -195,6 +198,7 @@
       sessionMenu = {
         enableCountdown = false;
         position = "center";
+        showHeader = false;
         powerOptions = [
           {
             action = "lock";
@@ -259,7 +263,7 @@
       wallpaper = {
         defaultWallpaper = "/home/${userSettings.username}/Pictures/Wallpaper/error-wallpaper-mocha-blue.png";
         directory = "/home/${userSettings.username}/Pictures/Wallpaper";
-        enableMultiMonitorDirectories = false;
+        enableMultiMonitorDirectories = true;
         enabled = true;
         fillColor = "#1e1e2e";
         fillMode = "crop";
