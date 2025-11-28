@@ -6,19 +6,19 @@
 {
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     opacity = {
       applications = 0.8;
     };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     targets = {
-      yazi.enable = true;
-      gtk.enable = true;
-      kitty.enable = true;
-      qt.enable = true;
-      kde.enable = true;
-      hyprland.enable = true;
+      zen-browser.enable = false;
+      mangohud.enable = false;
+      vencord.enable = false;
+      btop.enable = false;
+      nixvim.enable = false;
+      neovim.enable = false;
 
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
