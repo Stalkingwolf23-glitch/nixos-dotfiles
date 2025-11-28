@@ -182,7 +182,8 @@
         scaleRatio = 1.1;
         screenRadiusRatio = 1;
         showScreenCorners = true;
-        allowPanelsOnScreenWithoutBar = true;
+        allowPanelsOnScreenWithoutBar = false;
+        lockOnSuspend = true;
       };
       location = {
         name = "Singapore";
@@ -259,12 +260,17 @@
         fontFixedScale = 1.1;
         idleInhibitorEnabled = false;
         tooltipsEnabled = true;
+        panelIsAttachedToBar = false;
       };
       wallpaper = {
+        enabled = true;
         defaultWallpaper = "/home/${userSettings.username}/Pictures/Wallpaper/error-wallpaper-mocha-blue.png";
         directory = "/home/${userSettings.username}/Pictures/Wallpaper";
         enableMultiMonitorDirectories = true;
-        enabled = true;
+        hideWallpaperFilenames = true;
+        wallhavenCategories = "010";
+        wallhavenResolutionWidth = "2560";
+        wallhavenResolutionHeight = "1440";
         fillColor = "#1e1e2e";
         fillMode = "crop";
         monitors = [
