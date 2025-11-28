@@ -46,16 +46,16 @@
 
     fonts = {
       serif = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Argon";
+        package = pkgs.nerd-fonts.monaspace;
+        name = "MonaspiceNe Nerd Font";
       };
       sansSerif = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Argon";
+        package = pkgs.nerd-fonts.monaspace;
+        name = "MonaspiceAr Nerd Font";
       };
       monospace = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Argon";
+        package = pkgs.nerd-fonts.monaspace;
+        name = "MonaspiceKr Nerd Font";
       };
     };
   };
