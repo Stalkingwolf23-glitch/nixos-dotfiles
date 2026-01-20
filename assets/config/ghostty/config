@@ -1,0 +1,26 @@
+theme = catppuccin-mocha.conf
+gtk-toolbar-style = raised
+gtk-wide-tabs = false
+gtk-tabs-location = bottom
+
+background-opacity = 0.9
+background-blur = true
+
+font-family = MonaspiceKr Nerd Font
+font-feature = +liga
+font-feature = +calt
+
+window-padding-balance = true
+window-padding-color = background
+
+gtk-single-instance = desktop
+scrollback-limit = 10000000
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+clipboard-read = ask
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+clipboard-write = allow
+copy-on-select = true
