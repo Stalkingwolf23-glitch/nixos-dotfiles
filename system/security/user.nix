@@ -1,4 +1,7 @@
-{ config, lib, userSettings, ... }:
+{
+  userSettings,
+  ...
+}:
 
 {
   # Wheel gets access to nix daemon
@@ -7,8 +10,10 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     # description = userSettings.name;
-    extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
-    # uid = 1000;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
   };
 }

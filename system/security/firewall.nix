@@ -1,10 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  # Firewall
   networking.firewall.enable = true;
-  # Open ports in the firewall.
 
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  environment.systemPackages = with pkgs; [ firejail ];
+  programs.firejail.enable = false;
+  programs.firejail.wrappedBinaries = {
+    steam = {
+      executable = "${pkgs.steam}/bin/steam";
+      profile = "${pkgs.firejail}/etc/firejail/steam.profile";
+    };
+    steam-run = {
+      executable = "${pkgs.steam}/bin/steam-run";
+      profile = "${pkgs.firejail}/etc/firejail/steam.profile";
+    };
+  };
 }
