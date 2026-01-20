@@ -51,6 +51,7 @@
         backgroundOpacity = 0.85;
         density = "comfortable";
         floating = false;
+        hideOnOverview = true;
         marginHorizontal = 0.25;
         marginVertical = 0.16;
         monitors = [
@@ -200,6 +201,9 @@
         enableCountdown = false;
         position = "center";
         showHeader = false;
+        largeButtonsStyle = false;
+        largeButtonLayout = "grid";
+        showNumberLabels = true;
         powerOptions = [
           {
             action = "lock";
@@ -260,7 +264,8 @@
         fontFixedScale = 1.1;
         idleInhibitorEnabled = false;
         tooltipsEnabled = true;
-        panelIsAttachedToBar = false;
+        panelsAttachedToBar = false;
+        boxBorderEnabled = true;
       };
       wallpaper = {
         enabled = true;
@@ -268,6 +273,7 @@
         directory = "/home/${userSettings.username}/Pictures/Wallpaper";
         enableMultiMonitorDirectories = true;
         hideWallpaperFilenames = true;
+        overviewEnabled = true;
         wallhavenCategories = "010";
         wallhavenResolutionWidth = "2560";
         wallhavenResolutionHeight = "1440";
