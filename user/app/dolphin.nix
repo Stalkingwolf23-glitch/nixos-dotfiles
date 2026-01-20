@@ -9,10 +9,14 @@
     kdePackages.ffmpegthumbs
     kdePackages.kdegraphics-thumbnailers
     kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
     kdePackages.ark
     libsForQt5.kservice
     kdePackages.qt6ct
     icoutils
   ];
-}
 
+  services.udiskie = {
+    enable = true;
+  };
+}
