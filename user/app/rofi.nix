@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   programs.rofi = {
@@ -14,8 +17,8 @@
     box_art_dir = "/home/stalkingwolf/.config/rofi/box-art"
 
     [sort]
-    order = "recency"
-    reverse = true
+    order = "frecency"
+    reverse = false
 
     [[entries]]
     title = "Honkers Railway"
@@ -23,15 +26,7 @@
     path_box_art = "honkaiRail.png"
 
     [[entries]]
-    title = "Bloodlines 2"
-    path_box_art = "bloodlines.jpg"
-
-    [[entries]]
     title = "Monster Hunter: World"
-    hide = true
-
-    [[entries]]
-    title = "Antimatter Dimensions"
     hide = true
 
     [[entries]]
