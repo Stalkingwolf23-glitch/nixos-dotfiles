@@ -18,21 +18,14 @@
     ./system/hardware/systemd.nix
     ./system/hardware/time.nix
 
-    ./system/wm/hyprland.nix
+    ./system/wm
+    ./system/security
+    ./system/style
 
     ./system/app/steam.nix
     ./system/app/gamemode.nix
     ./system/app/wine.nix
     ./system/app/syncthing.nix
-
-    ./system/security/automount.nix
-    ./system/security/doas.nix
-    ./system/security/user.nix
-    ./system/security/firejail.nix
-    ./system/security/firewall.nix
-    ./system/security/gpg.nix
-
-    ./system/style/stylix.nix
 
     inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
     inputs.hardware.nixosModules.common-pc-ssd
@@ -41,7 +34,6 @@
   nixpkgs.overlays = [
     (import ./overlays/python.nix) # Overlay to skip test temp until patched
     (import ./overlays/dolphin.nix)
-    inputs.millennium.overlays.default
   ];
 
   # Environmental Variables
@@ -50,19 +42,46 @@
     NIXOS_OZONE_WL = "1";
     EDITOR = "nvim";
     APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
+    # Nvidia Junk
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    __GL_VRR_ALLOWED = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_DRM_NO_ATOMIC = "1";
+    # QT
+    QT_STYLE_OVERRIDE = "kvantum";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
   };
   # Optimization
   nix.optimise.automatic = true;
 
-  # Enable flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    # Cachix to skip compiling heavier programs
+    trusted-substituters = [ "https://hyprland.cachix.org" ];
+    substituters = [
+      "https://ezkea.cachix.org"
+      "https://hyprland.cachix.org"
+    ];
+    extra-substituters = [ "https://vicinae.cachix.org" ];
+
+    trusted-public-keys = [
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+
+    # Enable flakes
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cachix
     wget
     zsh
     git

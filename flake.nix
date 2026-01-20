@@ -5,12 +5,12 @@
       self,
       nixpkgs,
       home-manager,
-      hyprland,
       zen-browser,
       stylix,
       aagl,
       kickstart-nixvim,
       vicinae,
+      nix-cachyos-kernel,
       ...
     }:
     let
@@ -28,7 +28,7 @@
         email = "stakingwolf23@gmail.com";
         wm = "hyprland";
         wmType = "wayland";
-        terminal = "kitty";
+        terminal = "ghostty";
       };
 
     in
@@ -46,6 +46,7 @@
             stylix.nixosModules.stylix
             {
               imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig;
               programs.honkers-railway-launcher.enable = true;
               programs.honkers-launcher.enable = true;
             }
@@ -74,35 +75,21 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     kickstart-nixvim.url = "path:/home/stalkingwolf/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium";
+    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=legacy";
     vicinae.url = "github:vicinaehq/vicinae";
+    niri-unstable.url = "github:YaLTeR/niri";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
     };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprXPrimary = {
-      url = "github:zakk4223/hyprXPrimary";
-      inputs.hyprland.follows = "hyprland";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
     };
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -111,6 +98,10 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.niri-unstable.follows = "niri-unstable";
     };
   };
 }
