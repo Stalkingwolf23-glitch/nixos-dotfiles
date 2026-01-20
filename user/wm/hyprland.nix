@@ -9,11 +9,6 @@
     ./vicinae.nix
   ];
 
-  gtk.enable = true;
-  qt = {
-    enable = true;
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -25,33 +20,8 @@
     '';
     plugins = [
       inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
-      inputs.hyprXPrimary.packages.${pkgs.system}.default
     ];
   };
-
-  home.packages = with pkgs; [
-    equibop
-    wlr-randr
-    polkit_gnome
-    pamixer
-    pavucontrol
-    wl-clipboard
-    cliphist
-    swww
-    hyprlock
-    hypridle
-    easyeffects
-    grimblast
-    libappindicator
-    playerctl
-    youtube-music
-    steamtinkerlaunch
-    zathura
-    zsh
-    git
-    mangohud
-    qview
-  ];
 
   services.easyeffects.enable = true;
 

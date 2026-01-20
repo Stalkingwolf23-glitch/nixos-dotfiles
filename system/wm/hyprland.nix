@@ -12,7 +12,6 @@ in
     ./wayland.nix
     ./pipewire.nix
     ./dbus.nix
-    # ./sddm.nix
     ./greetd.nix
   ];
 
@@ -20,7 +19,7 @@ in
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal
-      # pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gtk
     ];
   };
 
@@ -30,8 +29,17 @@ in
   # Security
   security = {
     pam.services.login.enableGnomeKeyring = true;
+    pam.services.hyprland.enableGnomeKeyring = true;
   };
   services.gnome.gnome-keyring.enable = true;
+
+  systemd.user.services.gnome-keyring = {
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --foreground --components=pkcs11,secrets,ssh";
+      Restart = "on-abort";
+    };
+  };
 
   programs = {
     hyprland = {
