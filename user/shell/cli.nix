@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    git
     gallery-dl
     cava
     zip
