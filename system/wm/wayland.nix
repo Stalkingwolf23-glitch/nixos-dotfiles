@@ -1,12 +1,6 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-  imports = [
-    ./pipewire.nix
-    ./dbus.nix
-    ./fonts.nix
-  ];
-
   # Configure xwayland
   services.xserver = {
     enable = true;
