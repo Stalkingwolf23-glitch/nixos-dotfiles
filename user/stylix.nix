@@ -8,7 +8,7 @@
     enable = true;
     autoEnable = true;
     opacity = {
-      applications = 0.8;
+      applications = 0.9;
     };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -19,6 +19,7 @@
       btop.enable = false;
       nixvim.enable = false;
       neovim.enable = false;
+      noctalia-shell.enable = false;
 
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
@@ -46,16 +47,16 @@
 
     fonts = {
       serif = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceNe Nerd Font";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Neon";
       };
       sansSerif = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceAr Nerd Font";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Argon";
       };
       monospace = {
-        package = pkgs.nerd-fonts.monaspace;
-        name = "MonaspiceKr Nerd Font";
+        package = pkgs.moralerspace;
+        name = "Moralerspace Krypton";
       };
     };
   };
