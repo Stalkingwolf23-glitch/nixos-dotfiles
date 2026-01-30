@@ -5,7 +5,6 @@
 {
   imports = [
     ./noctalia.nix
-    ./vicinae.nix
     ./swayidle.nix
   ];
 
@@ -33,6 +32,10 @@
     zsh
     qview
   ];
+
+  services.vicinae = {
+    enable = true;
+  };
 
   home.file.".config/niri/config.kdl".source = ../../assets/config/niri.kdl;
   home.file.".config/equibop/themes".recursive = true;
