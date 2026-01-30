@@ -2,8 +2,9 @@
 
 {
   programs.steam = {
+    protontricks.enable = true;
     enable = true;
-    package = pkgs.steam-millennium.override {
+    package = pkgs.steam.override {
       extraProfile = ''
         unset TZ
       '';
