@@ -45,6 +45,7 @@
             ./configuration.nix
             stylix.nixosModules.stylix
             {
+              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig;
               programs.honkers-railway-launcher.enable = true;
@@ -75,7 +76,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     kickstart-nixvim.url = "path:/home/stalkingwolf/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=legacy";
     vicinae.url = "github:vicinaehq/vicinae";
     niri-unstable.url = "github:YaLTeR/niri";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
