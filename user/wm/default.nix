@@ -26,7 +26,8 @@
     # grimblast
     libappindicator
     playerctl
-    youtube-music
+    # youtube-music
+    pear-desktop
     steamtinkerlaunch
     zathura
     zsh
