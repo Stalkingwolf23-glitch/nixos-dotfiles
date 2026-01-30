@@ -79,6 +79,125 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"
 
 animations {
+    workspace-switch {
+        spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
+    }
+window-open {
+    duration-ms 1400
+    curve "ease-out-expo"
+    custom-shader r"
+    float ease_curve(float x) {
+        return x < 0.5 ? 4.0*x*x*x : 1.0 - pow(-2.0*x + 2.0, 3.0)/2.0;
+    }
+
+    vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+        float t = niri_clamped_progress;
+        float prog = ease_curve(t);
+
+        // bottom-right corner
+        vec2 start = vec2(1.0, 1.0);
+
+        // compute distance along diagonal from corner
+        vec2 p = coords_geo.xy;
+        vec2 dir = vec2(-1.0, -1.0); // vector toward top-left
+        float dist = dot(p - start, dir);
+
+        // normalize distance to max diagonal (from corner to opposite)
+        float max_diag = 2.0;
+        float norm_dist = dist / max_diag;
+
+        // pixels not yet reached by sweep are invisible
+        if (norm_dist > prog) {
+            return vec4(0.0);
+        }
+
+        // sample normally
+        vec3 coords_tex = niri_geo_to_tex * coords_geo;
+        vec4 col = texture2D(niri_tex, coords_tex.xy);
+
+        return col;
+    }"
+}
+
+    
+    window-close {
+    duration-ms 1400
+    curve "ease-out-expo"
+    custom-shader r"
+    // ease-in-out cubic curve helper
+    float ease_curve(float x) {
+        return x < 0.5 ? 4.0*x*x*x : 1.0 - pow(-2.0*x + 2.0, 3.0)/2.0;
+    }
+
+    vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+        float t = niri_clamped_progress;
+
+        // ------------------------
+        // progress along curve
+        // ------------------------
+        float prog = ease_curve(t);
+
+        // ------------------------
+        // choose corner: 0=top-left,1=top-right,2=bottom-left,3=bottom-right
+        // ------------------------
+        int corner = 0; 
+        vec2 start;
+        if (corner == 0) start = vec2(0.0,0.0);
+        else if (corner == 1) start = vec2(1.0,0.0);
+        else if (corner == 2) start = vec2(0.0,1.0);
+        else start = vec2(1.0,1.0);
+
+        // ------------------------
+        // compute distance along diagonal from corner
+        // ------------------------
+        vec2 p = coords_geo.xy;
+        float dist = dot(p - start, vec2(1.0,1.0));
+
+        // normalize distance to max diagonal
+        float max_diag = 2.0; // max of vec2(1,1)
+        float norm_dist = dist / max_diag;
+
+        // ------------------------
+        // If pixel is behind the sweeping line, make it invisible
+        // ------------------------
+        if (norm_dist <= prog) {
+            return vec4(0.0);
+        }
+
+        // sample normally
+        vec3 coords_tex = niri_geo_to_tex * coords_geo;
+        vec4 col = texture2D(niri_tex, coords_tex.xy);
+
+        return col;
+    }"
+}
+
+    
+    horizontal-view-movement {
+        spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
+    }
+    window-resize {
+        custom-shader r"
+            vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+                vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;
+                vec4 color = texture2D(niri_tex_next, coords_tex_next.st);
+                return color;
+            }
+        "
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.65 stiffness=923 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
+    }
 }
 
 window-rule {
@@ -131,7 +250,7 @@ binds {
     Mod+G { spawn-sh "rofi -modi games -show games -theme /home/stalkingwolf/.config/rofi/games.rasi"; }
     Mod+D { spawn "equibop"; }
     Mod+B { spawn "zen"; }
-    Mod+Ctrl+N { spawn "dolphin"; }
+    Mod+Shift+N { spawn "dolphin"; }
     Mod+V { spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history"; }
 
     Mod+Shift+W { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
@@ -150,9 +269,6 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
-    // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Shift+Q repeat=false { close-window; }
@@ -191,13 +307,7 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
-    // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
+    Mod+Shift+A          { move-window-to-monitor-next; }
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
@@ -208,21 +318,11 @@ binds {
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
-
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-window-or-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-window-or-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
@@ -233,8 +333,6 @@ binds {
     Mod+Shift+WheelScrollRight { move-column-right; }
     Mod+Shift+WheelScrollLeft  { move-column-left; }
 
-    // Usually scrolling up and down with Shift in applications results in
-    // horizontal scrolling; these binds replicate that.
     Mod+Shift+WheelScrollDown      { focus-column-right; }
     Mod+Shift+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
@@ -259,21 +357,10 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
-
-    // The following binds move the focused window in and out of a column.
-    // If the window is alone, they will consume it into the nearby column to the side.
-    // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-    // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
@@ -284,10 +371,6 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
-    // While maximize-column leaves gaps and borders around the window,
-    // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
-    // This bind corresponds to normal window maximizing,
-    // e.g. by double-clicking on the titlebar.
     Mod+M { maximize-window-to-edges; }
 
     Mod+Ctrl+F { expand-column-to-available-width; }
