@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     loader = {
       grub = {
@@ -14,5 +17,13 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
     };
+    initrd.kernelModules = [
+      "ahci"
+      "xhci_pci"
+    ];
+    kernelModules = [
+      "sr_mod"
+      "usb-storage"
+    ];
   };
 }
