@@ -25,21 +25,9 @@ export class FileSystem{
   }
   // Call to .parent is needed because chrome urls get implicit "filename" based on the provider
   static #SCRIPT_URI;
-  static #STYLE_URI;
-  static #RESOURCE_URI;
-  static{
-    this.#RESOURCE_URI = FileSystem.getFileURIForFile(
-      FileSystem.convertChromeURIToFileURI('chrome://userchrome/content/')
-      .QueryInterface(Ci.nsIFileURL).file.parent,
-      FileSystem.RESULT_DIRECTORY
-    );
+  static {
     this.#SCRIPT_URI = FileSystem.getFileURIForFile(
       FileSystem.convertChromeURIToFileURI('chrome://userscripts/content/')
-      .QueryInterface(Ci.nsIFileURL).file.parent,
-      FileSystem.RESULT_DIRECTORY
-    );
-    this.#STYLE_URI = FileSystem.getFileURIForFile(
-      FileSystem.convertChromeURIToFileURI('chrome://userstyles/skin/')
       .QueryInterface(Ci.nsIFileURL).file.parent,
       FileSystem.RESULT_DIRECTORY
     );
@@ -49,24 +37,8 @@ export class FileSystem{
     return Services.io.newURI(FileSystem.#SCRIPT_URI)
   }
   
-  static get STYLE_URI(){
-    return Services.io.newURI(FileSystem.#STYLE_URI)
-  } 
-  
-  static get RESOURCE_URI(){
-    return Services.io.newURI(FileSystem.#RESOURCE_URI)
-  } 
-  
-  static getResourceDir(){
-    return FileSystemResult.fromNsIFile(FileSystem.RESOURCE_URI.QueryInterface(Ci.nsIFileURL).file)
-  }
-  
   static getScriptDir(){
     return FileSystemResult.fromNsIFile(FileSystem.SCRIPT_URI.QueryInterface(Ci.nsIFileURL).file)
-  }
-  
-  static getStyleDir(){
-    return FileSystemResult.fromNsIFile(FileSystem.STYLE_URI.QueryInterface(Ci.nsIFileURL).file)
   }
   
   static #getEntryFromString(aFilename, baseFileURI){
@@ -99,7 +71,7 @@ export class FileSystem{
       }
       throw new Error("unsupported nsIURI conversion")
     }
-    return FileSystem.#getEntryFromString(aFilename, options.baseDirectory || FileSystem.RESOURCE_URI)
+    return FileSystem.#getEntryFromString(aFilename, options.baseDirectory || FileSystem.SCRIPT_URI)
   }
   static readNSIFileSyncUncheckedWithOptions(aFile,options){
     let stream = Cc['@mozilla.org/network/file-input-stream;1'].createInstance(Ci.nsIFileInputStream);
@@ -129,7 +101,7 @@ export class FileSystem{
   }
   static readFileSync(aFile, options = {}) {
     if(typeof aFile === "string"){
-      const fsResult = FileSystem.#getEntryFromString(aFile, FileSystem.RESOURCE_URI);
+      const fsResult = FileSystem.#getEntryFromString(aFile, FileSystem.SCRIPT_URI);
       if(fsResult.isFile()){
         return FileSystem.readNSIFileSyncUncheckedWithOptions(fsResult.entry(),options);
       }
@@ -177,7 +149,7 @@ export class FileSystem{
     // Writing outside of resources can be enabled using following pref
     const disallowUnsafeWrites = !Services.prefs.getBoolPref("userChromeJS.allowUnsafeWrites",false);
     
-    const baseURI = aFileURI || FileSystem.RESOURCE_URI;
+    const baseURI = aFileURI || FileSystem.SCRIPT_URI;
     let baseParts = PathUtils.split(baseURI.QueryInterface(Ci.nsIFileURL).file.path);
     let pathParts = aPath.split(/[\\\/]/);
     while(pathParts[0] === ".."){
@@ -213,7 +185,7 @@ export class FileSystem{
   }
   static createFileURI(fileName){
     if(!fileName){
-      return FileSystem.#RESOURCE_URI
+      return FileSystem.#SCRIPT_URI
     }
     return FileSystem.convertChromeURIToFileURI(`chrome://userchrome/content/${fileName}`).spec
   }
