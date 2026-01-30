@@ -29,7 +29,7 @@
       qt.platform = "qtct";
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.catppuccin-papirus-folders.override {
         flavor = "mocha";
