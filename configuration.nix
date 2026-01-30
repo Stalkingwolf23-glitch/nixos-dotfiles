@@ -58,16 +58,15 @@
 
   nix.settings = {
     # Cachix to skip compiling heavier programs
-    trusted-substituters = [ "https://hyprland.cachix.org" ];
     substituters = [
       "https://ezkea.cachix.org"
-      "https://hyprland.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     extra-substituters = [ "https://vicinae.cachix.org" ];
 
     trusted-public-keys = [
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
     extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
 
@@ -78,8 +77,6 @@
     ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     cachix
     wget
