@@ -89,7 +89,7 @@
     ffmpeg
     killall
     egl-wayland
-    nixfmt-rfc-style
+    nixfmt
     brightnessctl
     samrewritten
     catppuccin-papirus-folders

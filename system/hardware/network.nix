@@ -6,7 +6,7 @@
       enable = true;
       dns = "none";
     };
-    wireless.userControlled.enable = true;
+    wireless.userControlled = true;
 
     nameservers = [
       "45.90.28.128"

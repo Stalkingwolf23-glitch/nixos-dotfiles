@@ -7,7 +7,7 @@
 
 {
   home.packages = with pkgs; [
-    inputs.noctalia.packages.${system}.default
+    inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
   ];
 
   imports = [
