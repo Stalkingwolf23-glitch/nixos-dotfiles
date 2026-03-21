@@ -2,7 +2,6 @@
   pkgs,
   ...
 }:
-
 {
   programs.rofi = {
     enable = true;
@@ -14,16 +13,12 @@
   home.file.".config/rofi-games/config.toml".text = ''
     hide_entries_without_box_art = false
     fallback_to_icons = true
+    show_entry_source_text = false
     box_art_dir = "/home/stalkingwolf/.config/rofi/box-art"
 
     [sort]
     order = "frecency"
     reverse = false
-
-    [[entries]]
-    title = "Honkers Railway"
-    launch_command = "honkers-railway-launcher"
-    path_box_art = "honkaiRail.png"
 
     [[entries]]
     title = "Monster Hunter: World"
@@ -36,4 +31,5 @@
 
   home.file.".config/rofi/".recursive = true;
   home.file.".config/rofi/".source = ../../assets/config/rofi;
+  home.file.".local/bin/rofi-games.sh".source = ../../assets/config/game-launcher.sh;
 }

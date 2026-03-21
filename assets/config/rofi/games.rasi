@@ -10,13 +10,13 @@
 }
 
 configuration {
-    font:                           "0xProtoNerdFont-Regular 17";
+    font:                           "Moralerspace Argon 17";
     show-icons:                     true;
 }
 
 window {
-    fullscreen:                     false;
-    height:                         50%;
+    fullscreen:                     true;
+    height:                         100%;
     width:                          100%;
     transparency:                   "real";
     background-color:               @background-transparent;
@@ -25,7 +25,7 @@ window {
 }
 
 mainbox {
-    children:                       [inputbar-box, listview];
+    children:                       [prompt, inputbar-box, listview];
     padding:                        0px 0px;
 }
 
@@ -33,12 +33,12 @@ prompt {
     width:                          100%;
     margin:                         10px 0px 0px 30px;
     text-color:                     @important;
-    font:                           "0xProtoNerdFont-Regular 27";
+    font:                           "Moralerspace Argon Bold 27";
 }
 
 listview {
     layout:                         vertical;
-    padding:                        20px;
+    padding:                        60px;
     dynamic:                        true;
     columns:                        6;
     spacing:                        20px;
@@ -56,7 +56,7 @@ inputbar {
     background-color:               @primary;
     border:                         4px;
     border-color:                   @primary;
-    border-radius:                  5px;
+    border-radius:                  8px;
 }
 
 textbox-prompt {
@@ -115,3 +115,4 @@ element-text {
 element-text selected {
     text-color: @text-color-selected;
 }
+
