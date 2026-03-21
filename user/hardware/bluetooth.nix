@@ -5,6 +5,6 @@
     blueman
   ];
   services = {
-    blueman-applet.enable = true;
+    blueman-applet.enable = false;
   };
 }
