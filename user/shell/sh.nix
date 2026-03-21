@@ -4,8 +4,8 @@
   programs.zsh = {
     enable = true;
     completionInit = "autoload -U compinit && compinit -i";
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    autosuggestion.enable = false;
+    syntaxHighlighting.enable = false;
     autocd = true;
 
     plugins = [
@@ -32,8 +32,24 @@
         src = "${pkgs.zsh-autopair}/share/zsh-autopair";
       }
       {
+        name = "vi-mode";
+        file = "zsh-vi-mode.plugin.zsh";
+        src = "${pkgs.zsh-vi-mode}/share/zsh-vi-mode";
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
+        file = "zsh-autosuggestions.zsh";
+      }
+      {
         name = "zsh-fzf-tab";
-        src = pkgs.zsh-fzf-tab;
+        file = "fzf-tab.plugin.zsh";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+      {
+        name = "zsh-f-sy-h";
+        file = "F-Sy-H.plugin.zsh";
+        src = "${pkgs.zsh-f-sy-h}/share/zsh/site-functions";
       }
     ];
 
@@ -41,22 +57,31 @@
       ll = "eza --icons --group-directories-first -1";
       ls = "eza --icons  --group-directories-first -1";
       tree = "eza --icons --tree --group-directories-first";
-      fetch = "fastfetch";
-      ".." = "cd ..";
+      fetch = "fastfetch --config ~/.config/fastfetch/fetch.jsonc";
+      ".." = "z ..";
+      nixos = "z ~/local/nixos";
+      games = "rgd list | fzf -d $'\t' --with-nth 1 | cut -d$'\t' -f2";
+      lil = "steam-run /mnt/wd_linux/Stuff/Misc/.Games/LessonsInLove/LessonsInLove0.51.0.sh";
     };
 
     initContent = ''
+      fastfetch --config ~/.config/fastfetch/compact.jsonc
+
       PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
         %F{green}→%f "
       RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-      bindkey '^P' history-beginning-search-backward
-      bindkey '^N' history-beginning-search-forward
+      [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-      zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+      function zvm_after_init() { bindkey '^ ' autosuggest-accept }
+
+      zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
+      zstyle ':completion:*' menu no
     '';
   };
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
 }
