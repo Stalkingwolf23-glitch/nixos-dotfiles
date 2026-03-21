@@ -25,5 +25,6 @@
       "sr_mod"
       "usb-storage"
     ];
+    kernel.sysctl."kernel.sysrq" = 502;
   };
 }
