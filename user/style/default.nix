@@ -20,6 +20,7 @@
       nixvim.enable = false;
       neovim.enable = false;
       noctalia-shell.enable = false;
+      vicinae.enable = false;
 
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
@@ -60,4 +61,5 @@
       };
     };
   };
+  fonts.fontconfig.enable = true;
 }
