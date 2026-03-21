@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-
+{ pkgs, inputs, ... }:
 {
   programs.yazi = {
     enable = true;
+    shellWrapperName = "yy";
     enableZshIntegration = true;
     settings = {
       mgr = {
@@ -41,6 +41,31 @@
         macro_workers = 10;
         bizarre_retry = 5;
       };
+
+      plugin = {
+        prepend_previewers = [
+          {
+            url = "*.md";
+            run = "rich-preview";
+          }
+          {
+            url = "*.json";
+            run = "rich-preview";
+          }
+          {
+            url = "*.csv";
+            run = "rich-preview";
+          }
+          {
+            url = "*.rst";
+            run = "rich-preview";
+          }
+          {
+            url = "*.ipynb";
+            run = "rich-preview";
+          }
+        ];
+      };
     };
 
     plugins = {
@@ -50,11 +75,15 @@
       "yatline-catppuccin" = pkgs.yaziPlugins.yatline-catppuccin;
       "yatline-githead" = pkgs.yaziPlugins.yatline-githead;
       "rich-preview" = pkgs.yaziPlugins.rich-preview;
+      "restore" = pkgs.yaziPlugins.restore;
+      "recycle-bin" = pkgs.yaziPlugins.recycle-bin;
+      "full-border" = pkgs.yaziPlugins.full-border;
+      "gitui" = pkgs.yaziPlugins.gitui;
     };
 
     initLua = ''
-      -- require("no-status"):setup()
       local catppuccin_theme = require("yatline-catppuccin"):setup("mocha")
+      require("full-border"):setup()
       require("yatline"):setup({
         theme = catppuccin_theme,
         show_background = true,
@@ -79,8 +108,7 @@
               {type = "coloreds", custom = false, name = "githead"},
             }
           }
-        },
-        status_line = {
+        }, status_line = {
           left = {
             section_a = {
               {type = "string", custom = false, name = "tab_mode"},
@@ -144,6 +172,9 @@
         untracked_color = "blue",
         untracked_symbol = "?",
       })
+      require("recycle-bin"):setup({
+        trash_dir = "~/.local/share/Trash/"
+      })
     '';
 
     keymap = {
@@ -158,6 +189,75 @@
             on = "<C-y>";
             run = "plugin wl-clipboard";
             desc = "Copies file to system clipboard as well";
+          }
+          {
+            on = [
+              "g"
+              "n"
+            ];
+            run = "cd ~/local/nixos";
+            desc = "Go Nix config";
+          }
+          {
+            on = [
+              "g"
+              "s"
+            ];
+            run = "cd /mnt/osiris/Games/Steam/steamapps/common";
+            desc = "Go Steam Games";
+          }
+          {
+            on = [
+              "g"
+              "i"
+            ];
+            run = "plugin gitui";
+            desc = "Opens gitui";
+          }
+          {
+            on = "u";
+            run = "plugin restore";
+            desc = "Restore last deleted file/folder";
+          }
+          {
+            on = [
+              "R"
+              "o"
+            ];
+            run = "plugin recycle-bin -- open";
+            desc = "Open Trash";
+          }
+          {
+            on = [
+              "R"
+              "e"
+            ];
+            run = "plugin recycle-bin -- empty";
+            desc = "Empty Trash";
+          }
+          {
+            on = [
+              "R"
+              "D"
+            ];
+            run = "plugin recycle-bin -- emptyDays";
+            desc = "Empty by days deleted";
+          }
+          {
+            on = [
+              "R"
+              "d"
+            ];
+            run = "plugin recycle-bin -- delete";
+            desc = "Delete from Trash";
+          }
+          {
+            on = [
+              "R"
+              "r"
+            ];
+            run = "plugin recycle-bin -- restore";
+            desc = "Restore from Trash";
           }
         ];
       };
