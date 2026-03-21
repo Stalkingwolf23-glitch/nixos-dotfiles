@@ -37,8 +37,8 @@ in
   imports = [
     inputs.zen-browser.homeModules.beta
   ];
-  home.file.".zen/default/chrome".recursive = true;
-  home.file.".zen/default/chrome".source = ../../assets/zen/sine;
+  home.file.".config/zen/default/chrome".recursive = true;
+  home.file.".config/zen/default/chrome".source = ../../assets/zen/sine;
 
   programs.zen-browser = {
     enable = true;

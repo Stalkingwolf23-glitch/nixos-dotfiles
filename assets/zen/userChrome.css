@@ -163,12 +163,50 @@
   border-radius: 50%;
 }
 
-/* findbar fix? */
-findbar {
-  background: var(--zen-themed-toolbar-bg) !important;
-}
-
 /* Centered url */
 #urlbar:not([focused]) .urlbar-input {
   text-align: center !important;
+}
+
+/* ── Fix Zen Twilight acrylic/blur bleeding through wrapper gaps ── */
+
+/* Remove system appearance so CSS backgrounds take effect */
+#zen-main-app-wrapper,
+#zen-appcontent-wrapper,
+#zen-sidebar-splitter,
+#zen-browser-background {
+  appearance: unset !important;
+  -moz-default-appearance: none !important;
+}
+
+/* Paint every wrapper / splitter / gap element with Catppuccin Mocha base */
+#zen-main-app-wrapper,
+#zen-appcontent-wrapper,
+#zen-sidebar-splitter,
+#zen-browser-background,
+.zen-browser-generic-background,
+.zen-toolbar-background,
+#navigator-toolbox,
+#tabbrowser-tabbox,
+#main-window {
+  background: #181825 !important;
+  background-color: #181825 !important;
+}
+
+/* Style sidebar splitters */
+#sidebar-splitter {
+  border: none !important;
+  background: #181825 !important;
+}
+
+#zen-sidebar-splitter {
+  border: none !important;
+  background: #181825 !important;
+  background-color: #181825 !important;
+  opacity: 1 !important;
+}
+
+#zen-sidebar-splitter:hover {
+  background: #313244 !important;
+  background-color: #313244 !important;
 }
