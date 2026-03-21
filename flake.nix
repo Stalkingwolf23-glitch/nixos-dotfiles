@@ -2,13 +2,11 @@
   description = "Starting flake into the rabbit hole of flakes and folders";
   outputs =
     inputs@{
-      self,
       nixpkgs,
       home-manager,
       zen-browser,
       stylix,
       aagl,
-      kickstart-nixvim,
       vicinae,
       nix-cachyos-kernel,
       ...
@@ -25,10 +23,10 @@
       userSettings = {
         username = "stalkingwolf";
         name = "Stalkingwolf";
-        email = "stakingwolf23@gmail.com";
-        wm = "hyprland";
+        email = "stalkingwolf@cocytus.me";
+        wm = "niri";
         wmType = "wayland";
-        terminal = "ghostty";
+        terminal = "kitty";
       };
 
     in
@@ -47,7 +45,9 @@
             {
               nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
               imports = [ aagl.nixosModules.default ];
-              nix.settings = aagl.nixConfig;
+              nix.settings = aagl.nixConfig // {
+                warn-dirty = false;
+              };
               programs.honkers-railway-launcher.enable = true;
               programs.honkers-launcher.enable = true;
             }
@@ -74,10 +74,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    kickstart-nixvim.url = "path:/home/stalkingwolf/kickstart.nixvim/";
+    kickstart-nixvim.url = "path:/home/stalkingwolf/local/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
     vicinae.url = "github:vicinaehq/vicinae";
     niri-unstable.url = "github:YaLTeR/niri";
+    niri-blur.url = "github:niri-wm/niri/pull/3483/head";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     home-manager = {
@@ -100,8 +101,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.niri-unstable.follows = "niri-unstable";
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+      # inputs.niri-unstable.follows = "niri-unstable";
+      inputs.niri-unstable.follows = "niri-blur";
     };
   };
 }
