@@ -41,21 +41,6 @@
   nix.optimise.automatic = true;
 
   nix.settings = {
-    # Cachix to skip compiling heavier programs
-    substituters = [
-      "https://ezkea.cachix.org"
-      "https://attic.xuyh0120.win/lantian"
-      "https://niri-nix.cachix.org"
-    ];
-    extra-substituters = [ "https://vicinae.cachix.org" ];
-
-    trusted-public-keys = [
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-      "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
-    ];
-    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
-
     # Enable flakes
     experimental-features = [
       "nix-command"

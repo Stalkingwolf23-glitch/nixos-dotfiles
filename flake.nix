@@ -47,6 +47,20 @@
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig // {
                 warn-dirty = false;
+                extra-substituters = (aagl.nixConfig.extra-substituters or [ ]) ++ [
+                  "https://ezkea.cachix.org"
+                  "https://attic.xuyh0120.win/lantian"
+                  "https://niri-nix.cachix.org"
+                  "https://vicinae.cachix.org"
+                  "https://noctalia.cachix.org"
+                ];
+                extra-trusted-public-keys = (aagl.nixConfig.extra-trusted-public-keys or [ ]) ++ [
+                  "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+                  "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+                  "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
+                  "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+                  "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+                ];
               };
               programs.honkers-railway-launcher.enable = true;
               programs.honkers-launcher.enable = true;
