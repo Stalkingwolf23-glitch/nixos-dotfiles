@@ -16,7 +16,6 @@
     ./system/style
     ./system/app
 
-    inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
     inputs.hardware.nixosModules.common-pc-ssd
   ];
 
@@ -31,12 +30,6 @@
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
     EDITOR = "nvim";
     APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
-    # Nvidia Junk
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    __GL_VRR_ALLOWED = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_DRM_NO_ATOMIC = "1";
     # QT
     QT_STYLE_OVERRIDE = "kvantum";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
