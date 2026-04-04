@@ -242,6 +242,18 @@ layer-rule {
 
 debug {
     honor-xdg-activation-with-invalid-serial
+layer-rule {
+  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+  background-effect {
+    xray false
+  }
+}
+
+blur {
+    passes 1
+    offset 2.5
+    noise 0.01
+    saturation 1.0
 }
 
 binds {
