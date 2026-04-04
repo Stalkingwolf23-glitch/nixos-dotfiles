@@ -11,6 +11,7 @@
     ./zen.nix
     ./noctalia.nix
     ./xdg.nix
+    ./pyroveil.nix
 
     inputs.kickstart-nixvim.homeManagerModules.default
 
