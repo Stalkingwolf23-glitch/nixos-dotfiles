@@ -10,6 +10,7 @@
       "application/x-rar" = "org.kde.ark.desktop";
       "application/x-bzip2" = "org.kde.ark.desktop";
       "application/x-xz" = "org.kde.ark.desktop";
+      "application/pak" = "org.kde.ark.desktop";
 
       # Images
       "image/jpeg" = "com.interversehq.qView.desktop";
