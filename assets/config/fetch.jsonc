@@ -4,9 +4,10 @@
     	"source": "~/.local/share/avatars/mornye2",
     	"type": "kitty",
         "padding": {
-          "top": 3,
+          "top": 4,
           "left": 3
         },
+        "height": 24,
         "width": 38
     },
     "display": {
