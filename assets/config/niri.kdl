@@ -28,6 +28,10 @@ output "Samsung Electric Company C24F390 H4ZM600394" {
     position x=2560 y=0
 }
 
+workspace "Games" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd PG270 PRO 0000000000000"
+}
+
 layout {
     gaps 10
 
@@ -215,8 +219,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id="steam_app_\/d*"
-    open-on-output "DP-3"
+    match app-id=r"steam_app_\d*"
+    match app-id="moe.launcher.the-honkers-railway-launcher"
+    open-on-workspace "Games"
 }
 
 window-rule {
