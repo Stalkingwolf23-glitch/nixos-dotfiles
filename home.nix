@@ -12,6 +12,7 @@
 
   nixpkgs.overlays = [
     (import ./overlays/rgd.nix)
+    (import ./overlays/pyroveil.nix)
   ];
 
   home = {
