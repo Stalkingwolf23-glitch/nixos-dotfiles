@@ -260,12 +260,12 @@ blur {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+T { spawn "ghostty"; }
+    Mod+T { spawn "kitty"; }
     Mod+A repeat=false  { spawn "vicinae" "toggle"; }
     Mod+Ctrl+L { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-    Mod+G { spawn-sh "rofi -modi games -show games -theme /home/stalkingwolf/.config/rofi/games.rasi"; }
+    Mod+G { spawn-sh "rofi -modi games:rofi-games.sh -show games -show-icons -theme games-smaller -kb-custom-1 'Control+Shift+space'"; }
     Mod+D { spawn "equibop"; }
-    Mod+B { spawn "zen"; }
+    Mod+B { spawn "zen-beta"; }
     Mod+Shift+N { spawn "dolphin"; }
     Mod+V { spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history"; }
 
