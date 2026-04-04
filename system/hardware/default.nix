@@ -3,7 +3,6 @@
   imports = [
     ./kernel.nix
     ./network.nix
-    ./nvidia.nix
     ./time.nix
   ];
 
@@ -40,9 +39,15 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
   };
 
+  hardware.enableRedistributableFirmware = true;
+
+  services.lact.enable = true; # AMD OC
+  hardware.amdgpu = {
+    overdrive = {
+      enable = true;
+    };
+    initrd.enable = true;
+  };
 }
