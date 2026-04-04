@@ -14,10 +14,10 @@ final: prev: {
         owner = "Rolv-Apneseth";
         repo = "rgd";
         rev = "main";
-        hash = "sha256-Xv/J59nE0xUrU792V49edBXk2Yca6Yl7c1L56/otu8Y=";
+        hash = "sha256-4g0lEiGqETb4jNyb8hcJ57y0rIIKr/Ofy69+9+ikM3A=";
       };
 
-      cargoHash = "sha256-FDcloq6SN7m+5TUPr7fjOFZ4yR2ShPI06gHI/6DnUSs=";
+      cargoHash = "sha256-LD0onGVNdM0F5Ot/trXVGKjf1YHlHYlyYXzICks8nYQ=";
 
       buildInputs = [ sqlite ];
       nativeBuildInputs = [ pkg-config ];
