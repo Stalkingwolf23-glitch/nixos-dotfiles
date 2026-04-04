@@ -48,16 +48,16 @@
 
     fonts = {
       serif = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Neon";
+        package = pkgs.maple-mono.NF-CN-unhinted;
+        name = "Maple Mono NF CN";
       };
       sansSerif = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Argon";
+        package = pkgs.maple-mono.NF-CN-unhinted;
+        name = "Maple Mono NF CN";
       };
       monospace = {
-        package = pkgs.moralerspace;
-        name = "Moralerspace Krypton";
+        package = pkgs.maple-mono.NF-CN-unhinted;
+        name = "Maple Mono NF CN";
       };
     };
   };
