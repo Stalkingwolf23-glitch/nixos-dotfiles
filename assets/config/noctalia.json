@@ -4,21 +4,19 @@
     "barType": "framed",
     "position": "top",
     "monitors": [
-      "DP-3",
-      "HDMI-A-2"
+      "DP-1"
     ],
-    "density": "compact",
+    "density": "default",
     "showOutline": false,
     "showCapsule": false,
     "capsuleOpacity": 1,
     "capsuleColorKey": "none",
-    "widgetSpacing": 6,
-    "contentPadding": 2,
+    "widgetSpacing": 4,
+    "contentPadding": 10,
     "fontScale": 1,
     "enableExclusionZoneInset": true,
     "backgroundOpacity": 0.6,
     "useSeparateOpacity": true,
-    "floating": false,
     "marginVertical": 3,
     "marginHorizontal": 5,
     "frameThickness": 10,
@@ -120,7 +118,7 @@
       "right": [
         {
           "compactMode": true,
-          "hideMode": "hidden",
+          "hideMode": "transparent",
           "hideWhenIdle": false,
           "id": "MediaMini",
           "maxWidth": 145,
@@ -129,10 +127,10 @@
           "showAlbumArt": false,
           "showArtistFirst": false,
           "showProgressRing": true,
-          "showVisualizer": false,
+          "showVisualizer": true,
           "textColor": "secondary",
           "useFixedWidth": true,
-          "visualizerType": "linear"
+          "visualizerType": "wave"
         },
         {
           "displayMode": "onhover",
@@ -309,7 +307,7 @@
       },
       {
         "enabled": false,
-        "name": "DP-3"
+        "name": "DP-1"
       }
     ]
   },
@@ -378,7 +376,8 @@
         "Del"
       ]
     },
-    "reverseScroll": false
+    "reverseScroll": false,
+    "smoothScrollEnabled": true
   },
   "ui": {
     "fontDefault": "Moralerspace Argon",
@@ -398,6 +397,7 @@
     "name": "Singapore",
     "weatherEnabled": true,
     "weatherShowEffects": true,
+    "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false,
@@ -406,7 +406,8 @@
     "analogClockInCalendar": true,
     "firstDayOfWeek": -1,
     "hideWeatherTimezone": false,
-    "hideWeatherCityName": false
+    "hideWeatherCityName": false,
+    "autoLocate": false
   },
   "calendar": {
     "cards": [
@@ -433,6 +434,7 @@
     "showHiddenFiles": false,
     "viewMode": "single",
     "setWallpaperOnAllMonitors": false,
+    "linkLightAndDarkWallpapers": true,
     "fillMode": "crop",
     "fillColor": "#1e1e2e",
     "useSolidColor": false,
@@ -453,6 +455,7 @@
     "transitionEdgeSmoothness": 0.05,
     "panelPosition": "follow_bar",
     "hideWallpaperFilenames": true,
+    "useOriginalImages": false,
     "overviewBlur": 0.4,
     "overviewTint": 0.6,
     "useWallhaven": false,
@@ -611,8 +614,6 @@
     "indicatorOpacity": 0.6
   },
   "network": {
-    "wifiEnabled": true,
-    "airplaneModeEnabled": false,
     "bluetoothRssiPollingEnabled": false,
     "bluetoothRssiPollIntervalMs": 60000,
     "networkPanelView": "ethernet",
@@ -694,7 +695,7 @@
     "enableMarkdown": false,
     "density": "compact",
     "monitors": [
-      "DP-3"
+      "DP-1"
     ],
     "location": "top_right",
     "overlayLayer": true,
@@ -734,7 +735,7 @@
       2
     ],
     "monitors": [
-      "DP-3"
+      "DP-1"
     ]
   },
   "audio": {
@@ -742,6 +743,7 @@
     "volumeOverdrive": false,
     "spectrumFrameRate": 30,
     "visualizerType": "linear",
+    "spectrumMirrored": true,
     "mprisBlacklist": [],
     "preferredPlayer": "",
     "volumeFeedback": false,
@@ -761,7 +763,8 @@
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
     "generationMethod": "tonal-spot",
-    "monitorForColors": ""
+    "monitorForColors": "",
+    "syncGsettings": true
   },
   "templates": {
     "activeTemplates": [],
@@ -813,21 +816,43 @@
     "gridSnapScale": false,
     "monitorWidgets": [
       {
-        "name": "DP-3",
+        "name": "DP-1",
         "widgets": [
           {
-            "colorName": "primary",
-            "height": 70,
-            "hideWhenIdle": true,
-            "id": "AudioVisualizer",
-            "roundedCorners": true,
-            "scale": 0.5,
-            "showBackground": false,
-            "visualizerType": "linear",
-            "width": 2000,
-            "x": 773,
-            "y": -13
-          },
+            "barCount": 30,
+            "customHeight": 20,
+            "customPrimaryColor": "#6750a4",
+            "customSecondaryColor": "#625b71",
+            "customWidth": 640,
+            "defaultSettings": {
+              "barCount": 32,
+              "customHeight": 0,
+              "customPrimaryColor": "#6750A4",
+              "customSecondaryColor": "#625B71",
+              "customWidth": 0,
+              "direction": "up",
+              "fadeWhenIdle": true,
+              "fps": 60,
+              "mode": "bars",
+              "sensitivity": 1.5,
+              "smoothing": 0.18,
+              "useCustomColors": false,
+              "useGradient": true
+            },
+            "direction": "down",
+            "fadeWhenIdle": true,
+            "fps": 60,
+            "id": "plugin:deskvis",
+            "mode": "bars",
+            "scale": 1,
+            "sensitivity": 0.9,
+            "showBackground": true,
+            "smoothing": 0.02,
+            "useCustomColors": false,
+            "useGradient": true,
+            "x": 966,
+            "y": 12
+          }
           {
             "diskPath": "/",
             "id": "SystemStat",
