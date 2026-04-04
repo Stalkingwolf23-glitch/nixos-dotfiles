@@ -13,16 +13,15 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "DP-3" {
-    mode "1920x1080@179.998"
+output "Beihai Century Joint Innovation Technology Co.,Ltd PG270 PRO 0000000000000" {
+    mode "2560x1440@144.000"
     scale 1
     transform "normal"
-    variable-refresh-rate
     focus-at-startup
     position x=0 y=0
 }
 
-output "HDMI-A-2" {
+output "Samsung Electric Company C24F390 H4ZM600394" {
     mode "1920x1080@60.000"
     scale 1
     transform "normal"
@@ -190,7 +189,6 @@ window-open {
     }
     config-notification-open-close {
         spring damping-ratio=0.65 stiffness=923 epsilon=0.001
-    }
     screenshot-ui-open {
         duration-ms 200
         curve "ease-out-quad"
