@@ -1,6 +1,5 @@
 {
   imports = [
-    ./firewall.nix
     ./user.nix
   ];
 
@@ -13,4 +12,5 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   security.polkit.enable = true;
+  networking.firewall.enable = true;
 }
