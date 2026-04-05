@@ -53,18 +53,19 @@ layout {
     }
 
     border {
-        off
-
-        width 2
-        active-color "#fab387"
-        inactive-color "#1e1e2e"
-        urgent-color "#f38ba8"
+        on
+        width 0.5
+        active-color   "#FFFFFF50"
+        inactive-color "#FFFFFF15"
+        urgent-color   "#eb6f92"
     }
     shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#11111b"
+        on
+        softness 1
+        spread 1
+        offset x=0 y=0
+        draw-behind-window true
+        color "#111111CC"
     }
 
     struts {
