@@ -1,11 +1,15 @@
 {
   pkgs,
+  nix-cachyos-kernel,
   ...
 }:
 
 {
+  nixpkgs.overlays = [ nix-cachyos-kernel.overlays.default ];
+
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     consoleLogLevel = 0;
     loader = {
       grub = {
@@ -27,9 +31,9 @@
       "usb-storage"
     ];
     kernel.sysctl."kernel.sysrq" = 502;
-    boot.kernelParams = [
+    kernelParams = [
       "split_lock_detect=off"
-      "amdgpu.ppfeaturemask=0xfffd3fff"
+      "amdgpu.dcdebugmask=0x400"
     ];
   };
 }

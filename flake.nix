@@ -37,13 +37,13 @@
             inherit systemSettings;
             inherit userSettings;
             inherit inputs;
+            inherit nix-cachyos-kernel;
           };
 
           modules = [
             ./configuration.nix
             stylix.nixosModules.stylix
             {
-              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig // {
                 warn-dirty = false;
