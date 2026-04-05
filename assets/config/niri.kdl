@@ -1,5 +1,11 @@
 prefer-no-csd
 
+spawn-at-startup "noctalia-shell"
+spawn-sh-at-startup "steam -silent"
+spawn-sh-at-startup "vicinae server"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+
 input {
     keyboard {
         repeat-rate 35
@@ -30,6 +36,10 @@ output "Samsung Electric Company C24F390 H4ZM600394" {
 
 workspace "Games" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd PG270 PRO 0000000000000"
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
 }
 
 layout {
@@ -71,12 +81,6 @@ layout {
     struts {
     }
 }
-
-spawn-at-startup "noctalia-shell"
-spawn-sh-at-startup "steam -silent"
-spawn-sh-at-startup "vicinae server"
-spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
-spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
 hotkey-overlay {
     skip-at-startup
@@ -242,8 +246,6 @@ layer-rule {
     place-within-backdrop true
 }
 
-debug {
-    honor-xdg-activation-with-invalid-serial
 layer-rule {
   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
   background-effect {
