@@ -17,21 +17,21 @@
   services.dnscrypt-proxy = {
     enable = true;
     settings = {
-      sources.public-resolvers = {
-        urls = [
-          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
-          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
-        ];
-        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"; # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-        cache_file = "/var/lib/dnscrypt-proxy/public-resolvers.md";
-      };
+      # sources.public-resolvers = {
+      #   urls = [
+      #     "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+      #     "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+      #   ];
+      #   minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"; # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+      #   cache_file = "/var/lib/dnscrypt-proxy/public-resolvers.md";
+      # };
       ipv6_servers = true;
-      # block_ipv6 = true;
 
       require_dnssec = true;
       require_nolog = true;
       require_nofilter = false;
 
+      static."NextDNS-a33b83".stamp = "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2EzM2I4Mw";
       server_names = [ "NextDNS-a33b83" ];
     };
   };
