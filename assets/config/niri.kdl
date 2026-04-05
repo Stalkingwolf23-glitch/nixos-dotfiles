@@ -216,6 +216,7 @@ window-rule {
 window-rule {
     match app-id="zen"
     match app-id="equibop"
+    match title="Dolphin"
     open-maximized true
 }
 
