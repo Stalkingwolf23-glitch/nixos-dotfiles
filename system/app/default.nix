@@ -22,7 +22,6 @@
     home-manager
     wpa_supplicant
     nextdns
-    networkmanagerapplet
     ffmpeg
     killall
     egl-wayland
@@ -31,7 +30,6 @@
     catppuccin-papirus-folders
     app2unit
     deepfilternet
-    evtest
   ];
 
   programs.gamemode.enable = true;
