@@ -19,10 +19,6 @@
     inputs.hardware.nixosModules.common-pc-ssd
   ];
 
-  nixpkgs.overlays = [
-    (import ./overlays/python.nix) # Overlay to skip test temp until patched
-  ];
-
   # Environmental Variables
   environment.sessionVariables = {
     NH_FLAKE = "/home/${userSettings.username}/nixos";
@@ -35,8 +31,8 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
-    # XDG
   };
+
   # Optimization
   nix.optimise.automatic = true;
 
