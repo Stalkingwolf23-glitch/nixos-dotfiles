@@ -17,7 +17,7 @@
         hostname = "cocytus";
         timezone = "Asia/Singapore";
         locale = "en_SG.UTF-8";
-        gpuType = "nvidia";
+        gpuType = "amd";
       };
 
       userSettings = {
