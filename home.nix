@@ -5,14 +5,10 @@
     ./user/shell
     ./user/app
     ./user/style
-
-    # ./user/hardware/bluetooth.nix
-    ./user/hardware/pipewire.nix
   ];
 
   nixpkgs.overlays = [
     (import ./overlays/rgd.nix)
-    (import ./overlays/pyroveil.nix)
   ];
 
   home = {
