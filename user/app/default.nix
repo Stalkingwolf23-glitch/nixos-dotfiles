@@ -11,10 +11,8 @@
     ./zen.nix
     ./noctalia.nix
     ./xdg.nix
-    ./pyroveil.nix
 
     inputs.kickstart-nixvim.homeManagerModules.default
-
   ];
 
   home.packages = with pkgs; [
