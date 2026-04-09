@@ -1,11 +1,29 @@
+{ pkgs, ... }:
+
 {
   imports = [
-    ./wayland.nix
-    ./pipewire.nix
-    ./dbus.nix
     ./greetd.nix
     ./pipewire.nix
-    ./dbus.nix
     ./niri.nix
   ];
+
+  services.dbus = {
+    enable = true;
+    packages = [ pkgs.dconf ];
+  };
+
+  programs.dconf = {
+    enable = true;
+  };
+
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:escape";
+    };
+  };
+
+  services.libinput.enable = true;
 }
