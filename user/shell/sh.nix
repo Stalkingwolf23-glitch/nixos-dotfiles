@@ -62,6 +62,7 @@
       nixos = "z ~/local/nixos";
       games = "rgd list | fzf -d $'\t' --with-nth 1 | cut -d$'\t' -f2";
       lil = "steam-run /mnt/wd_linux/Stuff/Misc/.Games/LessonsInLove/LessonsInLove0.51.0.sh";
+      df = "duf";
     };
 
     initContent = ''

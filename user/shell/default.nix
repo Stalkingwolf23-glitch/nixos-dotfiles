@@ -33,6 +33,7 @@
     unrar
     rmpc
     rich-cli
+    duf
   ];
 
   programs.gallery-dl = {
