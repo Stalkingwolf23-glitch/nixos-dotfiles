@@ -9,7 +9,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     extraConfig = {
-      pipewire."99-deepfilternet.conf".text = builtins.toJSON {
+      pipewire."99-deepfilternet" = {
         "context.properties" = {
           "link.max-buffers" = 16;
           "core.daemon" = true;
@@ -39,7 +39,9 @@
               ];
               "audio.rate" = 48000;
               "audio.position" = "[MONO]";
-              "capture.props"."node.passive" = true;
+              # "capture.props"."node.passive" = true;
+              "capture.props"."target.object" =
+                "alsa_input.usb-Solid_State_System_Co._Ltd._MMX_150-00.mono-fallback";
               "playback.props"."media.class" = "Audio/Source";
             };
           }
