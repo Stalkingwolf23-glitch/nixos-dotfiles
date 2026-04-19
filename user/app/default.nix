@@ -11,7 +11,6 @@
     ./zen.nix
     ./noctalia.nix
     ./xdg.nix
-
     inputs.kickstart-nixvim.homeManagerModules.default
   ];
 
@@ -35,6 +34,7 @@
     zathura
     zsh
     qview
+    picard
   ];
 
   services.vicinae.enable = true;
