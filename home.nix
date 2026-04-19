@@ -29,6 +29,8 @@
   home.file.".config/fastfetch/fetch.jsonc".source = ./assets/config/fetch.jsonc;
   home.file.".local/share/avatars".recursive = true;
   home.file.".local/share/avatars".source = ./assets/avatars;
+  home.file.".config/rmpc".recursive = true;
+  home.file.".config/rmpc".source = ./assets/config/rmpc;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
