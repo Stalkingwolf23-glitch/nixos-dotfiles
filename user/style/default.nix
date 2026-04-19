@@ -27,7 +27,7 @@
           color: @dialog_fg_color;
         }
       '';
-      qt.platform = "qtct";
+      qt.platform = "kvantum";
     };
 
     icons = {
