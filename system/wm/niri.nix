@@ -10,8 +10,8 @@
 
   programs.niri = {
     enable = true;
-    # package = pkgs.niri-unstable;
-    package = inputs.niri-blur.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = pkgs.niri-unstable;
+    # package = inputs.niri-blur.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   xdg.portal = {

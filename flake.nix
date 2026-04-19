@@ -92,7 +92,7 @@
     hardware.url = "github:NixOS/nixos-hardware/master";
     vicinae.url = "github:vicinaehq/vicinae";
     niri-unstable.url = "github:YaLTeR/niri";
-    niri-blur.url = "github:niri-wm/niri/pull/3483/head";
+    # niri-blur.url = "github:niri-wm/niri/pull/3483/head";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     home-manager = {
@@ -116,8 +116,8 @@
     };
     niri = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
-      # inputs.niri-unstable.follows = "niri-unstable";
-      inputs.niri-unstable.follows = "niri-blur";
+      inputs.niri-unstable.follows = "niri-unstable";
+      # inputs.niri-unstable.follows = "niri-blur";
     };
   };
 }
