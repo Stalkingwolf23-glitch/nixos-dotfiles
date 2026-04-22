@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./greetd.nix
     ./pipewire.nix
     ./niri.nix
   ];
