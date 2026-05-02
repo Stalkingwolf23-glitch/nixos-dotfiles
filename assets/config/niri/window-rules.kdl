@@ -1,0 +1,58 @@
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="zen"
+    match app-id="equibop"
+    match title="Dolphin"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="steam_app_3513350"
+    open-fullscreen true
+}
+
+window-rule {
+    match app-id=r"steam_app_\d*"
+    match app-id="moe.launcher.the-honkers-railway-launcher"
+    open-on-workspace "Games"
+}
+
+window-rule {
+    match app-id="moe.launcher.the-honkers-railway-launcher"
+    open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    match app-id="zen"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+    background-effect {
+        xray false
+    }
+}

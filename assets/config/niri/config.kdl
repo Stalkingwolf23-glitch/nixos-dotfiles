@@ -1,0 +1,8 @@
+include "~/.config/niri/animations.kdl"
+include "~/.config/niri/outputs.kdl"
+include "~/.config/niri/layouts.kdl"
+include "~/.config/niri/window-rules.kdl"
+include "~/.config/niri/binds.kdl"
+include "~/.config/niri/inputs.kdl"
+include "~/.config/niri/blur.kdl"
+include "~/.config/niri/misc.kdl"

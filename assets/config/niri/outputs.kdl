@@ -1,0 +1,18 @@
+output "DP-1" {
+    mode "2560x1440@180.002"
+    scale 1
+    transform "normal"
+    focus-at-startup
+    position x=0 y=0
+}
+
+output "HDMI-A-2" {
+    mode "2560x1440@144.002"
+    scale 1
+    transform "normal"
+    position x=2560 y=0
+}
+
+workspace "Games" {
+    open-on-output "DP-1"
+}
