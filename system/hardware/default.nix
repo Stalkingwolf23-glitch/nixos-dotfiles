@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./network.nix
-    ./time.nix
+    ./drives.nix
+    ./keyboard.nix
   ];
 
   services.earlyoom.enable = true;
@@ -41,12 +41,4 @@
   };
 
   hardware.enableRedistributableFirmware = true;
-
-  services.lact.enable = true; # AMD OC
-  hardware.amdgpu = {
-    overdrive = {
-      enable = true;
-    };
-    initrd.enable = true;
-  };
 }
