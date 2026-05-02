@@ -7,7 +7,6 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
     extraConfig = {
       pipewire."99-deepfilternet" = {
         "context.properties" = {
@@ -55,28 +54,13 @@
             44100
             48000
           ];
-          "default.clock.quantum" = 1024;
-          "default.clock.min-quantum" = 512;
+          "default.clock.quantum" = 2048;
+          "default.clock.min-quantum" = 1024;
         };
       };
 
-      pipewire."20-pebble-v3" = {
-        "context.objects" = [
-          {
-            factory = "spa-node-factory";
-            args = {
-              "factory.name" = "api.alsa.pcm.sink";
-              "node.name" = "alsa_output.usb-ACTIONS_Pebble_V3-00.pro-output-0";
-              "api.alsa.period-size" = 512;
-              "api.alsa.headroom" = 512;
-            };
-          }
-        ];
-      };
     };
   };
-  environment.systemPackages = with pkgs; [ deepfilternet ];
-
   systemd.user.services.pipewire = {
     serviceConfig = {
       Environment = "LADSPA_PATH=${pkgs.deepfilternet}/lib/ladspa";
