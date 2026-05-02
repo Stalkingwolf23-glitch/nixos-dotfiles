@@ -21,6 +21,7 @@
       neovim.enable = false;
       noctalia-shell.enable = false;
       vicinae.enable = false;
+      hyprland.enable = false;
 
       gtk.extraCss = ''
         .dialog-action-area > .text-button {
@@ -40,11 +41,12 @@
       light = "Papirus-Light";
     };
 
-    cursor = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
-      size = 28;
-    };
+    # Disabled until stylix stops rebuilding shit
+    # cursor = {
+    #   name = "catppuccin-mocha-dark-cursors";
+    #   package = pkgs.catppuccin-cursors.mochaDark;
+    #   size = 28;
+    # };
 
     fonts = {
       serif = {
@@ -61,5 +63,13 @@
       };
     };
   };
+
   fonts.fontconfig.enable = true;
+
+  home.pointerCursor = {
+    name = "catppuccin-mocha-dark-cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 28;
+    gtk.enable = true;
+  };
 }
