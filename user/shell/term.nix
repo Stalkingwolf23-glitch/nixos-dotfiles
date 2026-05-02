@@ -6,7 +6,7 @@
 
     settings = {
       background_blur = 5;
-      background_opacity = lib.mkForce "0.9";
+      background_opacity = lib.mkForce "0.5";
 
       cursor_trail = "1";
 
