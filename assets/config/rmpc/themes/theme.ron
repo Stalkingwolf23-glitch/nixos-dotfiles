@@ -168,7 +168,7 @@
         )),
         "title": Pane(Property(
             content: [
-                (kind: Property(Song(Title)), style: (fg: "magenta", modifiers: "Bold"),
+                (kind: Property(Song(Title)), style: (fg: "white", modifiers: "Bold"),
                     default: (kind: Text(" No Song Playling "), style: (modifiers: "Bold"))),
             ], align: Center, scroll_speed: 1
         )),
@@ -196,7 +196,7 @@
                 (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
                     default: (kind: Text("Unknown Artist"), style: (fg: "yellow", modifiers: "Bold"))),
                 (kind: Text(" 󰓇 ")),
-                (kind: Property(Song(Album)), default: (kind: Text("Unknown Album")), style: (fg: "blue")),
+                (kind: Property(Song(Album)), default: (kind: Text("Unknown Album")), style: (fg: "white")),
             ], align: Center, scroll_speed: 1
         )),
         "states": Split(
