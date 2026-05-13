@@ -19,7 +19,7 @@
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.ark
-    libsForQt5.kservice
+    kdePackages.kservice
     kdePackages.qt6ct
     icoutils
   ];
