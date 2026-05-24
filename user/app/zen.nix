@@ -45,9 +45,6 @@ in
     package = (config.lib.nixGL.wrap ((pkgs.wrapFirefox) custom-zen { }));
 
     profiles."default" = {
-      userChrome = ''
-        ${builtins.readFile ../../assets/zen/userChrome.css}
-      '';
       userContent = ''
         ${builtins.readFile ../../assets/zen/userContent.css}
       '';

@@ -34,8 +34,5 @@
       mSurfaceVariant = "#181825";
       mTertiary = "#94e2d5";
     };
-    settings = ''
-      ${builtins.readFile ../../assets/config/noctalia.json}
-    '';
   };
 }

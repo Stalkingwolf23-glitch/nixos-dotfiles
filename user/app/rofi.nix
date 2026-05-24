@@ -28,8 +28,4 @@
     title = "Tabletop Simulator"
     hide = true
   '';
-
-  home.file.".config/rofi/".recursive = true;
-  home.file.".config/rofi/".source = ../../assets/config/rofi;
-  home.file.".local/bin/rofi-games.sh".source = ../../assets/config/game-launcher.sh;
 }
