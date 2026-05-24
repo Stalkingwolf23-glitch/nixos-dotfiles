@@ -15,6 +15,7 @@
     ./system/security
     ./system/style
     ./system/app
+    ./system/core
 
     inputs.hardware.nixosModules.common-pc-ssd
   ];
