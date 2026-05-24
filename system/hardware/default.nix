@@ -14,8 +14,7 @@
   services.journald.rateLimitBurst = 500;
   services.journald.rateLimitInterval = "30s";
 
-  hardware.bluetooth.enable = false;
-  services.blueman.enable = false;
+  hardware.bluetooth.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
 
