@@ -33,6 +33,7 @@
     unrar
     rmpc
     rich-cli
+    jq
     duf
   ];
 

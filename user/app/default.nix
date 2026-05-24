@@ -29,7 +29,7 @@
     rgd
     xwayland-satellite
     # moonlight-qt # Just for streaming from laptop when needed
-    (pkgs.equibop.override { electron = pkgs.electron_40; })
+    equibop
     wlr-randr
     polkit_gnome
     pamixer
@@ -46,6 +46,7 @@
     zsh
     qview
     picard
+    evtest
   ];
 
   services.vicinae.enable = true;
