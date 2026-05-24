@@ -40,6 +40,11 @@ window-rule {
     }
 }
 
+window-rule {
+    match title="Dolphin"
+    block-out-from "screencast"
+}
+
 layer-rule {
     match namespace="^noctalia-overview*"
     place-within-backdrop true
