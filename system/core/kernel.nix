@@ -10,32 +10,42 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     loader = {
-      grub = {
-        enable = false;
-        device = "/dev/vda";
-        useOSProber = true;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        configurationLimit = 10;
       };
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
+      timeout = 0;
     };
-    initrd.kernelModules = [
-      "ahci"
-      "xhci_pci"
-      "amdgpu"
-    ];
+    plymouth = {
+      enable = true;
+    };
+
+    initrd = {
+      verbose = false;
+      kernelModules = [
+        "ahci"
+        "xhci_pci"
+        "amdgpu"
+      ];
+    };
     kernelModules = [
       "sr_mod"
       "usb-storage"
     ];
     kernel.sysctl."kernel.sysrq" = 502;
     kernelParams = [
+      "quiet"
+      "splash"
+      "udev.log_priority=3"
+      "systemd.show_status=auto"
       "split_lock_detect=off"
-      "amdgpu.dcdebugmask=0x400"
-      "video=DP-1:2560x1440@144"
-      "video=HDMI-A-2:1920x1080@60"
+      "boot.shell_on_fail"
+      "rd.systemd.show_status=auto"
     ];
   };
 
