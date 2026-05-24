@@ -37,7 +37,7 @@
   home.file.".config/rmpc".recursive = true;
   home.file.".config/rmpc".source = ./assets/config/rmpc;
 
-  home.file.".config/zen/userChrome.css".source =
+  home.file.".config/zen/default/chrome/userChrome.css".source =
     config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/zen/userChrome.css";
 
   home.file.".config/noctalia/settings.json".source =
