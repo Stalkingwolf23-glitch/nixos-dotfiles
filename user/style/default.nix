@@ -41,12 +41,11 @@
       light = "Papirus-Light";
     };
 
-    # Disabled until stylix stops rebuilding shit
-    # cursor = {
-    #   name = "catppuccin-mocha-dark-cursors";
-    #   package = pkgs.catppuccin-cursors.mochaDark;
-    #   size = 28;
-    # };
+    cursor = {
+      name = "volantes_dark_cursors";
+      package = pkgs.volantes-cursors;
+      size = 28;
+    };
 
     fonts = {
       serif = {
@@ -65,11 +64,4 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  home.pointerCursor = {
-    name = "catppuccin-mocha-dark-cursors";
-    package = pkgs.catppuccin-cursors.mochaDark;
-    size = 28;
-    gtk.enable = true;
-  };
 }
