@@ -113,13 +113,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia-shell/v5";
     };
     niri = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";
-      # inputs.niri-unstable.follows = "niri-blur";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
