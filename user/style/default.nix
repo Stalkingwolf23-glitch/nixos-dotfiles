@@ -42,7 +42,7 @@
     };
 
     cursor = {
-      name = "volantes_dark_cursors";
+      name = "volantes_cursors";
       package = pkgs.volantes-cursors;
       size = 28;
     };
