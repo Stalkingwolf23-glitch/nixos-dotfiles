@@ -7,7 +7,6 @@
       zen-browser,
       stylix,
       aagl,
-      vicinae,
       nix-cachyos-kernel,
       ...
     }:
@@ -51,14 +50,12 @@
                   "https://ezkea.cachix.org"
                   "https://attic.xuyh0120.win/lantian"
                   "https://niri-nix.cachix.org"
-                  "https://vicinae.cachix.org"
                   "https://noctalia.cachix.org"
                 ];
                 extra-trusted-public-keys = (aagl.nixConfig.extra-trusted-public-keys or [ ]) ++ [
                   "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
                   "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
                   "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
-                  "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
                   "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
                 ];
               };
@@ -74,7 +71,6 @@
           modules = [
             ./home.nix
             stylix.homeModules.stylix
-            vicinae.homeManagerModules.default
           ];
           extraSpecialArgs = {
             inherit systemSettings;
@@ -90,7 +86,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     kickstart-nixvim.url = "path:/home/stalkingwolf/local/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    vicinae.url = "github:vicinaehq/vicinae";
     niri-unstable.url = "github:YaLTeR/niri";
     # niri-blur.url = "github:niri-wm/niri/pull/3483/head";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";

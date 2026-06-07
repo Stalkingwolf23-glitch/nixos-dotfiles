@@ -49,7 +49,6 @@
     evtest
   ];
 
-  services.vicinae.enable = true;
   programs.lutris.enable = true;
   programs.nixvim.enable = true;
 }
