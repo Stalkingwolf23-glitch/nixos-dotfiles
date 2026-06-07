@@ -45,4 +45,5 @@
 
   programs.lutris.enable = true;
   programs.nixvim.enable = true;
+  programs.nix-index-database.comma.enable = true;
 }
