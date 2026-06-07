@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./niri.nix
-  ];
-
   services.dbus = {
     enable = true;
     packages = [ pkgs.dconf ];

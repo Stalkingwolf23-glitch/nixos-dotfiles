@@ -6,12 +6,6 @@
 
 {
   imports = [
-    ./dolphin.nix
-    ./rofi.nix
-    ./zen.nix
-    ./noctalia.nix
-    ./xdg.nix
-    ./mangohud.nix
     inputs.kickstart-nixvim.homeManagerModules.default
   ];
 

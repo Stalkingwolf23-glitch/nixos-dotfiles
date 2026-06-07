@@ -2,20 +2,16 @@
   pkgs,
   userSettings,
   inputs,
+  recursivelyImport,
   ...
 }:
 
 {
-  imports = [
+  imports = recursivelyImport [
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
 
-    ./system/hardware
-    ./system/wm
-    ./system/security
-    ./system/style
-    ./system/app
-    ./system/core
+    ./system
 
     inputs.hardware.nixosModules.common-pc-ssd
   ];

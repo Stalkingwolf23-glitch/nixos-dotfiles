@@ -1,10 +1,5 @@
 { pkgs, lib, ... }:
 {
-  imports = [
-    ./drives.nix
-    ./keyboard.nix
-  ];
-
   services.earlyoom.enable = true;
   services.earlyoom.freeSwapThreshold = 2;
   services.earlyoom.freeMemThreshold = 2;

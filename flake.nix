@@ -8,6 +8,7 @@
       stylix,
       aagl,
       nix-cachyos-kernel,
+      nix-index-database,
       ...
     }:
     let
@@ -28,6 +29,9 @@
         terminal = "kitty";
       };
 
+      lib = inputs.nixpkgs.lib;
+      recursivelyImport = import ./lib/recursivelyImport.nix { inherit lib; };
+
     in
     {
       nixosConfigurations = {
@@ -37,6 +41,7 @@
             inherit userSettings;
             inherit inputs;
             inherit nix-cachyos-kernel;
+            inherit recursivelyImport;
           };
 
           modules = [
@@ -71,12 +76,14 @@
           modules = [
             ./home.nix
             stylix.homeModules.stylix
+            nix-index-database.homeModules.default
           ];
           extraSpecialArgs = {
             inherit systemSettings;
             inherit userSettings;
             inherit inputs;
             inherit zen-browser;
+            inherit recursivelyImport;
           };
         };
       };
@@ -113,6 +120,9 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";
       # inputs.niri-unstable.follows = "niri-blur";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
