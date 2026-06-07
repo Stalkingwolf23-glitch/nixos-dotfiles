@@ -48,18 +48,4 @@
       "rd.systemd.show_status=auto"
     ];
   };
-
-  systemd.packages = [
-    (pkgs.callPackage ../app/pkgs/dmemcg-booster.nix { })
-  ];
-
-  systemd.services.dmemcg-booster-system = {
-    overrideStrategy = "asDropin";
-    wantedBy = [ "multi-user.target" ];
-  };
-
-  systemd.user.services.dmemcg-booster-user = {
-    overrideStrategy = "asDropin";
-    wantedBy = [ "graphical-session-pre.target" ];
-  };
 }
