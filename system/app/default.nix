@@ -39,4 +39,7 @@
   programs.zsh.enable = true;
 
   programs.dconf.enable = true;
+
+  # Add ~/.local/bin to PATH
+  environment.localBinInPath = true;
 }

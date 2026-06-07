@@ -47,12 +47,6 @@
 
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
-  # Add ~/.local/bin to PATH
-  environment.localBinInPath = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # It is ok to leave this unchanged for compatibility purposes
   system.stateVersion = "26.05"; # Did you read the comment? Did you?
 }
