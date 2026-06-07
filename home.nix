@@ -1,10 +1,13 @@
-{ userSettings, config, ... }:
+{
+  userSettings,
+  config,
+  recursivelyImport,
+  ...
+}:
 
 {
-  imports = [
-    ./user/shell
-    ./user/app
-    ./user/style
+  imports = recursivelyImport [
+    ./user
   ];
 
   nixpkgs.overlays = [
