@@ -30,13 +30,6 @@
     catppuccin-papirus-folders
     app2unit
     deepfilternet
-    comma
-
-    (pkgs.callPackage ./pkgs/dmemcg-booster.nix { })
-    (pkgs.callPackage ./pkgs/plasma-foreground-booster.nix {
-      kcgroups = pkgs.callPackage ./pkgs/kcgroups.nix { };
-    })
-    (pkgs.callPackage ./pkgs/kcgroups.nix { }) # not sure if this one is needed...
   ];
 
   programs.gamemode.enable = true;
