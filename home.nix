@@ -27,6 +27,9 @@
 
   # home.file.".config/niri".recursive = true;
   # home.file.".config/niri".source = ./assets/config/niri;
+  home.file.".config/noctalia/palettes/CatppuccinBlue.json".source =
+    ./assets/config/noctalia/palettes/CatppuccinBlue.json;
+  home.file.".config/noctalia/noctalia-settings.toml".source = ./assets/config/noctalia/noctalia.toml;
 
   home.file.".config/equibop/themes".recursive = true;
   home.file.".config/equibop/themes".source = ./assets/config/vesktop;
@@ -42,9 +45,6 @@
 
   home.file.".config/zen/default/chrome/userChrome.css".source =
     config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/zen/userChrome.css";
-
-  home.file.".config/noctalia/settings.json".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/noctalia.json";
 
   home.file.".config/rofi".recursive = true;
   home.file.".config/rofi".source = ./assets/config/rofi;

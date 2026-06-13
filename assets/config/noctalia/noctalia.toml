@@ -1,0 +1,295 @@
+[backdrop]
+blur_intensity = 0.0
+tint_intensity = 0.0
+
+[bar.default]
+attach_panels = false
+background_opacity = 0.80000001192092896
+center = []
+end = []
+margin_edge = 5
+padding = 20
+start = []
+
+    [bar.default.monitor.DP-1]
+    center = [ "audio_visualizer", "clock", "audio_visualizer" ]
+    end = [ "media", "volume", "input_volume", "tray" ]
+    start = [ "control-center", "workspaces", "cat" ]
+
+    [bar.default.monitor.HDMI-A-2]
+    enabled = false
+
+    [[bar.default.capsule_group]]
+    fill = "on_surface_variant"
+    id = "g1"
+    members = [ "cpu", "clock", "ram" ]
+    opacity = 1.0
+    padding = 6.0
+
+[control_center]
+sidebar_section = "none"
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "suspend" ]
+pre_action_fade_seconds = 30
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660
+
+    [idle.behavior.suspend]
+    action = "suspend"
+    enabled = true
+    lock_before_suspend = true
+    timeout = 900
+
+[location]
+address = "Singapore, Singapore"
+auto_locate = true
+
+[lockscreen]
+blur_intensity = 0.0
+monitors = [ "DP-1" ]
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 1
+widget_order = [
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@HDMI-A-2",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000001"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    cx = 1280.0
+    cy = 1317.0
+    output = "DP-1"
+    rotation = 0.0
+    scale = 1.0
+    type = "login_box"
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
+    cx = 1280.0
+    cy = 1317.0
+    output = "HDMI-A-2"
+    rotation = 0.0
+    scale = 1.0
+    type = "login_box"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    cx = 1301.3602294921875
+    cy = 1324.43994140625
+    output = "DP-1"
+    rotation = 0.0
+    scale = 3.108069896697998
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        aspect_ratio = 6.0
+        background = false
+        bands = 40.0
+        centered = false
+        mirrored = true
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    cx = 1289.5
+    cy = 253.0
+    output = "DP-1"
+    rotation = 0.0
+    scale = 1.3571428060531616
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+
+[noctalia_state]
+setup_wizard_completed = true
+
+[notification]
+layer = "overlay"
+monitors = [ "DP-1" ]
+scale = 0.69999999999999996
+
+[osd]
+keyboard_layout = false
+lock_keys = false
+position = "bottom_center"
+
+[plugins]
+enabled = [ "noctalia/bongocat" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+[shell]
+avatar_path = "/home/stalkingwolf/nervi-mornye-far.jpg"
+font_family = "Maple Mono"
+niri_overview_type_to_launch_enabled = true
+offline_mode = true
+polkit_agent = true
+settings_show_advanced = true
+telemetry_enabled = true
+ui_scale = 1.2
+
+    [shell.panel]
+    control_center_placement = "centered"
+    session_placement = "centered"
+    transparency_mode = "soft"
+    wallpaper_placement = "centered"
+
+    [shell.screen_corners]
+    enabled = true
+
+    [shell.screenshot]
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    enabled = true
+    shortcut = "l"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    enabled = true
+    shortcut = "m"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "suspend"
+    enabled = true
+    shortcut = "Ctrl+s"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    enabled = true
+    shortcut = "r"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    enabled = true
+    shortcut = "s"
+    variant = "destructive"
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Catppuccin Lavender"
+custom_palette = "CatppuccinBlue"
+source = "custom"
+wallpaper_scheme = "Ayu"
+
+    [theme.templates]
+    enable_builtin_templates = false
+    enable_community_templates = false
+
+[wallpaper]
+directory = "/home/stalkingwolf/Pictures/Wallpapers"
+fill_color = "#1E1E2E"
+per_monitor_directories = true
+
+    [wallpaper.automation]
+    enabled = true
+    interval_minutes = 10
+
+    [wallpaper.default]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/124052785_p0.png"
+
+    [wallpaper.last]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/129092625_p0.jpg"
+
+    [wallpaper.monitor.DP-1]
+    directory = "/home/stalkingwolf/Pictures/Wallpapers"
+
+    [wallpaper.monitor.HDMI-A-2]
+    directory = "/home/stalkingwolf/Pictures/Wallpapers"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_yxppyl.jpg"
+
+    [wallpaper.monitors.HDMI-A-2]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/129092625_p0.jpg"
+
+[weather]
+address = "Singapore, Singapore"
+
+[widget.bongocat]
+audio_spectrum = true
+input_device = ""
+script = "scripts/bongocat.lua"
+tappy_mode = true
+type = "scripted"
+use_mpris_filter = true
+
+[widget.cat]
+input_device = "/dev/input/event2"
+scale = 1.1000000000000001
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+anchor = true
+capsule = false
+color = "primary"
+
+[widget.control-center]
+custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg"
+
+[widget.cpu]
+show_label = false
+
+[widget.input_volume]
+color = "on_surface"
+show_label = false
+
+[widget.media]
+anchor = false
+max_length = 100.0
+
+[widget.ram]
+show_label = false
+
+[widget.tray]
+drawer = true
+match_adjacent_spacing = true
+
+[widget.volume]
+color = "on_surface"
+show_label = false
+
+[widget.workspaces]
+capsule_radius = 8
+display = "none"
+hide_when_empty = true
