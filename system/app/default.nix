@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     wineWow64Packages.staging
     winetricks
-    protonup-qt
+    protonplus
     protontricks
     gamemode
 
