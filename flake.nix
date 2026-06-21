@@ -94,7 +94,6 @@
     kickstart-nixvim.url = "path:/home/stalkingwolf/local/kickstart.nixvim/";
     hardware.url = "github:NixOS/nixos-hardware/master";
     niri-unstable.url = "github:YaLTeR/niri";
-    # niri-blur.url = "github:niri-wm/niri/pull/3483/head";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     home-manager = {
