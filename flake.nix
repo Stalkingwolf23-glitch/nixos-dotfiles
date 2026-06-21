@@ -114,6 +114,9 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia";
     };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+    };
     niri = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";

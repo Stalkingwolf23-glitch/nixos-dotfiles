@@ -1,19 +1,39 @@
 {
+  systemSettings,
+  inputs,
   pkgs,
   ...
 }:
 
+let
+  noctalia-greeter = inputs.noctalia-greeter.packages.${systemSettings.system}.default;
+  # greeterConf = pkgs.writeText "greeter.conf" ''
+  #   output = "DP-1"
+  #   default_session = niri
+  #   scheme = "tokyo-night"
+  # '';
+in
 {
   services.greetd = {
     enable = true;
     useTextGreeter = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --remember --user-menu --asterisks --time --theme 'text=white;prompt=white;time=white;action=gray;container=black;input=lightgray' --cmd 'niri-session'";
+        command = "${noctalia-greeter}/bin/noctalia-greeter-session -- --session niri";
         user = "greeter";
+      };
+      cursor = {
+        theme = "Bibata-Modern-Classic";
+        size = 24;
+        package = pkgs.bibata-cursors;
       };
     };
   };
 
   security.pam.services.greetd.enableGnomeKeyring = true;
+
+  # systemd.tmpfiles.rules = [
+  #   "d /var/lib/noctalia-greeter 0755 greeter greeter -"
+  #   "L+ /var/lib/noctalia-greeter/greeter.conf - - - - ${greeterConf}"
+  # ];
 }

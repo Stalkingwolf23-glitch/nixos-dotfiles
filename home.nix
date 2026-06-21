@@ -25,8 +25,25 @@
     XDG_DESKTOP_DIR = "$HOME";
   '';
 
-  # home.file.".config/niri".recursive = true;
-  # home.file.".config/niri".source = ./assets/config/niri;
+  home.file.".config/niri/animations.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/animations.kdl";
+  home.file.".config/niri/binds.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/binds.kdl";
+  home.file.".config/niri/blur.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/blur.kdl";
+  home.file.".config/niri/config.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/config.kdl";
+  home.file.".config/niri/inputs.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/inputs.kdl";
+  home.file.".config/niri/layouts.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/layouts.kdl";
+  home.file.".config/niri/misc.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/misc.kdl";
+  home.file.".config/niri/outputs.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/outputs.kdl";
+  home.file.".config/niri/window-rules.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/assets/config/niri/window-rules.kdl";
+
   home.file.".config/noctalia/palettes/CatppuccinBlue.json".source =
     ./assets/config/noctalia/palettes/CatppuccinBlue.json;
   home.file.".config/noctalia/noctalia-settings.toml".source = ./assets/config/noctalia/noctalia.toml;
