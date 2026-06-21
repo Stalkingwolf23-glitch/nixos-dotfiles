@@ -13,7 +13,7 @@ let
     email = "stalkingwolf@cocytus.me";
   };
 
-  recursivelyImport = import ../lib/recursivelyImport.nix { lib = inputs.nixpkgs.lib; };
+  recursivelyImport = import ./lib/recursivelyImport.nix { lib = inputs.nixpkgs.lib; };
 
   commonArgs = {
     inherit
