@@ -13,12 +13,12 @@
       "application/pak" = "org.kde.ark.desktop";
 
       # Images
-      "image/jpeg" = "com.interversehq.qView.desktop";
-      "image/png" = "com.interversehq.qView.desktop";
-      "image/tiff" = "com.interversehq.qView.desktop";
-      "image/bmp" = "com.interversehq.qView.desktop";
-      "image/svg+xml" = "com.interversehq.qView.desktop";
-      "image/avif" = "com.interversehq.qView.desktop";
+      "image/jpeg" = "qimgv.desktop";
+      "image/png" = "qimgv.desktop";
+      "image/tiff" = "qimgv.desktop";
+      "image/bmp" = "qimgv.desktop";
+      "image/svg+xml" = "qimgv.desktop";
+      "image/avif" = "qimgv.desktop";
 
       # Audio
       "audio/mpeg" = "rmpc.desktop";

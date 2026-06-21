@@ -38,7 +38,7 @@
     steamtinkerlaunch
     zathura
     zsh
-    qview
+    qimgv
     picard
     evtest
   ];
