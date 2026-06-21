@@ -1,6 +1,5 @@
 {
   pkgs,
-  userSettings,
   inputs,
   recursivelyImport,
   ...
@@ -18,7 +17,6 @@
 
   # Environmental Variables
   environment.sessionVariables = {
-    NH_FLAKE = "/home/${userSettings.username}/nixos";
     NIXOS_OZONE_WL = "1";
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
     EDITOR = "nvim";
