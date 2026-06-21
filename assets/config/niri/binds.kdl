@@ -1,18 +1,19 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Return { spawn-sh "noctalia msg panel-toggle control-center"; }
 
     Mod+T repeat=false hotkey-overlay-title="Kitty" { spawn "kitty"; }
-    Mod+A repeat=false hotkey-overlay-title="Vicinae" { spawn "vicinae" "toggle"; }
-    Mod+Ctrl+L hotkey-overlay-title="Lockscreen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-    Mod+G hotkey-overlay-title="Game Launcher" { spawn-sh "rofi -modi games:rofi-games.sh -show games -show-icons -theme games-smaller -kb-custom-1 'Control+Shift+space'"; }
+    Mod+A repeat=false hotkey-overlay-title="Vicinae" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Ctrl+L hotkey-overlay-title="Lockscreen" { spawn-sh "noctalia msg session lock"; }
+    Mod+G hotkey-overlay-title="Game Launcher" { spawn-sh "rofi -modi games:game-launcher.sh -show games -show-icons -theme games-smaller -kb-custom-1 'Control+Shift+space'"; }
     Mod+D hotkey-overlay-title="Discord" { spawn "equibop"; }
-    Mod+B hotkey-overlay-title="Zen" { spawn "zen-beta"; }
-    Mod+Shift+N repeat=false hotkey-overlay-title="Dolphin" { spawn "dolphin"; }
-    Mod+V hotkey-overlay-title="Clipboard Manager" { spawn-sh "vicinae vicinae://launch/clipboard/history"; }
-    Mod+Slash hotkey-overlay-title="Keybinds" { spawn-sh "noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
+    Mod+B hotkey-overlay-title="Zen" { spawn "run-or-cycle.sh" "zen-beta" "zen-beta"; }
+    Mod+Shift+N repeat=false hotkey-overlay-title="Dolphin" { spawn "run-or-cycle.sh" "org.kde.dolphin" "dolphin"; }
+    Mod+V hotkey-overlay-title="Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
 
-    Mod+Shift+W hotkey-overlay-title="Wallpaper Manager" { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
-    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Shift+W hotkey-overlay-title="Wallpaper Manager" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
+
 
     XF86AudioRaiseVolume hotkey-overlay-title="Increase Volume" allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume hotkey-overlay-title="Derease Volume" allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -51,7 +52,7 @@ binds {
     Mod+Shift+Home { move-column-to-first; }
     Mod+Shift+End  { move-column-to-last; }
     
-    Mod+grave { focus-monitor-next; }
+    Mod+Tab { focus-monitor-next; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -129,10 +130,6 @@ binds {
     Mod+M { maximize-window-to-edges; }
 
     Mod+Ctrl+F { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
-
-    Mod+Shift+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
