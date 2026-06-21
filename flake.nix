@@ -52,10 +52,10 @@
               nix.settings = aagl.nixConfig // {
                 warn-dirty = false;
                 extra-substituters = (aagl.nixConfig.extra-substituters or [ ]) ++ [
-                  "https://ezkea.cachix.org"
-                  "https://attic.xuyh0120.win/lantian"
-                  "https://niri-nix.cachix.org"
-                  "https://noctalia.cachix.org"
+                  "https://ezkea.cachix.org" # AAGL cache
+                  "https://attic.xuyh0120.win/lantian" # cachy kernel cache
+                  "https://niri-nix.cachix.org" # niri-nix cache
+                  "https://noctalia.cachix.org" # noctalia cache
                 ];
                 extra-trusted-public-keys = (aagl.nixConfig.extra-trusted-public-keys or [ ]) ++ [
                   "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
