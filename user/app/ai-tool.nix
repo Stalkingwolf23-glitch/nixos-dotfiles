@@ -1,15 +1,20 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  program.claude-code = {
+  programs.claude-code = {
     enable = true;
-    settings.mcpServers.nixos = {
-      command = "nix";
-      args = [
-        "run"
-        "github:utensils/mcp-nixos"
-        "--"
-      ];
+    mcpServers = {
+      nixos = {
+        type = "stdio";
+        command = "nix";
+        args = [
+          "run"
+          "github:utensils/mcp-nixos"
+          "--"
+        ];
+      };
     };
   };
+
+  home.packages = [ pkgs.mcp-nixos ];
 }
