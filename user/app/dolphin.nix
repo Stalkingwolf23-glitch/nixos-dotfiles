@@ -21,6 +21,7 @@
     kdePackages.ark
     kdePackages.kservice
     kdePackages.qt6ct
+    kdePackages.filelight
     icoutils
   ];
 
