@@ -28,6 +28,8 @@
 
   programs.gamemode.enable = true;
 
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   recursivelyImport,
   ...
@@ -38,8 +37,6 @@
       "flakes"
     ];
   };
-
-  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   # It is ok to leave this unchanged for compatibility purposes
   system.stateVersion = "26.05"; # Did you read the comment? Did you?
