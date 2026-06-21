@@ -12,11 +12,11 @@
 
     profiles."default" = {
       userContent = ''
-        ${builtins.readFile ../../../assets/zen/userContent.css}
+        ${builtins.readFile ../../assets/zen/userContent.css}
       '';
 
       extraConfig = ''
-        ${builtins.readFile ../../../assets/zen/user.js}
+        ${builtins.readFile ../../assets/zen/user.js}
       '';
 
       settings = {
