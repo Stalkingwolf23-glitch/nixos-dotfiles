@@ -42,9 +42,9 @@
     };
 
     cursor = {
-      name = "volantes_cursors";
-      package = pkgs.volantes-cursors;
-      size = 28;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
     };
 
     fonts = {
