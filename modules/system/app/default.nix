@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -24,6 +24,7 @@
     catppuccin-papirus-folders
     app2unit
     deepfilternet
+    inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.gamemode.enable = true;
