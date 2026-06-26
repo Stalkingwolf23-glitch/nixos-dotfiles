@@ -1,5 +1,6 @@
 {
   systemSettings,
+  userSettings,
   inputs,
   pkgs,
   ...
@@ -7,11 +8,19 @@
 
 let
   noctalia-greeter = inputs.noctalia-greeter.packages.${systemSettings.system}.default;
-  # greeterConf = pkgs.writeText "greeter.conf" ''
-  #   output = "DP-1"
-  #   default_session = niri
-  #   scheme = "tokyo-night"
-  # '';
+  greeterConf = pkgs.writeText "greeter.conf" ''
+    [session] 
+    default = "niri"
+
+    [user]
+    default = "${userSettings.username}"
+
+    [output]
+    name = "DP-1"
+
+    [appearance]
+    scheme = "Tokyo-Night"
+  '';
 in
 {
   services.greetd = {
@@ -32,8 +41,8 @@ in
 
   security.pam.services.greetd.enableGnomeKeyring = true;
 
-  # systemd.tmpfiles.rules = [
-  #   "d /var/lib/noctalia-greeter 0755 greeter greeter -"
-  #   "L+ /var/lib/noctalia-greeter/greeter.conf - - - - ${greeterConf}"
-  # ];
+  systemd.tmpfiles.rules = [
+    "d /var/lib/noctalia-greeter 0755 greeter greeter -"
+    "L+ /var/lib/noctalia-greeter/greeter.conf - - - - ${greeterConf}"
+  ];
 }
