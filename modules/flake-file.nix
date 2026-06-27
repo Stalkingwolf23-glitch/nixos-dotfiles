@@ -36,6 +36,7 @@
     nixpkgs = [
       "nixpkgs"
       "noctalia"
+      "nixvim"
     ];
     niri-unstable = [ "niri-unstable" ];
     flake-parts = [ "flake-parts" ];
