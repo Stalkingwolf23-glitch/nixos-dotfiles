@@ -13,7 +13,4 @@
         ./modules/outputs.nix
       ];
     };
-
-  inputs = {
-  };
 }
