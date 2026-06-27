@@ -8,7 +8,6 @@
     flake-file.url = "github:denful/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     tack.url = "github:manic-systems/tack";
-    import-tree.url = "github:vic/import-tree";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     kickstart-nixvim.url = "github:Stalkingwolf23-glitch/kickstart.nixvim";
