@@ -6,7 +6,6 @@ Personal NixOS + Home Manager configuration, managed with flakes.
 
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-5277C3?style=flat-square&logo=nixos&logoColor=white)](https://nixos.org)
 [![Niri](https://img.shields.io/badge/Compositor-niri-8caaee?style=flat-square)](https://github.com/YaLTeR/niri)
-[![Theme](https://img.shields.io/badge/Theme-Catppuccin%20Mocha-c6a0f6?style=flat-square)](https://github.com/catppuccin/catppuccin)
 [![Flakes](https://img.shields.io/badge/Nix-Flakes-a6d189?style=flat-square&logo=nixos&logoColor=white)](https://nixos.wiki/wiki/Flakes)
 
 </div>
@@ -80,6 +79,5 @@ nh clean all
 | `niri` / `niri-unstable` | compositor (BANanaD3V/niri-nix + YaLTeR/niri) |
 | `nix-cachyos-kernel` | pinned CachyOS kernel overlay |
 | `zen-browser` | Zen browser (beta channel) |
-| `aagl` | anime game launchers (Genshin / HSR) |
 | `noctalia` / `noctalia-greeter` | custom shell and greeter |
 | `kickstart-nixvim` | local nixvim config |
