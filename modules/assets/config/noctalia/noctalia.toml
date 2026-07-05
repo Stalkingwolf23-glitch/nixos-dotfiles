@@ -99,6 +99,9 @@ sidebar_section = "none"
     [[control_center.shortcuts]]
     type = "power_profile"
 
+[dock]
+monitors = [ "DP-1" ]
+
 [idle]
 behavior_order = [ "lock", "screen-off", "suspend" ]
 pre_action_fade_seconds = 30
@@ -120,14 +123,14 @@ pre_action_fade_seconds = 30
     timeout = 900
 
 [keybinds]
-down = [ "Ctrl+j" ]
-left = [ "Ctrl+h" ]
-right = [ "Ctrl+l" ]
-up = [ "Ctrl+k" ]
+down = [ "Ctrl+j", "Down" ]
+left = [ "Ctrl+h", "Left" ]
+right = [ "Ctrl+l", "Right" ]
+up = [ "Ctrl+k", "Up" ]
 
 [location]
 address = "Singapore"
-auto_locate = false
+auto_locate = true
 
 [lockscreen]
 blur_intensity = 0.0
@@ -221,7 +224,7 @@ monitors = [ "DP-1" ]
 position = "bottom_center"
 
 [plugins]
-enabled = [ "noctalia/bongocat", "noctalia/translator" ]
+enabled = [ "noctalia/bongocat", "noctalia/translator", "noctalia/mpvpaper", "noctalia/wallhaven" ]
 
     [[plugins.source]]
     kind = "git"
@@ -246,12 +249,18 @@ settings_show_advanced = true
 telemetry_enabled = true
 ui_scale = 1.2
 
+    [shell.launcher]
+    compact = true
+
     [shell.panel]
-    control_center_placement = "centered"
+    control_center_placement = "floating"
+    control_center_position = "center"
     launcher_categories = false
-    session_placement = "centered"
+    session_placement = "floating"
+    session_position = "center"
     transparency_mode = "soft"
-    wallpaper_placement = "centered"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
 
     [shell.screen_corners]
     enabled = true
@@ -293,8 +302,9 @@ ui_scale = 1.2
 builtin = "Catppuccin"
 community_palette = "Catppuccin Lavender"
 custom_palette = "CatppuccinBlue"
+mode = "dark"
 source = "custom"
-wallpaper_scheme = "Ayu"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     enable_builtin_templates = false
@@ -304,16 +314,17 @@ wallpaper_scheme = "Ayu"
 directory = "/home/stalkingwolf/Pictures/Wallpapers"
 fill_color = "#1E1E2E"
 per_monitor_directories = true
+transition_on_startup = true
 
     [wallpaper.automation]
     enabled = true
     interval_minutes = 10
 
     [wallpaper.default]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/b5048cb088b946e608e65724a873cc352011343.jpg"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/135206306_p0.png"
 
     [wallpaper.last]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/136182205_p0.jpg"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/media_HA8It-bb0AAN3zY.jpg"
 
     [wallpaper.monitor.DP-1]
     directory = "/home/stalkingwolf/Pictures/Wallpapers"
@@ -322,14 +333,14 @@ per_monitor_directories = true
     directory = "/home/stalkingwolf/Pictures/Wallpapers"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_9ozew1.jpg"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/media_HA8It-bb0AAN3zY.jpg"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/136182205_p0.jpg"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/129183437_p0.jpg"
 
 [weather]
 address = "Singapore, Singapore"
-enabled = false
+enabled = true
 refresh_minutes = 5
 
 [widget.Control_Center]
