@@ -30,16 +30,16 @@
       "audio/opus" = "rmpc.desktop";
 
       # Text
-      "text/plain" = "nvim.desktop";
-      "text/markdown" = "nvim.desktop";
-      "text/csv" = "nvim.desktop";
-      "text/xml" = "nvim.desktop";
-      "text/yaml" = "nvim.desktop";
-      "application/json" = "nvim.desktop";
-      "application/toml" = "nvim.desktop";
-      "application/xml" = "nvim.desktop";
-      "application/javascript" = "nvim.desktop";
-      "application/x-shellscript" = "nvim.desktop";
+      "text/plain" = "helix.desktop";
+      "text/markdown" = "helix.desktop";
+      "text/csv" = "helix.desktop";
+      "text/xml" = "helix.desktop";
+      "text/yaml" = "helix.desktop";
+      "application/json" = "helix.desktop";
+      "application/toml" = "helix.desktop";
+      "application/xml" = "helix.desktop";
+      "application/javascript" = "helix.desktop";
+      "application/x-shellscript" = "helix.desktop";
 
       # Browser
       "text/html" = "zen-beta.desktop";

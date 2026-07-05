@@ -22,7 +22,7 @@
   home.packages = with pkgs; [
     rgd
     xwayland-satellite
-    # moonlight-qt # Just for streaming from laptop when needed
+    moonlight-qt # Just for streaming from laptop when needed
     equibop
     wlr-randr
     polkit_gnome
@@ -45,8 +45,8 @@
 
   programs.lutris.enable = true;
   programs.nix-index-database.comma.enable = true;
-  programs.nixvim = {
-    enable = true;
-    nixpkgs.source = inputs.nixpkgs;
-  };
+  # programs.nixvim = {
+  #   enable = true;
+  #   nixpkgs.source = inputs.nixpkgs;
+  # };
 }
