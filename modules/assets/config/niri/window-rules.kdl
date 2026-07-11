@@ -18,6 +18,7 @@ window-rule {
 window-rule {
     match app-id=r"steam_app_\d*"
     match app-id="moe.launcher.the-honkers-railway-launcher"
+    match app-id="gamescope"
     open-on-workspace "Games"
 }
 
