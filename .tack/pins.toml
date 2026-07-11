@@ -19,6 +19,10 @@ url = "github:denful/flake-file"
 [inputs.flake-parts]
 url = "github:hercules-ci/flake-parts"
 
+[inputs.gallery-dl]
+url = "git+https://codeberg.org/mikf/gallery-dl"
+type = "fetch"
+
 [inputs.hardware]
 url = "github:NixOS/nixos-hardware/master"
 

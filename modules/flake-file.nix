@@ -27,6 +27,9 @@
       inputs.niri-unstable.follows = "niri-unstable";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
+    gallery-dl = {
+      url = "git+https://codeberg.org/mikf/gallery-dl";
+      flake = false;
   };
 
   flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
