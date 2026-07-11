@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wineWow64Packages.staging
+    (wineWow64Packages.staging.override { netapiSupport = true; })
     winetricks
     protonplus
     protontricks
