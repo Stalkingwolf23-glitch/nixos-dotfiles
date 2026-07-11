@@ -1,4 +1,5 @@
 {
+  inputs,
   userSettings,
   config,
   recursivelyImport,
@@ -11,7 +12,8 @@
   ];
 
   nixpkgs.overlays = [
-    (import ./overlays/rgd.nix)
+    (import ./overlays/rgd.nix inputs)
+    (import ./overlays/gallery-dl.nix inputs)
   ];
 
   home = {
