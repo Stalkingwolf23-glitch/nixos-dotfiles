@@ -7,7 +7,7 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
-    EDITOR = "hx";
+    EDITOR = "nvim";
     APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
     # QT
     QT_STYLE_OVERRIDE = "kvantum";

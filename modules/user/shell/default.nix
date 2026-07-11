@@ -1,9 +1,14 @@
 {
+  inputs,
   pkgs,
   ...
 }:
 
 {
+  imports = [
+    inputs.kickstart-nixvim.homeManagerModules.default
+  ];
+
   home.packages = with pkgs; [
     git
     gallery-dl
@@ -23,6 +28,7 @@
     rmpc
     rich-cli
     jq
+    playerctl
     duf
   ];
 
@@ -36,4 +42,11 @@
   programs.fastfetch = {
     enable = true;
   };
+
+  programs.nixvim = {
+    enable = true;
+    nixpkgs.source = inputs.nixpkgs;
+  };
+
+  programs.nix-index-database.comma.enable = true;
 }

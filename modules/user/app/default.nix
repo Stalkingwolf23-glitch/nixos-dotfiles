@@ -1,14 +1,9 @@
 {
-  inputs,
   pkgs,
   ...
 }:
 
 {
-  imports = [
-    inputs.kickstart-nixvim.homeManagerModules.default
-  ];
-
   nixpkgs.overlays = [
     # Skipping tests while upstream sorts it out, revert once
     # Hydra consistently builds openldap green.
@@ -22,7 +17,7 @@
   home.packages = with pkgs; [
     rgd
     xwayland-satellite
-    moonlight-qt # Just for streaming from laptop when needed
+    # moonlight-qt # Just for streaming from laptop when needed
     equibop
     wlr-randr
     polkit_gnome
@@ -44,9 +39,4 @@
   ];
 
   programs.lutris.enable = true;
-  programs.nix-index-database.comma.enable = true;
-  # programs.nixvim = {
-  #   enable = true;
-  #   nixpkgs.source = inputs.nixpkgs;
-  # };
 }
