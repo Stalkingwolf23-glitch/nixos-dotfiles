@@ -30,6 +30,10 @@
     gallery-dl = {
       url = "git+https://codeberg.org/mikf/gallery-dl";
       flake = false;
+    };
+    rgd = {
+      url = "github:Rolv-Apneseth/rgd";
+      flake = false;
   };
 
   flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;

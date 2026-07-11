@@ -57,6 +57,10 @@ url = "github:noctalia-dev/noctalia/cachix"
 [inputs.noctalia-greeter]
 url = "github:noctalia-dev/noctalia-greeter"
 
+[inputs.rgd]
+url = "github:Rolv-Apneseth/rgd"
+type = "fetch"
+
 [inputs.stylix]
 url = "github:danth/stylix"
 
