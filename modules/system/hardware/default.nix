@@ -11,6 +11,8 @@
 
   hardware.bluetooth.enable = true;
 
+  services.fstrim.enable = true;
+
   powerManagement.cpuFreqGovernor = "performance";
 
   services.udev.extraRules =

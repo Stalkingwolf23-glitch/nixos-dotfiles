@@ -23,9 +23,6 @@ url = "github:hercules-ci/flake-parts"
 url = "git+https://codeberg.org/mikf/gallery-dl"
 type = "fetch"
 
-[inputs.hardware]
-url = "github:NixOS/nixos-hardware/master"
-
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
 

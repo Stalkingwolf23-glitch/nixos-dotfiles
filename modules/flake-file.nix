@@ -10,7 +10,6 @@
     tack.url = "github:manic-systems/tack";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";

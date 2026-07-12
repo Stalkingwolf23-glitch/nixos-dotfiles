@@ -1,5 +1,4 @@
 {
-  inputs,
   recursivelyImport,
   flakeInputs,
   ...
@@ -13,7 +12,6 @@
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
     ./system
-    inputs.hardware.nixosModules.common-pc-ssd
   ];
 
   # Optimization
