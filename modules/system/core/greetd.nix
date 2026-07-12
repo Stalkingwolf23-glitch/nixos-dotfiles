@@ -23,6 +23,7 @@ let
   '';
 in
 {
+  flake-file.inputs.noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
   services.greetd = {
     enable = true;
     useTextGreeter = true;

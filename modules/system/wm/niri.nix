@@ -5,6 +5,14 @@
 }:
 
 {
+  flake-file.inputs = {
+    niri-unstable.url = "githubLYaLTeR/niri";
+    niri = {
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+      inputs.niri-unstable.follows = "niri-unstable";
+    };
+  };
+
   imports = [ inputs.niri.nixosModules.default ];
   nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
 

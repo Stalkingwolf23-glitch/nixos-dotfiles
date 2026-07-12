@@ -1,11 +1,15 @@
 {
   inputs,
   recursivelyImport,
+  flakeInputs,
   ...
 }:
 
 {
-  imports = recursivelyImport [
+  imports = [
+    flakeInputs
+  ]
+  ++ recursivelyImport [
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
     ./system

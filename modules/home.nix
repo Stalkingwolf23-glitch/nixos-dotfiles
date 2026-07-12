@@ -2,14 +2,16 @@
   inputs,
   userSettings,
   config,
+  flakeInputs,
   recursivelyImport,
   ...
 }:
 
 {
-  imports = recursivelyImport [
-    ./user
-  ];
+  imports = [
+    flakeInputs
+  ]
+  ++ recursivelyImport [ ./user ];
 
   nixpkgs.overlays = [
     (import ./overlays/rgd.nix inputs)

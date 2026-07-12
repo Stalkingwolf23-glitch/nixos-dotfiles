@@ -14,6 +14,7 @@ let
   };
 
   recursivelyImport = import ./lib/recursivelyImport.nix { lib = inputs.nixpkgs.lib; };
+  flakeInputs = import ./lib/flakeInputs.nix { lib = inputs.nixpkgs.lib; };
 
   commonArgs = {
     inherit
@@ -21,6 +22,7 @@ let
       userSettings
       inputs
       recursivelyImport
+      flakeInputs
       ;
   };
 in
