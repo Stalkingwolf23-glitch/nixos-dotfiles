@@ -5,7 +5,7 @@
 }:
 
 {
-  flake-files.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+  flake-file.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
 
   boot = {
