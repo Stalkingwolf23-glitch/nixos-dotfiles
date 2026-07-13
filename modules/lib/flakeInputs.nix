@@ -11,6 +11,8 @@
       Flake inputs declared next to the config that consumes them.
       Harvested by modules/flake-file.nix into the real flake input list.
       Inert here — this module tree does not act on it.
+
+      Authored by Claude Code
     '';
   };
 }
