@@ -6,12 +6,17 @@
 
 {
   flake-file.inputs = {
-    niri-unstable.url = "githubLYaLTeR/niri";
+    niri-unstable.url = "github:YaLTeR/niri";
     niri = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";
     };
   };
+
+  nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
+  nix.settings.extra-trusted-public-keys = [
+    "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
+  ];
 
   imports = [ inputs.niri.nixosModules.default ];
   nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
