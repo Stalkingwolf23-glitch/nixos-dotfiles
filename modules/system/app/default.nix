@@ -25,6 +25,7 @@
     app2unit
     deepfilternet
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.write-tack
   ];
 
   programs.gamemode.enable = true;
@@ -39,4 +40,28 @@
 
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
+
+  documentation = {
+    enable = false;
+
+    dev = {
+      enable = false;
+    };
+
+    doc = {
+      enable = false;
+    };
+
+    info = {
+      enable = false;
+    };
+
+    man = {
+      enable = false;
+    };
+
+    nixos = {
+      enable = false;
+    };
+  };
 }
