@@ -70,13 +70,13 @@
 
     plugins = {
       "smart-enter" = pkgs.yaziPlugins.smart-enter;
-      "wl-clipboard" = pkgs.yaziPlugins.wl-clipboard;
+      "clipboard" = pkgs.yaziPlugins.clipboard;
       "yatline" = pkgs.yaziPlugins.yatline;
       "yatline-catppuccin" = pkgs.yaziPlugins.yatline-catppuccin;
       "yatline-githead" = pkgs.yaziPlugins.yatline-githead;
       "rich-preview" = pkgs.yaziPlugins.rich-preview;
       "restore" = pkgs.yaziPlugins.restore;
-      "recycle-bin" = pkgs.yaziPlugins.recycle-bin;
+      "omni-trash" = pkgs.yaziPlugins.omni-trash;
       "full-border" = pkgs.yaziPlugins.full-border;
       "gitui" = pkgs.yaziPlugins.gitui;
     };
@@ -172,9 +172,6 @@
         untracked_color = "blue",
         untracked_symbol = "?",
       })
-      require("recycle-bin"):setup({
-        trash_dir = "~/.local/share/Trash/"
-      })
     '';
 
     keymap = {
@@ -186,9 +183,25 @@
             desc = "Enter child directory or open file";
           }
           {
-            on = "<C-y>";
-            run = "plugin wl-clipboard";
-            desc = "Copies file to system clipboard as well";
+            on = "y";
+            run = [
+              "yank"
+              "plugin clipboard -- --action=copy"
+            ];
+            desc = "Yank selected files (copy)";
+          }
+          {
+            on = "x";
+            run = [
+              "yank --cut"
+              "plugin clipboard -- --action=copy"
+            ];
+            desc = "Yank selected files (cut)";
+          }
+          {
+            on = "<C-p>";
+            run = "plugin clipboard -- --action=paste";
+            desc = "Paste yanked system clipboard files";
           }
           {
             on = [
@@ -220,44 +233,9 @@
             desc = "Restore last deleted file/folder";
           }
           {
-            on = [
-              "R"
-              "o"
-            ];
-            run = "plugin recycle-bin -- open";
+            on = "R";
+            run = "plugin omni-trash";
             desc = "Open Trash";
-          }
-          {
-            on = [
-              "R"
-              "e"
-            ];
-            run = "plugin recycle-bin -- empty";
-            desc = "Empty Trash";
-          }
-          {
-            on = [
-              "R"
-              "D"
-            ];
-            run = "plugin recycle-bin -- emptyDays";
-            desc = "Empty by days deleted";
-          }
-          {
-            on = [
-              "R"
-              "d"
-            ];
-            run = "plugin recycle-bin -- delete";
-            desc = "Delete from Trash";
-          }
-          {
-            on = [
-              "R"
-              "r"
-            ];
-            run = "plugin recycle-bin -- restore";
-            desc = "Restore from Trash";
           }
         ];
       };
