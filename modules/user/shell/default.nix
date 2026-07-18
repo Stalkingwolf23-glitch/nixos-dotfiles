@@ -32,6 +32,7 @@
     jq
     playerctl
     duf
+    nix-search-tv
   ];
 
   programs.fastfetch = {
