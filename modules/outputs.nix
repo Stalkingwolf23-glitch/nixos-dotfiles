@@ -32,7 +32,6 @@ in
       specialArgs = commonArgs;
       modules = [
         ./configuration.nix
-        inputs.stylix.nixosModules.stylix
         { nix.settings.warn-dirty = false; }
       ];
     };
