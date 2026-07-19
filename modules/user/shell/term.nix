@@ -1,12 +1,11 @@
-{ lib, ... }:
-
 {
   programs.kitty = {
     enable = true;
+    themeFile = "Catppuccin-Mocha";
 
     settings = {
       background_blur = 5;
-      background_opacity = lib.mkForce "0.5";
+      background_opacity = "0.5";
 
       cursor_trail = "1";
 
@@ -14,6 +13,7 @@
       tab_powerline_style = "angled";
       tab_bar_min_tabs = 2;
       active_tab_font_style = "bold";
+      active_tab_background = "#89b4fa";
       inactive_tab_font_style = "bold";
 
       tab_title_template = "{index}: {title}";

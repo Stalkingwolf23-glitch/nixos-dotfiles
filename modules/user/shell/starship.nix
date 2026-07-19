@@ -80,6 +80,17 @@
         disabled = true;
         format = "[ $all_status$ahead_behind ]($style)";
       };
+
+      palette = "catppuccin_mocha";
+      palettes.catppuccin_mocha = {
+        arrow = "#b4befe"; # lavender
+        blue = "#89b4fa";
+        red = "#f38ba8";
+        orange = "#fab387"; # peach
+        time = "#94e2d5"; # teal
+        duration = "#f9e2af"; # yellow
+        text_color = "#cdd6f4"; # text
+      };
     };
   };
 }

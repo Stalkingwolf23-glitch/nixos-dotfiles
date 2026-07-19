@@ -33,9 +33,124 @@
     [General]
     TerminalApplication=kitty
     MenuOpacity=100
+    ColorScheme=CatppuccinMocha
 
     [Icons]
-    Theme=Papirus
+    Theme=Papirus-Dark
+  '';
+
+  xdg.dataFile."color-schemes/CatppuccinMocha.colors".text = ''
+    [General]
+    Name=Catppuccin Mocha
+    ColorScheme=CatppuccinMocha
+
+    [ColorEffects:Disabled]
+    ColorEffect=0
+    ColorAmount=0
+    ContrastEffect=1
+    ContrastAmount=0.5
+    IntensityEffect=0
+    IntensityAmount=0
+
+    [ColorEffects:Inactive]
+    ColorEffect=0
+    ColorAmount=0
+    ContrastEffect=1
+    ContrastAmount=0.5
+    IntensityEffect=0
+    IntensityAmount=0
+
+    [Colors:Window]
+    BackgroundNormal=30,30,46
+    BackgroundAlternate=49,50,68
+    ForegroundNormal=205,214,244
+    ForegroundInactive=205,214,244
+    ForegroundActive=205,214,244
+    ForegroundLink=205,214,244
+    ForegroundVisited=205,214,244
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [Colors:View]
+    BackgroundNormal=30,30,46
+    BackgroundAlternate=49,50,68
+    ForegroundNormal=205,214,244
+    ForegroundInactive=205,214,244
+    ForegroundActive=205,214,244
+    ForegroundLink=205,214,244
+    ForegroundVisited=205,214,244
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [Colors:Button]
+    BackgroundNormal=30,30,46
+    BackgroundAlternate=49,50,68
+    ForegroundNormal=205,214,244
+    ForegroundInactive=205,214,244
+    ForegroundActive=205,214,244
+    ForegroundLink=205,214,244
+    ForegroundVisited=205,214,244
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [Colors:Tooltip]
+    BackgroundNormal=30,30,46
+    BackgroundAlternate=49,50,68
+    ForegroundNormal=205,214,244
+    ForegroundInactive=205,214,244
+    ForegroundActive=205,214,244
+    ForegroundLink=205,214,244
+    ForegroundVisited=205,214,244
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [Colors:Complementary]
+    BackgroundNormal=30,30,46
+    BackgroundAlternate=49,50,68
+    ForegroundNormal=205,214,244
+    ForegroundInactive=205,214,244
+    ForegroundActive=205,214,244
+    ForegroundLink=205,214,244
+    ForegroundVisited=205,214,244
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [Colors:Selection]
+    BackgroundNormal=137,180,250
+    BackgroundAlternate=137,180,250
+    ForegroundNormal=30,30,46
+    ForegroundInactive=30,30,46
+    ForegroundActive=30,30,46
+    ForegroundLink=30,30,46
+    ForegroundVisited=30,30,46
+    ForegroundNegative=243,139,168
+    ForegroundNeutral=137,180,250
+    ForegroundPositive=166,227,161
+    DecorationFocus=137,180,250
+    DecorationHover=137,180,250
+
+    [WM]
+    activeBlend=249,226,175
+    activeBackground=30,30,46
+    activeForeground=205,214,244
+    inactiveBlend=108,112,134
+    inactiveBackground=30,30,46
+    inactiveForeground=205,214,244
   '';
 
   xdg.configFile."menus/applications.menu".text = ''
@@ -478,5 +593,8 @@
 
     [MainWindow]
     MenuBar=Disabled
+
+    [UiSettings]
+    ColorScheme=CatppuccinMocha
   '';
 }

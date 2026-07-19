@@ -1,7 +1,4 @@
-{
-  userSettings,
-  ...
-}:
+{ userSettings, pkgs, ... }:
 
 {
   home.sessionVariables = {
@@ -14,6 +11,8 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_PLUGIN_PATH = "${pkgs.kdePackages.qt6ct}/lib/qt-6/plugins";
   };
 
   xdg.userDirs = {
