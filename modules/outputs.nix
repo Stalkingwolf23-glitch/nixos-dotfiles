@@ -42,7 +42,6 @@ in
       pkgs = inputs.nixpkgs.legacyPackages.${systemSettings.system};
       modules = [
         ./home.nix
-        inputs.stylix.homeModules.stylix
         inputs.nix-index-database.homeModules.default
       ];
       extraSpecialArgs = commonArgs;
