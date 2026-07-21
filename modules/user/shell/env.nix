@@ -13,6 +13,7 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_PLUGIN_PATH = "${pkgs.kdePackages.qt6ct}/lib/qt-6/plugins";
+    TACK_NIX_CONF_TOKENS = "1";
   };
 
   xdg.userDirs = {
