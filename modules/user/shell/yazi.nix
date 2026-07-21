@@ -78,7 +78,7 @@
       "restore" = pkgs.yaziPlugins.restore;
       "omni-trash" = pkgs.yaziPlugins.omni-trash;
       "full-border" = pkgs.yaziPlugins.full-border;
-      "gitui" = pkgs.yaziPlugins.gitui;
+      "lazygit" = pkgs.yaziPlugins.lazygit;
     };
 
     initLua = ''
@@ -224,8 +224,8 @@
               "g"
               "i"
             ];
-            run = "plugin gitui";
-            desc = "Opens gitui";
+            run = "plugin lazygit";
+            desc = "Opens lazygit";
           }
           {
             on = "u";

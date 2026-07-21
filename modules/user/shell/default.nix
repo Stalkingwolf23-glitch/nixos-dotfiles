@@ -33,6 +33,7 @@
     playerctl
     duf
     nix-search-tv
+    lazygit
   ];
 
   programs.fastfetch = {
