@@ -67,5 +67,8 @@ url = "github:danth/stylix"
 [inputs.tack]
 url = "github:manic-systems/tack"
 
+[inputs.waytator]
+url = "github:ItsLemmy/waytator"
+
 [inputs.zen-browser]
 url = "github:0xc000022070/zen-browser-flake/beta"
