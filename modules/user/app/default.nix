@@ -1,12 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
-  flake-file.inputs.waytator.url = "github:ItsLemmy/waytator";
-
   nixpkgs.overlays = [
     # Skipping tests while upstream sorts it out, revert once
     # Hydra consistently builds openldap green.
@@ -23,7 +17,6 @@
     # moonlight-qt # Just for streaming from laptop when needed
     equibop
     wlr-randr
-    polkit_gnome
     pamixer
     pavucontrol
     wl-clipboard
@@ -39,8 +32,6 @@
     qimgv
     picard
     evtest
-
-    inputs.waytator.packages.${pkgs.system}.default
   ];
 
   programs.lutris.enable = true;
