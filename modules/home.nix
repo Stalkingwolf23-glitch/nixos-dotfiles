@@ -30,9 +30,7 @@
       source = config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/modules/assets/config/niri";
     };
 
-    ".config/noctalia/palettes/CatppuccinBlue.json".source =
-      ./assets/config/noctalia/palettes/CatppuccinBlue.json;
-    ".config/noctalia/noctalia-settings.toml".source = ./assets/config/noctalia/noctalia.toml;
+    ".config/noctalia-settings.toml".source = ./assets/config/noctalia.toml;
 
     ".config/equibop/themes" = {
       recursive = true;
