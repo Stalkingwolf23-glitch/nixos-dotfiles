@@ -1,4 +1,8 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [ inputs.flake-file.flakeModules.tack ];
 
@@ -14,6 +18,7 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
   }
+  # Allow modularity for flake-file inputs by merging the list together
   // config.flake.homeConfigurations.stalkingwolf.config.flake-file.inputs
   // config.flake.nixosConfigurations.cocytus.config.flake-file.inputs;
 
@@ -23,6 +28,7 @@
     nixpkgs = [
       "nixpkgs"
       "noctalia"
+      "aagl"
       "nixvim"
     ];
     niri-unstable = [ "niri-unstable" ];
