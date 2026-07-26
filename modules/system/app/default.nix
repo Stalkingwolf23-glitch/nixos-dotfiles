@@ -25,7 +25,6 @@
     app2unit
     deepfilternet
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.write-tack
   ];
 
   programs.gamemode.enable = true;
