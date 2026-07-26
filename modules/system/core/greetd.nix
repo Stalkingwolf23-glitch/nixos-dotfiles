@@ -8,7 +8,7 @@
 
 let
   noctalia-greeter = inputs.noctalia-greeter.packages.${systemSettings.system}.default;
-  greeterConf = pkgs.writeText "greeter.conf" ''
+  greeterConf = pkgs.writeText "greeter.toml" ''
     [session] 
     default = "niri"
 
@@ -24,6 +24,7 @@ let
 in
 {
   flake-file.inputs.noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+
   services.greetd = {
     enable = true;
     useTextGreeter = true;
@@ -36,6 +37,7 @@ in
         theme = "Bibata-Modern-Classic";
         size = 24;
         package = pkgs.bibata-cursors;
+        path = "${pkgs.bibata-cursors}/share/icons";
       };
     };
   };
@@ -44,6 +46,6 @@ in
 
   systemd.tmpfiles.rules = [
     "d /var/lib/noctalia-greeter 0755 greeter greeter -"
-    "L+ /var/lib/noctalia-greeter/greeter.conf - - - - ${greeterConf}"
+    "L+ /var/lib/noctalia-greeter/greeter.toml - - - - ${greeterConf}"
   ];
 }
