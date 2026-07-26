@@ -37,9 +37,6 @@
       source = ./assets/config/vesktop;
     };
 
-    ".config/fastfetch/compact.jsonc".source = ./assets/config/compact.jsonc;
-    ".config/fastfetch/fetch.jsonc".source = ./assets/config/fetch.jsonc;
-
     ".local/share/avatars" = {
       recursive = true;
       source = ./assets/avatars;

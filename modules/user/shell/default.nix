@@ -35,9 +35,5 @@
     lazygit
   ];
 
-  programs.fastfetch = {
-    enable = true;
-  };
-
   programs.nix-index-database.comma.enable = true;
 }
