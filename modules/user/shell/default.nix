@@ -27,7 +27,6 @@
     scrcpy
     btop
     unrar
-    rmpc
     rich-cli
     jq
     playerctl

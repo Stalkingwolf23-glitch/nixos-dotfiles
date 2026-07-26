@@ -47,11 +47,6 @@
       source = ./assets/avatars;
     };
 
-    ".config/rmpc" = {
-      recursive = true;
-      source = ./assets/config/rmpc;
-    };
-
     ".config/zen/default/chrome/userChrome.css".source =
       config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/modules/assets/zen/userChrome.css";
 
