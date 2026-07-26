@@ -151,8 +151,10 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Mod+Shift+S { screenshot; }
+    Alt+Shift+S { spawn-sh "swash.sh"; }
     Print { screenshot-screen; }
     Mod+Print { screenshot-window; }
+    Alt+Print { spawn-sh "swash-screen.sh"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

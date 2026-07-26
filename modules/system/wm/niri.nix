@@ -11,6 +11,7 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";
     };
+    niri-screenshare.url = "github:pantarune/niri-screenshare";
   };
 
   nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
@@ -18,7 +19,7 @@
     "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
   ];
 
-  imports = [ inputs.niri.nixosModules.default ];
+  imports = [ inputs.niri.nixosModules.niri-nix ];
   nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
 
   programs.niri = {
@@ -31,10 +32,11 @@
     xdgOpenUsePortal = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
+      inputs.niri-screenshare.packages.${pkgs.system}.default
     ];
     config = {
-      common.default = [ "gnome" ];
+      common.default = [ "gtk" ];
+      common."org.freedesktop.impl.portal.ScreenCast" = [ "niri" ];
     };
   };
 }

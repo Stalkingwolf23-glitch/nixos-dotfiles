@@ -46,6 +46,11 @@ window-rule {
     block-out-from "screencast"
 }
 
+window-rule {
+    match app-id=r#"^dev\.faetalize\.waytator$"#
+    open-floating true
+}
+
 layer-rule {
     match namespace="^noctalia-wallpaper*"
     place-within-backdrop true
