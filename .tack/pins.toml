@@ -13,6 +13,14 @@ nixvim = ["nixvim"]
 [inputs.aagl]
 url = "github:ezKEa/aagl-gtk-on-nix"
 
+[inputs.betterfox]
+url = "github:yokoffing/Betterfox"
+type = "fetch"
+
+[inputs.firefox-addons]
+url = "gitlab:rycee/nur-expressions"
+dir="pkgs/firefox-addons"
+
 [inputs.flake-file]
 url = "github:denful/flake-file"
 

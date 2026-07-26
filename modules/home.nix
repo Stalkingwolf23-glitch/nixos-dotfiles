@@ -45,9 +45,6 @@
       source = ./assets/avatars;
     };
 
-    ".config/zen/default/chrome/userChrome.css".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${userSettings.username}/local/nixos/modules/assets/zen/userChrome.css";
-
     ".config/rofi" = {
       recursive = true;
       source = ./assets/config/rofi;
