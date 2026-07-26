@@ -36,4 +36,5 @@
   ];
 
   programs.nix-index-database.comma.enable = true;
+  programs.btop.enable = true;
 }
