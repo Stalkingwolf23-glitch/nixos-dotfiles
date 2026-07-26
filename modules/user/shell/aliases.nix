@@ -16,5 +16,6 @@
     home = "z ~/local/nixos && git add $(git ls-files --others --exclude-standard) && nh home switch";
     os = "z ~/local/nixos && git add $(git ls-files --others --exclude-standard) && nh os switch";
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
+    clean = "nh clean all --keep 5 --optimise";
   };
 }
