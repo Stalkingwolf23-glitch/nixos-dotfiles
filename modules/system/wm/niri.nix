@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  systemSettings,
   ...
 }:
 
@@ -32,7 +33,7 @@
     xdgOpenUsePortal = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      inputs.niri-screenshare.packages.${pkgs.system}.default
+      inputs.niri-screenshare.packages.${systemSettings.system}.default
     ];
     config = {
       common.default = [ "gtk" ];
