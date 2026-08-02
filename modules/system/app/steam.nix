@@ -12,11 +12,6 @@
     };
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   programs.gamescope = {
     enable = true;
     capSysNice = false;
