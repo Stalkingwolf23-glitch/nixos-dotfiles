@@ -42,11 +42,6 @@
       source = ./assets/avatars;
     };
 
-    ".config/rofi" = {
-      recursive = true;
-      source = ./assets/config/rofi;
-    };
-
     ".local/bin" = {
       recursive = true;
       source = ./assets/config/scripts;
