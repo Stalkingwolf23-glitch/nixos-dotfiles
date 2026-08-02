@@ -5,25 +5,16 @@
     enable = true;
     colorScheme = "dark";
     theme = {
-      name = "Colloid-Dark-Compact-Catppuccin";
-      package = pkgs.colloid-gtk-theme.override {
-        themeVariants = [ "default" ];
-        colorVariants = [ "dark" ];
-        sizeVariants = [ "compact" ];
-        tweaks = [ "catppuccin" ];
-      };
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
     };
 
     gtk4 = {
       theme = {
-        name = "Colloid-Dark-Compact-Catppuccin";
-        package = pkgs.colloid-gtk-theme.override {
-          themeVariants = [ "default" ];
-          colorVariants = [ "dark" ];
-          sizeVariants = [ "compact" ];
-          tweaks = [ "catppuccin" ];
-        };
+        name = "adw-gtk3-dark";
+        package = pkgs.adw-gtk3;
       };
+      extraCss = ''@import url("noctalia.css");'';
     };
 
     iconTheme = {

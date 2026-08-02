@@ -6,6 +6,7 @@
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
     EDITOR = "nvim";
     APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
+    GTK_THEME = "adw-gtk3-dark";
     # QT
     QT_STYLE_OVERRIDE = "kvantum";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
