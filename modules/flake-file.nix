@@ -16,7 +16,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
-    stylix.url = "github:danth/stylix";
   }
   # Allow modularity for flake-file inputs by merging the list together
   // config.flake.homeConfigurations.stalkingwolf.config.flake-file.inputs
