@@ -1,8 +1,13 @@
 { pkgs, inputs, ... }:
 
 {
+  nix.settings.extra-substituters = [ "https://nix-gaming.cachix.org" ];
+  nix.settings.extra-trusted-public-keys = [
+    "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+  ];
+
   environment.systemPackages = with pkgs; [
-    (wineWow64Packages.staging.override { netapiSupport = true; })
+    wineWow64Packages.staging
     winetricks
     protonplus
     protontricks
@@ -22,7 +27,6 @@
     brightnessctl
     samrewritten
     catppuccin-papirus-folders
-    app2unit
     deepfilternet
     inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
