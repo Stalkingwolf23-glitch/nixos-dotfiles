@@ -1,16 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    # Skipping tests while upstream sorts it out, revert once
-    # Hydra consistently builds openldap green.
-    (final: prev: {
-      openldap = prev.openldap.overrideAttrs (_: {
-        doCheck = false;
-      });
-    })
-  ];
-
   home.packages = with pkgs; [
     rgd
     xwayland-satellite
