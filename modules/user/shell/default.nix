@@ -33,6 +33,7 @@
     duf
     nix-search-tv
     lazygit
+    smartmontools
   ];
 
   programs.nix-index-database.comma.enable = true;
