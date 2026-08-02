@@ -5,15 +5,9 @@
 }:
 
 {
-  flake-file.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-
-  nix.settings.extra-substituters = [ "https://attic.xuyh0120.win/lantian" ];
-  nix.settings.extra-trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+    # Cachy kernel from chaotic nyx set in steam.nix
+    kernelPackages = pkgs.linuxPackages_cachyos; # No real benefits, for the sake of it
     consoleLogLevel = 3;
     loader = {
       systemd-boot = {
