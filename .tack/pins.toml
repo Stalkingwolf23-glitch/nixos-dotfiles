@@ -7,7 +7,7 @@ recomposable = true
 [all_follow]
 flake-parts = ["flake-parts"]
 niri-unstable = ["niri-unstable"]
-nixpkgs = ["nixpkgs", "noctalia", "nixvim"]
+nixpkgs = ["nixpkgs", "noctalia", "aagl", "nixvim"]
 nixvim = ["nixvim"]
 
 [inputs.aagl]
@@ -19,7 +19,7 @@ type = "fetch"
 
 [inputs.firefox-addons]
 url = "gitlab:rycee/nur-expressions"
-dir="pkgs/firefox-addons"
+dir = "pkgs/firefox-addons"
 
 [inputs.flake-file]
 url = "github:denful/flake-file"
@@ -77,9 +77,6 @@ url = "github:danth/stylix"
 
 [inputs.tack]
 url = "github:manic-systems/tack"
-
-[inputs.waytator]
-url = "github:ItsLemmy/waytator"
 
 [inputs.zen-browser]
 url = "github:0xc000022070/zen-browser-flake/beta"
