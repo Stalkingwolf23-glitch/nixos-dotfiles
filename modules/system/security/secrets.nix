@@ -15,10 +15,17 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/${userSettings.username}/.config/sops/age/keys.txt";
 
-    secrets.github_token = {
-      owner = userSettings.username;
-    };
+    secrets = {
+      github_token = {
+        owner = userSettings.username;
+      };
 
+      ssh_id_ed25519 = {
+        owner = userSettings.username;
+        path = "/home/${userSettings.username}/.ssh/id_ed25519";
+        mode = "0600";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
