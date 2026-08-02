@@ -1,6 +1,7 @@
 window-rule {
     geometry-corner-radius 20
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 window-rule {
@@ -44,11 +45,17 @@ window-rule {
 window-rule {
     match title="Dolphin"
     block-out-from "screencast"
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 window-rule {
-    match app-id=r#"^dev\.faetalize\.waytator$"#
-    open-floating true
+    match app-id="kitty"
+    background-effect {
+        xray false
+    }
 }
 
 layer-rule {

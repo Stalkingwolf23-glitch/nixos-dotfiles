@@ -15,6 +15,8 @@
     inputs.noctalia.packages.${systemSettings.system}.default
   ];
 
+  disabledModules = [ "programs/wayland/noctalia.nix" ];
+
   imports = [
     inputs.noctalia.nixosModules.default
   ];
