@@ -12,9 +12,7 @@
     flake-file.url = "github:denful/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     tack.url = "github:manic-systems/tack";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager.url = "github:nix-community/home-manager";
   }
   # Allow modularity for flake-file inputs by merging the list together
