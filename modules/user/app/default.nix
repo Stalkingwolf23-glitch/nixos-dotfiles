@@ -5,7 +5,6 @@
     rgd
     xwayland-satellite
     # moonlight-qt # Just for streaming from laptop when needed
-    equibop
     wlr-randr
     pamixer
     pavucontrol
