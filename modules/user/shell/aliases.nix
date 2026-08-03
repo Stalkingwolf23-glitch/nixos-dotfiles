@@ -17,5 +17,6 @@
     os = "z ~/local/nixos && git add $(git ls-files --others --exclude-standard) && nh os switch";
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
     clean = "nh clean all --keep 5 --optimise";
+    stats = "z ~/local/nixos && , scc && nix run github:greyxp1/ncr .";
   };
 }
