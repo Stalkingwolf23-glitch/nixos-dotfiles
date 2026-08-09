@@ -4,7 +4,10 @@
   ...
 }:
 {
-  imports = [ inputs.flake-file.flakeModules.tack ];
+  imports = [
+    inputs.flake-file.flakeModules.tack
+    inputs.flake-parts.flakeModules.modules
+  ];
 
   systems = [ "x86_64-linux" ];
 
@@ -14,10 +17,7 @@
     tack.url = "github:manic-systems/tack";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-  }
-  # Allow modularity for flake-file inputs by merging the list together
-  // config.flake.homeConfigurations.stalkingwolf.config.flake-file.inputs
-  // config.flake.nixosConfigurations.cocytus.config.flake-file.inputs;
+  };
 
   flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
 

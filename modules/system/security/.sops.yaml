@@ -1,8 +1,0 @@
-keys:
-  - &stalkingwolf age1pn9g5yf9k6406f2h4hwjc9asr579997yxvddurljk5zq8cvmjyzsw2l77q
-
-creation_rules:
-  - path_regex: secrets\.yaml$
-    key_groups:
-      - age:
-          - *stalkingwolf

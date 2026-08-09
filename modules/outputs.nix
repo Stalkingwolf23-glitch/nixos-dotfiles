@@ -1,51 +1,47 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 let
-  systemSettings = {
-    system = "x86_64-linux";
-    hostname = "cocytus";
-    timezone = "Asia/Singapore";
-    locale = "en_SG.UTF-8";
-  };
-
-  userSettings = {
-    username = "stalkingwolf";
-    name = "Stalkingwolf";
-    email = "stalkingwolf@cocytus.me";
-  };
-
   recursivelyImport = import ./lib/recursivelyImport.nix { lib = inputs.nixpkgs.lib; };
-  flakeInputs = import ./lib/flakeInputs.nix { lib = inputs.nixpkgs.lib; };
 
   commonArgs = {
     inherit
-      systemSettings
-      userSettings
       inputs
       recursivelyImport
-      flakeInputs
       ;
   };
 in
 {
-  flake.nixosConfigurations = {
-    cocytus = inputs.nixpkgs.lib.nixosSystem {
-      specialArgs = commonArgs;
-      modules = [
-        ./configuration.nix
-        { nix.settings.warn-dirty = false; }
-      ];
-    };
-  };
+  imports = recursivelyImport [
+    ./applications
+    ./desktop
+    ./editors
+    ./gaming
+    ./networking
+    ./security
+    ./style
+    ./system
+    ./terminal
+    ./hosts
+  ];
 
-  flake.homeConfigurations = {
-    stalkingwolf = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages.${systemSettings.system};
-      modules = [
-        ./home.nix
-        inputs.nix-index-database.homeModules.default
-      ];
-      extraSpecialArgs = commonArgs;
-    };
+  flake.nixosConfigurations.cocytus = inputs.nixpkgs.lib.nixosSystem {
+    specialArgs = commonArgs;
+    modules = [
+      self.modules.nixos.cocytus
+      inputs.home-manager.nixosModules.default
+      {
+        nix.settings.warn-dirty = false;
+
+        home-manager = {
+          extraSpecialArgs = commonArgs;
+
+          sharedModules = [
+            inputs.nix-index-database.homeModules.default
+          ];
+
+          users.stalkingwolf = self.modules.homeManager.stalkingwolf;
+        };
+      }
+    ];
   };
 
   perSystem =
