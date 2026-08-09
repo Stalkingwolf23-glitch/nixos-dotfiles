@@ -6,7 +6,7 @@ window-rule {
 
 window-rule {
     match app-id="zen"
-    match app-id="equibop"
+    match app-id="discord"
     match title="Dolphin"
     open-maximized true
 }
