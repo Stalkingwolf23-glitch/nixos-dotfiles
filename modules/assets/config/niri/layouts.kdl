@@ -1,7 +1,6 @@
 layout {
     gaps 10
 
-    center-focused-column "always"
     always-center-single-column
 
     background-color "transparent"
