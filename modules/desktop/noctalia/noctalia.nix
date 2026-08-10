@@ -14,8 +14,6 @@
   };
 
   flake.modules.homeManager.noctalia = {
-    disabledModules = [ "programs/wayland/noctalia.nix" ];
-
     imports = [
       inputs.noctalia.homeModules.default
     ];
