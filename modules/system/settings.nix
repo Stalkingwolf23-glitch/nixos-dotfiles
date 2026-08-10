@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.settings = { pkgs, ... }:
+  flake.modules.nixos.settings =
+    { pkgs, ... }:
     {
       # Lix for better errors and uhh stuff
       nix.package = pkgs.lixPackageSets.stable.lix;

@@ -1,10 +1,4 @@
 {
-  pkgs,
-  inputs,
-  ...
-}:
-
-{
   flake-file.inputs = {
     niri-unstable.url = "github:YaLTeR/niri";
     niri = {
@@ -14,39 +8,40 @@
     niri-screenshare.url = "github:pantarune/niri-screenshare";
   };
 
-  flake.modules.nixos.niri = { inputs, pkgs, ... }:
+  flake.modules.nixos.niri =
+    { inputs, pkgs, ... }:
     {
-    nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
-    nix.settings.extra-trusted-public-keys = [
-      "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
-    ];
-
-    imports = [ inputs.niri.nixosModules.niri-nix ];
-    nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
-
-    programs.niri = {
-      enable = true;
-      package = pkgs.niri-unstable;
-    };
-
-    xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        inputs.niri-screenshare.packages.${pkgs.stdenv.hostPlatform.system}.default
+      nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
+      nix.settings.extra-trusted-public-keys = [
+        "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
       ];
-      config = {
-        common.default = [ "gtk" ];
-        common."org.freedesktop.impl.portal.ScreenCast" = [ "niri" ];
+
+      imports = [ inputs.niri.nixosModules.niri-nix ];
+      nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
+
+      programs.niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+      };
+
+      xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+        extraPortals = [
+          pkgs.xdg-desktop-portal-gtk
+          inputs.niri-screenshare.packages.${pkgs.stdenv.hostPlatform.system}.default
+        ];
+        config = {
+          common.default = [ "gtk" ];
+          common."org.freedesktop.impl.portal.ScreenCast" = [ "niri" ];
+        };
       };
     };
-    };
 
-  flake.modules.homeManager.niri = { config, ... }:
+  flake.modules.homeManager.niri =
+    { config, ... }:
     {
       home.file.".config/niri".source =
-        config.lib.file.mkOutOfStoreSymlink
-          "${config.home.homeDirectory}/local/nixos/modules/assets/config/niri";
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/local/nixos/modules/assets/config/niri";
     };
 }
