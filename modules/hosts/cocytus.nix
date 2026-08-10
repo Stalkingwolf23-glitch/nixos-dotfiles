@@ -19,8 +19,9 @@
       secrets
       defaults
       desktop
+      hyprland
       pipewire
-      niri
+      # niri
       noctalia
       greeter
       steam
@@ -52,6 +53,7 @@
       xdg
       editor
       style
+      hyprland
       niri
       noctalia
       misc
