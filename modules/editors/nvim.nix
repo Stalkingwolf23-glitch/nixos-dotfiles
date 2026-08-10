@@ -7,13 +7,13 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  flake.modules.homeManager.editor = { inputs, ... }:
+  flake.modules.homeManager.editor = { inputs, pkgs, ... }:
     {
       imports = [
-        inputs.kickstart-nixvim.homeManagerModules.default
+        inputs.nixvim.homeModules.nixvim
       ];
 
-      programs.nixvim = {
+      programs.nixvim = (import "${inputs.kickstart-nixvim}/nixvim.nix" { inherit pkgs; }) // {
         enable = true;
         nixpkgs.source = inputs.nixpkgs;
         enableMan = false;
