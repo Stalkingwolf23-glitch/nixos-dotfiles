@@ -39,7 +39,6 @@ url = "github:nix-community/home-manager"
 
 [inputs.kickstart-nixvim]
 url = "github:Stalkingwolf23-glitch/kickstart.nixvim"
-follows = { nixpkgs = "nixpkgs", nixvim = "nixvim", flake-parts = "flake-parts" }
 
 [inputs.niri]
 url = "git+https://codeberg.org/BANanaD3V/niri-nix"
@@ -81,3 +80,6 @@ url = "github:manic-systems/tack"
 
 [inputs.zen-browser]
 url = "github:0xc000022070/zen-browser-flake/beta"
+
+[inputs.hyprsplit]
+url = "github:shezdy/hyprsplit"
