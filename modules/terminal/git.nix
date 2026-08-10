@@ -12,7 +12,7 @@
         settings = {
           user = {
             name = "Stalkingwolf";
-            email = "stalkingwolf@cocytus.me";
+            email = "stalkingwolf23@proton.me";
           };
           init.defaultBranch = "main";
           safe.directory = [
