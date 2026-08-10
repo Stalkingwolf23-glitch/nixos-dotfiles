@@ -6,7 +6,7 @@
 
       settings = {
         background_blur = 5;
-        background_opacity = "0.5";
+        background_opacity = "0.75";
 
         cursor_trail = "1";
 

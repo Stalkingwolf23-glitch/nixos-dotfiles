@@ -26,6 +26,7 @@
       greeter
       steam
       aagl
+      terminal
     ];
 
     networking.hostName = "cocytus";
