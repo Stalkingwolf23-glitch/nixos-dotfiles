@@ -2,7 +2,6 @@ prefer-no-csd
 
 spawn-at-startup "noctalia"
 spawn-sh-at-startup "steam -silent"
-spawn-sh-at-startup "vicinae server"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
