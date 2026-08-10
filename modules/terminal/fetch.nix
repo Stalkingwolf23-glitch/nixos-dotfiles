@@ -9,7 +9,7 @@
         {
             "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
             "logo": {
-            	"source": "~/.local/share/avatars/mornye2.png",
+            	"source": "~/.local/share/avatars/mornye2.jpg",
             	"type": "kitty",
                 "padding": {
                   "top": 4,
@@ -229,7 +229,7 @@
         {
             "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
             "logo": {
-                "source": "~/.local/share/avatars/mornye3.png",
+                "source": "~/.local/share/avatars/mornye3.jpg",
             	"type": "auto",
             	"height": 15,
                 "color": {"1":"white"},
