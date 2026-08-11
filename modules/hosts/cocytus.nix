@@ -27,6 +27,7 @@
       steam
       aagl
       terminal
+      gsr
     ];
 
     networking.hostName = "cocytus";
