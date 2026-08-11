@@ -5,7 +5,7 @@ binds {
     Mod+T repeat=false hotkey-overlay-title="Kitty" { spawn "kitty"; }
     Mod+A repeat=false hotkey-overlay-title="Vicinae" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Ctrl+L hotkey-overlay-title="Lockscreen" { spawn-sh "noctalia msg session lock"; }
-    Mod+G hotkey-overlay-title="Game Launcher" { spawn-sh "rofi -modi games:game-launcher.sh -show games -show-icons -theme games-smaller"; }
+    Mod+G hotkey-overlay-title="Game Launcher" { spawn-sh "rofi -modi games:game-launcher.sh -show games -show-icons -theme games"; }
     Mod+D hotkey-overlay-title="Discord" { spawn "discord"; }
     Mod+B hotkey-overlay-title="Zen" { spawn "run-or-cycle.sh" "zen-beta" "zen-beta"; }
     Mod+Shift+N repeat=false hotkey-overlay-title="Dolphin" { spawn "run-or-cycle.sh" "org.kde.dolphin" "dolphin"; }

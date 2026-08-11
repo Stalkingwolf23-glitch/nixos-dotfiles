@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.homeManager.mangohud = {
     programs.mangohud.enable = true;
@@ -45,4 +47,6 @@
       # time_format = "%R";
     };
   };
+
+  flake.modules.homeManager.gaming.imports = [ self.modules.homeManager.mangohud ];
 }

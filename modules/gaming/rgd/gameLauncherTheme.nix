@@ -18,13 +18,14 @@
       }
 
       window {
-          fullscreen:                     true;
-          height:                         100%;
-          width:                          100%;
+          fullscreen:                     false;
+          height:                         50%;
+          width:                          50%;
           transparency:                   "real";
           background-color:               @background-transparent;
           border:                         0px 0px 0px 0px;
           border-color:                   @primary;
+          border-radius:                  10px;
       }
 
       mainbox {
@@ -37,13 +38,14 @@
           margin:                         10px 0px 0px 30px;
           text-color:                     @important;
           font:                           "Maple Mono 27";
+          enabled:                        false;
       }
 
       listview {
           layout:                         vertical;
-          padding:                        60px;
+          padding:                        30px;
           dynamic:                        true;
-          columns:                        6;
+          columns:                        4;
           spacing:                        20px;
       }
 
@@ -55,7 +57,7 @@
 
       inputbar {
           children:                       [textbox-prompt, entry];
-          margin:                         0px;
+          margin:                         20px 0px 10px 0px;
           background-color:               @primary;
           border:                         4px;
           border-color:                   @primary;
@@ -103,9 +105,9 @@
       }
 
       element-icon {
-          padding:                        10px;
+          padding:                        0px 10px;
           cursor:                         inherit;
-          size:                           33%;
+          size:                           12%;
           margin:                         10px;
       }
 
@@ -117,35 +119,6 @@
 
       element-text selected {
           text-color:                     @text-color-selected;
-      }
-    '';
-
-    home.file.".config/rofi/games-smaller.rasi".text = ''
-      @import "games"
-
-      window {
-          fullscreen:                     false;
-          border-radius:                  10px;
-          height:                         50%;
-          width:                          50%;
-      }
-
-      listview {
-          columns:                        4;
-          padding:                        30px;
-      }
-
-      prompt {
-          enabled:                        false;
-      }
-
-      inputbar {
-          margin:                         20px 0px 10px 0px;
-      }
-
-      element-icon {
-          padding:                        0px 10px;
-          size:                           12%;
       }
     '';
   };

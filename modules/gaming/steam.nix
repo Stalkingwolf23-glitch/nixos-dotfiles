@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.nixos.steam =
     { pkgs, ... }:
@@ -11,6 +13,9 @@
         wineWow64Packages.staging
         winetricks
         protontricks
+        lutris
+        samrewritten
+        # moonlight-qt # Just for streaming from laptop when neede
       ];
 
       programs.steam = {
@@ -36,4 +41,6 @@
         capSysNice = false;
       };
     };
+
+  flake.modules.nixos.gaming.imports = [ self.modules.nixos.steam ];
 }

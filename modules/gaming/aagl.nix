@@ -1,9 +1,10 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
   flake-file.inputs.aagl.url = "github:ezKEa/aagl-gtk-on-nix";
 
-  flake.modules.nixos.aagl = { lib, ... }:
+  flake.modules.nixos.aagl =
+    { lib, ... }:
     {
       imports = [ inputs.aagl.nixosModules.default ];
       nix.settings = lib.mkMerge [
@@ -18,4 +19,9 @@
       programs.honkers-railway-launcher.enable = true;
       programs.honkers-launcher.enable = true;
     };
+
+  flake.modules.nixos.gaming.imports = [
+    self.modules.nixos.aagl
+  ];
+
 }
