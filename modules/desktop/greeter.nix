@@ -22,7 +22,6 @@
           session.default = "hyprland";
           user.default = "stalkingwolf";
           appearance = {
-            scheme = "Tokyo-Night";
             hide_logo = true;
           };
           output.name = "DP-1";
@@ -30,6 +29,5 @@
       };
 
       security.pam.services.greetd.enableGnomeKeyring = true;
-
     };
 }
