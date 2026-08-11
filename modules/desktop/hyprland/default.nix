@@ -1,26 +1,32 @@
 { self, ... }:
 {
   # Follows nixpkgs hyrpland instead of flake for stability
-  flake.modules.nixos.hyprland = { pkgs, ... }: {
-    nix.settings.extra-substituters = [ "https://hyprland.cachix.org" ];
-    nix.settings.extra-trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-
-    programs.hyprland.enable = true;
-
-    xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = [
-        "hyprland"
-        "gtk"
+  flake.modules.nixos.hyprland = { config, lib, pkgs, ... }: {
+    config = lib.mkIf (config.compositor == "hyprland") {
+      nix.settings.extra-substituters = [ "https://hyprland.cachix.org" ];
+      nix.settings.extra-trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
+
+      programs.hyprland.enable = true;
+
+      xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        config.common.default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
     };
   };
 
-  flake.modules.homeManager.hyprland = { lib, ... }: {
+  flake.modules.nixos.compositor.imports = [
+    self.modules.nixos.hyprland
+  ];
+
+  flake.modules.homeManager.hyprland = { config, lib, ... }: {
     imports = with self.modules.homeManager; [
       hyprland-keybinds
       hyprland-layouts
@@ -32,26 +38,28 @@
       hyprland-hyprsplit
     ];
 
-    config.wayland.windowManager.hyprland = {
-      enable = true;
-      package = null;
-      portalPackage = null;
-      xwayland.enable = true;
-      systemd.enable = true;
-      configType = "lua";
-      settings.config = [
-        {
-          _args = [
-            {
-              xwayland.force_zero_scaling = true;
-              misc = {
-                force_default_wallpaper = 0;
-                disable_hyprland_logo = true;
-              };
-            }
-          ];
-        }
-      ];
+    config = lib.mkIf (config.compositor == "hyprland") {
+      wayland.windowManager.hyprland = {
+        enable = true;
+        package = null;
+        portalPackage = null;
+        xwayland.enable = true;
+        systemd.enable = true;
+        configType = "lua";
+        settings.config = [
+          {
+            _args = [
+              {
+                xwayland.force_zero_scaling = true;
+                misc = {
+                  force_default_wallpaper = 0;
+                  disable_hyprland_logo = true;
+                };
+              }
+            ];
+          }
+        ];
+      };
     };
 
     options.hyprland.workspaceCount = lib.mkOption {
@@ -66,4 +74,8 @@
       internal = true;
     };
   };
+
+  flake.modules.homeManager.compositor.imports = [
+    self.modules.homeManager.hyprland
+  ];
 }

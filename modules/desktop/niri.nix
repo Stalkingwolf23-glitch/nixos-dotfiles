@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake-file.inputs = {
     niri-unstable.url = "github:YaLTeR/niri";
@@ -9,39 +11,54 @@
   };
 
   flake.modules.nixos.niri =
-    { inputs, pkgs, ... }:
+    { config, inputs, lib, pkgs, ... }:
     {
-      nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
-      nix.settings.extra-trusted-public-keys = [
-        "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
-      ];
-
       imports = [ inputs.niri.nixosModules.niri-nix ];
-      nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
 
-      programs.niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
-      };
-
-      xdg.portal = {
-        enable = true;
-        xdgOpenUsePortal = true;
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          inputs.niri-screenshare.packages.${pkgs.stdenv.hostPlatform.system}.default
+      config = lib.mkIf (config.compositor == "niri") {
+        nix.settings.extra-substituters = [ "https://niri-nix.cachix.org" ];
+        nix.settings.extra-trusted-public-keys = [
+          "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
         ];
-        config = {
-          common.default = [ "gtk" ];
-          common."org.freedesktop.impl.portal.ScreenCast" = [ "niri" ];
+
+        nixpkgs.overlays = [ inputs.niri.overlays.niri-nix ];
+
+        programs.niri = {
+          enable = true;
+          package = pkgs.niri-unstable;
         };
+
+        xdg.portal = {
+          enable = true;
+          xdgOpenUsePortal = true;
+          extraPortals = [
+            pkgs.xdg-desktop-portal-gtk
+            inputs.niri-screenshare.packages.${pkgs.stdenv.hostPlatform.system}.default
+          ];
+          config = {
+            common.default = [ "gtk" ];
+            common."org.freedesktop.impl.portal.ScreenCast" = [ "niri" ];
+          };
+        };
+
+        environment.systemPackages = [ pkgs.xwayland-satellite ];
       };
     };
+
+  flake.modules.nixos.compositor.imports = [
+    self.modules.nixos.niri
+  ];
 
   flake.modules.homeManager.niri =
-    { config, ... }:
+    { config, lib, ... }:
     {
-      home.file.".config/niri".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/local/nixos/modules/assets/config/niri";
+      config = lib.mkIf (config.compositor == "niri") {
+        home.file.".config/niri".source =
+          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/local/nixos/modules/assets/config/niri";
+      };
     };
+
+  flake.modules.homeManager.compositor.imports = [
+    self.modules.homeManager.niri
+  ];
 }

@@ -12,8 +12,8 @@
           float = true;
           center = true;
           size = [
-            "monitor_w * 0.7"
-            "monitor_h * 0.5"
+            "monitor_w * 0.5"
+            "monitor_h * 0.7"
           ];
           opacity = "1.0 override";
           no_shadow = true;

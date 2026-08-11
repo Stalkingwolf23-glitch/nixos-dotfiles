@@ -1,5 +1,6 @@
 {
   inputs,
+  self,
   ...
 }:
 
@@ -13,6 +14,10 @@
     ];
   };
 
+  flake.modules.nixos.compositor.imports = [
+    self.modules.nixos.noctalia
+  ];
+
   flake.modules.homeManager.noctalia = {
     imports = [
       inputs.noctalia.homeModules.default
@@ -22,4 +27,8 @@
       enable = true;
     };
   };
+
+  flake.modules.homeManager.compositor.imports = [
+    self.modules.homeManager.noctalia
+  ];
 }

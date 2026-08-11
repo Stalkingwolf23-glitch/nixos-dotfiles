@@ -7,8 +7,8 @@ binds {
     Mod+Ctrl+L hotkey-overlay-title="Lockscreen" { spawn-sh "noctalia msg session lock"; }
     Mod+G hotkey-overlay-title="Game Launcher" { spawn-sh "rofi -modi games:game-launcher.sh -show games -show-icons -theme games"; }
     Mod+D hotkey-overlay-title="Discord" { spawn "discord"; }
-    Mod+B hotkey-overlay-title="Zen" { spawn "run-or-cycle.sh" "zen-beta" "zen-beta"; }
-    Mod+Shift+N repeat=false hotkey-overlay-title="Dolphin" { spawn "run-or-cycle.sh" "org.kde.dolphin" "dolphin"; }
+    Mod+B hotkey-overlay-title="Zen" { spawn "zen-beta"; }
+    Mod+Shift+N repeat=false hotkey-overlay-title="Dolphin" { spawn "dolphin"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
 
     Mod+Shift+W hotkey-overlay-title="Wallpaper Manager" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
