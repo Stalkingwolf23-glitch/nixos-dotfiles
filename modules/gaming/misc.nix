@@ -1,5 +1,6 @@
 {
-  flake.modules.homeManager.misc = { pkgs, ... }:
+  flake.modules.homeManager.misc =
+    { pkgs, ... }:
     {
       home.packages = with pkgs; [
         xwayland-satellite
