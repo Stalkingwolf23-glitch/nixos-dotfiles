@@ -1,11 +1,12 @@
 {
-  flake.modules.nixos.kernel = { lib, pkgs, ... }:
+  flake.modules.nixos.kernel =
+    { lib, pkgs, ... }:
     {
       boot = {
         # Cachy kernel is provided by the shared Chaotic package infrastructure.
         kernelPackages = pkgs.linuxPackages_cachyos;
         loader = {
-          grub.enable = lib.mkForce false;
+          # grub.enable = false;
           systemd-boot = {
             enable = true;
             editor = false;

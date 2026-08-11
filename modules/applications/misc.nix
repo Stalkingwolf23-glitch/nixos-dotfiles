@@ -1,8 +1,10 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.miscApplications = { pkgs, ... }:
+  flake.modules.homeManager.misc =
+    { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        xwayland-satellite
         # moonlight-qt # Just for streaming from laptop when needed
         wlr-randr
         pamixer
@@ -19,7 +21,7 @@
         qimgv
         picard
       ];
-
-      programs.lutris.enable = true;
     };
+
+  flake.modules.homeManager.desktop.imports = [ self.modules.homeManager.misc ];
 }

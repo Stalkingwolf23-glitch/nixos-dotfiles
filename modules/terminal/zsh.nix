@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal =
+  flake.modules.homeManager.zsh =
     { pkgs, ... }:
     {
       programs.zsh = {
@@ -75,4 +77,8 @@
       programs.zoxide.enable = true;
       programs.zoxide.enableZshIntegration = true;
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.zsh
+  ];
 }

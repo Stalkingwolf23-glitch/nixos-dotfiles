@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.nixos.settings =
     { pkgs, ... }:
@@ -17,4 +19,6 @@
       # It is ok to leave this unchanged for compatibility purposes
       system.stateVersion = "26.05";
     };
+
+  flake.modules.nixos.common.imports = [ self.modules.nixos.settings ];
 }

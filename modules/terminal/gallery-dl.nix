@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
   flake-file.inputs.gallery-dl = {
@@ -6,7 +6,7 @@
     flake = false;
   };
 
-  flake.modules.homeManager.terminal = { inputs, ... }:
+  flake.modules.homeManager.gallery-dl = { inputs, ... }:
     {
       nixpkgs.overlays = [
         (import ../overlays/gallery-dl.nix inputs)
@@ -19,4 +19,8 @@
         };
       };
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.gallery-dl
+  ];
 }

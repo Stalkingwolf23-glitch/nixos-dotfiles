@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.settings = {
     programs.yazi.settings = {
       mgr = {
         ratio = [
@@ -38,4 +40,8 @@
       };
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.settings
+  ];
 }

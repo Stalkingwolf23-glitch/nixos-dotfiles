@@ -1,33 +1,18 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
-  flake.modules.nixos.defaults = { pkgs, ... }:
+  flake.modules.nixos.defaults =
+    { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         cachix
-        xdg-utils
         wget
         zsh
         git
         home-manager
-        wpa_supplicant
-        nextdns
-        ffmpeg
-        killall
-        egl-wayland
-        brightnessctl
-        samrewritten
-        catppuccin-papirus-folders
         deepfilternet
         inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
-
-      programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
-
-      environment.shells = with pkgs; [ zsh ];
-      users.defaultUserShell = pkgs.zsh;
-      programs.zsh.enable = true;
-      programs.dconf.enable = true;
 
       environment.localBinInPath = true;
 
@@ -40,4 +25,6 @@
         nixos.enable = false;
       };
     };
+
+  flake.modules.nixos.common.imports = [ self.modules.nixos.defaults ];
 }

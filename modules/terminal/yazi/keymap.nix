@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.keymap = {
     programs.yazi.keymap = {
       mgr = {
         prepend_keymap = [
@@ -67,4 +69,8 @@
       };
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.keymap
+  ];
 }

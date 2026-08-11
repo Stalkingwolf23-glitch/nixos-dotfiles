@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.fetch = {
     programs.fastfetch = {
       enable = true;
     };
@@ -9,7 +11,7 @@
         {
             "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
             "logo": {
-            	"source": "~/.local/share/avatars/mornye2.jpg",
+            	"source": "~/Pictures/Avatars/mornye2.jpg",
             	"type": "kitty",
                 "padding": {
                   "top": 4,
@@ -229,7 +231,7 @@
         {
             "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
             "logo": {
-                "source": "~/.local/share/avatars/mornye3.jpg",
+                "source": "~/Pictures/Avatars/mornye3.jpg",
             	"type": "auto",
             	"height": 15,
                 "color": {"1":"white"},
@@ -317,4 +319,8 @@
       '';
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.fetch
+  ];
 }

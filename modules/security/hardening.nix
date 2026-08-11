@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.nixos.hardening = {
     boot.kernel.sysctl = {
@@ -21,4 +23,8 @@
       backlogLimit = 8192;
     };
   };
+
+  flake.modules.nixos.common.imports = [
+    self.modules.nixos.hardening
+  ];
 }

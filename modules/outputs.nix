@@ -3,11 +3,7 @@ let
   recursivelyImport = import ./lib/recursivelyImport.nix { lib = inputs.nixpkgs.lib; };
 
   commonArgs = {
-    inherit
-      inputs
-      recursivelyImport
-      ;
-
+    inherit inputs recursivelyImport;
   };
 in
 {
@@ -33,13 +29,12 @@ in
         nix.settings.warn-dirty = false;
 
         home-manager = {
+          useUserPackages = true;
           extraSpecialArgs = commonArgs;
-
           sharedModules = [
             inputs.nix-index-database.homeModules.default
           ];
-
-          users.stalkingwolf = self.modules.homeManager.stalkingwolf;
+          users.stalkingwolf = self.modules.homeManager.cocytus-stalkingwolf;
         };
       }
     ];

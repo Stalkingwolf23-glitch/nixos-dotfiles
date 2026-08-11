@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.starship = {
     programs.starship = {
       enable = true;
       enableZshIntegration = true;
@@ -95,4 +97,8 @@
       };
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.starship
+  ];
 }

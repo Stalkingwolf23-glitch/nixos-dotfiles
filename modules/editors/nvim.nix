@@ -1,13 +1,11 @@
-{ inputs, ... }:
-
 {
-
   flake-file.inputs = {
     kickstart-nixvim.url = "github:Stalkingwolf23-glitch/kickstart.nixvim";
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  flake.modules.homeManager.editor = { inputs, pkgs, ... }:
+  flake.modules.homeManager.nvim =
+    { inputs, pkgs, ... }:
     {
       imports = [
         inputs.nixvim.homeModules.nixvim

@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.initlua = {
     programs.yazi.initLua = ''
       local catppuccin_theme = require("yatline-catppuccin"):setup("mocha")
       require("full-border"):setup()
@@ -93,4 +95,8 @@
       })
     '';
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.initlua
+  ];
 }

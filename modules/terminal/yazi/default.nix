@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = { pkgs, ... }:
+  flake.modules.homeManager.yazi = { pkgs, ... }:
     {
     programs.yazi = {
       enable = true;
@@ -20,4 +22,8 @@
       };
     };
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.yazi
+  ];
 }

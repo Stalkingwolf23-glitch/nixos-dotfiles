@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.nixos.time = {
     services.timesyncd.enable = true;
@@ -16,4 +18,6 @@
       LC_TIME = "en_SG.UTF-8";
     };
   };
+
+  flake.modules.nixos.common.imports = [ self.modules.nixos.time ];
 }

@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal =
+  flake.modules.homeManager.env =
     { config, ... }:
     {
       home.sessionVariables = {
@@ -14,16 +16,19 @@
       };
     };
 
-  flake.modules.nixos.terminal = {
+  flake.modules.homeManager.terminal.imports = [ self.modules.homeManager.env ];
+
+  flake.modules.nixos.desktop = {
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
       GTK_THEME = "adw-gtk3-dark";
-      QT_STYLE_OVERRIDE = "breeze";
+      QT_STYLE_OVERRIDE = "kvantum";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt6ct";
     };
   };
+
 }

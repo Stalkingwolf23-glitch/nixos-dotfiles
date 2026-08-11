@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.style = { pkgs, ... }:
+  flake.modules.homeManager.gtk = { pkgs, ... }:
     {
     gtk = {
       enable = true;
@@ -26,4 +28,8 @@
       };
     };
     };
+
+  flake.modules.homeManager.style.imports = [
+    self.modules.homeManager.gtk
+  ];
 }

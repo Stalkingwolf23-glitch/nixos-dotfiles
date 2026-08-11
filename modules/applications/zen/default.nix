@@ -1,5 +1,6 @@
 {
   inputs,
+  self,
   ...
 }:
 {
@@ -13,4 +14,8 @@
 
       programs.zen-browser.enable = true;
     };
+
+  flake.modules.homeManager.applications.imports = [
+    self.modules.homeManager.zen
+  ];
 }

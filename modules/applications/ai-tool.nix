@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.homeManager.aiTool = { pkgs, ... }:
     {
@@ -8,4 +10,8 @@
       nixfmt
     ];
     };
+
+  flake.modules.homeManager.applications.imports = [
+    self.modules.homeManager.aiTool
+  ];
 }

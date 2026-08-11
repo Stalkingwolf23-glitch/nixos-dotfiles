@@ -1,11 +1,7 @@
 {
-  flake.modules.nixos.syncthing = {
+  flake.modules.homeManager.syncthing = {
     services.syncthing = {
       enable = true;
-      openDefaultPorts = true;
-      user = "stalkingwolf";
-      group = "users";
-      configDir = "/home/stalkingwolf/.config/syncthing";
       settings = {
         devices = {
           "Phone" = {

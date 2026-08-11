@@ -1,5 +1,6 @@
 {
   inputs,
+  self,
   ...
 }:
 
@@ -30,4 +31,8 @@
 
       security.pam.services.greetd.enableGnomeKeyring = true;
     };
+
+  flake.modules.nixos.compositor.imports = [
+    self.modules.nixos.greeter
+  ];
 }

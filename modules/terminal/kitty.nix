@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.kitty = {
     programs.kitty = {
       enable = true;
       themeFile = "Catppuccin-Mocha";
@@ -39,4 +41,8 @@
       };
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.kitty
+  ];
 }

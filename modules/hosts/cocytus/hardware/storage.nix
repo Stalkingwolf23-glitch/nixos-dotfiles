@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.storage = {
+  flake.modules.nixos.cocytus-storage = {
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/5334d86b-2c0f-4784-b126-d1acced8a532";
       fsType = "ext4";

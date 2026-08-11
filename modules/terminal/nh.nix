@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal =
+  flake.modules.homeManager.nh =
     { config, pkgs, ... }:
     {
       programs.nh = {
@@ -10,4 +12,8 @@
         clean.extraArgs = "--keep 5 --optimise";
       };
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.nh
+  ];
 }

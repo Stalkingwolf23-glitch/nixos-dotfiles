@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.terminal = {
+  flake.modules.homeManager.aliases = {
     home.shellAliases = {
       ll = "eza --icons --group-directories-first -1";
       ls = "eza --icons  --group-directories-first -1";
@@ -19,4 +21,8 @@
       stats = "z ~/local/nixos && , scc && nix run github:greyxp1/ncr";
     };
   };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.aliases
+  ];
 }

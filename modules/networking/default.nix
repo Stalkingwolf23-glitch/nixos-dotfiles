@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.nixos.networking = {
+  flake.modules.nixos.networking = { pkgs, ... }: {
     networking = {
       networkmanager = {
         enable = true;
@@ -21,18 +23,18 @@
         require_nolog = true;
         require_nofilter = false;
 
-        static."NextDNS-a33b83".stamp =
-          "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2EzM2I4Mw";
+        static."NextDNS-a33b83".stamp = "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2EzM2I4Mw";
         server_names = [ "NextDNS-a33b83" ];
       };
     };
 
-    systemd.services.dnscrypt-proxy2.serviceConfig.StateDirectory =
-      "dnscrypt-proxy";
+    systemd.services.dnscrypt-proxy2.serviceConfig.StateDirectory = "dnscrypt-proxy";
 
-    programs.nm-applet = {
-      enable = true;
-      indicator = true;
-    };
+    environment.systemPackages = [
+      pkgs.nextdns
+      pkgs.wpa_supplicant
+    ];
   };
+
+  flake.modules.nixos.services.imports = [ self.modules.nixos.networking ];
 }

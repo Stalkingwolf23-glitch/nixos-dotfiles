@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.style = { config, lib, pkgs, ... }:
+  flake.modules.homeManager.fonts = { config, lib, pkgs, ... }:
     {
     home.packages = [ pkgs.maple-mono.NF-CN-unhinted ];
     fonts = {
@@ -17,4 +19,8 @@
       name = "Maple Mono NF CN";
     };
     };
+
+  flake.modules.homeManager.style.imports = [
+    self.modules.homeManager.fonts
+  ];
 }

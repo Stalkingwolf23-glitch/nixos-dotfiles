@@ -1,9 +1,7 @@
-{
-  ...
-}:
+{ self, ... }:
 
 {
-  flake.modules.homeManager.terminal =
+  flake.modules.homeManager.git =
     { config, pkgs, ... }:
     {
       home.packages = [ pkgs.git ];
@@ -22,4 +20,8 @@
         };
       };
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.git
+  ];
 }

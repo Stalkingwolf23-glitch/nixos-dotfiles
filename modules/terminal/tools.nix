@@ -1,24 +1,22 @@
+{ self, ... }:
+
 {
   flake-file.inputs.nix-index-database.url = "github:nix-community/nix-index-database";
 
-  flake.modules.homeManager.terminal =
+  flake.modules.homeManager.tools =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        git
         gallery-dl
         cava
         zip
         unzip
         rsync
-        fastfetch
         ripgrep
-        starship
         megatools
         eza
         trash-cli
         scrcpy
-        btop
         unrar
         rich-cli
         jq
@@ -33,4 +31,8 @@
       programs.nix-index-database.comma.enable = true;
       programs.btop.enable = true;
     };
+
+  flake.modules.homeManager.terminal.imports = [
+    self.modules.homeManager.tools
+  ];
 }

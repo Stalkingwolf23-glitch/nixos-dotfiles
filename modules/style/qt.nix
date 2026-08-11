@@ -1,5 +1,7 @@
+{ self, ... }:
+
 {
-  flake.modules.homeManager.style = {
+  flake.modules.homeManager.qt = {
     home.file = {
       ".config/Kvantum" = {
         recursive = true;
@@ -77,4 +79,8 @@
       '';
     };
   };
+
+  flake.modules.homeManager.style.imports = [
+    self.modules.homeManager.qt
+  ];
 }
