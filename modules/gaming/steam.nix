@@ -11,7 +11,6 @@
         wineWow64Packages.staging
         winetricks
         protontricks
-        gamemode
       ];
 
       programs.steam = {
