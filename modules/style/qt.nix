@@ -3,18 +3,13 @@
 {
   flake.modules.homeManager.qt = {
     home.file = {
-      ".config/Kvantum" = {
-        recursive = true;
-        source = ../assets/config/Kvantum;
-      };
-
       ".config/qt6ct/qt6ct.conf".text = ''
         [Appearance]
         color_scheme_path=/home/stalkingwolf/.config/qt6ct/colors/noctalia.conf
         custom_palette=true
         icon_theme=Papirus
         standard_dialogs=default
-        style=breeze
+        style=kvantum
 
         [Fonts]
         fixed="Maple Mono NF CN,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0"
@@ -49,7 +44,7 @@
         custom_palette=true
         icon_theme=Papirus
         standard_dialogs=default
-        style=breeze
+        style=kvantum
 
         [Fonts]
         fixed="Maple Mono NF CN,12,-1,5,50,0,0,0,0,0"
