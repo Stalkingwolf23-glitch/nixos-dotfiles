@@ -17,7 +17,6 @@
       keyboard
       performance
       secrets
-      defaults
     ];
 
     networking.hostName = "cocytus";
