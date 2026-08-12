@@ -30,6 +30,11 @@
           replace;
     in
     {
+      home.packages = with pkgs; [
+        kdePackages.qtstyleplugin-kvantum
+        libsForQt5.qtstyleplugin-kvantum
+      ];
+
       home.file = {
         ".config/Kvantum/kvantum.kvconfig".text = ''
           [General]
