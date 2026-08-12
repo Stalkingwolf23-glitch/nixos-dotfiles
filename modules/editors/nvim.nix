@@ -1,7 +1,16 @@
 {
   flake-file.inputs = {
-    kickstart-nixvim.url = "github:Stalkingwolf23-glitch/kickstart.nixvim";
-    nixvim.url = "github:nix-community/nixvim";
+    kickstart-nixvim = {
+      url = "github:Stalkingwolf23-glitch/kickstart.nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixvim.follows = "nixvim";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   flake.modules.homeManager.nvim =
