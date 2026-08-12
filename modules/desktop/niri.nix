@@ -7,11 +7,20 @@
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.niri-unstable.follows = "niri-unstable";
     };
-    niri-screenshare.url = "github:pantarune/niri-screenshare";
+    niri-screenshare = {
+      url = "github:pantarune/niri-screenshare";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   flake.modules.nixos.niri =
-    { config, inputs, lib, pkgs, ... }:
+    {
+      config,
+      inputs,
+      lib,
+      pkgs,
+      ...
+    }:
     {
       imports = [ inputs.niri.nixosModules.niri-nix ];
 
@@ -29,8 +38,6 @@
         };
 
         xdg.portal = {
-          enable = true;
-          xdgOpenUsePortal = true;
           extraPortals = [
             pkgs.xdg-desktop-portal-gtk
             inputs.niri-screenshare.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -45,9 +52,7 @@
       };
     };
 
-  flake.modules.nixos.compositor.imports = [
-    self.modules.nixos.niri
-  ];
+  flake.modules.nixos.compositor.imports = [ self.modules.nixos.niri ];
 
   flake.modules.homeManager.niri =
     { config, lib, ... }:
