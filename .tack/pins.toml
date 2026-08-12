@@ -4,12 +4,6 @@
 [tack]
 recomposable = true
 
-[all_follow]
-flake-parts = ["flake-parts"]
-niri-unstable = ["niri-unstable"]
-nixpkgs = ["nixpkgs", "noctalia", "aagl", "nixvim"]
-nixvim = ["nixvim"]
-
 [inputs.aagl]
 url = "github:ezKEa/aagl-gtk-on-nix"
 
@@ -36,9 +30,15 @@ type = "fetch"
 
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
+follows = { nixpkgs = "nixpkgs" }
+
+[inputs.hyprsplit]
+url = "github:shezdy/hyprsplit"
+follows = { nixpkgs = "nixpkgs" }
 
 [inputs.kickstart-nixvim]
 url = "github:Stalkingwolf23-glitch/kickstart.nixvim"
+follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" }
 
 [inputs.niri]
 url = "git+https://codeberg.org/BANanaD3V/niri-nix"
@@ -46,21 +46,25 @@ follows = { niri-unstable = "niri-unstable" }
 
 [inputs.niri-screenshare]
 url = "github:pantarune/niri-screenshare"
+follows = { nixpkgs = "nixpkgs" }
 
 [inputs.niri-unstable]
 url = "github:YaLTeR/niri"
 
 [inputs.nix-index-database]
 url = "github:nix-community/nix-index-database"
+follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nixcord]
 url = "github:4evy/nixcord"
+follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
 [inputs.nixpkgs]
 url = "github:NixOS/nixpkgs/nixos-unstable"
 
 [inputs.nixvim]
 url = "github:nix-community/nixvim"
+follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
 [inputs.noctalia]
 url = "github:noctalia-dev/noctalia/cachix"
@@ -74,12 +78,11 @@ type = "fetch"
 
 [inputs.sops-nix]
 url = "github:Mic92/sops-nix"
+follows = { nixpkgs = "nixpkgs" }
 
 [inputs.tack]
 url = "github:manic-systems/tack"
 
 [inputs.zen-browser]
 url = "github:0xc000022070/zen-browser-flake/beta"
-
-[inputs.hyprsplit]
-url = "github:shezdy/hyprsplit"
+follows = { home-manager = "home-manager", nixpkgs = "nixpkgs" }
