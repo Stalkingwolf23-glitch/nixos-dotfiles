@@ -4,19 +4,20 @@
   flake.modules.nixos.steam =
     { pkgs, ... }:
     {
-      nix.settings.extra-substituters = [ "https://nix-gaming.cachix.org" ];
-      nix.settings.extra-trusted-public-keys = [
-        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      ];
-
       environment.systemPackages = with pkgs; [
-        wineWow64Packages.staging
+        wineWow64Packages.base
         winetricks
         protontricks
         lutris
         samrewritten
+        r2mod_cli
         # moonlight-qt # Just for streaming from laptop when neede
       ];
+
+      environment.sessionVariables = {
+        R2MOD_INSTALL_DIR = "/mnt/osiris/Games/Steam/steamapps/common/Risk of Rain 2";
+        R2MOD_COMPAT_DIR = "/mnt/osiris/Games/Steam/steamapps/compatdata/632360";
+      };
 
       programs.steam = {
         enable = true;

@@ -28,7 +28,7 @@ in
     (bind "${mainMod} + SHIFT + R" ''hl.dsp.exec_cmd("noctalia msg plugin noctalia/screen_recorder:service all toggle focused")'') # Screen Recorder
 
     # Window Controls
-    (bind "${mainMod} + SHIFT + Q" "hl.dsp.window.close()") # Quit Application
+    (bind "${mainMod} + CTRL + Q" "hl.dsp.window.close()") # Quit Application
     (bind "${mainMod} + F" ''hl.dsp.window.fullscreen({ mode = "maximized", layout_aware = true })'') # Toggle maximized
     (bind "${mainMod} + M" ''hl.dsp.window.fullscreen({ mode = "fullscreen", layout_aware = true })'') # Toggle Maximized
 

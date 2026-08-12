@@ -65,6 +65,17 @@
           idle_inhibit = "fullscreen";
           fullscreen = true;
           workspace = "1 silent";
+          monitor = "DP-1 silent";
+        }
+        {
+          match.class = "^steam$";
+          match.title = "^notificationtoasts_[0-9]+_desktop$";
+          float = true;
+          move = [
+            "monitor_w - window_w - 10"
+            "monitor_h - window_h - 10"
+          ];
+          no_initial_focus = true;
         }
       ];
   };

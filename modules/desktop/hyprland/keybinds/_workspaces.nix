@@ -34,6 +34,6 @@ in
 
     # Monitor controls
     (bind "${mainMod} + TAB" ''hl.dsp.focus({ monitor = "+1" })'')
-    (bind "${mainMod} + SHIFT + TAB" ''hl.dsp.window.move({ monitor = "+1", follow = true })'')
+    (bind "${mainMod} + CTRL + TAB" ''hl.dsp.window.move({ monitor = "+1", follow = true })'')
   ];
 }

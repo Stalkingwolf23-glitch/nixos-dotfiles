@@ -14,7 +14,6 @@ in
         local key = i % 10
 
         hl.bind(mainMod .. " + " .. key,hs.dsp.focus({ workspace = i }))
-        hl.bind(mainMod .. " + SHIFT + " .. key,hs.dsp.window.move({workspace = i,follow = false,}))
         hl.bind(mainMod .. " + CTRL + " .. key,hs.dsp.window.move({workspace = i,follow = false,}))
       end
 
