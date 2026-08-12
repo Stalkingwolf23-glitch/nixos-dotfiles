@@ -1,8 +1,6 @@
 { self, ... }:
 
 {
-  flake-file.inputs.nix-index-database.url = "github:nix-community/nix-index-database";
-
   flake.modules.homeManager.tools =
     { pkgs, ... }:
     {
@@ -26,10 +24,8 @@
         lazygit
         smartmontools
         evtest
+        btop
       ];
-
-      programs.nix-index-database.comma.enable = true;
-      programs.btop.enable = true;
     };
 
   flake.modules.homeManager.terminal.imports = [

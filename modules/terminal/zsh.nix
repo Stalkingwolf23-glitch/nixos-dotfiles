@@ -81,4 +81,13 @@
   flake.modules.homeManager.terminal.imports = [
     self.modules.homeManager.zsh
   ];
+
+  flake.modules.nixos.zsh = { pkgs, ... }: {
+    programs.zsh.enable = true;
+    users.defaultUserShell = pkgs.zsh;
+  };
+
+  flake.modules.nixos.common.imports = [
+    self.modules.nixos.zsh
+  ];
 }

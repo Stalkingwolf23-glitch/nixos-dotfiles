@@ -31,9 +31,6 @@ in
         home-manager = {
           useUserPackages = true;
           extraSpecialArgs = commonArgs;
-          sharedModules = [
-            inputs.nix-index-database.homeModules.default
-          ];
           users.stalkingwolf = self.modules.homeManager.cocytus-stalkingwolf;
         };
       }
