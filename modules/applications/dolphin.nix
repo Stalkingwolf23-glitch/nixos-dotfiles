@@ -1,8 +1,6 @@
 { self, ... }:
 
 {
-  flake.modules.homeManager.desktop.imports = [ self.modules.homeManager.dolphin ];
-
   flake.modules.homeManager.dolphin =
     { pkgs, ... }:
     {
@@ -19,11 +17,8 @@
         kdePackages.qtsvg # svg icon support
         kdePackages.ffmpegthumbs
         kdePackages.kdegraphics-thumbnailers
-        kdePackages.qtstyleplugin-kvantum
-        libsForQt5.qtstyleplugin-kvantum
         kdePackages.ark
         kdePackages.kservice
-        kdePackages.qt6ct
         kdePackages.filelight
         icoutils
       ];
@@ -477,4 +472,6 @@
         ColorScheme=noctalia
       '';
     };
+
+  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.dolphin ];
 }

@@ -1,7 +1,13 @@
 { self, ... }:
 
 {
-  flake.modules.homeManager.xdg = {
+  flake.modules.homeManager.xdg = { config, ... }: {
+
+    xdg.userDirs = {
+      enable = true;
+      desktop = config.home.homeDirectory;
+    };
+
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {
@@ -56,5 +62,5 @@
     };
   };
 
-  flake.modules.homeManager.desktop.imports = [ self.modules.homeManager.xdg ];
+  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.xdg ];
 }

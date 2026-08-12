@@ -23,5 +23,5 @@
       ];
     };
 
-  flake.modules.homeManager.desktop.imports = [ self.modules.homeManager.misc ];
+  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.misc ];
 }

@@ -8,7 +8,8 @@
     dir = "pkgs/firefox-addons";
   };
 
-  flake.modules.homeManager.zen = { inputs, pkgs, ... }:
+  flake.modules.homeManager.zen =
+    { inputs, pkgs, ... }:
     let
       system = pkgs.stdenv.hostPlatform.system;
       firefox-addons = inputs.firefox-addons.packages.${system};
