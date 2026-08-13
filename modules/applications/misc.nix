@@ -20,6 +20,7 @@
         zsh
         qimgv
         picard
+        obsidian
       ];
     };
 
