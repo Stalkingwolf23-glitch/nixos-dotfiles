@@ -1,7 +1,8 @@
 { self, ... }:
 
 {
-  flake.modules.homeManager.fetch = {
+  flake.modules.homeManager.fetch = { pkgs, ... }: {
+    home.packages = [ pkgs.microfetch ];
     programs.fastfetch = {
       enable = true;
     };
@@ -198,11 +199,6 @@
                 },
                 {
                     "type": "theme",
-                    "key": " {#34}│{#35} Style (Qt)  {#34}│{$4}│{#keys} {$2}",
-                    "format": "{theme1}"
-                },
-                {
-                    "type": "theme",
                     "key": " {#34}│{#35} Style (GTK) {#34}│{$4}│{#keys} {$2}",
                     "format": "{theme2}"
                 },
@@ -223,97 +219,6 @@
                     "key": " {#34}└─────────────┴{$1}┘{#keys} ",
                     "format": ""
                 }
-            ]
-        }
-      '';
-
-      ".config/fastfetch/compact.jsonc".text = ''
-        {
-            "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-            "logo": {
-                "source": "~/Pictures/Avatars/mornye3.jpg",
-            	"type": "auto",
-            	"height": 15,
-                "color": {"1":"white"},
-            	"padding": {
-            		"top": 1,
-                "left": 1
-            	}
-            },
-            "display": {
-                "separator": " "
-            },
-            "modules": [
-                "break",
-                "break",
-                    {
-              "key": "  ╭───────────╮",
-              "keyColor": "1;1",
-              "type": "custom"
-            },
-            {
-              "key": "  {#39}│ {#31}  {#39}user   {#39}│",
-              "keyColor": "31;1",
-              "type": "title",
-              "format": "{user-name}"
-            },
-            {
-              "key": "  {#39}│ {#33}  {#39}hname  {#39}│",
-              "keyColor": "33;1",
-              "type": "title",
-              "format": "{host-name}"
-            },
-            {
-              "key": "  {#39}│ {#32}󰻀  {#39}distro {#39}│",
-              "keyColor": "32;1",
-              "type": "os",
-              "format": "{3}"
-            },
-            {
-              "key": "  {#39}│ {#36}󰌢  {#39}kernel {#39}│",
-              "keyColor": "36;1",
-              "type": "kernel",
-              "format": "{2}"
-            },
-            {
-              "key": "  {#39}│ {#34}󰅐  {#39}uptime {#39}│",
-              "keyColor": "34;1",
-              "type": "uptime",
-              "format": "{1}d {2}h {3}m"
-            },
-            {
-              "key": "  {#39}│ {#35}  {#39}shell  {#39}│",
-              "keyColor": "35;1",
-              "type": "shell",
-              "format": "{1}"
-            },
-            {
-              "key": "  {#39}│ {#31}󰏖  {#39}pkgs   {#39}│",
-              "keyColor": "31;1",
-              "type": "packages"
-            },
-            {
-              "key": "  {#39}│ {#33}󰍛  {#39}memory {#39}│",
-              "keyColor": "33;1",
-              "type": "memory",
-              "format": "{1} | {2}"
-            },
-            {
-              "key": "  ├───────────┤",
-              "keyColor": "1;1",
-              "type": "custom"
-            },
-            {
-              "key": "  {#39}│ {#39}  {#39}colors  {#39}│",
-              "keyColor": "1;1",
-              "type": "colors",
-              "symbol": "circle"
-            },
-            {
-              "key": "  ╰───────────╯",
-              "keyColor": "1;1",
-              "type": "custom"
-            },
             ]
         }
       '';

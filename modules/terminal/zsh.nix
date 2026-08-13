@@ -57,7 +57,7 @@
         ];
 
         initContent = ''
-          fastfetch --config ~/.config/fastfetch/compact.jsonc
+          microfetch
 
           PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
             %F{green}→%f "
