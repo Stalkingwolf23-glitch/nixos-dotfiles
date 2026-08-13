@@ -25,6 +25,8 @@
         smartmontools
         evtest
         btop
+        bat
+        moor
       ];
     };
 
