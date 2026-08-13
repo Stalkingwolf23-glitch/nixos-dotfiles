@@ -1,0 +1,544 @@
+[accessibility]
+ui_scale = 1.2000000104308128
+
+[backdrop]
+blur_intensity = 0.0
+tint_intensity = 0.0
+
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    center = []
+    end = []
+    margin_edge = 5
+    padding = 20
+    start = []
+
+        [bar.default.monitor.DP-1]
+        background_opacity = 0.99999997764825821
+        center = [ "audio_visualizer_Right", "cat_4", "clock", "cat_5", "audio_visualizer_Left" ]
+        concave_edge_corners = false
+        end = [ "media", "group:g1", "tray" ]
+        margin_edge = 0
+        margin_ends = 20
+        padding = 26
+        radius = 0
+        radius_bottom_left = 50
+        radius_bottom_right = 50
+        radius_top_left = 0
+        radius_top_right = 0
+        shadow = false
+        start = [ "control-center", "workspaces", "nix-monitor" ]
+
+            [[bar.default.monitor.DP-1.capsule_group]]
+            accordion = true
+            accordion_direction = "end"
+            enabled = true
+            fill = "surface"
+            id = "g1"
+            members = [ "volume", "input_volume", "recorder" ]
+            opacity = 1.0
+            padding = 6.0
+
+        [bar.default.monitor.HDMI-A-2]
+        center = []
+        enabled = false
+        end = []
+
+[control_center]
+hidden_tabs = [ "monitor", "power", "bluetooth", "notifications" ]
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 96.0
+    box_width = 736.0
+    cx = 2176.0
+    cy = 1376.0
+    output = "DP-1"
+    rotation = -0.0
+    type = "label"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        background_color = "surface"
+        background_opacity = 0.80000000000000004
+        background_padding = 10
+        background_radius = 12
+        color = "on_surface"
+        description = "Enter your license key in the settings"
+        font_family = "Unifont"
+        opacity = 1.0
+        shadow = true
+        title = "Activate NixOS"
+
+[dock]
+monitors = [ "DP-1" ]
+
+[idle]
+behavior_order = [ "lock", "screen-off", "suspend" ]
+pre_action_fade_seconds = 30
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660
+
+    [idle.behavior.suspend]
+    action = "suspend"
+    enabled = true
+    lock_before_suspend = true
+    timeout = 900
+
+[keybinds]
+down = [ "Ctrl+j", "Down" ]
+left = [ "Ctrl+h", "Left" ]
+right = [ "Ctrl+l", "Right" ]
+up = [ "Ctrl+k", "Up" ]
+
+[location]
+address = "Singapore, Singapore"
+
+[lockscreen]
+blur_intensity = 0.0
+fingerprint = false
+monitors = [ "DP-1" ]
+wallpaper = "/home/stalkingwolf/Pictures/Wallpapers/129045548_p0.png"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 1
+widget_order = [
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@HDMI-A-2",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-0000000000000007",
+    "lockscreen-widget-0000000000000008",
+    "lockscreen-widget-0000000000000009"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 150.0
+    box_width = 976.0
+    cx = 1280.0
+    cy = 1227.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_opacity = 0.81000000000000005
+        background_radius = 12.0
+        center_password_text = true
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = false
+        show_login_button = false
+        show_media = true
+        show_session_buttons = false
+        show_unlock_hint = false
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 1280.0
+    cy = 1317.0
+    output = "HDMI-A-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2".settings]
+        center_password_text = false
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 632.0
+    cy = 1269.0
+    output = "winit"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 208.0
+    box_width = 960.0
+    cx = 1280.0
+    cy = 1048.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        bands = 20
+        centered = false
+        mirrored = true
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 144.0
+    box_width = 336.0
+    cx = 1280.0
+    cy = 472.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
+    box_height = 64.0
+    box_width = 272.0
+    cx = 1280.0
+    cy = 352.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "label"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
+        background = false
+        opacity = 1.0
+        shadow = true
+        title = "LOCKED"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
+    box_height = 240.0
+    box_width = 288.0
+    cx = 1888.0
+    cy = 1112.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "sticker"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
+        background = false
+        image_path = "/home/stalkingwolf/sticker_7.webp"
+        opacity = 1.0
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
+    box_height = 48.0
+    box_width = 160.0
+    cx = 2044.51416015625
+    cy = 1067.8876953125
+    output = "DP-1"
+    rotation = 0.2617993950843811
+    type = "label"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
+        background = false
+        title = "Unauthorized entry detected"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1896.0
+    cy = 1168.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "sticker"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
+        background = false
+        image_path = "/home/stalkingwolf/local/nixos/modules/assets/avatars/sticker_7.webp"
+        opacity = 1.0
+
+[notification]
+layer = "overlay"
+monitors = [ "DP-1" ]
+scale = 0.69999999999999996
+
+[osd]
+monitors = [ "DP-1" ]
+position = "bottom_center"
+
+[plugin_settings."avivbintangaringga/nix-monitor"]
+hide_clean_button = true
+hide_update_button = true
+update_command = "cd ~/local/nixos && write-tack"
+
+[plugin_settings."blackbartblues/keymap"]
+keyboard_layout = "65"
+
+[plugin_settings."noctalia/screen_recorder"]
+directory = "~"
+show_cursor = false
+video_source = "focused"
+
+[plugins]
+enabled = [
+    "noctalia/translator",
+    "avivbintangaringga/nix-monitor",
+    "dotnetrob/cat",
+    "noctalia/bongocat",
+    "blackbartblues/keymap",
+    "noctalia/screen_recorder"
+]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+[shell]
+app_icon_color = "tertiary"
+avatar_path = "/home/stalkingwolf/129163360_p0.jpg"
+font_family = "Maple Mono"
+launch_apps_as_systemd_services = true
+niri_overview_type_to_launch_enabled = true
+offline_mode = false
+polkit_agent = true
+screen_time_enabled = true
+settings_show_advanced = true
+settings_window_translucent = true
+show_location = false
+telemetry_enabled = true
+
+    [shell.launcher]
+    compact = true
+
+    [shell.panel]
+    control_center_placement = "floating"
+    control_center_position = "center"
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "soft"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.screen_corners]
+    enabled = true
+
+    [shell.screenshot]
+    directory = "/home/stalkingwolf/Pictures/Screenshots"
+    remember_last_region = true
+
+    [shell.session]
+    grid = true
+    grid_columns = 2
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "l"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "m"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "suspend"
+        countdown_seconds = 0.0
+        enabled = false
+        shortcut = "Ctrl+s"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "r"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "s"
+        variant = "destructive"
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Everforest"
+custom_palette = "CatppuccinBlue"
+mode = "dark"
+source = "custom"
+wallpaper_scheme = "m3-rainbow"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "qt" ]
+    community_ids = [ "pear-desktop", "lazygit" ]
+    enable_builtin_templates = true
+    enable_community_templates = true
+
+[wallpaper]
+directory = "/home/stalkingwolf/Pictures/Wallpapers"
+fill_color = "#1E1E2E"
+per_monitor_directories = true
+transition_on_startup = true
+
+    [wallpaper.automation]
+    enabled = true
+
+    [wallpaper.default]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/146706266_p0.jpg"
+
+    [wallpaper.last]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/129045548_p0.png"
+
+    [wallpaper.monitor.DP-1]
+    directory = "/home/stalkingwolf/Pictures/Wallpapers"
+
+    [wallpaper.monitor.HDMI-A-2]
+    directory = "/home/stalkingwolf/Pictures/Wallpapers"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/129045548_p0.png"
+
+    [wallpaper.monitors.HDMI-A-2]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/134985437_p0.png"
+
+    [wallpaper.monitors.winit]
+    path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_zpgk8v.png"
+
+[weather]
+refresh_minutes = 5
+
+[widget.Control_Center]
+capsule = true
+custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg"
+scale = 1.2
+type = "control-center"
+
+[widget.audio_visualizer_Left]
+bands = 14
+color_1 = "secondary"
+type = "audio_visualizer"
+
+[widget.audio_visualizer_Right]
+bands = 14
+color_2 = "secondary"
+type = "audio_visualizer"
+
+[widget.cat_4]
+input_devices = [ "/dev/input/by-id/usb-RDMCTMZT_Neo65_Core_Plus-event-kbd" ]
+type = "noctalia/bongocat:cat"
+
+[widget.cat_5]
+cat_color = "on_surface"
+cat_color_mode = "custom"
+show_cpu_percent = true
+type = "dotnetrob/cat:cat"
+
+[widget.clock]
+anchor = false
+capsule = false
+color = "primary"
+
+[widget.control-center]
+custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg"
+scale = 1.1000000000000001
+
+[widget.control_center]
+custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg"
+type = "control-center"
+
+[widget.input_volume]
+show_label = false
+
+[widget.media]
+anchor = false
+art_size = 32.0
+hide_when_no_media = true
+max_length = 150
+
+[widget.nix-monitor]
+show_text = false
+type = "avivbintangaringga/nix-monitor:nix-monitor"
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.taskbar]
+only_active_workspace = true
+
+[widget.tray]
+detached_panel = true
+drawer = true
+
+[widget.volume]
+color = "on_surface"
+show_label = false
+
+[widget.workspaces]
+capsule_radius = 8
+hide_when_empty = true
+label_source = "name"
+labels_only_when_occupied = true
+show_labels = false
+style = "focus_hint"
+
+[widget.workspaces_2]
+capsule = true
+hide_when_empty = true
+labels_only_when_occupied = true
+show_labels = false
+type = "workspaces"
