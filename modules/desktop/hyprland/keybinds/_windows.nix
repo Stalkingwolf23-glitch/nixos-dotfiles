@@ -31,6 +31,7 @@ in
     (bind "${mainMod} + CTRL + Q" "hl.dsp.window.close()") # Quit Application
     (bind "${mainMod} + F" ''hl.dsp.window.fullscreen({ mode = "maximized", layout_aware = true })'') # Toggle maximized
     (bind "${mainMod} + M" ''hl.dsp.window.fullscreen({ mode = "fullscreen", layout_aware = true })'') # Toggle Maximized
+    (bind "${mainMod} + X" ''hl.dsp.window.float({ action = "toggle"})'') # Toggle float
 
     # Vertical resize
     (bindOpts "${mainMod} + MINUS" "hl.dsp.window.resize({ x = 0, y = -10, relative = true })"
