@@ -9,7 +9,7 @@
     in
     rawInputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./modules/flake-file.nix
+        ./modules/flake
         ./modules/outputs.nix
       ];
     };

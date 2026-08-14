@@ -11,6 +11,12 @@
 
   systems = [ "x86_64-linux" ];
 
+  flake-file.tack.allFollow = {
+    home-manager = "home-manager";
+    nixpkgs = [ "nixpkgs-nixcord" ];
+    nixpkgs-lib = "nixpkgs-lib";
+  };
+
   flake-file.inputs = {
     flake-file.url = "github:denful/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";

@@ -127,6 +127,14 @@
     "narHash": "sha256-RzPPiWeUtuvymnpuEWsdtzli5w4kjZs49FqEs3/1u+I=",
     "lastModified": 1786384358
   },
+  "nixpkgs-lib": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "nixpkgs.lib",
+    "rev": "db3f255737b94216eb71cce308e2912cf6bc2d7c",
+    "narHash": "sha256-ePjCwr1sNm9NYUqywL7QfK3JnlS015msC+eBu2zKlp8=",
+    "lastModified": 1782614948
+  },
   "nixvim": {
     "type": "github",
     "owner": "nix-community",
