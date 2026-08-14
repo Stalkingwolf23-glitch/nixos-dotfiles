@@ -17,11 +17,7 @@
         }
       ];
       programs.honkers-railway-launcher.enable = true;
-      programs.honkers-launcher.enable = true;
     };
 
-  flake.modules.nixos.gaming.imports = [
-    self.modules.nixos.aagl
-  ];
-
+  flake.modules.nixos.gaming.imports = [ self.modules.nixos.aagl ];
 }
