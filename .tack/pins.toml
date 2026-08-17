@@ -19,6 +19,10 @@ type = "fetch"
 [inputs.chaotic]
 url = "github:chaotic-cx/nyx/nyxpkgs-unstable"
 
+[inputs.disko]
+url = "github:nix-community/disko"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.firefox-addons]
 url = "gitlab:rycee/nur-expressions"
 dir = "pkgs/firefox-addons"
@@ -45,16 +49,9 @@ follows = { nixpkgs = "nixpkgs" }
 url = "github:Stalkingwolf23-glitch/kickstart.nixvim"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" }
 
-[inputs.niri]
-url = "git+https://codeberg.org/BANanaD3V/niri-nix"
-follows = { niri-unstable = "niri-unstable" }
-
-[inputs.niri-screenshare]
-url = "github:pantarune/niri-screenshare"
+[inputs.lanzaboote]
+url = "github:nix-community/lanzaboote/v1.1.0"
 follows = { nixpkgs = "nixpkgs" }
-
-[inputs.niri-unstable]
-url = "github:YaLTeR/niri"
 
 [inputs.nix-index-database]
 url = "github:nix-community/nix-index-database"
@@ -65,7 +62,7 @@ url = "github:4evy/nixcord"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
 [inputs.nixpkgs]
-url = "github:NixOS/nixpkgs/nixos-unstable"
+url = "github:NixOS/nixpkgs/2fcb964de67fcf60b43471c55d5d99e61a9ccb5a"
 
 [inputs.nixvim]
 url = "github:nix-community/nixvim"
@@ -76,6 +73,10 @@ url = "github:noctalia-dev/noctalia/cachix"
 
 [inputs.noctalia-greeter]
 url = "github:noctalia-dev/noctalia-greeter"
+
+[inputs.preservation]
+url = "github:nix-community/preservation"
+follows = { nixpkgs = "nixpkgs" }
 
 [inputs.rgd]
 url = "github:Rolv-Apneseth/rgd"
