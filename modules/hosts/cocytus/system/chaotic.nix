@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
   flake-file.inputs.chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -16,4 +16,5 @@
 
     nixpkgs.config.allowUnfree = true;
   };
+  flake.modules.nixos.cocytus-system.imports = [ self.modules.nixos.chaotic ];
 }

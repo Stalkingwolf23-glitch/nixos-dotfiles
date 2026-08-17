@@ -1,17 +1,12 @@
+{ self, ... }:
+
 {
-  flake.modules.nixos.performance = { pkgs, ... }:
+  flake.modules.nixos.performance =
+    { pkgs, ... }:
     {
       services.earlyoom.enable = true;
       services.earlyoom.freeSwapThreshold = 20;
       services.earlyoom.freeMemThreshold = 5;
-
-      swapDevices = [
-        {
-          device = "/swapfile";
-          size = 16 * 1024;
-          priority = 10;
-        }
-      ];
 
       zramSwap = {
         enable = true;
@@ -34,4 +29,5 @@
         scheduler = "scx_lavd";
       };
     };
+  flake.modules.nixos.cocytus-system.imports = [ self.modules.nixos.performance ];
 }

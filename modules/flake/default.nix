@@ -20,8 +20,12 @@
   flake-file.inputs = {
     flake-file.url = "github:denful/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    preservation = {
+      url = "github:nix-community/preservation";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tack.url = "github:manic-systems/tack";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/2fcb964de67fcf60b43471c55d5d99e61a9ccb5a";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

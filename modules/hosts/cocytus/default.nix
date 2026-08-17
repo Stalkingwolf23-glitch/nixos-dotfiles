@@ -1,9 +1,11 @@
 { self, ... }:
 
 {
-  flake.modules.nixos.cocytus = {
+  flake.modules.nixos.cocytus = { config, ... }: {
     imports = with self.modules.nixos; [
-      cocytus-storage
+      disko
+      preservation
+      cocytus-drives
       cocytus-hardware-configuration
       common
       desktop
@@ -11,12 +13,9 @@
       gaming
       services
 
-      chaotic
       hardware
-      kernel
-      keyboard
-      performance
       secrets
+      cocytus-system
     ];
 
     networking.hostName = "cocytus";
@@ -30,6 +29,7 @@
     users.users.stalkingwolf = {
       isNormalUser = true;
       # description = "Stalkingwolf";
+      hashedPasswordFile = config.sops.secrets.password_hash.path;
       extraGroups = [
         "networkmanager"
         "wheel"

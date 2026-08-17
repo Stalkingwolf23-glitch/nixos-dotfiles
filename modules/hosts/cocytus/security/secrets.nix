@@ -8,24 +8,28 @@
 
   flake.modules.nixos.secrets =
     { config, pkgs, ... }:
+    let
+      user = "stalkingwolf";
+    in
     {
       imports = [ inputs.sops-nix.nixosModules.sops ];
 
       sops = {
         defaultSopsFile = ./secrets.yaml;
         defaultSopsFormat = "yaml";
-        age.keyFile = "/home/stalkingwolf/.config/sops/age/keys.txt";
+        age.keyFile = "/persist/secrets/age/keys.txt";
 
         secrets = {
           github_token = {
-            owner = "stalkingwolf";
+            owner = "${user}";
           };
 
           ssh_id_ed25519 = {
-            owner = "stalkingwolf";
-            path = "/home/stalkingwolf/.ssh/id_ed25519";
+            owner = "${user}";
+            path = "/home/${user}/.ssh/id_ed25519";
             mode = "0600";
           };
+          password_hash.neededForUsers = true;
         };
       };
 

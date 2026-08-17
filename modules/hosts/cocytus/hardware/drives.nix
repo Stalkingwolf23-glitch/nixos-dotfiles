@@ -1,21 +1,5 @@
 {
-  flake.modules.nixos.cocytus-storage = {
-    fileSystems."/" = {
-      device = "/dev/disk/by-uuid/5334d86b-2c0f-4784-b126-d1acced8a532";
-      fsType = "ext4";
-      options = [ "nofail" ];
-    };
-
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/3F43-74F1";
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-        "nofail"
-      ];
-    };
-
+  flake.modules.nixos.cocytus-drives = {
     fileSystems."/mnt/osiris" = {
       device = "/dev/disk/by-uuid/6a743d8f-c790-4e6f-b78b-1e8b43a932f2";
       fsType = "btrfs";

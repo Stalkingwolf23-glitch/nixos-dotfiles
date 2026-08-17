@@ -1,26 +1,19 @@
+{ self, ... }:
+
 {
   flake.modules.nixos.kernel =
     { lib, pkgs, ... }:
     {
+      # Cachy kernel is provided by the shared Chaotic package infrastructure.
       boot = {
-        # Cachy kernel is provided by the shared Chaotic package infrastructure.
         kernelPackages = pkgs.linuxPackages_cachyos;
-        loader = {
-          # grub.enable = false;
-          systemd-boot = {
-            enable = true;
-            editor = false;
-            configurationLimit = 10;
-            consoleMode = "max";
-          };
-          efi.canTouchEfiVariables = true;
-          efi.efiSysMountPoint = "/boot";
-          timeout = 5;
-        };
 
         initrd = {
           verbose = false;
-          kernelModules = [ "amdgpu" ];
+          kernelModules = [
+            "amdgpu"
+            "zfs"
+          ];
         };
         kernel.sysctl."kernel.sysrq" = 502;
         kernel.sysctl."vm.max_map_count" = 2147483642;
@@ -34,4 +27,6 @@
         ];
       };
     };
+
+  flake.modules.nixos.cocytus-system.imports = [ self.modules.nixos.kernel ];
 }
