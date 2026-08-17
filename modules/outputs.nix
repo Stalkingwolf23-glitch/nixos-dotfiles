@@ -26,8 +26,6 @@ in
       self.modules.nixos.cocytus
       inputs.home-manager.nixosModules.default
       {
-        nix.settings.warn-dirty = false;
-
         home-manager = {
           useUserPackages = true;
           extraSpecialArgs = commonArgs;
