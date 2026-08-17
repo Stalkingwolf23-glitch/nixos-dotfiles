@@ -1,5 +1,3 @@
-{ self, ... }:
-
 {
   flake.modules.nixos.compositor =
     { lib, ... }:

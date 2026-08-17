@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.keyboard = { pkgs, ... }:
+  flake.modules.nixos.keyboard =
+    { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         via

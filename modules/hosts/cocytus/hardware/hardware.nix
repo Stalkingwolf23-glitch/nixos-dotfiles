@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.hardware = { lib, pkgs, ... }:
+  flake.modules.nixos.hardware =
+    { lib, pkgs, ... }:
     {
       services.journald.extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
       services.journald.rateLimitBurst = 500;

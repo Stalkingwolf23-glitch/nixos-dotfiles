@@ -225,7 +225,5 @@
     };
   };
 
-  flake.modules.homeManager.terminal.imports = [
-    self.modules.homeManager.fetch
-  ];
+  flake.modules.homeManager.terminal.imports = [ self.modules.homeManager.fetch ];
 }

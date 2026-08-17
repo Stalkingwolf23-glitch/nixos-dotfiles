@@ -64,10 +64,16 @@
           settings = {
             env = [
               {
-                _args = [ "QT_STYLE_OVERRIDE" "kvantum" ];
+                _args = [
+                  "QT_STYLE_OVERRIDE"
+                  "kvantum"
+                ];
               }
               {
-                _args = [ "QT_QPA_PLATFORMTHEME" "qt6ct" ];
+                _args = [
+                  "QT_QPA_PLATFORMTHEME"
+                  "qt6ct"
+                ];
               }
               {
                 _args = [
