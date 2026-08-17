@@ -6,6 +6,7 @@
     xdg.userDirs = {
       enable = true;
       desktop = config.home.homeDirectory;
+      music = "/mnt/wd_linux/Stuff/Music";
     };
 
     xdg.mimeApps = {
