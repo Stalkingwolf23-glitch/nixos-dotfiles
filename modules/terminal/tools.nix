@@ -12,7 +12,6 @@
         rsync
         ripgrep
         megatools
-        eza
         trash-cli
         scrcpy
         unrar

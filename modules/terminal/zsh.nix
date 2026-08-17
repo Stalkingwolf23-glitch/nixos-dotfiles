@@ -17,10 +17,6 @@
             src = "${pkgs.zsh-bd}/share/zsh-bd";
           }
           {
-            name = "zsh-you-should-use";
-            src = "${pkgs.zsh-you-should-use}/share/zsh-you-should-use";
-          }
-          {
             name = "zsh-nix-shell";
             file = "nix-shell.plugin.zsh";
             src = pkgs.fetchFromGitHub {

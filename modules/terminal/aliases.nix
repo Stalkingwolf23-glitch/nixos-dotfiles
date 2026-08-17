@@ -3,9 +3,6 @@
 {
   flake.modules.homeManager.aliases = {
     home.shellAliases = {
-      ll = "eza --icons --group-directories-first -1";
-      ls = "eza --icons  --group-directories-first -1";
-      tree = "eza --icons --tree --group-directories-first";
       cat = "bat";
       fetch = "fastfetch --config ~/.config/fastfetch/fetch.jsonc";
       nixos = "z ~/local/nixos";
