@@ -20,16 +20,18 @@
         age.keyFile = "/persist/secrets/age/keys.txt";
 
         secrets = {
-          github_token = {
-            owner = "${user}";
-          };
+          password_hash.neededForUsers = true;
+
+          github_token.owner = "${user}";
+          lastfm_key.owner = "${user}";
+          lastfm_secret.owner = "${user}";
+          listenbrainz.owner = "${user}";
 
           ssh_id_ed25519 = {
             owner = "${user}";
             path = "/home/${user}/.ssh/id_ed25519";
             mode = "0600";
           };
-          password_hash.neededForUsers = true;
         };
       };
 

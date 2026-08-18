@@ -21,7 +21,6 @@
         qimgv
         picard
         obsidian
-        lollypop
       ];
     };
 
