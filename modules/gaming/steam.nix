@@ -44,4 +44,18 @@
     };
 
   flake.modules.nixos.gaming.imports = [ self.modules.nixos.steam ];
+
+  flake.modules.nixos.steam-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [
+        ".config/r2mod_cli"
+        ".local/share/Steam"
+        ".local/share/Tabletop Simulator"
+        ".local/share/lutris"
+        ".local/state/umu"
+      ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.steam-preservation ];
 }

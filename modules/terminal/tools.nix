@@ -32,4 +32,12 @@
   flake.modules.homeManager.terminal.imports = [
     self.modules.homeManager.tools
   ];
+
+  flake.modules.nixos.tools-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [ ".local/state/lazygit" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.tools-preservation ];
 }

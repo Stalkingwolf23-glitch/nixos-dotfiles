@@ -12,6 +12,7 @@
 
       fileSystems."/nix".neededForBoot = true;
       fileSystems."/persist".neededForBoot = true;
+      systemd.services.systemd-machine-id-commit.enable = false;
 
       boot.initrd.systemd.services.zfs-root-rollback = {
         description = "Rollback for impermanence";
@@ -20,7 +21,10 @@
         after = [ "zfs-import-rpool.service" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${config.boot.zfs.package}/sbin/zfs rollback rpool/local/root@blank";
+          ExecStart = [
+            "${config.boot.zfs.package}/sbin/zfs rollback rpool/local/root@blank"
+            "${config.boot.zfs.package}/sbin/zfs rollback rpool/local/home@blank"
+          ];
         };
       };
 

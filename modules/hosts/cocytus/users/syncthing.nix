@@ -1,3 +1,5 @@
+{ self, ... }:
+
 {
   flake.modules.homeManager.syncthing = {
     services.syncthing = {
@@ -31,4 +33,15 @@
       };
     };
   };
+
+  flake.modules.nixos.syncthing-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [
+        "Documents/sync"
+        ".config/syncthing"
+      ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.syncthing-preservation ];
 }

@@ -26,4 +26,12 @@
   flake.modules.homeManager.applications.imports = [
     self.modules.homeManager.nixcord
   ];
+
+  flake.modules.nixos.nixcord-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [ ".config/discord" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.nixcord-preservation ];
 }

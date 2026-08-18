@@ -20,4 +20,12 @@
     };
 
   flake.modules.nixos.gaming.imports = [ self.modules.nixos.aagl ];
+
+  flake.modules.nixos.aagl-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [ ".local/share/honkers-railway-launcher" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.aagl-preservation ];
 }

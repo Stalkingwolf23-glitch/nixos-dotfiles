@@ -19,4 +19,21 @@
 
     programs.home-manager.enable = true;
   };
+
+  flake.modules.nixos.home-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [
+        "Downloads"
+        "Documents"
+        "Pictures"
+        "Videos"
+        "local"
+        ".ssh"
+      ];
+
+      files = [ ".zsh_history" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.home-preservation ];
 }

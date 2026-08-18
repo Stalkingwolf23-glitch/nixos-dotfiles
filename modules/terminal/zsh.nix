@@ -86,4 +86,13 @@
   flake.modules.nixos.common.imports = [
     self.modules.nixos.zsh
   ];
+
+  flake.modules.nixos.zsh-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [ ".local/share/zoxide" ];
+      files = [ ".zsh_history" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.zsh-preservation ];
 }
