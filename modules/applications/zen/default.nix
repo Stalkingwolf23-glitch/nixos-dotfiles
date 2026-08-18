@@ -18,7 +18,13 @@
       programs.zen-browser.enable = true;
     };
 
-  flake.modules.homeManager.applications.imports = [
-    self.modules.homeManager.zen
-  ];
+  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.zen ];
+
+  flake.modules.nixos.zen-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [ ".config/zen" ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.zen-preservation ];
 }

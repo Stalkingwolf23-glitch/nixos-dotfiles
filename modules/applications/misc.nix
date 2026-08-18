@@ -21,8 +21,23 @@
         qimgv
         picard
         obsidian
+        lollypop
       ];
     };
 
   flake.modules.homeManager.applications.imports = [ self.modules.homeManager.misc ];
+
+  flake.modules.nixos.apps-preservation = {
+    preservation.preserveAt."/persist".users.stalkingwolf = {
+      directories = [
+        ".config/MusicBrainz"
+        ".config/YouTube Music"
+        ".config/obsidian"
+        ".local/share/applications"
+      ];
+      files = [ ];
+    };
+  };
+
+  flake.modules.nixos.preservation.imports = [ self.modules.nixos.apps-preservation ];
 }
