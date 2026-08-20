@@ -481,7 +481,6 @@
         ".local/share/dolphin/view_properties"
         ".config/session"
       ];
-      files = [ ".local/share/user-places.xbel" ];
     };
   };
 

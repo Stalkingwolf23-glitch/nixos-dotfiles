@@ -52,7 +52,7 @@
         ".local/share/Steam"
         ".local/share/Tabletop Simulator"
         ".local/share/lutris"
-        ".local/state/umu"
+        ".local/share/umu"
       ];
     };
   };

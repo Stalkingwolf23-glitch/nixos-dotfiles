@@ -1,11 +1,12 @@
 { self, ... }:
 
 {
-  flake.modules.homeManager.xdg = { config, ... }: {
+  flake.modules.homeManager.xdg = {
 
     xdg.userDirs = {
       enable = true;
-      desktop = config.home.homeDirectory;
+      desktop = null;
+      videos = null;
       music = "/mnt/wd_linux/Stuff/Music";
     };
 
