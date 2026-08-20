@@ -16,6 +16,7 @@
       hardware
       secrets
       cocytus-system
+      hermes-config
     ];
 
     networking.hostName = "cocytus";

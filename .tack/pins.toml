@@ -53,6 +53,10 @@ follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" 
 url = "github:nix-community/lanzaboote/v1.1.0"
 follows = { nixpkgs = "nixpkgs" }
 
+[inputs.llm-agents]
+url = "github:numtide/llm-agents.nix"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.nix-index-database]
 url = "github:nix-community/nix-index-database"
 follows = { nixpkgs = "nixpkgs" }
@@ -73,6 +77,10 @@ url = "github:noctalia-dev/noctalia/cachix"
 
 [inputs.noctalia-greeter]
 url = "github:noctalia-dev/noctalia-greeter"
+
+[inputs.ponytail]
+url = "github:DietrichGebert/ponytail"
+type = "fetch"
 
 [inputs.preservation]
 url = "github:nix-community/preservation"
