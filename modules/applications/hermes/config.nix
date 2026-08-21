@@ -48,7 +48,7 @@
 
         security = {
           redact_secrets = true;
-          allow_lazy_isntalls = false;
+          allow_lazy_installs = false;
         };
 
         memory = {
