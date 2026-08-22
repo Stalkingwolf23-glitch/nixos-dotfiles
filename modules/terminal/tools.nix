@@ -26,6 +26,7 @@
         btop
         bat
         moor
+        nix-tree
       ];
     };
 
