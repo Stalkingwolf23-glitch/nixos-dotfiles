@@ -37,6 +37,10 @@ url = "github:hercules-ci/flake-parts"
 url = "git+https://codeberg.org/mikf/gallery-dl"
 type = "fetch"
 
+[inputs.hermes]
+url = "github:NousResearch/hermes-agent"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
 follows = { nixpkgs = "nixpkgs" }
@@ -51,10 +55,6 @@ follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" 
 
 [inputs.lanzaboote]
 url = "github:nix-community/lanzaboote/v1.1.0"
-follows = { nixpkgs = "nixpkgs" }
-
-[inputs.llm-agents]
-url = "github:numtide/llm-agents.nix"
 follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nix-index-database]

@@ -9,7 +9,6 @@
       compositor
       gaming
       syncthing
-      hermes
     ];
 
     home = {

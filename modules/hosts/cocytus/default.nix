@@ -16,7 +16,7 @@
       hardware
       secrets
       cocytus-system
-      hermes-config
+      hermes
     ];
 
     networking.hostName = "cocytus";
@@ -35,6 +35,7 @@
         "networkmanager"
         "wheel"
         "input"
+        "hermes"
       ];
     };
 
