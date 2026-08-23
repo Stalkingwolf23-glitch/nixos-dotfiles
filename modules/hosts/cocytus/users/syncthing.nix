@@ -39,6 +39,7 @@
       directories = [
         "Documents/sync"
         ".config/syncthing"
+        ".local/state/wireplumber"
       ];
     };
   };
