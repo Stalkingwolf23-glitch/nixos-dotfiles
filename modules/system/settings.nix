@@ -11,6 +11,7 @@
 
       nix.settings = {
         warn-dirty = false;
+        sandbox = "relaxed";
         experimental-features = [
           "nix-command"
           "flakes"
