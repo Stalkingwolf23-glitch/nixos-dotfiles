@@ -7,7 +7,6 @@
       # themes =
       enabledThemes = [
         "HorizontalServerList.theme.css"
-        "Catppuccin Mocha Blue.theme.css"
       ];
     };
   };

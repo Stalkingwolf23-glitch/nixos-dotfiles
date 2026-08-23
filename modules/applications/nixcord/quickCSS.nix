@@ -17,7 +17,7 @@
         @import url(https://davart154.github.io/Themes/Snippets/Sidebar%20Notice%20Refresh/SidebarNoticeRefreshSource.css);
         @import url(https://davart154.github.io/Themes/Snippets/Plugin%20Icon%20Consistency/IconConsistencySource.css);
 
-        @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
+        @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
 
         /*Configurable Snippet to tone down modern frills*/
         :root {
