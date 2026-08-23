@@ -27,7 +27,7 @@
         stateDir = "/var/lib/hermes";
         workingDirectory = "/var/lib/hermes/workspace";
         addToSystemPackages = true;
-        extraPackages = [ pkgs.mcp-nixos ];
+        # extraPackages = [ pkgs.mcp-nixos ];
         extraPlugins = [ ponytailPlugin ];
       };
     };
