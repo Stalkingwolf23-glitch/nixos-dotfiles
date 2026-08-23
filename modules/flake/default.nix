@@ -1,12 +1,9 @@
-{
-  inputs,
-  config,
-  ...
-}:
+{ inputs, ... }:
+
 {
   imports = [
     inputs.flake-file.flakeModules.tack
-    inputs.flake-parts.flakeModules.modules
+    inputs.flake-file.flakeModules.dendritic
   ];
 
   systems = [ "x86_64-linux" ];
@@ -38,6 +35,8 @@
     { system, pkgs, ... }:
     {
       _module.args.pkgs = inputs.nixpkgs.legacyPackages.${system};
-      packages.write-tack = config.flake-file.apps.write-tack pkgs;
+      devShells.default = pkgs.mkShell {
+        packages = [ inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+      };
     };
 }

@@ -7,10 +7,5 @@
         inherit self;
       };
     in
-    rawInputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        ./modules/flake
-        ./modules/outputs.nix
-      ];
-    };
+    rawInputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

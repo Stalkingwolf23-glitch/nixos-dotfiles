@@ -14,7 +14,7 @@
     { pkgs, ... }:
     {
       nixpkgs.overlays = [
-        (import ../../overlays/rgd.nix inputs)
+        (import ../../_overlays/rgd.nix inputs)
       ];
 
       programs.rofi = {

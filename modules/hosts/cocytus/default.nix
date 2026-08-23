@@ -1,7 +1,7 @@
-{ self, ... }:
+{ self, inputs, ... }:
 
-{
-  flake.modules.nixos.cocytus = { config, ... }: {
+let
+  cocytus = { config, ... }: {
     imports = with self.modules.nixos; [
       disko
       preservation
@@ -26,7 +26,6 @@
       22000
       21027
     ];
-
     users.users.stalkingwolf = {
       isNormalUser = true;
       # description = "Stalkingwolf";
@@ -38,7 +37,23 @@
         "hermes"
       ];
     };
-
     nix.settings.trusted-users = [ "@wheel" ];
+  };
+in
+{
+  flake.modules.nixos.cocytus = cocytus;
+  flake.nixosConfigurations.cocytus = inputs.nixpkgs.lib.nixosSystem {
+    specialArgs = { inherit inputs; };
+    modules = [
+      cocytus
+      inputs.home-manager.nixosModules.default
+      {
+        home-manager = {
+          useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
+          users.stalkingwolf = self.modules.homeManager.cocytus-stalkingwolf;
+        };
+      }
+    ];
   };
 }

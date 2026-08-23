@@ -32,6 +32,7 @@ url = "github:denful/flake-file"
 
 [inputs.flake-parts]
 url = "github:hercules-ci/flake-parts"
+follows = { nixpkgs-lib = "nixpkgs" }
 
 [inputs.gallery-dl]
 url = "git+https://codeberg.org/mikf/gallery-dl"
@@ -48,6 +49,9 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.hyprsplit]
 url = "github:shezdy/hyprsplit"
 follows = { nixpkgs = "nixpkgs" }
+
+[inputs.import-tree]
+url = "github:vic/import-tree"
 
 [inputs.kickstart-nixvim]
 url = "github:Stalkingwolf23-glitch/kickstart.nixvim"
