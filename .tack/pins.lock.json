@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "chaotic-cx",
     "repo": "nyx",
-    "rev": "378686764e0906c05dea4e63e88e679f373d7e2d",
-    "narHash": "sha256-2SaBkMwfft++xPnxM25RBwLKQbRlWHfZR1HDE1H611w=",
-    "lastModified": 1787334783
+    "rev": "662d62e29832758daa0407b1209cfd321e579f6f",
+    "narHash": "sha256-lsil+MYPB1D2Xs/PD/km0ueiZ0allNXMNInRmj1ukiE=",
+    "lastModified": 1787382387
   },
   "disko": {
     "type": "github",
@@ -59,17 +59,17 @@
     "type": "git",
     "url": "https://codeberg.org/mikf/gallery-dl",
     "ref": "HEAD",
-    "rev": "63669256341c119ae332d84e1048b440f8e8a28e",
-    "narHash": "sha256-x+3+6azM1c+rjPm+O9j06xaLBeK21lIRPR+kPWyFUB8=",
-    "lastModified": 1787385951
+    "rev": "9e4451659dfaeed3d74e16f15608980262dd6744",
+    "narHash": "sha256-Zwza+lqw28BMqOhSktkF/IZys2HvXqKmlqQBijODlLQ=",
+    "lastModified": 1787403391
   },
   "hermes": {
     "type": "github",
     "owner": "NousResearch",
     "repo": "hermes-agent",
-    "rev": "4ba038b51d2569ec3b9563b2ccdf42c489f3ba08",
-    "narHash": "sha256-3nmWQQJm5DNA26o5hIpAy97EjXbpCkZyhbt1B4A0830=",
-    "lastModified": 1787384055
+    "rev": "13f4cfebfafbce8ac9d1bf29f66731858ed638b5",
+    "narHash": "sha256-9o6gP+vWqCtyp+in9X7RH7PY2SKsfbzfVZDfJMy1rWw=",
+    "lastModified": 1787422544
   },
   "home-manager": {
     "type": "github",
@@ -86,6 +86,14 @@
     "rev": "6b00b677d8905fb38779c91e12d6294e0e586a44",
     "narHash": "sha256-PaoUtmk+qIP/ESdxkxnY7mUMpMHjix88qu22R5GLQqE=",
     "lastModified": 1781205112
+  },
+  "import-tree": {
+    "type": "github",
+    "owner": "denful",
+    "repo": "import-tree",
+    "rev": "4ebb10ae17d5f1ad366e7aef5b92cb8eecf24f69",
+    "narHash": "sha256-iI88R3wHz8wTKQb5orvpc51L/Xr64AJyxid/0MKa/b8=",
+    "lastModified": 1784254960
   },
   "kickstart-nixvim": {
     "type": "github",
