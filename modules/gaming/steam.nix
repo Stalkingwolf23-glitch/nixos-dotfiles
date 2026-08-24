@@ -8,7 +8,7 @@
         wineWow64Packages.base
         winetricks
         protontricks
-        lutris
+        faugus-launcher
         samrewritten
         r2mod_cli
         # moonlight-qt # Just for streaming from laptop when neede
@@ -51,8 +51,9 @@
         ".config/r2mod_cli"
         ".local/share/Steam"
         ".local/share/Tabletop Simulator"
-        ".local/share/lutris"
         ".local/share/umu"
+        "./local/share/faugus-launcher"
+        "./local/config/faugus-launcher"
       ];
     };
   };
