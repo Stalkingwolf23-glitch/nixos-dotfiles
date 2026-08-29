@@ -3,7 +3,6 @@
 {
   flake-file.inputs.hermes = {
     url = "github:NousResearch/hermes-agent";
-    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   flake-file.inputs.ponytail = {
@@ -20,6 +19,11 @@
       '';
     in
     {
+      nix.settings.extra-substituters = [ "https://hermes-agent.cachix.org" ];
+      nix.settings.extra-trusted-public-keys = [
+        "hermes-agent.cachix.org-1:jN3pjR50Mxi4SESKC/FIMNM6/LCosvPk2VUwzVvebzU="
+      ];
+
       imports = [ inputs.hermes.nixosModules.default ];
 
       services.hermes-agent = {
@@ -33,8 +37,15 @@
     };
 
   flake.modules.nixos.hermes-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
-      directories = [ "/var/lib/hermes" ];
+    preservation.preserveAt."/persist" = {
+      directories = [
+        {
+          directory = "/var/lib/hermes";
+          user = "hermes";
+          group = "hermes";
+          mode = "2770";
+        }
+      ];
     };
   };
 
