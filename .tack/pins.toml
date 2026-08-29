@@ -61,6 +61,9 @@ follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" 
 url = "github:nix-community/lanzaboote/v1.1.0"
 follows = { nixpkgs = "nixpkgs" }
 
+[inputs.nix-cachyos-kernel]
+url = "github:xddxdd/nix-cachyos-kernel/release"
+
 [inputs.nix-index-database]
 url = "github:nix-community/nix-index-database"
 follows = { nixpkgs = "nixpkgs" }

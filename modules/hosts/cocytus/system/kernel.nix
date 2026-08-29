@@ -1,18 +1,40 @@
 { self, ... }:
 
 {
-  flake.modules.nixos.kernel =
-    { lib, pkgs, ... }:
-    {
-      # Cachy kernel is provided by the shared Chaotic package infrastructure.
-      boot = {
-        kernelPackages = pkgs.linuxPackages_cachyos;
+  flake-file.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+  flake.modules.nixos.kernel =
+    {
+      lib,
+      pkgs,
+      inputs,
+      config,
+      ...
+    }:
+    {
+      nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+      nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
+      nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+
+      boot = {
+        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+        zfs = {
+          package = config.boot.kernelPackages.zfs_cachyos;
+          forceImportRoot = false;
+        };
+        kernelModules = [ "btrfs" ];
+        supportedFilesystems.zfs = true;
+        supportedFilesystems.btrfs = true;
         initrd = {
+          supportedFilesystems = [
+            "zfs"
+            "btrfs"
+          ];
           verbose = false;
           kernelModules = [
             "amdgpu"
             "zfs"
+            "btrfs"
           ];
         };
         kernel.sysctl."kernel.sysrq" = 502;
