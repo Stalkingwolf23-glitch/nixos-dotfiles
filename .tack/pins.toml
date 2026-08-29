@@ -70,7 +70,7 @@ url = "github:4evy/nixcord"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
 [inputs.nixpkgs]
-url = "github:NixOS/nixpkgs/2fcb964de67fcf60b43471c55d5d99e61a9ccb5a"
+url = "github:NixOS/nixpkgs"
 
 [inputs.nixvim]
 url = "github:nix-community/nixvim"
