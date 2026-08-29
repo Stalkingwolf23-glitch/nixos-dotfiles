@@ -19,7 +19,6 @@
         zathura
         zsh
         qimgv
-        picard
         obsidian
       ];
     };
