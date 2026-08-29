@@ -16,6 +16,7 @@
         @import url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/improvedSpotifyControls.css');
         @import url(https://davart154.github.io/Themes/Snippets/Sidebar%20Notice%20Refresh/SidebarNoticeRefreshSource.css);
         @import url(https://davart154.github.io/Themes/Snippets/Plugin%20Icon%20Consistency/IconConsistencySource.css);
+        @import url("https://raw.githubusercontent.com/Just-Me-22/Compact-Server-Shortcut-Buttons/main/compact-server-shortcuts.css");
 
         @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
 
@@ -130,6 +131,11 @@
         .container__75920[data-nav-anchor-key='account_info_email_setting'],
         .container__75920[data-nav-anchor-key='account_info_phone_setting'] {
           .stack_dbd263>.text-md\/medium_cf4812 {-webkit-text-security: disc;}
+        }
+
+        /* Add gaps between server header and shortcuts */
+        [class*="sidebarList"] [class*="containerDefault"][class*="wrapper"] {
+          margin: 4px calc(var(--sh-gap)/2);
         }
       '';
       config.useQuickCss = true;

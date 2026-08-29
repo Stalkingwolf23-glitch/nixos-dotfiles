@@ -11,6 +11,10 @@
     { inputs, ... }:
     {
       imports = [ inputs.nixcord.homeModules.nixcord ];
+      nixpkgs.config = {
+        allowUnfree = true;
+        allowUnfreePredicate = (_: true);
+      };
 
       programs.nixcord = {
         enable = true;

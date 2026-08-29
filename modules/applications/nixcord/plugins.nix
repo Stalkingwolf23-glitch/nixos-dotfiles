@@ -228,7 +228,7 @@
           }
           {
             find = "https:\\/\\/(?:(?:www\\.)?twitter\\.com|(?:www\\.)?x\\.com|xcancel\\.com|nitter\\.(?:net|com))\\/([a-zA-Z0-9_]+\\/status\\/\\d+)(?:\\?[^#\\s]*)?(?:#\\S+)?";
-            replace = "[[source]](<https://fixupx.com/$1>) [[raw]](https://fixupx.com/$1.mp4)";
+            replace = "https://fixupx.com/$1";
             onlyIfIncludes = "/status/";
             scope = "myMessages";
             id = "8718b08b-636b-4a7c-95ec-9dafae15c170";
