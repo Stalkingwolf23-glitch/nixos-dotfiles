@@ -8,6 +8,7 @@ let
       cocytus-drives
       cocytus-hardware-configuration
       common
+      security
       desktop
       compositor
       gaming

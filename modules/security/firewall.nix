@@ -5,7 +5,7 @@
     networking.firewall.enable = true;
   };
 
-  flake.modules.nixos.common.imports = [
+  flake.modules.nixos.security.imports = [
     self.modules.nixos.firewall
   ];
 }

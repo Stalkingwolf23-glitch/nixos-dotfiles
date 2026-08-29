@@ -24,7 +24,7 @@
     };
   };
 
-  flake.modules.nixos.common.imports = [
+  flake.modules.nixos.security.imports = [
     self.modules.nixos.hardening
   ];
 }
