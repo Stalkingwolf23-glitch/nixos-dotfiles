@@ -69,6 +69,10 @@ follows = { nixpkgs = "nixpkgs" }
 url = "github:4evy/nixcord"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
+[inputs.nixos-hardware]
+url = "github:NixOS/nixos-hardware/master"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.nixpkgs]
 url = "github:NixOS/nixpkgs"
 
