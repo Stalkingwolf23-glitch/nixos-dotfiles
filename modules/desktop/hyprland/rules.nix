@@ -59,6 +59,7 @@
         {
           match.content = "game";
           idle_inhibit = "fullscreen";
+          confine_pointer = true;
         }
         {
           match.class = "^(steam_app_[0-9]+|gamescope)$";
