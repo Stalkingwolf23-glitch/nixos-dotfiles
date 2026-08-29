@@ -16,12 +16,6 @@
     {
       imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
       boot = {
-        zfs = {
-          package = pkgs.zfs_cachyos;
-          forceImportRoot = false;
-        };
-       supportedFilesystems = [ "zfs" ];
-       initrd.supportedFilesystems = [ "zfs" ];
 
         lanzaboote = {
           enable = true;

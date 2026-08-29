@@ -10,16 +10,6 @@
       ];
     };
 
-    fileSystems."/mnt/backup" = {
-      device = "/dev/disk/by-uuid/27afc96a-db74-4954-bd3d-a139617298f1";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "noatime"
-        "nofail"
-      ];
-    };
-
     fileSystems."/mnt/wd_linux" = {
       device = "/dev/disk/by-uuid/f58af5bc-59e4-482d-ab77-7931a2e5e72e";
       fsType = "ext4";
