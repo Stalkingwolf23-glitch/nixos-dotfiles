@@ -40,7 +40,6 @@ type = "fetch"
 
 [inputs.hermes]
 url = "github:NousResearch/hermes-agent"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
@@ -82,9 +81,6 @@ url = "github:NixOS/nixpkgs"
 [inputs.nixvim]
 url = "github:nix-community/nixvim"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
-
-[inputs.noctalia]
-url = "github:noctalia-dev/noctalia/cachix"
 
 [inputs.noctalia-greeter]
 url = "github:noctalia-dev/noctalia-greeter"
