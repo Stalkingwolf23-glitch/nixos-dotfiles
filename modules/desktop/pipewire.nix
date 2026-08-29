@@ -64,6 +64,7 @@
 
       systemd.user.services.pipewire.serviceConfig.Environment =
         "LADSPA_PATH=${pkgs.deepfilternet}/lib/ladspa";
+      environment.systemPackages = with pkgs; [ deepfilternet ];
     };
 
   flake.modules.nixos.desktop.imports = [
