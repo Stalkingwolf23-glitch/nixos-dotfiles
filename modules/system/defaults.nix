@@ -1,4 +1,4 @@
-{ inputs, self, ... }:
+{ self, ... }:
 
 {
   flake.modules.nixos.defaults =
@@ -9,9 +9,6 @@
         wget
         zsh
         git
-        home-manager
-        deepfilternet
-        inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       environment.localBinInPath = true;

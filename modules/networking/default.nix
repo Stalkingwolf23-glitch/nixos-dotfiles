@@ -1,5 +1,3 @@
-{ self, ... }:
-
 {
   flake.modules.nixos.networking = { pkgs, ... }: {
     networking = {
@@ -35,6 +33,4 @@
       pkgs.wpa_supplicant
     ];
   };
-
-  flake.modules.nixos.services.imports = [ self.modules.nixos.networking ];
 }
