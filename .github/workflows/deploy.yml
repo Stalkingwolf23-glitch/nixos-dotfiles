@@ -1,0 +1,19 @@
+name: Naraka Build
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v17
+        with:
+          name: stalkingwolf
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Build Naraka
+        run: |
+          nix build .#nixosConfigurations.naraka.config.system.build.toplevel

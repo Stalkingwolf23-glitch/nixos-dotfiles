@@ -6,6 +6,10 @@
       naraka-hardware
       common
       networking
+      services
+
+      naraka-tailscale
+      hermes
     ];
     system.stateVersion = "26.11";
     networking.hostName = "naraka";
@@ -25,6 +29,11 @@
       ];
     };
     security.sudo.wheelNeedsPassword = false;
+
+    nix.settings.extra-substituters = [ "https://stalkingwolf.cachix.org" ];
+    nix.settings.extra-trusted-public-keys = [
+      "stalkingwolf.cachix.org-1:eW5wFsNkhO/Doa6QEXPmWjK9c8kbKBlU0fg3+RXIOR4="
+    ];
   };
 
   flake.nixosConfigurations.naraka = inputs.nixpkgs.lib.nixosSystem {
