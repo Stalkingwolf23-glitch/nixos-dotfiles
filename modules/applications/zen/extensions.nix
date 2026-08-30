@@ -48,7 +48,7 @@
           darkreader
           reddit-enhancement-suite
           stylus
-          toxcancel
+          redirector
         ])
         ++ [ pixiv-toolkit ];
 
