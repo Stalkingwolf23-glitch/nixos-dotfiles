@@ -137,6 +137,11 @@
         [class*="sidebarList"] [class*="containerDefault"][class*="wrapper"] {
           margin: 4px calc(var(--sh-gap)/2);
         }
+
+        /* Hide completed quests */
+        .container__60f82 > div:not(:has(.expirationCopy_b5b7aa)) {
+            display: none;
+        }
       '';
       config.useQuickCss = true;
     };
