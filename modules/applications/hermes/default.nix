@@ -53,8 +53,6 @@
             exec systemd-run \
               --user \
               --scope \
-              --wait \
-              --collect \
               --quiet \
               --setenv=HERMES_HOME=/home/stalkingwolf/hermes/.hermes \
               --working-directory=/home/stalkingwolf/hermes/workspace \
