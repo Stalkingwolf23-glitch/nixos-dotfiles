@@ -17,7 +17,6 @@ let
       hardware
       secrets
       cocytus-system
-      hermes
     ];
 
     system.stateVersion = "26.05";

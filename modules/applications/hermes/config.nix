@@ -24,7 +24,7 @@
       };
       terminal = {
         backend = "local";
-        cwd = "/var/lib/hermes/workspace";
+        cwd = "/home/stalkingwolf/hermes/workspace";
         timeout = 120;
       };
       platform_toolsets = {
@@ -58,6 +58,7 @@
     };
     systemd.services.hermes-agent.serviceConfig = {
       ProtectHome = lib.mkForce "read-only";
+      ReadWritePaths = [ "/home/stalkingwolf/hermes" ];
     };
   };
 }

@@ -1,10 +1,10 @@
 {
   flake.modules.nixos.hermes = {
     services.hermes-agent.documents."AGENTS.md" = ''
-        # Repository instructions
-        ## Scope
-      This is a flake-parts NixOS configuration repository for the `cocytus`
-      host. It uses `flake-file`, `tack`, recursive module imports, NixOS,
+      # Repository instructions
+      ## Scope
+      This is a flake-parts NixOS configuration repository for the user's main PC (`cocytus`)
+      and homelab (`naraka`). It uses `flake-file`, `tack`, recursive module imports, NixOS,
       and Home Manager.
       ## Before changing anything
       - Inspect the target module and every caller before editing.
@@ -14,11 +14,12 @@
       - Do not guess Nix syntax, options, packages, or APIs.
       ## Repository structure
       - Shared reusable functionality belongs under the appropriate `modules/` subtree.
-      - Host-specific changes belong under `modules/hosts/cocytus`.
+      - Main PC-specific changes belong under `modules/hosts/cocytus`.
+      - Homelab-specific changes belong under `modules/hosts/naraka`.
       - The host is assembled through `modules/outputs.nix`.
       - Every `.nix` file under recursively imported module trees must be a valid flake-parts module unless intentionally excluded by the existing recursive-import rules.
       - Group all parts of one application under one canonical module name unless they are intentionally independent modules
-      - Seperate files for settings, themes, documents, plugins are allowed, but they should contribute to the same module
+      - Separate files for settings, themes, and plugins are allowed, but they should contribute to the same module.
       - Keep host-specific composition in the host module rather than creating application submodule for host wiring
       - A filename may describe one implementation part; the exported module name should still follow the application grouping convention
       ## NixOS workflow
@@ -38,8 +39,11 @@
       - Do not directly modify the live NixOS system.
       - For NixOS configuration changes, show the intended diff and run evaluation/checks only.
       ## Hermes-specific policy
-      - Hermes state belongs under `/var/lib/hermes` and must remain preserved under `/persist`.
-      - Hermes may inspect the user home and the NixOS repository, but must not write to `/home` 
+      - Hermes state belongs under `/home/stalkingwolf/hermes/.hermes`.
+      - Hermes working files belong under `/home/stalkingwolf/hermes/workspace`.
+      - For task and repository edits, Hermes may modify only `/home/stalkingwolf/hermes/workspace`.
+      - Hermes may write its own runtime state under `/home/stalkingwolf/hermes/.hermes`.
+      - Hermes must not modify `/home/stalkingwolf/nixos`.
       - Prefer proposing patches and validation results over directly changing the NixOS checkout.
       - Treat GitHub credentials and SOPS-managed secrets as sensitive.
       - Never expose tokens or credentials in logs, tool output, commits, or the Nix store.
