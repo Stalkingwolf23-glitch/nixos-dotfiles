@@ -1,13 +1,5 @@
-{ inputs, ... }:
-
 {
-  flake-file.inputs.nixos-hardware = {
-    url = "github:NixOS/nixos-hardware/master";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   flake.modules.nixos.naraka-hardware = { lib, ... }: {
-    imports = [ inputs.nixos-hardware.nixosModules.raspberry-pi-5 ];
 
     nixpkgs.hostPlatform = "aarch64-linux";
     hardware = {
