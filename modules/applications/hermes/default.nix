@@ -1,5 +1,3 @@
-{ self, ... }:
-
 {
   flake-file.inputs.hermes = {
     url = "github:NousResearch/hermes-agent";
@@ -39,30 +37,9 @@
         createUser = false;
         stateDir = "/home/stalkingwolf/hermes";
         workingDirectory = "/home/stalkingwolf/hermes/workspace";
-        addToSystemPackages = false;
+        addToSystemPackages = true;
         extraPackages = [ pkgs.python313Packages.ddgs ];
         extraPlugins = [ ponytailPlugin ];
       };
-
-      environment.systemPackages = [
-        (pkgs.writeShellApplication {
-          name = "hermes-tui";
-          runtimeInputs = [ pkgs.systemd ];
-          text = ''
-            set -eu
-            exec systemd-run \
-              --user \
-              --scope \
-              --quiet \
-              --setenv=HERMES_HOME=/home/stalkingwolf/hermes/.hermes \
-              --working-directory=/home/stalkingwolf/hermes/workspace \
-              --property=ProtectHome=read-only \
-              --property=ReadWritePaths=/home/stalkingwolf/hermes \
-              --property=ReadWritePaths=/home/stalkingwolf/git \
-              ${lib.getExe config.services.hermes-agent.package} "$@"
-          '';
-        })
-      ];
-      environment.shellAliases.hermes = "hermes-tui";
     };
 }
