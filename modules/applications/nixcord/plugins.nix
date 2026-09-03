@@ -224,10 +224,10 @@
             onlyIfIncludes = "/artworks/";
             scope = "myMessages";
             id = "a34282c4-4997-4dfa-bf46-20029cd700de";
-            name = "PIxiv";
+            name = "Pixiv";
           }
           {
-            find = "https:\\/\\/(?:(?:www\\.)?twitter\\.com|(?:www\\.)?x\\.com|xcancel\\.com|nitter\\.(?:net|com))\\/([a-zA-Z0-9_]+\\/status\\/\\d+)(?:\\?[^#\\s]*)?(?:#\\S+)?";
+            find = "https:\\/\\/(?:(?:www\\.)?twitter\\.com|(?:www\\.)?x\\.com|nitter.tail090b60.ts\\.net)\\/([a-zA-Z0-9_]+\\/status\\/\\d+)(?:\\?[^#\\s]*)?(?:#\\S+)?";
             replace = "https://fixupx.com/$1";
             onlyIfIncludes = "/status/";
             scope = "myMessages";
