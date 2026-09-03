@@ -10,7 +10,6 @@
 
   flake-file.tack.allFollow = {
     home-manager = "home-manager";
-    nixpkgs = [ "nixpkgs-nixcord" ];
     nixpkgs-lib = "nixpkgs-lib";
   };
 

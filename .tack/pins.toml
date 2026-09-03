@@ -6,7 +6,6 @@ recomposable = true
 
 [all_follow]
 home-manager = "home-manager"
-nixpkgs = ["nixpkgs-nixcord"]
 nixpkgs-lib = "nixpkgs-lib"
 
 [inputs.aagl]
