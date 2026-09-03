@@ -52,8 +52,8 @@
         ".local/share/Steam"
         ".local/share/Tabletop Simulator"
         ".local/share/umu"
-        "./local/share/faugus-launcher"
-        "./local/config/faugus-launcher"
+        ".local/share/faugus-launcher"
+        ".local/config/faugus-launcher"
       ];
     };
   };
