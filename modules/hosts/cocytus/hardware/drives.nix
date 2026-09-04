@@ -1,5 +1,6 @@
 {
   flake.modules.nixos.cocytus-drives = {
+    boot.zfs.extraPools = [ "backup" ];
     fileSystems."/mnt/osiris" = {
       device = "/dev/disk/by-uuid/6a743d8f-c790-4e6f-b78b-1e8b43a932f2";
       fsType = "btrfs";
