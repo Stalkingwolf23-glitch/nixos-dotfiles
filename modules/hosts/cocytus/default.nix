@@ -15,7 +15,7 @@ let
       networking
 
       hardware
-      secrets
+      cocytus-secrets
       cocytus-system
     ];
 
@@ -31,7 +31,7 @@ let
     users.users.stalkingwolf = {
       isNormalUser = true;
       # description = "Stalkingwolf";
-      hashedPasswordFile = config.sops.secrets.password_hash.path;
+      hashedPasswordFile = config.security.nix-secrets.secrets.password_hash.path;
       extraGroups = [
         "networkmanager"
         "wheel"

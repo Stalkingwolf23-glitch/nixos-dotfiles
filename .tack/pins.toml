@@ -66,6 +66,10 @@ url = "github:xddxdd/nix-cachyos-kernel/release"
 url = "github:nix-community/nix-index-database"
 follows = { nixpkgs = "nixpkgs" }
 
+[inputs.nix-secrets]
+url = "github:unnamed-systems/nix-secrets"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.nixcord]
 url = "github:4evy/nixcord"
 follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
@@ -91,10 +95,6 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.rgd]
 url = "github:Rolv-Apneseth/rgd"
 type = "fetch"
-
-[inputs.sops-nix]
-url = "github:Mic92/sops-nix"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.tack]
 url = "github:manic-systems/tack"

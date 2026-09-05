@@ -7,9 +7,9 @@
     services.rescrobbled = {
       enable = true;
       settings = {
-        "lastfm-key-file" = "/run/secrets/lastfm_key";
-        "lastfm-secret-file" = "/run/secrets/lastfm_secret";
-        "listenbrainz-token-file" = "/run/secrets/listenbrainz";
+        "lastfm-key-file" = "/run/nix-secrets/secrets/lastfm_key";
+        "lastfm-secret-file" = "/run/nix-secrets/secrets/lastfm_secret";
+        "listenbrainz-token-file" = "/run/nix-secrets/secrets/listenbrainz";
 
         "use-track-start-timestamp" = true;
         "player-ignorelist" = [ "zen.*" ];

@@ -1,45 +1,54 @@
-{ inputs, ... }:
-
 {
-  flake-file.inputs.sops-nix = {
-    url = "github:Mic92/sops-nix";
+  flake-file.inputs.nix-secrets = {
+    url = "github:unnamed-systems/nix-secrets";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.secrets =
-    { config, pkgs, ... }:
-    let
-      user = "stalkingwolf";
-    in
+  flake.modules.nixos.cocytus-secrets =
     {
-      imports = [ inputs.sops-nix.nixosModules.sops ];
+      inputs,
+      config,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [ inputs.nix-secrets.nixosModules.default ];
 
-      sops = {
-        defaultSopsFile = ./secrets.yaml;
-        defaultSopsFormat = "yaml";
-        age.keyFile = "/persist/secrets/age/keys.txt";
+      security.nix-secrets = {
+        enable = true;
+        storage = ../../../../secrets/cocytus;
+        identityPaths = [ "/persist/secrets/age/keys.txt" ];
+        recipientAliases.cocytus = "age1pn9g5yf9k6406f2h4hwjc9asr579997yxvddurljk5zq8cvmjyzsw2l77q";
 
         secrets = {
-          password_hash.neededForUsers = true;
-
-          github_token.owner = "${user}";
-          lastfm_key.owner = "${user}";
-          lastfm_secret.owner = "${user}";
-          listenbrainz.owner = "${user}";
-
+          github_token = {
+            recipients = [ "cocytus" ];
+            owner = "stalkingwolf";
+          };
+          password_hash = {
+            recipients = [ "cocytus" ];
+            neededForUsers = true;
+          };
+          lastfm_key = {
+            recipients = [ "cocytus" ];
+            owner = "stalkingwolf";
+          };
+          lastfm_secret = {
+            recipients = [ "cocytus" ];
+            owner = "stalkingwolf";
+          };
+          listenbrainz = {
+            recipients = [ "cocytus" ];
+            owner = "stalkingwolf";
+          };
           ssh_id_ed25519 = {
-            owner = "${user}";
-            path = "/home/${user}/.ssh/id_ed25519";
+            recipients = [ "cocytus" ];
+            owner = "stalkingwolf";
+            path = "/home/stalkingwolf/.ssh/id_ed25519";
             mode = "0600";
           };
         };
       };
-
-      nix.extraOptions = "!include ${config.sops.secrets.github_token.path}";
-
-      environment.systemPackages = with pkgs; [
-        age
-        sops
-      ];
+      nix.extraOptions = "!include ${config.security.nix-secrets.secrets.github_token.path}";
     };
 }
