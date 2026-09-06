@@ -2,9 +2,16 @@
   flake.modules.nixos.hardware =
     { lib, pkgs, ... }:
     {
-      services.journald.extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
-      services.journald.rateLimitBurst = 500;
-      services.journald.rateLimitInterval = "30s";
+      services.journald = {
+        rateLimitBurst = 500;
+        rateLimitInterval = "30s";
+        settings.Journal = {
+          SystemMaxUse = "50M";
+          SystemMaxFiles = 5;
+          RateLimitBurst = 500;
+          RateLimitIntervalSec = "30s";
+        };
+      };
 
       hardware.bluetooth.enable = true;
       powerManagement.cpuFreqGovernor = "performance";
