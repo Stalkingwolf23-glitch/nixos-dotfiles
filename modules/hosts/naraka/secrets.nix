@@ -12,6 +12,10 @@
       storage = ../../../secrets/naraka;
       identityPaths = [ "/var/lib/nix-secrets/age-key.txt" ];
       recipientAliases.naraka = "age1dsgdqfy2wcunxxfa54j4qmrg59ewt5uvyqdhn4zjgayhngha4uhqyehw22";
+
+      secrets = {
+        "nitter-sessions.jsonl".recipients = [ "naraka" ];
+      };
     };
   };
 }
