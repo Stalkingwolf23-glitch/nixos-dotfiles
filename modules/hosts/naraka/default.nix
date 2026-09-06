@@ -25,7 +25,7 @@
       isNormalUser = true;
       extraGroups = [ "wheel" ];
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbqmvqWaw+OqRarYhg4yqeDt2OPcg7Mr2Y0RG+SIHaL stalkingwolf@cocytus"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgaw6BukZP98yFopZ0pQMOh/JoP/CSBb+X/jwlPFhTt stalkingwolf@cocytus"
       ];
     };
     security.sudo.wheelNeedsPassword = false;
