@@ -9,6 +9,7 @@
       services
 
       naraka-tailscale
+      naraka-secrets
       hermes
     ];
     system.stateVersion = "26.11";
