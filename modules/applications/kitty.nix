@@ -42,7 +42,7 @@
     };
   };
 
-  flake.modules.homeManager.terminal.imports = [
+  flake.modules.homeManager.applications.imports = [
     self.modules.homeManager.kitty
   ];
 }
