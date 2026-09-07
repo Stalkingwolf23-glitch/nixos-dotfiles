@@ -14,7 +14,7 @@
         megatools
         trash-cli
         scrcpy
-        unrar
+        unrar-free
         rich-cli
         jq
         playerctl
