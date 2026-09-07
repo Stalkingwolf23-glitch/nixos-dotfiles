@@ -25,6 +25,7 @@ in
     (bind "${mainMod} + B" ''hl.dsp.exec_cmd("zen-beta")'') # Browser
     (bind "${mainMod} + D" ''hl.dsp.exec_cmd("discord")'') # Discord
     (bind "${mainMod} + N" ''hl.dsp.exec_cmd("dolphin")'') # File Manager
+    (bind "${mainMod} + Z" ''hl.dsp.exec_cmd("zeditor")'') # Zed Editor
 
     # Panels
     (bind "${mainMod} + RETURN" ''hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")'') # Noctalia control center
