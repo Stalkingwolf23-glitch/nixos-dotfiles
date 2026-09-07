@@ -34,5 +34,5 @@
         outline_panel.dock = "left";
       };
     };
-  }
+  };
 }
