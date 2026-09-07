@@ -3,7 +3,7 @@
   flake.modules.homeManager.cocytus-stalkingwolf = {
     imports = with self.modules.homeManager; [
       terminal
-      nvim
+      zed
       desktop
       applications
       compositor
