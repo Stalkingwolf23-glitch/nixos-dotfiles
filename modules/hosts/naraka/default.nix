@@ -43,6 +43,19 @@
     modules = [
       self.modules.nixos.naraka
       "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+      inputs.home-manager.nixosModules.default
+      {
+        home-manager = {
+          useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
+          users.stalkingwolf = {
+            imports = [ self.modules.homeManager.terminal ];
+            home.username = "stalkingwolf";
+            home.homeDirectory = "/home/stalkingwolf";
+            home.stateVersion = "26.11";
+          };
+        };
+      }
     ];
   };
 }
