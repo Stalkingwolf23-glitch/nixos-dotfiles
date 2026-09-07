@@ -11,7 +11,6 @@
         faugus-launcher
         samrewritten
         r2mod_cli
-        # moonlight-qt # Just for streaming from laptop when neede
       ];
 
       environment.sessionVariables = {
