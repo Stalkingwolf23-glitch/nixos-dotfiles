@@ -19,6 +19,11 @@
         https = false;
       };
     };
+
+    systemd.services.nitter.serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
+    };
   };
 
   flake.modules.nixos.services.imports = [ self.modules.nixos.nitter ];
