@@ -5,7 +5,6 @@
     { config, ... }:
     {
       home.sessionVariables = {
-        EDITOR = "nvim";
         TACK_NIX_CONF_TOKENS = "1";
       };
     };
