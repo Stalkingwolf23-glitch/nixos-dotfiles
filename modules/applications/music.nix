@@ -1,8 +1,6 @@
-{ self, ... }:
-
-{
-  flake.modules.homeManager.scrobbler = { pkgs, ... }: {
-    home.packages = [ pkgs.lollypop ];
+{self, ...}: {
+  flake.modules.homeManager.scrobbler = {pkgs, ...}: {
+    home.packages = [pkgs.lollypop];
 
     services.rescrobbled = {
       enable = true;
@@ -12,12 +10,12 @@
         "listenbrainz-token-file" = "/run/nix-secrets/secrets/listenbrainz";
 
         "use-track-start-timestamp" = true;
-        "player-ignorelist" = [ "zen.*" ];
+        "player-ignorelist" = ["zen.*"];
       };
     };
   };
 
-  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.scrobbler ];
+  flake.modules.homeManager.applications.imports = [self.modules.homeManager.scrobbler];
 
   flake.modules.nixos.music-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
@@ -27,6 +25,24 @@
     };
   };
 
-  flake.modules.nixos.preservation.imports = [ self.modules.nixos.music-preservation ];
+  flake.modules.nixos.preservation.imports = [self.modules.nixos.music-preservation];
 
+  flake.modules.nixos.music-secrets = {
+    security.nix-secrets.secrets = {
+      lastfm_key = {
+        recipients = ["cocytus"];
+        owner = "stalkingwolf";
+      };
+      lastfm_secret = {
+        recipients = ["cocytus"];
+        owner = "stalkingwolf";
+      };
+      listenbrainz = {
+        recipients = ["cocytus"];
+        owner = "stalkingwolf";
+      };
+    };
+  };
+
+  flake.modules.nixos.cocytus-secrets.imports = [self.modules.nixos.music-secrets];
 }
