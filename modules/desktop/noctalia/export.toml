@@ -425,10 +425,14 @@ wallpaper_scheme = "m3-rainbow"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "qt" ]
-    community_ids = [ "pear-desktop", "lazygit" ]
+    community_ids = [ "lazygit" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
+    [theme.templates.user.pear_custom]
+	input_path = "~/.config/noctalia/templates/pear-custom/pearColors.css"
+	output_path = "~/.config/YouTube Music/noctalia.css"
+	post_hook = 'bash "$HOME/.config/noctalia/templates/pear-custom/apply.sh"'
 [wallpaper]
 directory = "/home/stalkingwolf/Pictures/Wallpapers"
 fill_color = "#1E1E2E"
