@@ -14,7 +14,6 @@
         easyeffects
         libappindicator
         playerctl
-        pear-desktop
         steamtinkerlaunch
         zathura
         zsh
