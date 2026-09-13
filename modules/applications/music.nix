@@ -20,6 +20,8 @@
   flake.modules.nixos.music-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
       directories = [
+        ".config/MusicBrainz"
+        ".config/YouTube Music"
         ".config/rescrobbled"
       ];
     };

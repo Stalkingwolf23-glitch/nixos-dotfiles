@@ -28,8 +28,6 @@
   flake.modules.nixos.apps-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
       directories = [
-        ".config/MusicBrainz"
-        ".config/YouTube Music"
         ".config/obsidian"
         ".local/share/applications"
       ];
