@@ -1,15 +1,14 @@
 {
-  flake.modules.nixos.naraka-tailscale =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
+  flake.modules.nixos.naraka-tailscale = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }:
     lib.mkIf config.services.tailscale.enable {
       systemd.services.tailscale-nitter = {
-        wantedBy = [ "multi-user.target" ];
-        wants = [ "tailscaled.service" ];
+        wantedBy = ["multi-user.target"];
+        wants = ["tailscaled.service"];
         after = [
           "tailscaled.service"
           "tailscaled-autoconnect.service"
@@ -30,7 +29,7 @@
       };
 
       services.tailscale = {
-        extraUpFlags = [ "--advertise-tags=tag:nitter" ];
+        extraUpFlags = ["--advertise-tags=tag:nitter"];
       };
     };
 }

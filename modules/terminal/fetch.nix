@@ -1,8 +1,6 @@
-{ self, ... }:
-
-{
-  flake.modules.homeManager.fetch = { pkgs, ... }: {
-    home.packages = [ pkgs.microfetch ];
+{self, ...}: {
+  flake.modules.homeManager.fetch = {pkgs, ...}: {
+    home.packages = [pkgs.microfetch];
     programs.fastfetch = {
       enable = true;
     };
@@ -225,5 +223,5 @@
     };
   };
 
-  flake.modules.homeManager.terminal.imports = [ self.modules.homeManager.fetch ];
+  flake.modules.homeManager.terminal.imports = [self.modules.homeManager.fetch];
 }

@@ -17,7 +17,7 @@
               ];
             }
           ];
-          definedAliases = [ "@sn" ];
+          definedAliases = ["@sn"];
         };
         github = {
           name = "Github Search";
@@ -26,7 +26,7 @@
               template = "https://github.com/search?q={query}";
             }
           ];
-          definedAliases = [ "@gh" ];
+          definedAliases = ["@gh"];
         };
       };
     };

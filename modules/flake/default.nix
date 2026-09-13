@@ -1,12 +1,10 @@
-{ inputs, ... }:
-
-{
+{inputs, ...}: {
   imports = [
     inputs.flake-file.flakeModules.tack
     inputs.flake-file.flakeModules.dendritic
   ];
 
-  systems = [ "x86_64-linux" ];
+  systems = ["x86_64-linux"];
 
   flake-file.tack.allFollow = {
     home-manager = "home-manager";
@@ -30,12 +28,14 @@
 
   flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-  perSystem =
-    { system, pkgs, ... }:
-    {
-      _module.args.pkgs = inputs.nixpkgs.legacyPackages.${system};
-      devShells.default = pkgs.mkShell {
-        packages = [ inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default ];
-      };
+  perSystem = {
+    system,
+    pkgs,
+    ...
+  }: {
+    _module.args.pkgs = inputs.nixpkgs.legacyPackages.${system};
+    devShells.default = pkgs.mkShell {
+      packages = [inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default];
     };
+  };
 }

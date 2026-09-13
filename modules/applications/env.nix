@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.applications-env = {
     home.sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -9,5 +7,5 @@
     };
   };
 
-  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.applications-env ];
+  flake.modules.homeManager.applications.imports = [self.modules.homeManager.applications-env];
 }

@@ -1,11 +1,10 @@
 {
   flake.modules.homeManager.hyprland-rules = {
-    wayland.windowManager.hyprland.settings.window_rule =
-      let
-        mkRule = rule: {
-          _args = [ rule ];
-        };
-      in
+    wayland.windowManager.hyprland.settings.window_rule = let
+      mkRule = rule: {
+        _args = [rule];
+      };
+    in
       map mkRule [
         {
           match.class = "^[Xx]dg-desktop-portal-gtk$";

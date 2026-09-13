@@ -1,8 +1,5 @@
-{ self, ... }:
-
-{
-  flake.modules.homeManager.yazi = { pkgs, ... }:
-    {
+{self, ...}: {
+  flake.modules.homeManager.yazi = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
       shellWrapperName = "yy";
@@ -21,7 +18,7 @@
         "lazygit" = pkgs.yaziPlugins.lazygit;
       };
     };
-    };
+  };
 
   flake.modules.homeManager.terminal.imports = [
     self.modules.homeManager.yazi

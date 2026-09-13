@@ -4,8 +4,8 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.disko = { inputs, ... }: {
-    imports = [ inputs.disko.nixosModules.disko ];
+  flake.modules.nixos.disko = {inputs, ...}: {
+    imports = [inputs.disko.nixosModules.disko];
 
     networking.hostId = "8425e349";
     boot.zfs.forceImportRoot = false;
@@ -25,7 +25,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             cryptroot = {

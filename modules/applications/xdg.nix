@@ -1,8 +1,5 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.xdg = {
-
     xdg.userDirs = {
       enable = true;
       desktop = null;
@@ -64,5 +61,5 @@
     };
   };
 
-  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.xdg ];
+  flake.modules.homeManager.applications.imports = [self.modules.homeManager.xdg];
 }

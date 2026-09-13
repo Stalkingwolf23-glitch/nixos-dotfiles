@@ -1,15 +1,11 @@
-{ inputs, ... }:
-
-{
+{inputs, ...}: {
   flake-file.inputs.betterfox = {
     url = "github:yokoffing/Betterfox";
     flake = false;
   };
 
-  flake.modules.homeManager.zen = { inputs, ... }:
-    {
-      programs.zen-browser.profiles."default".extraConfig =
-        "${builtins.readFile "${inputs.betterfox}/zen/user.js"} ";
+  flake.modules.homeManager.zen = {inputs, ...}: {
+    programs.zen-browser.profiles."default".extraConfig = "${builtins.readFile "${inputs.betterfox}/zen/user.js"} ";
 
     programs.zen-browser.profiles."default".settings = {
       # zen overrides
@@ -44,5 +40,5 @@
       "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
       "mousewheel.default.delta_multiplier_y" = 200;
     };
-    };
+  };
 }

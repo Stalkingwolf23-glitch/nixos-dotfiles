@@ -1,28 +1,24 @@
-{ self, ... }:
+{self, ...}: {
+  flake.modules.homeManager.misc = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      # moonlight-qt # Just for streaming from laptop when needed
+      wlr-randr
+      pamixer
+      pavucontrol
+      wl-clipboard
+      cliphist
+      easyeffects
+      libappindicator
+      playerctl
+      steamtinkerlaunch
+      zathura
+      zsh
+      qimgv
+      obsidian
+    ];
+  };
 
-{
-  flake.modules.homeManager.misc =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        # moonlight-qt # Just for streaming from laptop when needed
-        wlr-randr
-        pamixer
-        pavucontrol
-        wl-clipboard
-        cliphist
-        easyeffects
-        libappindicator
-        playerctl
-        steamtinkerlaunch
-        zathura
-        zsh
-        qimgv
-        obsidian
-      ];
-    };
-
-  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.misc ];
+  flake.modules.homeManager.applications.imports = [self.modules.homeManager.misc];
 
   flake.modules.nixos.apps-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
@@ -30,9 +26,9 @@
         ".config/obsidian"
         ".local/share/applications"
       ];
-      files = [ ];
+      files = [];
     };
   };
 
-  flake.modules.nixos.preservation.imports = [ self.modules.nixos.apps-preservation ];
+  flake.modules.nixos.preservation.imports = [self.modules.nixos.apps-preservation];
 }

@@ -5,16 +5,16 @@ inputs: final: prev: {
       sqlite,
       pkg-config,
     }:
-    rustPlatform.buildRustPackage {
-      pname = "rgd";
-      version = "unstable";
+      rustPlatform.buildRustPackage {
+        pname = "rgd";
+        version = "unstable";
 
-      src = inputs.rgd;
+        src = inputs.rgd;
 
-      cargoLock.lockFile = "${inputs.rgd}/Cargo.lock";
+        cargoLock.lockFile = "${inputs.rgd}/Cargo.lock";
 
-      buildInputs = [ sqlite ];
-      nativeBuildInputs = [ pkg-config ];
-    }
-  ) { };
+        buildInputs = [sqlite];
+        nativeBuildInputs = [pkg-config];
+      }
+  ) {};
 }

@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.eza = {
     programs.eza = {
       enable = true;
@@ -15,5 +13,5 @@
     };
   };
 
-  flake.modules.homeManager.terminal.imports = [ self.modules.homeManager.eza ];
+  flake.modules.homeManager.terminal.imports = [self.modules.homeManager.eza];
 }

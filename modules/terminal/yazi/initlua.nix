@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.initlua = {
     programs.yazi.initLua = ''
       local catppuccin_theme = require("yatline-catppuccin"):setup("mocha")

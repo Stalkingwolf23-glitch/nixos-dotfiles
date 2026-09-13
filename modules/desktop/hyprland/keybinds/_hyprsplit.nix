@@ -1,9 +1,7 @@
-{ config, ... }:
-let
+{config, ...}: let
   mainMod = config.hyprland.mainMod;
   workspaceCount = config.hyprland.workspaceCount;
-in
-{
+in {
   wayland.windowManager.hyprland.extraLuaFiles."hyprsplit/keybinds" = {
     autoLoad = true;
     content = ''

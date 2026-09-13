@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.nixos.backup = {
     services.sanoid = {
       enable = true;
@@ -13,7 +11,7 @@
         autoprune = true;
       };
       datasets."rpool/local/home" = {
-        useTemplate = [ "home" ];
+        useTemplate = ["home"];
         recursive = false;
       };
     };
@@ -32,5 +30,5 @@
     systemd.timers."syncoid-home".timerConfig.Persistent = true;
   };
 
-  flake.modules.nixos.cocytus-system.imports = [ self.modules.nixos.backup ];
+  flake.modules.nixos.cocytus-system.imports = [self.modules.nixos.backup];
 }

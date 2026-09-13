@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.networking = { pkgs, ... }: {
+  flake.modules.nixos.networking = {pkgs, ...}: {
     networking = {
       networkmanager = {
         enable = true;
@@ -22,7 +22,7 @@
         require_nofilter = false;
 
         static."NextDNS-a33b83".stamp = "sdns://AgEAAAAAAAAAAAAOZG5zLm5leHRkbnMuaW8HL2EzM2I4Mw";
-        server_names = [ "NextDNS-a33b83" ];
+        server_names = ["NextDNS-a33b83"];
       };
     };
 

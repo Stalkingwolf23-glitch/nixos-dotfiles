@@ -1,7 +1,5 @@
-{ self, ... }:
-
-{
-  flake.modules.nixos.nitter = { config, ... }: {
+{self, ...}: {
+  flake.modules.nixos.nitter = {config, ...}: {
     services.nitter = {
       enable = true;
       openFirewall = false;
@@ -26,5 +24,5 @@
     };
   };
 
-  flake.modules.nixos.services.imports = [ self.modules.nixos.nitter ];
+  flake.modules.nixos.services.imports = [self.modules.nixos.nitter];
 }

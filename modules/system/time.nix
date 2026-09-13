@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.nixos.time = {
     time.timeZone = "Asia/Singapore";
 
@@ -43,5 +41,5 @@
     };
   };
 
-  flake.modules.nixos.common.imports = [ self.modules.nixos.time ];
+  flake.modules.nixos.common.imports = [self.modules.nixos.time];
 }

@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.keymap = {
     programs.yazi.keymap = {
       mgr = {

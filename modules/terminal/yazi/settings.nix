@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.settings = {
     programs.yazi.settings = {
       mgr = {

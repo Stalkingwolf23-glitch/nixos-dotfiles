@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.syncthing = {
     services.syncthing = {
       enable = true;
@@ -15,19 +13,19 @@
             label = "Comics";
             path = "/home/stalkingwolf/Documents/sync/Comics";
             id = "tygcc-vkduz";
-            devices = [ "Phone" ];
+            devices = ["Phone"];
           };
           Wallpapers = {
             label = "Wallpapers";
             path = "/home/stalkingwolf/Documents/sync/Wallpapers";
             id = "m2kja-39hpz";
-            devices = [ "Phone" ];
+            devices = ["Phone"];
           };
           Misc = {
             label = "Misc";
             path = "/home/stalkingwolf/Documents/sync/Misc";
             id = "05cv7-te2a8";
-            devices = [ "Phone" ];
+            devices = ["Phone"];
           };
         };
       };
@@ -44,5 +42,5 @@
     };
   };
 
-  flake.modules.nixos.preservation.imports = [ self.modules.nixos.syncthing-preservation ];
+  flake.modules.nixos.preservation.imports = [self.modules.nixos.syncthing-preservation];
 }

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.hermes = { lib, ... }: {
+  flake.modules.nixos.hermes = {lib, ...}: {
     services.hermes-agent.settings = {
       model = {
         provider = "openai-codex";
@@ -11,7 +11,7 @@
           model = "deepseek-v4-flash-free";
         }
       ];
-      plugins.enabled = [ "ponytail" ];
+      plugins.enabled = ["ponytail"];
       agent = {
         max_turns = 30;
         tool_use_enforcement = true;
@@ -58,7 +58,7 @@
     };
     systemd.services.hermes-agent.serviceConfig = {
       ProtectHome = lib.mkForce "read-only";
-      ReadWritePaths = [ "/home/stalkingwolf/hermes" ];
+      ReadWritePaths = ["/home/stalkingwolf/hermes"];
     };
   };
 }

@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.nixos.hardening = {
     boot.kernel.sysctl = {
       "kernel.kptr_restrict" = 1;

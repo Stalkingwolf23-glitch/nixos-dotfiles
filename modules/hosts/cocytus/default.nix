@@ -1,7 +1,13 @@
-{ self, inputs, ... }:
-
-let
-  cocytus = { config, pkgs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: let
+  cocytus = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = with self.modules.nixos; [
       disko
       preservation
@@ -22,7 +28,7 @@ let
     system.stateVersion = "26.05";
 
     networking.hostName = "cocytus";
-    networking.firewall.allowedTCPPorts = [ 22000 ];
+    networking.firewall.allowedTCPPorts = [22000];
     networking.firewall.allowedUDPPorts = [
       22000
       21027
@@ -39,25 +45,24 @@ let
         "hermes"
       ];
     };
-    nix.settings.trusted-users = [ "@wheel" ];
+    nix.settings.trusted-users = ["@wheel"];
 
     environment.systemPackages = [
       pkgs.home-manager
       inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
-in
-{
+in {
   flake.modules.nixos.cocytus = cocytus;
   flake.nixosConfigurations.cocytus = inputs.nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
+    specialArgs = {inherit inputs;};
     modules = [
       cocytus
       inputs.home-manager.nixosModules.default
       {
         home-manager = {
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {inherit inputs;};
           users.stalkingwolf = self.modules.homeManager.cocytus-stalkingwolf;
         };
       }

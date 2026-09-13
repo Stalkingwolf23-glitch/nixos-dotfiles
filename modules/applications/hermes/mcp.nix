@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.hermes = { lib, ... }: {
+  flake.modules.nixos.hermes = {lib, ...}: {
     services.hermes-agent.mcpServers = {
       nixos = {
         command = "nix";

@@ -1,5 +1,4 @@
-{ config, ... }:
-let
+{config, ...}: let
   hyprLua = config.hyprland.hyprLua;
   mainMod = config.hyprland.mainMod;
   bind = key: dispatcher: {
@@ -8,9 +7,7 @@ let
       (hyprLua dispatcher)
     ];
   };
-
-in
-{
+in {
   wayland.windowManager.hyprland.settings.bind = [
     # Focus
     (bind "${mainMod} + LEFT" ''hl.dsp.layout("focus l")'')

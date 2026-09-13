@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.aliases = {
     home.shellAliases = {
       cat = "bat";

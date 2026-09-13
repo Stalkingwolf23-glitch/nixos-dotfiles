@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.homeManager.mangohud = {
     programs.mangohud.enable = true;
     programs.mangohud.settings = {
@@ -48,5 +46,5 @@
     };
   };
 
-  flake.modules.homeManager.gaming.imports = [ self.modules.homeManager.mangohud ];
+  flake.modules.homeManager.gaming.imports = [self.modules.homeManager.mangohud];
 }

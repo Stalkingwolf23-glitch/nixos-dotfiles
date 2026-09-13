@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{self, ...}: {
   flake-file.inputs = {
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
@@ -8,23 +7,21 @@
     };
   };
 
-  flake.modules.homeManager.zen =
-    { inputs, ... }:
-    {
-      imports = [
-        inputs.zen-browser.homeModules.beta
-      ];
+  flake.modules.homeManager.zen = {inputs, ...}: {
+    imports = [
+      inputs.zen-browser.homeModules.beta
+    ];
 
-      programs.zen-browser.enable = true;
-    };
+    programs.zen-browser.enable = true;
+  };
 
-  flake.modules.homeManager.applications.imports = [ self.modules.homeManager.zen ];
+  flake.modules.homeManager.applications.imports = [self.modules.homeManager.zen];
 
   flake.modules.nixos.zen-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
-      directories = [ ".config/zen" ];
+      directories = [".config/zen"];
     };
   };
 
-  flake.modules.nixos.preservation.imports = [ self.modules.nixos.zen-preservation ];
+  flake.modules.nixos.preservation.imports = [self.modules.nixos.zen-preservation];
 }

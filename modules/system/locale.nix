@@ -1,6 +1,4 @@
-{ self, ... }:
-
-{
+{self, ...}: {
   flake.modules.nixos.locale = {
     i18n.defaultLocale = "en_SG.UTF-8";
     i18n.extraLocaleSettings = {
@@ -16,5 +14,5 @@
     };
   };
 
-  flake.modules.nixos.common.imports = [ self.modules.nixos.locale ];
+  flake.modules.nixos.common.imports = [self.modules.nixos.locale];
 }

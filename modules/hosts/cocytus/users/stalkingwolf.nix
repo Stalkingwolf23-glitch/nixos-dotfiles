@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{self, ...}: {
   flake.modules.homeManager.cocytus-stalkingwolf = {
     imports = with self.modules.homeManager; [
       terminal
@@ -32,9 +31,9 @@
         ".ssh"
       ];
 
-      files = [ ".zsh_history" ];
+      files = [".zsh_history"];
     };
   };
 
-  flake.modules.nixos.preservation.imports = [ self.modules.nixos.home-preservation ];
+  flake.modules.nixos.preservation.imports = [self.modules.nixos.home-preservation];
 }
