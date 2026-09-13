@@ -51,10 +51,6 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.import-tree]
 url = "github:vic/import-tree"
 
-[inputs.kickstart-nixvim]
-url = "github:Stalkingwolf23-glitch/kickstart.nixvim"
-follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs", nixvim = "nixvim" }
-
 [inputs.lanzaboote]
 url = "github:nix-community/lanzaboote/v1.1.0"
 follows = { nixpkgs = "nixpkgs" }
@@ -70,16 +66,8 @@ follows = { nixpkgs = "nixpkgs" }
 url = "github:unnamed-systems/nix-secrets"
 follows = { nixpkgs = "nixpkgs" }
 
-[inputs.nixcord]
-url = "github:4evy/nixcord"
-follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
-
 [inputs.nixpkgs]
 url = "github:NixOS/nixpkgs"
-
-[inputs.nixvim]
-url = "github:nix-community/nixvim"
-follows = { flake-parts = "flake-parts", nixpkgs = "nixpkgs" }
 
 [inputs.ponytail]
 url = "github:DietrichGebert/ponytail"
