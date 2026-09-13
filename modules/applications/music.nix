@@ -1,6 +1,6 @@
 {self, ...}: {
   flake.modules.homeManager.scrobbler = {pkgs, ...}: {
-    home.packages = [pkgs.lollypop];
+    home.packages = with pkgs; [lollypop nicotine-plus pear-desktop];
 
     services.rescrobbled = {
       enable = true;
@@ -23,6 +23,13 @@
         ".config/MusicBrainz"
         ".config/YouTube Music"
         ".config/rescrobbled"
+        ".config/nicotine"
+        ".local/share/nicotine/incomplete"
+      ];
+      files = [
+        ".local/share/nicotine/downloads.json"
+        ".local/share/nicotine/uploads.json"
+        ".local/share/nicotine/wishlist.json"
       ];
     };
   };
