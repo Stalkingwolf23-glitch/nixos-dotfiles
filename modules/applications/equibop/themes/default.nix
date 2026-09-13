@@ -1,13 +1,15 @@
 {
-  flake.modules.homeManager.nixcord = {
-    programs.nixcord.config = {
+  flake.modules.homeManager.equibop = {
+    programs.equibop.equicord.settings = {
       enabledThemeLinks = [
         "https://raw.githubusercontent.com/DiscordStyles/HorizontalServerList/deploy/HorizontalServerList.theme.css"
       ];
-      # themes =
       enabledThemes = [
         "HorizontalServerList.theme.css"
+        "codeBlocks.css"
       ];
+      "enableOnlineThemes" = true;
+      "useQuickCSS" = true;
     };
   };
 }

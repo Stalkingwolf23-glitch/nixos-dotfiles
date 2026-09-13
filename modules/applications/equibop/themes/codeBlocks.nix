@@ -1,6 +1,6 @@
 {
-  flake.modules.homeManager.nixcord = {
-    home.file.".config/equicord/themes/codeBlocks.css".text = ''
+  flake.modules.homeManager.equibop = {
+    programs.equibop.equicord.themes.codeBlocks = ''
           :root{
       	--vc-shiki-code-bg: #1e1e2e;
       	--codeblock-padding: 10px;
@@ -19,22 +19,22 @@
         height: calc((var(--codeblock-numlines) * 1.5em) + var(--codeblock-padding) + 1.5em + 6px);
         max-height: fit-content;
         box-sizing: border-box;
-        
+
         /* Typography */
         line-height: 1.5em !important;
-        
+
         /* Spacing */
         padding: var(--codeblock-padding) 0 0 var(--codeblock-padding) !important;
-        
+
         /* Interaction */
         resize: vertical;
         overflow-x: auto;
-        
+
         /* Performance Optimizations */
         transform: translateZ(0);
         will-change: scroll-position;
         contain: layout style paint;
-        
+
         /* Visual Styling */
         background-color: var(--vc-shiki-code-bg) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -198,7 +198,6 @@
       .footer__4d95d {
         border-radius: 8px;
       }
-
     '';
   };
 }
