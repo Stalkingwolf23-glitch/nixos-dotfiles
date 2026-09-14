@@ -708,6 +708,9 @@
         "target" = "en";
         "toki" = true;
       };
+      "MessageTranslate" = {
+      	"enabled" = true;
+      };
       "TypingTweaks" = {
         "alternativeFormatting" = true;
         "amITyping" = true;
