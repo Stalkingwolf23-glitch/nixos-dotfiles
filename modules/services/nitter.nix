@@ -2,7 +2,6 @@
   flake.modules.nixos.nitter = {config, ...}: {
     services.nitter = {
       enable = true;
-      openFirewall = false;
       redisCreateLocally = true;
       sessionsFile = config.security.nix-secrets.secrets."nitter-sessions.jsonl".path;
       preferences = {
