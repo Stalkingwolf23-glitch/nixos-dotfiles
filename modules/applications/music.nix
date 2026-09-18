@@ -1,6 +1,6 @@
 {self, ...}: {
   flake.modules.homeManager.scrobbler = {pkgs, ...}: {
-    home.packages = with pkgs; [lollypop nicotine-plus pear-desktop];
+    home.packages = with pkgs; [ nicotine-plus pear-desktop feishin];
 
     services.rescrobbled = {
       enable = true;
@@ -24,6 +24,7 @@
         ".config/YouTube Music"
         ".config/rescrobbled"
         ".config/nicotine"
+        ".config/feishin"
         ".local/share/nicotine/incomplete"
       ];
       files = [
