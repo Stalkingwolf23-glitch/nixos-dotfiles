@@ -1,5 +1,9 @@
 {self, ...}: {
-  flake.modules.nixos.navidrome = {lib, pkgs, ...}: {
+  flake.modules.nixos.navidrome = {
+    lib,
+    pkgs,
+    ...
+  }: {
     services.navidrome = {
       enable = true;
       settings = {
@@ -9,20 +13,26 @@
     };
 
     fileSystems."/mnt/music" = {
-	 	  device = "100.111.117.36:/mnt/wd_linux/Stuff/Music";
-	    fsType = "nfs";
-	    options = [
-	      "ro"
-	      "vers=4"
-	      "x-systemd.automount"
-	      "x-systemd.idle-timeout=600"
-	      "nofail"
-	    ];
+      device = "100.111.117.36:/";
+      fsType = "nfs";
+      options = [
+        "ro"
+        "vers=4"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=600"
+        "x-systemd.mount-timeout=15s"
+        "nofail"
+      ];
+    };
+
+    systemd.services.navidrom = {
+      requires = ["mnt-music.mount"];
+      after = ["mnt-music.mount"];
     };
 
     systemd.services.tailscale-navidrome = {
-      wantedBy = [ "multi-user.target" ];
-      wants = [ "tailscaled.service" ];
+      wantedBy = ["multi-user.target"];
+      wants = ["tailscaled.service"];
       after = [
         "tailscaled.service"
         "tailscaled-autoconnect.service"
@@ -45,12 +55,13 @@
 
   flake.modules.nixos.services.imports = [self.modules.nixos.navidrome];
 
-	flake.modules.nixos.nfs = {
-		services.nfs.server = {
-			enable = true;
-			exports = ''/mnt/wd_linux/Stuff/Music 100.119.80.18(ro,sync,subtree_check)'';
-		};
-	};
+  flake.modules.nixos.nfs = {
+    services.nfs.server = {
+      enable = true;
+      exports = ''/mnt/wd_linux/Stuff/Music 100.119.80.18(ro,sync,fsid=0,no_subtree_check)'';
+    };
+    systemd.services.nfs-server.serviceConfig.StateDirectory = "nfs";
+  };
 
   flake.modules.nixos.cocytus-drives.imports = [self.modules.nixos.nfs];
 }
