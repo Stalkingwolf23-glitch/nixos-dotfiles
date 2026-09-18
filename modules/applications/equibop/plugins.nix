@@ -709,7 +709,7 @@
         "toki" = true;
       };
       "MessageTranslate" = {
-      	"enabled" = true;
+        "enabled" = true;
       };
       "TypingTweaks" = {
         "alternativeFormatting" = true;
@@ -773,7 +773,7 @@
       };
       "WebKeybinds" = {
         "enabled" = true;
-        "overrideCommonKeybinds" = false;
+        "overrideCommonKeybinds" = true;
         "showNavigationButtons" = true;
       };
       "WebScreenShareFixes" = {
