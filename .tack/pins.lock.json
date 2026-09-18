@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "chaotic-cx",
     "repo": "nyx",
-    "rev": "c6f2c5ad0829e35dc39fffb443e3eac8e1f8973e",
-    "narHash": "sha256-2zTl7xlIytCPWYnrvmGCTY7HhnpNqH50Tp3ZozL77LQ=",
-    "lastModified": 1789195850
+    "rev": "ecc8cad9bbbad5d2eb38f354c90f39daf92626a5",
+    "narHash": "sha256-UyDDTYPZCAY188ya/qGFIu6FRRO8nqdUmYHkTkRg2/Y=",
+    "lastModified": 1789646089
   },
   "disko": {
     "type": "github",
@@ -35,9 +35,9 @@
     "type": "gitlab",
     "owner": "rycee",
     "repo": "nur-expressions",
-    "rev": "811170bb74b11f3b9489618ce77487cc58c79067",
-    "narHash": "sha256-jaWL9beN3ifjNzNEBxo0abA+TSi0n7Q8LRQvZTxEqaM=",
-    "lastModified": 1789185767
+    "rev": "1faf920ae2310483f620feedcee5f65926af4181",
+    "narHash": "sha256-rm+G6r0i/ikdIIDj5/OnyKA0P7YwDSbqEqgedKmOH6k=",
+    "lastModified": 1789617768
   },
   "flake-file": {
     "type": "github",
@@ -59,9 +59,9 @@
     "type": "git",
     "url": "https://codeberg.org/mikf/gallery-dl",
     "ref": "HEAD",
-    "rev": "955a2d45ad2aacd7c1a554b09ce87045381e8607",
-    "narHash": "sha256-PCwy1TWZEyz0FqkKcCQ/G7fyo1VZ4VYgmFGuZ69Tnu8=",
-    "lastModified": 1789201999
+    "rev": "b21d7853bfb5e475e5dcd161fc7899d3e102c0ab",
+    "narHash": "sha256-4fk+ZIw/zNiT2Vrieep2b9jeYtiEYOMzYLpiK34/cIg=",
+    "lastModified": 1789578332
   },
   "hermes": {
     "type": "github",
@@ -75,9 +75,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "cd1c9e552f41894aeb5cc5cb353d5a1d61550357",
-    "narHash": "sha256-pEWnYdIF1pBMZwarp/rEPzl+Lknhm5hhjSfeLxH8nAA=",
-    "lastModified": 1789183968
+    "rev": "f2785222a14e90f8c5ad2ff62474ce88453c3421",
+    "narHash": "sha256-OVgwnH7e/GlJRscTPXnJ8wwy6Mh+hk0MedEw360o8U8=",
+    "lastModified": 1789652175
   },
   "hyprsplit": {
     "type": "github",
@@ -107,17 +107,17 @@
     "type": "github",
     "owner": "xddxdd",
     "repo": "nix-cachyos-kernel",
-    "rev": "ecd7cfba571a89747357f2895aeb7549df4fd0e0",
-    "narHash": "sha256-4qPh6ItkMtWiAaghgdHT1ixq6hxj+ikAwgCJ4rrEBuU=",
-    "lastModified": 1789191979
+    "rev": "444d135dde71c1de547cf7bfd73e67145e67aebb",
+    "narHash": "sha256-kY+k8kGBd8w4kxrw8IPzQGpnYZQV4mik2ZNHtGN0eHI=",
+    "lastModified": 1789241994
   },
   "nix-index-database": {
     "type": "github",
     "owner": "nix-community",
     "repo": "nix-index-database",
-    "rev": "116ad1c2adb642405ef8916f6a94c8626f971344",
-    "narHash": "sha256-amGSoDobwmp4CFvCn841ws2iuitus+HUJdD/gKgsrJA=",
-    "lastModified": 1788680125
+    "rev": "a74e173407559083a412ea89a1cc58ea389c3b65",
+    "narHash": "sha256-xVstyCdg0DpzjyrEacm72VJAIP9DMhfWJdPDzhWxHuo=",
+    "lastModified": 1789286446
   },
   "nix-secrets": {
     "type": "github",
@@ -131,9 +131,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "03cae33dc6a08cd363be97e50d92222afd37a2ca",
-    "narHash": "sha256-W+pMQiWuW1w2bUaKUIYAnqPAllYOIGQo/ndjpHdlTPA=",
-    "lastModified": 1789219482
+    "rev": "056381cad076d76e18f7799ba53478d11a9c9011",
+    "narHash": "sha256-7E+UfiH8wdA74hEZqOz7M9ks6jrIbmkpHu9NA2MDT3E=",
+    "lastModified": 1789652343
   },
   "nixpkgs-lib": {
     "type": "github",
@@ -147,9 +147,9 @@
     "type": "github",
     "owner": "DietrichGebert",
     "repo": "ponytail",
-    "rev": "356918eba965ee1eac64bd3a7f0dd02108350de5",
-    "narHash": "sha256-LPNMyHsri3+eeDmphEAKL1JgoRE4dLIPfZ4XZ+xu5UY=",
-    "lastModified": 1788798420
+    "rev": "e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156",
+    "narHash": "sha256-PES5XrSYx0VBXWVHEDRykGy0SAmJfV/luzy8Gfg0aAQ=",
+    "lastModified": 1789396482
   },
   "preservation": {
     "type": "github",
@@ -179,8 +179,8 @@
     "type": "github",
     "owner": "0xc000022070",
     "repo": "zen-browser-flake",
-    "rev": "7e8bf446cd9cfa86d30dafb9694f548afc7b2df0",
-    "narHash": "sha256-dTXXfL/ebqRvOLV/cFiTh/TKN6FNVGg+IMgk1lKtxMs=",
-    "lastModified": 1788631059
+    "rev": "a12d482485d877cc066516ea256b435b209a1a8c",
+    "narHash": "sha256-C9BpLH4dNggam12nz/Fx/M0Vlbw8WcT/cpOc37DPQAA=",
+    "lastModified": 1789584125
   }
 }

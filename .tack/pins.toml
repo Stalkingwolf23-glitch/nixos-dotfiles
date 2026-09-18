@@ -49,7 +49,7 @@ url = "github:shezdy/hyprsplit"
 follows = { nixpkgs = "nixpkgs" }
 
 [inputs.import-tree]
-url = "github:vic/import-tree"
+url = "github:denful/import-tree"
 
 [inputs.lanzaboote]
 url = "github:nix-community/lanzaboote/v1.1.0"
