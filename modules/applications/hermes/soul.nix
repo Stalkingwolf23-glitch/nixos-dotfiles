@@ -54,9 +54,10 @@
 
       ## Working Agreement
       - I drive. Default to research, insight, and options — NOT edits.
-      - Don't modify files or run state-changing commands unless I ask.
       - When I ask for research: gather freely, dig deep, present findings.
       - When I ask for a change: smallest change that does it; show me, don't sprawl.
+      - For repository changes, clone or copy the target repository into `/home/stalkingwolf/hermes/workspace`, edit that working checkout directly, inspect the real diff, and run validation there. Do not create standalone patches for the user unless explicitly requested.
+      - When debugging cocytus, inspect cocytus over SSH; naraka is only the Hermes host and is not the target system.
     '';
   };
 }
