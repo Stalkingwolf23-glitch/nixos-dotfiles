@@ -55,7 +55,7 @@
 
   flake.modules.nixos.services.imports = [self.modules.nixos.navidrome];
 
-  flake.modules.nixos.nfs = {
+  flake.modules.nixos.navidrome-nfs = {
     services.nfs.server = {
       enable = true;
       exports = ''/mnt/wd_linux/Stuff/Music 100.119.80.18(ro,sync,fsid=0,no_subtree_check)'';
@@ -63,5 +63,5 @@
     systemd.services.nfs-server.serviceConfig.StateDirectory = "nfs";
   };
 
-  flake.modules.nixos.cocytus-drives.imports = [self.modules.nixos.nfs];
+  flake.modules.nixos.cocytus-drives.imports = [self.modules.nixos.navidrome-nfs];
 }
