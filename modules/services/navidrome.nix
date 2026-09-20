@@ -25,7 +25,7 @@
       ];
     };
 
-    systemd.services.navidrom = {
+    systemd.services.navidrome = {
       requires = ["mnt-music.mount"];
       after = ["mnt-music.mount"];
     };
