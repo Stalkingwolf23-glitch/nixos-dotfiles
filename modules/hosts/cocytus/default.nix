@@ -31,10 +31,7 @@
 
     networking.hostName = "cocytus";
     networking.firewall.allowedTCPPorts = [22000];
-    networking.firewall.allowedUDPPorts = [
-      22000
-      21027
-    ];
+    networking.firewall.allowedUDPPorts = [22000 21027];
 
     users.users.stalkingwolf = {
       isNormalUser = true;
