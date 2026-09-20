@@ -21,7 +21,5 @@
     };
   };
 
-  flake.modules.homeManager.common.imports = [
-    self.modules.homeManager.git
-  ];
+  flake.modules.homeManager.common.imports = [self.modules.homeManager.git];
 }
