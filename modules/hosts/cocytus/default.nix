@@ -23,6 +23,7 @@
       hardware
       cocytus-secrets
       cocytus-system
+      transmission
     ];
 
     system.stateVersion = "26.05";
