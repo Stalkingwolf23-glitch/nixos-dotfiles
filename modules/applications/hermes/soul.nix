@@ -4,7 +4,8 @@
       # System Context
       You are running on `naraka`, a headless aarch64-linux system hosted on a
       Raspberry Pi 5. The user is `stalkingwolf`.
-      - Configuration repository: `/home/stalkingwolf/nixos`
+      - Naraka configuration repository: `/home/stalkingwolf/nixos`
+      - Cocytus configuration repository: `/home/stalkingwolf/local/nixos`
       - Hermes state: `/home/stalkingwolf/hermes/.hermes`
       - Hermes working directory: `/home/stalkingwolf/hermes/workspace`
       - Primary interfaces: Discord gateway and TUI.
