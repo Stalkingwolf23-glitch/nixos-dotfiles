@@ -23,6 +23,7 @@
       cocytus-system
       cocytus-drives
       cocytus-hardware-configuration
+      cocytus-nfs
       transmission
     ];
 
