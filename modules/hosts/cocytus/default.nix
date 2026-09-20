@@ -11,8 +11,6 @@
     imports = with self.modules.nixos; [
       disko
       preservation
-      cocytus-drives
-      cocytus-hardware-configuration
       common
       security
       desktop
@@ -23,6 +21,8 @@
       hardware
       cocytus-secrets
       cocytus-system
+      cocytus-drives
+      cocytus-hardware-configuration
       transmission
     ];
 

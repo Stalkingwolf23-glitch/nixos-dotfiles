@@ -1,11 +1,12 @@
 {self, ...}: {
   flake.modules.nixos.lidarr = {
     services.lidarr = {
-      enable = false;
+      enable = true;
+      group = "media";
     };
 
     fileSystems."/mnt/lidarr" = {
-      device = "100.111.117.36:/mnt/wd_linux/Stuff/Torrents/Music";
+      device = "100.111.117.36:/lidarr";
       fsType = "nfs";
       options = [
         "rw"
@@ -18,13 +19,19 @@
     };
   };
 
+  flake.modules.nixos.services.imports = [self.modules.nixos.lidarr];
+
+  # NFS main setup for cocytus is in host/storage/nfs.nix
   flake.modules.nixos.lidarr-nfs = {
-    services.nfs.server = {
-      enable = true;
-      exports = ''/mnt/wd_linux/Stuff/Torrents/Music 100.119.80.18(rw,sync,no_subtree_check)'';
+    fileSystems."/srv/nfs/lidarr" = {
+      device = "/mnt/wd_linux/Stuff/Torrents/Lidarr";
+      fsType = "none";
+      options = ["bind"];
     };
+
+    services.nfs.server.exports = ''/srv/nfs/lidarr 100.119.80.18(rw,sync,mountpoint,no_subtree_check)'';
     systemd.services.nfs-server.serviceConfig.StateDirectory = "nfs";
   };
 
-  flake.modules.nixos.cocytus-drives.imports = [self.modules.nixos.lidarr-nfs];
+  flake.modules.nixos.cocytus-nfs.imports = [self.modules.nixos.lidarr-nfs];
 }

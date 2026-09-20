@@ -13,10 +13,10 @@
     };
 
     fileSystems."/mnt/music" = {
-      device = "100.111.117.36:/";
+      device = "100.111.117.36:/music";
       fsType = "nfs";
       options = [
-        "ro"
+        "rw"
         "vers=4"
         "x-systemd.automount"
         "x-systemd.idle-timeout=600"
@@ -55,13 +55,17 @@
 
   flake.modules.nixos.services.imports = [self.modules.nixos.navidrome];
 
+  # NFS main setup for cocytus is in host/storage/nfs.nix
   flake.modules.nixos.navidrome-nfs = {
-    services.nfs.server = {
-      enable = true;
-      exports = ''/mnt/wd_linux/Stuff/Music 100.119.80.18(ro,sync,fsid=0,no_subtree_check)'';
+    fileSystems."/srv/nfs/music" = {
+      device = "/mnt/wd_linux/Stuff/Music";
+      fsType = "none";
+      options = ["bind"];
     };
+
+    services.nfs.server.exports = ''/srv/nfs/music 100.119.80.18(rw,sync,mountpoint,no_subtree_check)'';
     systemd.services.nfs-server.serviceConfig.StateDirectory = "nfs";
   };
 
-  flake.modules.nixos.cocytus-drives.imports = [self.modules.nixos.navidrome-nfs];
+  flake.modules.nixos.cocytus-nfs.imports = [self.modules.nixos.navidrome-nfs];
 }
