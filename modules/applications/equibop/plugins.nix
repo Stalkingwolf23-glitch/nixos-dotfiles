@@ -708,9 +708,6 @@
         "target" = "en";
         "toki" = true;
       };
-      "MessageTranslate" = {
-        "enabled" = true;
-      };
       "TypingTweaks" = {
         "alternativeFormatting" = true;
         "amITyping" = true;
@@ -809,6 +806,9 @@
         "enabled" = true;
       };
       "AddAttachments" = {
+        "enabled" = true;
+      };
+      "HomeTyping" = {
         "enabled" = true;
       };
     };
