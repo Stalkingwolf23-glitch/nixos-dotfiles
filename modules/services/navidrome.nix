@@ -26,8 +26,8 @@
     };
 
     systemd.services.navidrome = {
-      requires = ["mnt-music.mount"];
-      after = ["mnt-music.mount"];
+      requires = ["network-online.target"];
+      after = ["network-online.target"];
     };
 
     systemd.services.tailscale-navidrome = {

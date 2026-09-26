@@ -17,6 +17,11 @@
         "nofail"
       ];
     };
+
+    systemd.services.lidarr = {
+      requires = ["network-online.target"];
+      after = ["network-online.target"];
+    };
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.lidarr];
