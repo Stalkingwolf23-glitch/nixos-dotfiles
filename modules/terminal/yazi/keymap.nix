@@ -12,7 +12,7 @@
             on = "y";
             run = [
               "yank"
-              "plugin clipboard -- --action=copy"
+              "plugin wl-clipboard -- --action=copy"
             ];
             desc = "Yank selected files (copy)";
           }
@@ -20,13 +20,13 @@
             on = "x";
             run = [
               "yank --cut"
-              "plugin clipboard -- --action=copy"
+              "plugin wl-clipboard -- --action=copy"
             ];
             desc = "Yank selected files (cut)";
           }
           {
             on = "<C-p>";
-            run = "plugin clipboard -- --action=paste";
+            run = "plugin wl-clipboard -- --action=paste";
             desc = "Paste yanked system clipboard files";
           }
           {

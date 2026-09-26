@@ -7,7 +7,7 @@
 
       plugins = {
         "smart-enter" = pkgs.yaziPlugins.smart-enter;
-        "clipboard" = pkgs.yaziPlugins.clipboard;
+        "wl-clipboard" = pkgs.yaziPlugins.clipboard;
         "yatline" = pkgs.yaziPlugins.yatline;
         "yatline-catppuccin" = pkgs.yaziPlugins.yatline-catppuccin;
         "yatline-githead" = pkgs.yaziPlugins.yatline-githead;
