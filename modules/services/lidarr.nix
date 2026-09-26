@@ -24,7 +24,7 @@
   # NFS main setup for cocytus is in host/storage/nfs.nix
   flake.modules.nixos.lidarr-nfs = {
     fileSystems."/srv/nfs/lidarr" = {
-      device = "/mnt/wd_linux/Stuff/Torrents/Lidarr";
+      device = "/mnt/wd_linux/Stuff/Torrents/lidarr";
       fsType = "none";
       options = ["bind"];
     };
