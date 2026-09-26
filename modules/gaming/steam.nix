@@ -4,9 +4,7 @@
       wineWow64Packages.base
       winetricks
       protontricks
-      faugus-launcher
       samrewritten
-      r2mod_cli
     ];
 
     environment.sessionVariables = {
@@ -43,12 +41,8 @@
   flake.modules.nixos.steam-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
       directories = [
-        ".config/r2mod_cli"
         ".local/share/Steam"
         ".local/share/Tabletop Simulator"
-        ".local/share/umu"
-        ".local/share/faugus-launcher"
-        ".local/config/faugus-launcher"
       ];
     };
   };
