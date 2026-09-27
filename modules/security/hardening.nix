@@ -20,6 +20,11 @@
       ];
       backlogLimit = 8192;
     };
+
+    security.sudo-rs = {
+      enable = true;
+      execWheelOnly = true;
+    };
   };
 
   flake.modules.nixos.security.imports = [
