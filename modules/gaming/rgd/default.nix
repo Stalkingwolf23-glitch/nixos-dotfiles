@@ -10,7 +10,7 @@
 
   flake.modules.homeManager.gameLauncher = {pkgs, ...}: {
     nixpkgs.overlays = [
-      (import ../../_overlays/rgd.nix inputs)
+      (import ./_overlay.nix inputs)
     ];
 
     programs.rofi = {
