@@ -1,14 +1,5 @@
 {self, ...}: {
-  flake-file.inputs.gallery-dl = {
-    url = "git+https://codeberg.org/mikf/gallery-dl";
-    flake = false;
-  };
-
-  flake.modules.homeManager.gallery-dl = {inputs, ...}: {
-    nixpkgs.overlays = [
-      (import ../_overlays/gallery-dl.nix inputs)
-    ];
-
+  flake.modules.homeManager.gallery-dl = {
     programs.gallery-dl = {
       enable = true;
       settings = {
