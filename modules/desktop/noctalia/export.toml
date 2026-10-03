@@ -76,6 +76,8 @@ widget_order = [ "desktop-widget-0000000000000001" ]
     cx = 2176.0
     cy = 1376.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = -0.0
     type = "label"
 
@@ -156,6 +158,8 @@ widget_order = [
     cx = 1280.0
     cy = 1227.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "login_box"
 
@@ -178,6 +182,8 @@ widget_order = [
     cx = 1280.0
     cy = 1317.0
     output = "HDMI-A-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "login_box"
 
@@ -198,6 +204,8 @@ widget_order = [
     cx = 632.0
     cy = 1269.0
     output = "winit"
+    placement_height = 0.0
+    placement_width = 0.0
     rotation = 0.0
     type = "login_box"
 
@@ -223,6 +231,8 @@ widget_order = [
     cx = 1280.0
     cy = 1048.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "audio_visualizer"
 
@@ -239,6 +249,8 @@ widget_order = [
     cx = 1280.0
     cy = 472.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "clock"
 
@@ -251,6 +263,8 @@ widget_order = [
     cx = 1280.0
     cy = 352.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "label"
 
@@ -266,6 +280,8 @@ widget_order = [
     cx = 1888.0
     cy = 1112.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "sticker"
 
@@ -280,6 +296,8 @@ widget_order = [
     cx = 2044.51416015625
     cy = 1067.8876953125
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.2617993950843811
     type = "label"
 
@@ -293,6 +311,8 @@ widget_order = [
     cx = 1896.0
     cy = 1168.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "sticker"
 
@@ -374,7 +394,7 @@ telemetry_enabled = true
 
     [shell.screenshot]
     directory = "/home/stalkingwolf/Pictures/Screenshots"
-    remember_last_region = true
+    remember_last_region = false
 
     [shell.session]
     grid = true
@@ -417,15 +437,15 @@ telemetry_enabled = true
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Everforest"
+community_palette = "Catppuccin Mocha Blue"
 custom_palette = "CatppuccinBlue"
 mode = "dark"
-source = "custom"
+source = "community"
 wallpaper_scheme = "m3-rainbow"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "qt" ]
-    community_ids = [ "lazygit" ]
+    community_ids = [ "feishin", "lazygit" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -456,10 +476,10 @@ transition_on_startup = true
     enabled = true
 
     [wallpaper.default]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/146706266_p0.jpg"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/127854187_p0.png"
 
     [wallpaper.last]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/129045548_p0.png"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_og19d5.png"
 
     [wallpaper.monitor.DP-1]
     directory = "/home/stalkingwolf/Pictures/Wallpapers"
@@ -468,10 +488,10 @@ transition_on_startup = true
     directory = "/home/stalkingwolf/Pictures/Wallpapers"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/129045548_p0.png"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/144232228_p0.jpg"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/stalkingwolf/Pictures/Wallpapers/134985437_p0.png"
+    path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_og19d5.png"
 
     [wallpaper.monitors.winit]
     path = "/home/stalkingwolf/Pictures/Wallpapers/wallhaven_zpgk8v.png"
@@ -550,8 +570,8 @@ capsule_radius = 8
 hide_when_empty = true
 label_source = "name"
 labels_only_when_occupied = true
-show_labels = false
-style = "focus_hint"
+show_labels = true
+style = "minimal"
 
 [widget.workspaces_2]
 capsule = true
