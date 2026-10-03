@@ -1,9 +1,13 @@
 {self, ...}: {
-  flake.modules.homeManager.cursor = {pkgs, ...}: {
+  flake.modules.homeManager.cursor = {
+    pkgs,
+    inputs,
+    ...
+  }: {
     home.pointerCursor = {
       enable = true;
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
+      name = "plana-cursor";
+      package = inputs.nix-assets.packages.${pkgs.system}.plana-cursor;
       size = 24;
 
       gtk = {
