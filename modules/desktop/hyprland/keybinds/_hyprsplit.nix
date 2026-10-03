@@ -16,10 +16,10 @@ in {
       end
 
       -- Navigate workspaces on the current monitor
-      hl.bind(mainMod .. " + up",           hs.dsp.focus({ workspace = "m+1" }))
-      hl.bind(mainMod .. " + down",         hs.dsp.focus({ workspace = "m-1" }))
-      hl.bind(mainMod .. " + J",             hs.dsp.focus({ workspace = "m+1" }))
-      hl.bind(mainMod .. " + K",             hs.dsp.focus({ workspace = "m-1" }))
+      hl.bind(mainMod .. " + up",           hs.dsp.focus({ workspace = "m-1" }))
+      hl.bind(mainMod .. " + down",         hs.dsp.focus({ workspace = "m+1" }))
+      hl.bind(mainMod .. " + J",            hs.dsp.focus({ workspace = "m+1" }))
+      hl.bind(mainMod .. " + K",            hs.dsp.focus({ workspace = "m-1" }))
       hl.bind(mainMod .. " + SHIFT + G",    hs.dsp.grab_rogue_windows())
       -- Workspace scrolling with mousewheel within the monitor
       hl.bind(mainMod .. " + mouse_down", hs.dsp.focus({ workspace = "m+1" }))
