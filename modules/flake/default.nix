@@ -24,6 +24,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-assets = {
+      url = "git+ssh://git@github.com/Stalkingwolf23-glitch/nix-assets.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
