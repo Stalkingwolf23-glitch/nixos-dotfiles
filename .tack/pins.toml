@@ -33,10 +33,6 @@ url = "github:denful/flake-file"
 url = "github:hercules-ci/flake-parts"
 follows = { nixpkgs-lib = "nixpkgs" }
 
-[inputs.gallery-dl]
-url = "git+https://codeberg.org/mikf/gallery-dl"
-type = "fetch"
-
 [inputs.hermes]
 url = "github:NousResearch/hermes-agent"
 
@@ -53,6 +49,10 @@ url = "github:denful/import-tree"
 
 [inputs.lanzaboote]
 url = "github:nix-community/lanzaboote/v1.1.0"
+follows = { nixpkgs = "nixpkgs" }
+
+[inputs.nix-assets]
+url = "git+ssh://git@github.com/Stalkingwolf23-glitch/nix-assets.git?ref=main"
 follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nix-cachyos-kernel]
