@@ -29,23 +29,29 @@
   flake.modules.nixos.compositor.imports = [self.modules.nixos.niri];
 
   flake.modules.homeManager.niri = {
-    wayland.windowManager.niri = {
-      enable = true;
-      extraConfig = builtins.readFile ./niri/config.kdl;
+    lib,
+    config,
+    ...
+  }: {
+    config = lib.mkIf (config.compositor == "niri") {
+      wayland.windowManager.niri = {
+        enable = true;
+        extraConfig = builtins.readFile ./niri/config.kdl;
+      };
+      xdg.configFile = {
+        "niri/animations.kdl".source = ./niri/animations.kdl;
+        "niri/outputs.kdl".source = ./niri/outputs.kdl;
+        "niri/layouts.kdl".source = ./niri/layouts.kdl;
+        "niri/window-rules.kdl".source = ./niri/window-rules.kdl;
+        "niri/binds.kdl".source = ./niri/binds.kdl;
+        "niri/inputs.kdl".source = ./niri/inputs.kdl;
+        "niri/blur.kdl".source = ./niri/blur.kdl;
+        "niri/misc.kdl".source = ./niri/misc.kdl;
+      };
     };
-    xdg.configFile = {
-      "niri/animations.kdl".source = ./niri/animations.kdl;
-      "niri/outputs.kdl".source = ./niri/outputs.kdl;
-      "niri/layouts.kdl".source = ./niri/layouts.kdl;
-      "niri/window-rules.kdl".source = ./niri/window-rules.kdl;
-      "niri/binds.kdl".source = ./niri/binds.kdl;
-      "niri/inputs.kdl".source = ./niri/inputs.kdl;
-      "niri/blur.kdl".source = ./niri/blur.kdl;
-      "niri/misc.kdl".source = ./niri/misc.kdl;
-    };
-  };
 
-  flake.modules.homeManager.compositor.imports = [
-    self.modules.homeManager.niri
-  ];
+    flake.modules.homeManager.compositor.imports = [
+      self.modules.homeManager.niri
+    ];
+  };
 }
