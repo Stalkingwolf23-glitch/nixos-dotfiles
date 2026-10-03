@@ -3,7 +3,6 @@
     programs.noctalia = {
       enable = true;
     };
-    home.file.".config/noctalia/templates".source = ./templates;
   };
 
   flake.modules.homeManager.compositor.imports = [
