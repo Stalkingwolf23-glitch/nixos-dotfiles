@@ -1,7 +1,7 @@
 {self, ...}: {
   flake.modules.nixos.launchers = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      r2mod_cli
+      r2modman
       faugus-launcher
     ];
   };
@@ -11,7 +11,8 @@
   flake.modules.nixos.launcher-preservation = {
     preservation.preserveAt."/persist".users.stalkingwolf = {
       directories = [
-        ".config/r2mod_cli"
+        ".config/r2modman"
+        ".config/r2modmanPlus-local"
         ".local/share/faugus-launcher"
         ".local/config/faugus-launcher"
         ".local/share/umu"
