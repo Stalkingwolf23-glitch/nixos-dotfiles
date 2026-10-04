@@ -1,7 +1,7 @@
 {inputs, ...}: {
-  flake-file.inputs.hyprsplit = {
-    url = "github:shezdy/hyprsplit";
-    inputs.nixpkgs.follows = "nixpkgs";
+  pins.hyprsplit = {
+    url = "https://github.com/shezdy/hyprsplit";
+    follows.nixpkgs = "nixpkgs";
   };
 
   flake.modules.homeManager.hyprland-hyprsplit = {config, ...}: let

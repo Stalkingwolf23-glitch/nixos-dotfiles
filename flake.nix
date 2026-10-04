@@ -1,11 +1,11 @@
 {
-  outputs = {self, ...} @ args: let
-    rawInputs = (import ./.tack) {overrides = args.tackOverrides or {};};
-    inputs =
-      rawInputs
-      // {
-        inherit self;
-      };
+  outputs = {self, ...}: let
+    inputs = (import ./.pnix {}) // {inherit self;};
+    recursivelyImport = import ./lib/recursivelyImport.nix {
+      lib = inputs.nixpkgs.lib;
+    };
   in
-    rawInputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = recursivelyImport [./modules];
+    };
 }

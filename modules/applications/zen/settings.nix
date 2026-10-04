@@ -1,6 +1,6 @@
-{inputs, ...}: {
-  flake-file.inputs.betterfox = {
-    url = "github:yokoffing/Betterfox";
+{
+  pins.betterfox = {
+    url = "https://github.com/yokoffing/Betterfox";
     flake = false;
   };
 

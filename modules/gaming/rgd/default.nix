@@ -3,8 +3,8 @@
   self,
   ...
 }: {
-  flake-file.inputs.rgd = {
-    url = "github:Rolv-Apneseth/rgd";
+  pins.rgd = {
+    url = "https://github.com/Rolv-Apneseth/rgd";
     flake = false;
   };
 

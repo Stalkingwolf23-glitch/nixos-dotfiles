@@ -1,8 +1,10 @@
 {self, ...}: {
-  flake-file.inputs.nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+  pins.nix-cachyos-kernel = {
+    url = "https://github.com/xddxdd/nix-cachyos-kernel";
+    ref = "release";
+  };
 
   flake.modules.nixos.kernel = {
-    lib,
     pkgs,
     inputs,
     config,

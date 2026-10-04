@@ -1,7 +1,8 @@
 {self, ...}: {
-  flake-file.inputs.lanzaboote = {
-    url = "github:nix-community/lanzaboote/v1.1.0";
-    inputs.nixpkgs.follows = "nixpkgs";
+  pins.lanzaboote = {
+    url = "https://github.com/nix-community/lanzaboote";
+    ref = "v1.1.0";
+    follows.nixpkgs = "nixpkgs";
   };
 
   flake.modules.nixos.boot = {

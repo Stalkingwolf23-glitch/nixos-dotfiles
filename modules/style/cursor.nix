@@ -8,11 +8,11 @@
       enable = true;
       name = "plana-cursor";
       package = inputs.nix-assets.packages.${pkgs.system}.plana-cursor;
-      size = 24;
+      size = 32;
 
       gtk = {
         enable = true;
-        size = 24;
+        size = 32;
       };
     };
   };

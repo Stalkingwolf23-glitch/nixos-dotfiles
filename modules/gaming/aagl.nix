@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake-file.inputs.aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+  pins.aagl.url = "https://github.com/ezKEa/aagl-gtk-on-nix";
 
   flake.modules.nixos.aagl = {lib, ...}: {
     imports = [inputs.aagl.nixosModules.default];

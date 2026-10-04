@@ -46,10 +46,7 @@
     };
     nix.settings.trusted-users = ["@wheel"];
 
-    environment.systemPackages = [
-      pkgs.home-manager
-      inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
+    environment.systemPackages = [pkgs.home-manager];
   };
 in {
   flake.modules.nixos.cocytus = cocytus;

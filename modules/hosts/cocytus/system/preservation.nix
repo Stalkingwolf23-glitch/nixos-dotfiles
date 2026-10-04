@@ -1,4 +1,9 @@
 {
+  pins.preservation = {
+    url = "https://github.com/nix-community/preservation";
+    follows.nixpkgs = "nixpkgs";
+  };
+
   flake.modules.nixos.preservation = {
     config,
     inputs,

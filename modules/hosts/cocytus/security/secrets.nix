@@ -1,7 +1,7 @@
 {
-  flake-file.inputs.nix-secrets = {
-    url = "github:unnamed-systems/nix-secrets";
-    inputs.nixpkgs.follows = "nixpkgs";
+  pins.nix-secrets = {
+    url = "https://github.com/unnamed-systems/nix-secrets";
+    follows.nixpkgs = "nixpkgs";
   };
 
   flake.modules.nixos.cocytus-secrets = {

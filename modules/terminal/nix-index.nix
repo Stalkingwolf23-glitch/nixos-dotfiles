@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  flake-file.inputs.nix-index-database = {
-    url = "github:nix-community/nix-index-database";
-    inputs.nixpkgs.follows = "nixpkgs";
+  pins.nix-index-database = {
+    url = "https://github.com/nix-community/nix-index-database";
+    follows.nixpkgs = "nixpkgs";
   };
 
   flake.modules.homeManager.nix-index = {

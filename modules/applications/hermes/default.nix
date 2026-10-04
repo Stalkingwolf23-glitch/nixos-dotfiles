@@ -1,18 +1,15 @@
 {
-  flake-file.inputs.hermes = {
-    url = "github:NousResearch/hermes-agent";
-  };
-
-  flake-file.inputs.ponytail = {
-    url = "github:DietrichGebert/ponytail";
-    flake = false;
+  pins = {
+    hermes.url = "https://github.com/NousResearch/hermes-agent";
+    ponytail = {
+      url = "https://github.com/DietrichGebert/ponytail";
+      flake = false;
+    };
   };
 
   flake.modules.nixos.hermes = {
-    config,
     inputs,
     pkgs,
-    lib,
     ...
   }: let
     ponytailPlugin = pkgs.runCommand "hermes-ponytail" {} ''

@@ -3,7 +3,10 @@
   self,
   ...
 }: {
-  flake-file.inputs.chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+  pins.chaotic = {
+    url = "https://github.com/chaotic-cx/nyx";
+    ref = "nyxpkgs-unstable";
+  };
 
   flake.modules.nixos.chaotic = {
     nixpkgs.overlays = [

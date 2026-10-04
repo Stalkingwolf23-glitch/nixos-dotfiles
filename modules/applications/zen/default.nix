@@ -1,9 +1,10 @@
 {self, ...}: {
-  flake-file.inputs = {
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake/beta";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
+  pins.zen-browser = {
+    url = "https://github.com/0xc000022070/zen-browser-flake";
+    ref = "beta";
+    follows = {
+      nixpkgs = "nixpkgs";
+      home-manager = "home-manager";
     };
   };
 

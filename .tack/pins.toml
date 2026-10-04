@@ -69,6 +69,10 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.nixpkgs]
 url = "github:NixOS/nixpkgs"
 
+[inputs.pnix]
+url = "github:bunny-systems/pnix"
+follows = { nixpkgs = "nixpkgs" }
+
 [inputs.ponytail]
 url = "github:DietrichGebert/ponytail"
 type = "fetch"

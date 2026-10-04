@@ -1,45 +1,30 @@
 {inputs, ...}: {
   imports = [
-    inputs.flake-file.flakeModules.tack
     inputs.flake-file.flakeModules.dendritic
   ];
-
   systems = ["x86_64-linux"];
 
-  flake-file.tack.allFollow = {
-    home-manager = "home-manager";
-    nixpkgs-lib = "nixpkgs-lib";
-  };
-
-  flake-file.inputs = {
-    flake-file.url = "github:denful/flake-file";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    preservation = {
-      url = "github:nix-community/preservation";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    tack.url = "github:manic-systems/tack";
-    nixpkgs.url = "github:NixOS/nixpkgs";
+  pins = {
+    flake-file.url = "https://github.com/denful/flake-file";
+    flake-parts.url = "https://github.com/hercules-ci/flake-parts";
+    nixpkgs.url = "https://github.com/NixOS/nixpkgs";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "https://github.com/nix-community/home-manager";
+      follows.nixpkgs = "nixpkgs";
     };
     nix-assets = {
-      url = "git+ssh://git@github.com/Stalkingwolf23-glitch/nix-assets.git?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      type = "git";
+      url = "ssh://git@github.com/Stalkingwolf23-glitch/nix-assets.git";
+      ref = "main";
+      follows.nixpkgs = "nixpkgs";
+    };
+    pnix = {
+      url = "https://github.com/bunny-systems/pnix";
+      follows.nixpkgs = "nixpkgs";
     };
   };
 
-  flake-file.tack.package = pkgs: inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
-  perSystem = {
-    system,
-    pkgs,
-    ...
-  }: {
+  perSystem = {system, ...}: {
     _module.args.pkgs = inputs.nixpkgs.legacyPackages.${system};
-    devShells.default = pkgs.mkShell {
-      packages = [inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.default];
-    };
   };
 }
