@@ -1,6 +1,13 @@
 {self, ...}: {
-  flake.modules.homeManager.scrobbler = {pkgs, ...}: {
-    home.packages = with pkgs; [ nicotine-plus pear-desktop feishin];
+  pins.sonora.url = "https://github.com/sonorahq/sonora";
+
+  flake.modules.homeManager.scrobbler = {
+    pkgs,
+    inputs,
+    ...
+  }: {
+    imports = [inputs.sonora.homeManagerModules.default];
+    home.packages = with pkgs; [nicotine-plus];
 
     services.rescrobbled = {
       enable = true;
@@ -13,6 +20,15 @@
         "player-ignorelist" = ["zen.*"];
       };
     };
+
+    programs.sonora = {
+      enable = true;
+      settings = {
+        gapless = true;
+        local_folders = "/home/stalkingwolf/Music";
+        appeara.theme = "noctalia";
+      };
+    };
   };
 
   flake.modules.homeManager.applications.imports = [self.modules.homeManager.scrobbler];
@@ -21,11 +37,13 @@
     preservation.preserveAt."/persist".users.stalkingwolf = {
       directories = [
         ".config/MusicBrainz"
-        ".config/YouTube Music"
         ".config/rescrobbled"
         ".config/nicotine"
-        ".config/feishin"
         ".local/share/nicotine/incomplete"
+        ".config/sonora"
+        ".local/share/sonora"
+        ".cache/sonora/youtube"
+        ".cache/sonora/subsonic"
       ];
       files = [
         ".local/share/nicotine/downloads.json"

@@ -425,11 +425,6 @@ wallpaper_scheme = "m3-rainbow"
     enable_builtin_templates = true
     enable_community_templates = true
 
-        [theme.templates.user.pear_custom]
-        input_path = "~/.config/noctalia/templates/pear-custom/pearColors.css"
-        output_path = "~/.config/YouTube Music/noctalia.css"
-        post_hook = "bash \"$HOME/.config/noctalia/templates/pear-custom/apply.sh\""
-
 	    [theme.templates.user.zen_browser_chrome]
         hook_async = false
         input_path = "~/.config/noctalia/templates/zen-custom/zen-userChrome.css"
