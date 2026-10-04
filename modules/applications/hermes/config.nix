@@ -32,16 +32,19 @@
           "terminal"
           "file"
           "web"
+          "memory"
         ];
         tui = [
           "terminal"
           "file"
           "web"
+          "memory"
         ];
         discord = [
           "terminal"
           "file"
           "web"
+          "memory"
         ];
       };
       security = {
