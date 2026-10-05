@@ -18,6 +18,7 @@
 
     programs.home-manager.enable = true;
     home.shellAliases.update = "z ~/local/nixos && git add --intent-to-add . && nh os switch";
+    home.shellAliases.penis = "z ~/local/nixos && pnix";
   };
 
   flake.modules.nixos.home-preservation = {
