@@ -23,11 +23,6 @@
 
     programs.sonora = {
       enable = true;
-      settings = {
-        gapless = true;
-        local_folders = "/home/stalkingwolf/Music";
-        appeara.theme = "noctalia";
-      };
     };
   };
 

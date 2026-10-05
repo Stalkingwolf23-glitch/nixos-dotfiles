@@ -19,8 +19,15 @@
     };
 
     systemd.services.lidarr = {
-      requires = ["network-online.target"];
-      after = ["network-online.target"];
+      wants = ["mnt-music.mount"];
+      after = [
+        "mnt-music.mount"
+        "network-online.target"
+      ];
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "30s";
+      };
     };
   };
 
