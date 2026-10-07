@@ -23,6 +23,14 @@
 
     programs.sonora = {
       enable = true;
+      settings = {
+        appearance = {
+          theme = "noctalia";
+          adaptive_theme = false;
+        };
+        gapless = true;
+        local_folders = ["/home/stalkingwolf/Music"];
+      };
     };
   };
 
