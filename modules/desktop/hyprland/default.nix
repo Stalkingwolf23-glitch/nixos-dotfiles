@@ -3,7 +3,6 @@
   flake.modules.nixos.hyprland = {
     config,
     lib,
-    pkgs,
     ...
   }: {
     config = lib.mkIf (config.compositor == "hyprland") {
@@ -23,9 +22,7 @@
     };
   };
 
-  flake.modules.nixos.compositor.imports = [
-    self.modules.nixos.hyprland
-  ];
+  flake.modules.nixos.compositor.imports = [self.modules.nixos.hyprland];
 
   flake.modules.homeManager.hyprland = {
     config,
@@ -102,7 +99,5 @@
     };
   };
 
-  flake.modules.homeManager.compositor.imports = [
-    self.modules.homeManager.hyprland
-  ];
+  flake.modules.homeManager.compositor.imports = [self.modules.homeManager.hyprland];
 }
