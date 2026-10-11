@@ -6,7 +6,6 @@
       pamixer
       pavucontrol
       wl-clipboard
-      cliphist
       easyeffects
       libappindicator
       playerctl
