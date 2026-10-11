@@ -20,10 +20,6 @@
           "gtk"
         ];
       };
-
-      environment = {
-        systemPackages = [pkgs.xwayland-satellite];
-      };
     };
   };
 

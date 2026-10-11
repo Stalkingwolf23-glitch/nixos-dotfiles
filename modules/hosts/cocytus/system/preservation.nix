@@ -19,6 +19,7 @@
 
     fileSystems."/nix".neededForBoot = true;
     fileSystems."/persist".neededForBoot = true;
+    fileSystems."/home".neededForBoot = true;
     systemd.services.systemd-machine-id-commit.enable = false;
 
     boot.initrd.systemd.services.zfs-root-rollback = {
