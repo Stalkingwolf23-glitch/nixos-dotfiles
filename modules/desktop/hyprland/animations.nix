@@ -1,4 +1,4 @@
-{...}: {
+{
   flake.modules.homeManager.hyprland-animations = {
     config,
     lib,
