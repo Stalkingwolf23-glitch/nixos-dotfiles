@@ -363,6 +363,20 @@
         "kind": "tarball",
         "url": "https://github.com/sonorahq/sonora/archive/9f6567874582749b675a59ee705a8447191da6b6.tar.gz",
         "hash": "sha256-RDh/GgVwYk1C10ZlalX0GwYHxlb4Jrab5Wob3sNyNWk="
+    "umbriel": {
+      "type": "github",
+      "host": "github.com",
+      "owner": "noctalia-dev",
+      "repo": "umbriel",
+      "url": "https://github.com/noctalia-dev/umbriel",
+      "rev": "427017392eb62740be6d2fc18c5bf5f504215604",
+      "ref": "cachix",
+      "hash": "sha256-NqVTFwI3EIXwMspxEtMbHwHXJpWOu7/0WzLg1+9YjtU=",
+      "lastModified": 1791679096,
+      "fetch": {
+        "kind": "tarball",
+        "url": "https://github.com/noctalia-dev/umbriel/archive/427017392eb62740be6d2fc18c5bf5f504215604.tar.gz",
+        "hash": "sha256-NqVTFwI3EIXwMspxEtMbHwHXJpWOu7/0WzLg1+9YjtU="
       }
     },
     "zen-browser": {

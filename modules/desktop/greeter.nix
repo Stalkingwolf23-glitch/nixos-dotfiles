@@ -3,7 +3,6 @@
     services.displayManager.noctalia-greeter = {
       enable = true;
       settings = {
-        session.default = "hyprland";
         user.default = "stalkingwolf";
         appearance = {
           hide_logo = true;

@@ -4,8 +4,9 @@
       type = lib.types.enum [
         "hyprland"
         "niri"
+        "umbriel"
       ];
-      default = "hyprland";
+      default = "umbriel";
       description = "The compositor to enable.";
     };
   };
@@ -15,8 +16,9 @@
       type = lib.types.enum [
         "hyprland"
         "niri"
+        "umbriel"
       ];
-      default = "hyprland";
+      default = "umbriel";
       description = "The compositor to configure.";
     };
   };
