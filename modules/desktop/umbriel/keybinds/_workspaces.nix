@@ -30,8 +30,8 @@
       action = "column-move-to-workspace-next";
       cooldown_ms = 150;
     };
-    "MOD+CTRL+A" = "column-move-left";
-    "MOD+CTRL+D" = "column-move-right";
+    "Mod+Ctrl+A" = "column-move-left";
+    "Mod+Ctrl+D" = "column-move-right";
 
     "Mod+1" = "workspace-switch:1";
     "Mod+2" = "workspace-switch:2";
@@ -61,6 +61,11 @@
       action = "workspace-previous";
       cooldown_ms = 150;
     };
+    "Mod+WheelLeft" = "window-focus-left";
+    "Mod+WheelRight" = "window-focus-right";
     "Mod+MouseMiddle" = "layout-scroll-drag";
+
+    "Mod+Tab" = "output-focus-next";
+    "Mod+Ctrl+Tab" = "window-move-to-output-next";
   };
 }
