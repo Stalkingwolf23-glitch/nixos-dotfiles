@@ -11,7 +11,6 @@
     "Mod+F" = "window-toggle-maximize";
     "Mod+M" = "window-toggle-maximize-to-edges";
     "Mod+Shift+F" = "window-toggle-fullscreen";
-    "Mod+Tab" = "output-focus-next";
 
     "Mod+Print" = "spawn:noctalia msg screenshot-fullscreen DP-1";
     "Print" = "spawn:noctalia msg screenshot-fullscreen all";
