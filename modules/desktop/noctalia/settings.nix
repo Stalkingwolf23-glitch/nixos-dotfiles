@@ -3,6 +3,6 @@
     imports = [
       inputs.nix-assets.homeManagerModules.noctalia-templates
     ];
-    programs.noctalia.settings = builtins.fromTOML (builtins.readFile ./export.toml);
+    programs.noctalia.settings = fromTOML (builtins.readFile ./export.toml);
   };
 }
