@@ -47,10 +47,17 @@
           };
         }
         {
-          match.app_id = "^(steam_app_[0-9]+|gamescope)$";
+          match.app_id = "^(steam_app_[0-9]+|gamescope|moe\\.launcher\\.the-honkers-railway-launcher)$";
           default_fullscreen = true;
-          default_workspace = "1";
-          default_output = "DP-1";
+          default_workspace = "Main";
+        }
+        {
+          match.app_id = "equibop";
+          default_workspace = "Chat";
+        }
+        {
+          match.app_id = "zen-beta";
+          default_workspace = "Browser";
         }
       ];
 

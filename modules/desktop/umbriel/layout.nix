@@ -46,6 +46,21 @@
           center_focused = "on_overflow";
         };
       };
+
+      workspace = [
+        {
+          name = "Main";
+          output = "DP-1";
+        }
+        {
+          name = "Browser";
+          output = "HDMI-A-2";
+        }
+        {
+          name = "Chat";
+          output = "HDMI-A-2";
+        }
+      ];
     };
   };
 }
