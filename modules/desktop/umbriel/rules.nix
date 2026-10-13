@@ -33,8 +33,8 @@
           match.title = "^termfilechooser$";
           default_floating = true;
           default_floating_size_px = {
-            width = 800;
-            height = 600;
+            width = 1445;
+            height = 1000;
           };
         }
         {
