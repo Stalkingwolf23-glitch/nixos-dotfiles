@@ -7,7 +7,7 @@
         position = [0 0];
         focus_at_startup = true;
         hdr = "on";
-        sdr_white = 320;
+        sdr_white = 400;
       };
 
       "HDMI-A-2" = {
