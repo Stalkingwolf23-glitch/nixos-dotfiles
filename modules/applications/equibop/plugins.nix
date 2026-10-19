@@ -683,6 +683,21 @@
             "replace" = "https://fixupx.com/$1";
             "scope" = "myMessages";
           }
+          {
+            "find" = "/(?<=^\\\\.*)[#*<>\\x5b\\\\\\x5d_`|~]/gs";
+            "id" = "ba33e411-1b8f-432b-8be2-c55b54da1c78";
+            "name" = "Escape markdown";
+            "onlyIfIncludes" = "\\";
+            "replace" = "\\$&";
+            "scope" = "myMessages";
+          }
+          {
+            "find" = "^\\\\\\\\";
+            "id" = "0395e835-d7ec-460a-bf34-f800175eb3bf";
+            "name" = "Clears Markdown Rule";
+            "replace" = "";
+            "scope" = "myMessages";
+          }
         ];
         "stringRules" = [
           {
@@ -718,7 +733,7 @@
       "USRBG" = {
         "enabled" = true;
         "nitroFirst" = true;
-        "voiceBackground" = true;
+        "voiceBackground" = false;
       };
       "UnitConverter" = {
         "enabled" = true;
@@ -809,6 +824,31 @@
         "enabled" = true;
       };
       "HomeTyping" = {
+        "enabled" = true;
+      };
+      "BetterFowards" = {
+        "enabled" = true;
+      };
+      "EquibopStreamFixes" = {
+        "enabled" = true;
+      };
+      "MessageLoggerEnhanced" = {
+        "enabled" = true;
+      };
+      "NoUnblockToJump" = {
+        "enabled" = true;
+      };
+      "Quoter" = {
+        "enabled" = true;
+        "watermark" = "";
+      };
+      "Unindent" = {
+        "enabled" = true;
+      };
+      "FullUserInChatbox" = {
+        "enabled" = true;
+      };
+      "FullSearchContext" = {
         "enabled" = true;
       };
     };
