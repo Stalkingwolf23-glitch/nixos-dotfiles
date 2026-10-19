@@ -2,7 +2,7 @@
   flake.modules.homeManager.umbriel-autostart = {
     programs.umbriel.settings.general.autostart = [
       "noctalia"
-      "steam-silent"
+      "steam -silent"
       "equibop"
       "zen-beta"
     ];
