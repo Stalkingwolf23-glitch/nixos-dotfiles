@@ -1,6 +1,7 @@
 {
   device ? "/dev/disk/by-id/placeholder",
-  persistence ? false, # Checks for persistence if host should use it
+  persistence ? false,
+  ... # Checks for persistence if host should use it
 }: {
   disko.devices = {
     disk.main = {
