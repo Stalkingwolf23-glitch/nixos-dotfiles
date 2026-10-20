@@ -79,9 +79,6 @@ widget_order = [ "desktop-widget-0000000000000001" ]
         shadow = true
         title = "Activate NixOS"
 
-[dock]
-monitors = [ "DP-1" ]
-
 [idle]
 behavior_order = [ "lock", "screen-off", "suspend" ]
 pre_action_fade_seconds = 30
