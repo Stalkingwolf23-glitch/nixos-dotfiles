@@ -47,7 +47,7 @@
           };
         }
         {
-          match.app_id = "^(steam_app_[0-9]+|gamescope|moe\\.launcher\\.the-honkers-railway-launcher)$";
+          match.app_id = "^(steam_app_[0-9]+|gamescope)$";
           default_fullscreen = true;
           default_workspace = "Main";
         }
@@ -58,6 +58,10 @@
         {
           match.app_id = "zen-beta";
           default_workspace = "Browser";
+        }
+        {
+          match.app_id = "org.musicbrainz.Picard";
+          opacity = 0.9;
         }
       ];
 

@@ -7,7 +7,7 @@
     ...
   }: {
     imports = [inputs.sonora.homeManagerModules.default];
-    home.packages = with pkgs; [nicotine-plus];
+    home.packages = with pkgs; [nicotine-plus] ++ [inputs.nix-assets.packages.${pkgs.system}.picard];
 
     services.rescrobbled = {
       enable = true;

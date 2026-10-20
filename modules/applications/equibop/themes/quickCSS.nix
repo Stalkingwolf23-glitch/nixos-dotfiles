@@ -16,6 +16,7 @@
       @import url(https://davart154.github.io/Themes/Snippets/Sidebar%20Notice%20Refresh/SidebarNoticeRefreshSource.css);
       @import url(https://davart154.github.io/Themes/Snippets/Plugin%20Icon%20Consistency/IconConsistencySource.css);
       @import url("https://raw.githubusercontent.com/Just-Me-22/Compact-Server-Shortcut-Buttons/main/compact-server-shortcuts.css");
+      @import url('https://raw.githubusercontent.com/echodotvbs/echos-css-snippets/refs/heads/main/misc%20snippets/collapsible-threads.css');
 
       @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
 
@@ -140,6 +141,80 @@
       /* Hide completed quests */
       .container__60f82 > div:not(:has(.expirationCopy_b5b7aa)) {
           display: none;
-      }  '';
+      }
+
+      /* ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+      /* Slightly Less Shit Enhanced Message Logger Pane */
+      /* _______________________________________________ */
+      /* https://discord.com/channels/1173279886065029291/1297239805972709521/1503442883204747446 */
+      /* https://discord.com/channels/1173279886065029291/1503509945809895434 */
+
+      .vc-msg-logger-enhanced-modal-root {
+        max-height: 95vh;
+        min-height: 95vh;
+        min-width: 65vw;
+        max-width: 65vw;
+        /* default for these is like 90 or smth idr */
+
+        .vc-msg-logger-enhanced-modal-header {
+          padding: 4px 4px 0;
+          .wrapper__72c38 {min-height: 1.25em;}
+          .vc-msg-logger-enhanced-modal-tab-bar {
+            padding-left: 0.25ch;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            align-self: start;
+            width: fit-content;
+            .vc-msg-logger-enhanced-modal-tab-bar-item {padding-bottom: 4px;}
+            .vc-msg-logger-enhanced-modal-tab-bar-item:not(:first-child) {margin-left: var(--space-md);}
+            .vc-msg-logger-enhanced-modal-tab-bar-item:nth-child(1) {color: var(--red-460);}
+            .vc-msg-logger-enhanced-modal-tab-bar-item:nth-child(2) {color: var(--blue-400);}
+            .vc-msg-logger-enhanced-modal-tab-bar-item:nth-child(3) {color: var(--orange-430);}
+            .vc-msg-logger-enhanced-modal-tab-bar-item::after {background-color: currentColor !important;opacity: 0.4;}
+          }
+        }
+        .vc-msg-logger-enhanced-modal-content-container {
+          .vc-msg-logger-enhanced-modal-content {
+            padding-top: 0 !important;
+            padding-inline: 4px !important;
+            .vc-msg-logger-enhanced-modal-content-inner {
+              gap: 20px;
+              padding-top: 0;
+              height: 100%;
+              >div {
+                margin-bottom: 6px;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid var(--border-subtle);
+                .vc-msg-logger-enhanced-modal-msg-preview {background-color: hsl(var(--blue-400-hsl, 0 85% 61%) / var(--EML_EditedBackground)) !important;}
+                .messagelogger-deleted {background-color: hsl(var(--red-430-hsl, 0 85% 61%) / var(--EML_DeletedBackground)) !important;}
+                --EML_DeletedBackground: 20%; /* deleted tab, msg bg transparency - default: 15 */
+                --EML_EditedBackground: 20%; /* edited tab, msg bg transparency */
+              }
+            }
+          }
+        }
+        /* ghost */
+        /* messagelogger-deleted */
+        /* edit */
+        /*  */
+        /* del */
+        /* messagelogger-deleted */
+        .vc-msg-logger-enhanced-footer {
+          .vc-link-underline-on-hover {
+            align-self: center;
+          }
+        }
+        .vc-msg-logger-enhanced-modal-from::after {content: ':';}
+        .vc-msg-logger-enhanced-modal-from {
+          text-decoration: var(--border-strong) underline solid 1px;
+          margin-bottom: 4px;
+          margin-left: 3px;
+          font-size: 14px;
+          color: var(--control-secondary-text-default);
+          order: -1;
+        }
+      }
+    '';
   };
 }
