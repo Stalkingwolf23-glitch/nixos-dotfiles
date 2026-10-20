@@ -5,13 +5,15 @@
 }: {
   flake.modules.nixos.naraka = {
     imports = with self.modules.nixos; [
-      naraka-hardware
       common
       networking
       services
+      x86-boot
 
       naraka-tailscale
       naraka-secrets
+      naraka-disko
+      naraka-hardware
       hermes
     ];
     system.stateVersion = "26.11";
@@ -40,11 +42,10 @@
   };
 
   flake.nixosConfigurations.naraka = inputs.nixpkgs.lib.nixosSystem {
-    system = "aarch64-linux";
+    system = "x86_64-linux";
     specialArgs = {inherit inputs;};
     modules = [
       self.modules.nixos.naraka
-      "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
       inputs.home-manager.nixosModules.default
       {
         home-manager = {
