@@ -31,7 +31,6 @@
         timeout = 5;
       };
     };
-    networking.hostId = "8425e349";
     environment.systemPackages = [pkgs.sbctl];
   };
   flake.modules.nixos.cocytus-system.imports = [self.modules.nixos.boot];
