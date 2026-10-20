@@ -9,7 +9,6 @@
     ...
   }: {
     imports = with self.modules.nixos; [
-      disko
       preservation
       common
       security
@@ -21,6 +20,7 @@
       hardware
       cocytus-secrets
       cocytus-system
+      cocytus-disko
       cocytus-drives
       cocytus-hardware-configuration
       cocytus-nfs
