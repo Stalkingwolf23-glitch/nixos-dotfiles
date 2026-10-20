@@ -14,7 +14,7 @@
       naraka-secrets
       naraka-disko
       naraka-hardware
-      hermes
+      # hermes
     ];
     system.stateVersion = "26.11";
     networking.hostName = "naraka";
