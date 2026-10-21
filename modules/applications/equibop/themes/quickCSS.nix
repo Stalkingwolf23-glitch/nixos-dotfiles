@@ -142,7 +142,10 @@
       .container__60f82 > div:not(:has(.expirationCopy_b5b7aa)) {
           display: none;
       }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
       /* ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
       /* Slightly Less Shit Enhanced Message Logger Pane */
       /* _______________________________________________ */
