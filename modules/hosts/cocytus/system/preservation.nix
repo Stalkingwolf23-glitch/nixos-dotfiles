@@ -10,11 +10,6 @@
     ...
   }: {
     imports = [inputs.preservation.nixosModules.preservation];
-
-    boot.initrd.systemd = {
-      enable = true;
-      tpm2.enable = true;
-    };
     preservation.enable = true;
 
     fileSystems."/nix".neededForBoot = true;
