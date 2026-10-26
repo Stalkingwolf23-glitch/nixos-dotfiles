@@ -13,6 +13,8 @@
         "flakes"
       ];
     };
+
+    hardware.enableRedistributableFirmware = true;
   };
 
   flake.modules.nixos.common.imports = [self.modules.nixos.settings];
