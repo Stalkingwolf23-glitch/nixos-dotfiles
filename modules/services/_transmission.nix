@@ -16,17 +16,4 @@
       };
     };
   };
-
-  flake.modules.nixos.transmission-preservation = {
-    preservation.preserveAt."/persist".directories = [
-      {
-        directory = "/var/lib/transmission";
-        user = "transmission";
-        group = "media";
-        mode = "0750";
-      }
-    ];
-  };
-
-  flake.modules.nixos.preservation.imports = [self.modules.nixos.transmission-preservation];
 }

@@ -23,7 +23,8 @@
       cocytus-disko
       cocytus-drives
       cocytus-hardware-configuration
-      transmission
+      copyparty-mount
+      hermes-desktop
     ];
 
     system.stateVersion = "26.05";

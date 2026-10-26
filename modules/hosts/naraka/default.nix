@@ -10,11 +10,10 @@
       services
       x86-boot
 
-      naraka-tailscale
       naraka-secrets
       naraka-disko
-      naraka-hardware
-      # hermes
+      naraka-drives
+      hermes
     ];
     system.stateVersion = "26.11";
     networking.hostName = "naraka";
@@ -52,7 +51,7 @@
           useUserPackages = true;
           extraSpecialArgs = {inherit inputs;};
           users.stalkingwolf = {
-            imports = [self.modules.homeManager.terminal];
+            imports = with self.modules.homeManager; [terminal hermes];
             home.username = "stalkingwolf";
             home.homeDirectory = "/home/stalkingwolf";
             home.stateVersion = "26.11";

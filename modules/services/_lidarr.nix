@@ -1,12 +1,21 @@
-{
-  flake.modules.nixos.naraka-tailscale = {
-    config,
+{self, ...}: {
+  flake.modules.nixos.lidarr = {
     lib,
     pkgs,
     ...
-  }:
-    lib.mkIf config.services.tailscale.enable {
-      systemd.services.tailscale-nitter = {
+  }: {
+    services.lidarr = {
+      enable = true;
+      port = "8686";
+    };
+
+    services.tailscale.extraUpFlags = ["--advertise-tags=tag:lidarr"];
+    systemd.services = {
+      lidarr.serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+      tailscale-lidarr = {
         wantedBy = ["multi-user.target"];
         wants = ["tailscaled.service"];
         after = [
@@ -21,15 +30,14 @@
             "serve"
             "--yes"
             "--bg"
-            "--service=svc:nitter"
+            "--service=svc:lidarr"
             "--https=443"
-            "http://127.0.0.1:8080"
+            "http://127.0.0.1:8686"
           ];
         };
       };
-
-      services.tailscale = {
-        extraUpFlags = ["--advertise-tags=tag:nitter"];
-      };
     };
+  };
+
+  flake.modules.nixos.services.imports = [self.modules.nixos.lidarr];
 }
