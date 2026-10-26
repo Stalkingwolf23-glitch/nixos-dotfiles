@@ -19,6 +19,7 @@
           MANGOHUD = "1";
           PROTON_DXVK_LOWLATENCY = "1";
           PROTON_DISCORD_BRIDGE = "1";
+          PROTON_PREFER_SDL = "1";
           DXVK_CONFIG = "dxvk.latencySleep = True; dxgi.maxFrameRate = 179l d3d9.maxFrameRate = 179";
           VK3D_FRAME_RATE = "179";
         };
