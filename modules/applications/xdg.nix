@@ -28,27 +28,6 @@
         "image/svg+xml" = "qimgv.desktop";
         "image/avif" = "qimgv.desktop";
 
-        # Audio
-        "audio/mpeg" = "rmpc.desktop";
-        "audio/flac" = "rmpc.desktop";
-        "audio/ogg" = "rmpc.desktop";
-        "audio/wav" = "rmpc.desktop";
-        "audio/x-wav" = "rmpc.desktop";
-        "audio/aac" = "rmpc.desktop";
-        "audio/opus" = "rmpc.desktop";
-
-        # Text
-        "text/plain" = "helix.desktop";
-        "text/markdown" = "helix.desktop";
-        "text/csv" = "helix.desktop";
-        "text/xml" = "helix.desktop";
-        "text/yaml" = "helix.desktop";
-        "application/json" = "helix.desktop";
-        "application/toml" = "helix.desktop";
-        "application/xml" = "helix.desktop";
-        "application/javascript" = "helix.desktop";
-        "application/x-shellscript" = "helix.desktop";
-
         # Browser
         "text/html" = "zen-beta.desktop";
         "x-scheme-handler/http" = "zen-beta.desktop";
