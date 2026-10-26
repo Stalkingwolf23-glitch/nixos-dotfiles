@@ -1,24 +1,24 @@
 {self, ...}: {
-  # Removing cachy kernel for now until the cache is back up
-  # pins.nix-cachyos-kernel = {
-  #   url = "https://github.com/xddxdd/nix-cachyos-kernel";
-  #   ref = "release";
-  # };
+  pins.nix-cachyos-kernel = {
+    url = "https://github.com/xddxdd/nix-cachyos-kernel";
+    ref = "release";
+  };
 
   flake.modules.nixos.kernel = {
     pkgs,
     inputs,
+    config,
     ...
   }: {
     nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
-    # nix.settings.substituters = ["https://attic.xuyh0120.win/lantian"];
-    # nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
+    nix.settings.substituters = ["https://cache.lantian.pub/lantian"];
+    nix.settings.trusted-public-keys = ["lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
 
     boot = {
-      # kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
-      kernelPackages = pkgs.linuxPackages;
+      kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+      # kernelPackages = pkgs.linuxPackages_7_2;
       zfs = {
-        # package = config.boot.kernelPackages.zfs_cachyos;
+        package = config.boot.kernelPackages.zfs_cachyos;
         forceImportRoot = false;
       };
       kernelModules = ["btrfs"];
@@ -29,7 +29,6 @@
           "zfs"
           "btrfs"
         ];
-        verbose = false;
         kernelModules = [
           "amdgpu"
           "zfs"
