@@ -851,6 +851,30 @@
       "FullSearchContext" = {
         "enabled" = true;
       };
+      "DirectFileDownload" = {
+        "enabled" = true;
+      };
+      "FavoriteAnything" = {
+        "enabled" = true;
+      };
+      "EquiTweaks" = {
+        "enabled" = true;
+        "refreshSlashCommands" = true;
+        "showYourOwnActivityButtons" = true;
+        "restoreFileDownloadButton" = true;
+        "disableHolidayNotifications" = true;
+        "showAllBadges" = true;
+        "enableAutoCorrect" = true;
+        "removeActivitySection" = true;
+        "noModalAnimation" = true;
+        "disableAdoptTagPrompt" = true;
+      };
+      "MoreQuickReactions" = {
+        "enabled" = true;
+      };
+      "BetterBackReading" = {
+        "enabled" = true;
+      };
     };
   };
 }
