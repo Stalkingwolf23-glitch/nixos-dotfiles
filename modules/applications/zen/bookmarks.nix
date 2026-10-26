@@ -17,7 +17,7 @@
         }
         {
           name = "Community Builds | StellaBase";
-          url = "https://stella.ennead.cc/builds";
+          url = "https://stella.ennead.cc/community-builds";
         }
         {
           name = "F95Zone";
@@ -42,10 +42,6 @@
         {
           name = "Visual Novel Wiki";
           url = "https://www.vnwiki.xyz/";
-        }
-        {
-          name = "V3.3 Dimmr Plains Map - Wuthering Waves Interactive Map";
-          url = "https://wuthering-waves-map.appsample.com/?map=dimmr-plains#";
         }
         {
           name = "Searchix";
