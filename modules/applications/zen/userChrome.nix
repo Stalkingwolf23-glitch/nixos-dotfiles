@@ -3,6 +3,7 @@
     programs.zen-browser.profiles."default" = {
       userChrome = ''
         @import "/home/stalkingwolf/.cache/noctalia/zen-browser/zen-userChrome.css";
+
           /*################ADDITIONAL CUSTOMIZATIONS###########*/
           /* Hide the audio playing and muted icons in tabs */
           .tab-icon-overlay[muted],
