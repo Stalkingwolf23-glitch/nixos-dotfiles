@@ -2,7 +2,7 @@
   pins = {
     llm-agents = {
       url = "https://github.com/numtide/llm-agents.nix";
-      follows.nixpkgs = "nixpkgs";
+      rev = "ea188d2f072e0ec8d5b71245e228803672801a22";
     };
     mattpocock-skills = {
       url = "https://github.com/mattpocock/skills";

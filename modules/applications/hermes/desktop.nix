@@ -1,9 +1,4 @@
 {self, ...}: {
-  pins.llm-agents = {
-    url = "https://github.com/numtide/llm-agents.nix";
-    follows.nixpkgs = "nixpkgs";
-  };
-
   flake.modules.nixos.hermes-desktop = {
     pkgs,
     inputs,
