@@ -1,17 +1,27 @@
 {
   flake.modules.nixos.naraka-drives = {
-    boot.zfs.extraPools = ["raurava"];
-    fileSystems."/raurava/images" = {
-      device = "raurava/images";
-      fsType = "zfs";
+    fileSystems = {
+      "/raurava" = {
+        device = "raurava";
+        fsType = "zfs";
+      };
+
+      "/raurava/images" = {
+        device = "raurava/images";
+        fsType = "zfs";
+      };
+
+      "/raurava/general" = {
+        device = "raurava/general";
+        fsType = "zfs";
+      };
+
+      "/raurava/music" = {
+        device = "raurava/music";
+        fsType = "zfs";
+      };
     };
-    fileSystems."/raurava/music" = {
-      device = "raurava/music";
-      fsType = "zfs";
-    };
-    fileSystems."/raurava/general" = {
-      device = "raurava/general";
-      fsType = "zfs";
-    };
+
+    systemd.services.zfs-mount.enable = false;
   };
 }

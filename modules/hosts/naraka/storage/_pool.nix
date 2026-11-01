@@ -60,6 +60,7 @@
     };
     zpool.raurava = {
       type = "zpool";
+      mountpoint = "/raurava";
       mode.topology = {
         type = "topology";
         vdev = [
@@ -78,22 +79,32 @@
         atime = "off";
         acltype = "posixacl";
         aclmode = "passthrough";
+        mountpoint = "legacy";
       };
       datasets = {
         images = {
           type = "zfs_fs";
           mountpoint = "/raurava/images";
-          options.canmount = "noauto";
+          options = {
+            mountpoint = "legacy";
+            canmount = "noauto";
+          };
         };
         music = {
           type = "zfs_fs";
           mountpoint = "/raurava/music";
-          options.canmount = "noauto";
+          options = {
+            mountpoint = "legacy";
+            canmount = "noauto";
+          };
         };
         general = {
           type = "zfs_fs";
           mountpoint = "/raurava/general";
-          options.canmount = "noauto";
+          options = {
+            mountpoint = "legacy";
+            canmount = "noauto";
+          };
         };
       };
     };
