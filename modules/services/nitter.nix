@@ -56,4 +56,12 @@
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.nitter];
+
+  flake.modules.nixos.nitter-secrets = {
+    security.nix-secrets.secrets = {
+      "nitter-sessions.jsonl".recipients = ["naraka"];
+    };
+  };
+
+  flake.modules.nixos.naraka-secrets.imports = [self.modules.nixos.nitter-secrets];
 }
