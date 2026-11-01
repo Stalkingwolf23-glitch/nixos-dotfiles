@@ -9,6 +9,7 @@
       networking
       services
       x86-boot
+      cachy-cache
 
       naraka-secrets
       naraka-disko

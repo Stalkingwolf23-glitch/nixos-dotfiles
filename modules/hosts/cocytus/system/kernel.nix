@@ -4,6 +4,11 @@
     ref = "release";
   };
 
+  flake.modules.nixos.cachy-cache = {
+    nix.settings.substituters = ["https://cache.lantian.pub/lantian"];
+    nix.settings.trusted-public-keys = ["lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
+  };
+
   flake.modules.nixos.kernel = {
     pkgs,
     inputs,
@@ -11,8 +16,7 @@
     ...
   }: {
     nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
-    nix.settings.substituters = ["https://cache.lantian.pub/lantian"];
-    nix.settings.trusted-public-keys = ["lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
+    imports = [self.modules.nixos.cachy-cache];
 
     boot = {
       kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
