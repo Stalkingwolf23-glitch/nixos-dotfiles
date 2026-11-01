@@ -1,12 +1,19 @@
 {self, ...}: {
+  pins.nixpkgs-nitter = {
+    url = "https://github.com/NixOS/nixpkgs";
+    rev = "c17757c80527f4688a30b7fcded6df83b0f282a3";
+  };
+
   flake.modules.nixos.nitter = {
     config,
     lib,
     pkgs,
+    inputs,
     ...
   }: {
     services.nitter = {
       enable = true;
+      package = inputs.nixpkgs-nitter.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nitter;
       redisCreateLocally = true;
       sessionsFile = config.security.nix-secrets.secrets."nitter-sessions.jsonl".path;
       preferences = {
