@@ -1,10 +1,15 @@
 {self, ...}: {
-  flake.modules.nixos.defaults = {pkgs, ...}: {
+  flake.modules.nixos.defaults = {
+    pkgs,
+    inputs,
+    ...
+  }: {
     environment.systemPackages = with pkgs; [
       cachix
       wget
       zsh
       git
+      (pkgs.callPackage "${inputs.pnix}/package.nix" {})
     ];
 
     environment.localBinInPath = true;

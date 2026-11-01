@@ -48,7 +48,6 @@
 
     environment.systemPackages = [
       pkgs.home-manager
-      (pkgs.callPackage "${inputs.pnix}/package.nix" {})
     ];
   };
 in {
