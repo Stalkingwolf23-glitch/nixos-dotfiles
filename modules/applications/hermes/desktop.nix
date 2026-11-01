@@ -24,9 +24,16 @@
           prev.llm-agents
           // {
             hermes-agent = hermesAgent;
-            hermes-desktop = prev.llm-agents.hermes-desktop.override {
-              hermes-agent = hermesAgent;
-            };
+            hermes-desktop =
+              (prev.llm-agents.hermes-desktop.override {
+                hermes-agent = hermesAgent;
+              }).overrideAttrs (old: {
+                env =
+                  (old.env or {})
+                  // {
+                    NODE_OPTIONS = "--max-old-space-size=4096";
+                  };
+              });
           };
       })
     ];
