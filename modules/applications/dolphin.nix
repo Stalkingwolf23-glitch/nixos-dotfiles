@@ -466,6 +466,10 @@
 
       [UiSettings]
       ColorScheme=noctalia
+
+      [PreviewSettings]
+      MaximumSize=104857600
+      MaximumRemoteSize=104857600
     '';
   };
 
