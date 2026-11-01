@@ -34,11 +34,12 @@
       ];
     };
     security.sudo.wheelNeedsPassword = false;
+    boot.kernelParams = ["zfs.zfs_arc_max=2147483648"];
 
-    nix.settings.extra-substituters = ["https://stalkingwolf.cachix.org"];
-    nix.settings.extra-trusted-public-keys = [
-      "stalkingwolf.cachix.org-1:eW5wFsNkhO/Doa6QEXPmWjK9c8kbKBlU0fg3+RXIOR4="
-    ];
+    nix.settings = {
+      max-jobs = 1;
+      cores = 4;
+    };
   };
 
   flake.nixosConfigurations.naraka = inputs.nixpkgs.lib.nixosSystem {
