@@ -1,17 +1,18 @@
 {self, ...}: {
   flake.modules.nixos.settings = {pkgs, ...}: {
     # Lix for better errors and uhh stuff
-    nix.package = pkgs.lixPackageSets.stable.lix;
+    nix = {
+      package = pkgs.lixPackageSets.lix_2_96.lix;
 
-    nix.optimise.automatic = true;
+      optimise.automatic = true;
 
-    nix.settings = {
-      warn-dirty = false;
-      sandbox = "relaxed";
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      settings = {
+        warn-dirty = false;
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+      };
     };
 
     hardware.enableRedistributableFirmware = true;
