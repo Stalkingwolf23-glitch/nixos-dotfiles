@@ -29,9 +29,15 @@
 
     system.stateVersion = "26.05";
 
-    networking.hostName = "cocytus";
-    networking.firewall.allowedTCPPorts = [22000];
-    networking.firewall.allowedUDPPorts = [22000 21027];
+    networking = {
+      hostName = "cocytus";
+      firewall.allowedTCPPorts = [22000];
+      firewall.allowedUDPPorts = [22000 21027];
+      networkmanager.settings."connection-wol" = {
+        match-device = "interface-name:eno1";
+        "ethernet.wake-on-lan" = "magic";
+      };
+    };
 
     users.users.stalkingwolf = {
       isNormalUser = true;
