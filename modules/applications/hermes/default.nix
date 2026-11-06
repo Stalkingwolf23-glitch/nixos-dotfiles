@@ -55,7 +55,7 @@
       terminal = {
         backend = "local";
         cwd = "/home/stalkingwolf/hermes/workspace";
-        timeout = 120;
+        timeout = 31536000;
       };
       web.search_backend = "ddgs";
       platform_toolsets = {
@@ -84,6 +84,12 @@
       };
       supports_parallel_tool_calls = true;
       sampling.enabled = false;
+      memory = {
+        memory_enabled = true;
+        user_profile = true;
+        nudge_interval = 10;
+      };
+      approvals.timeout = 31536000;
     };
     mergeConfig = import ./_configMergeScript.nix {inherit pkgs;};
     declaredConfig = pkgs.writeText "hermes-config.json" (builtins.toJSON hermesConfig);
