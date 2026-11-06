@@ -676,6 +676,14 @@
             "scope" = "myMessages";
           }
           {
+            "find" = "(?<=https:\\/\\/(?:(?:www\\.)?(?:twitter|x)\\.com|nitter\\.tail090b60\\.ts\\.net)\\/[a-zA-Z0-9_%]*)%5[cC](?=_)";
+            "id" = "b7fa21ae-d8a4-4ac1-9735-8c18376513a6";
+            "name" = "Twitter escaped underscores";
+            "onlyIfIncludes" = "/status/";
+            "replace" = "";
+            "scope" = "myMessages";
+          }
+          {
             "find" = "https:\\/\\/(?:(?:www\\.)?twitter\\.com|(?:www\\.)?x\\.com|nitter.tail090b60.ts\\.net)\\/([a-zA-Z0-9_]+\\/status\\/\\d+)(?:\\?[^#\\s]*)?(?:#\\S+)?";
             "id" = "8718b08b-636b-4a7c-95ec-9dafae15c170";
             "name" = "Twitter";
@@ -692,7 +700,7 @@
             "scope" = "myMessages";
           }
           {
-            "find" = "^\\\\\\\\";
+            "find" = "^\\\\{1,2}";
             "id" = "0395e835-d7ec-460a-bf34-f800175eb3bf";
             "name" = "Clears Markdown Rule";
             "replace" = "";
@@ -874,6 +882,25 @@
       };
       "BetterBackReading" = {
         "enabled" = true;
+      };
+      "ExpressionManager" = {
+        "enabled" = true;
+      };
+      "MutedServersActivityBadge" = {
+        "enabled" = true;
+      };
+      "BetterMutualServers" = {
+        "enabled" = true;
+      };
+      "BetterBackreading" = {
+        "enabled" = true;
+      };
+      "DraftNavigator" = {
+        "enabled" = true;
+      };
+      "NoTrack" = {
+        "enabled" = true;
+        "disableAnalytics" = false;
       };
     };
   };
