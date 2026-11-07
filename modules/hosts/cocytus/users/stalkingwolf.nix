@@ -17,7 +17,7 @@
     };
 
     programs.home-manager.enable = true;
-    home.shellAliases.update = "z ~/local/nixos && git add --intent-to-add . && nh os switch";
+    home.shellAliases.update = "z ~/local/nixos && git add --intent-to-add . && nh os switch --build-host=stalkingwolf@naraka";
     home.shellAliases.penis = "z ~/local/nixos && pnix";
   };
 
