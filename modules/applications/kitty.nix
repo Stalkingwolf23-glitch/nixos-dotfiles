@@ -7,8 +7,8 @@
       settings = {
         background_blur = 5;
         background_opacity = "0.75";
-
         cursor_trail = "1";
+        confirm_os_window_close = "0";
 
         tab_bar_style = "powerline";
         tab_powerline_style = "angled";
@@ -16,7 +16,6 @@
         active_tab_font_style = "bold";
         active_tab_background = "#89b4fa";
         inactive_tab_font_style = "bold";
-
         tab_title_template = "{index}: {title}";
         tab_title_max_length = 30;
       };
