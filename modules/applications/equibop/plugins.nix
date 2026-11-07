@@ -894,6 +894,7 @@
       };
       "BetterBackreading" = {
         "enabled" = true;
+        "channelOpeningPosition" = "default";
       };
       "DraftNavigator" = {
         "enabled" = true;
