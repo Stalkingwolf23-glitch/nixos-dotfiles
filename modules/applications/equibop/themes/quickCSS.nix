@@ -17,6 +17,7 @@
       @import url(https://davart154.github.io/Themes/Snippets/Plugin%20Icon%20Consistency/IconConsistencySource.css);
       @import url("https://raw.githubusercontent.com/Just-Me-22/Compact-Server-Shortcut-Buttons/main/compact-server-shortcuts.css");
       @import url('https://raw.githubusercontent.com/echodotvbs/echos-css-snippets/refs/heads/main/misc%20snippets/collapsible-threads.css');
+      @import url('https://raw.githubusercontent.com/echodotvbs/echos-css-snippets/refs/heads/main/misc%20snippets/account-details-hider.css');
 
       @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
 
@@ -126,13 +127,6 @@
           > :not([class^=parentContainer]) { display: none; }
       }
 
-      /* Fully censored account details */
-      /* .container__75920[data-nav-anchor-key='account_info_username_setting'], */
-      .container__75920[data-nav-anchor-key='account_info_email_setting'],
-      .container__75920[data-nav-anchor-key='account_info_phone_setting'] {
-        .stack_dbd263>.text-md\/medium_cf4812 {-webkit-text-security: disc;}
-      }
-
       /* Add gaps between server header and shortcuts */
       [class*="sidebarList"] [class*="containerDefault"][class*="wrapper"] {
         margin: 4px calc(var(--sh-gap)/2);
@@ -142,10 +136,7 @@
       .container__60f82 > div:not(:has(.expirationCopy_b5b7aa)) {
           display: none;
       }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
       /* ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
       /* Slightly Less Shit Enhanced Message Logger Pane */
       /* _______________________________________________ */
@@ -218,6 +209,9 @@
           order: -1;
         }
       }
+
+      /* Hides Active Now column */
+      [class^="nowPlayingColumn"] {display: none}
     '';
   };
 }
