@@ -1,11 +1,12 @@
 {
   outputs = {self, ...}: let
     inputs = (import ./.pnix {}) // {inherit self;};
-    recursivelyImport = import ./lib/recursivelyImport.nix {
-      lib = inputs.nixpkgs.lib;
-    };
+    lib = inputs.nixpkgs.lib;
+    recursivelyImport = import ./lib/recursivelyImport.nix {inherit lib;};
+    flakeEval = import ./lib/flakeEval.nix {inherit lib;};
   in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = recursivelyImport [./modules];
+    flakeEval {
+      inherit inputs self;
+      modules = recursivelyImport [./modules];
     };
 }
