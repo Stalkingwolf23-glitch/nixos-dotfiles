@@ -33,10 +33,7 @@
       hostName = "cocytus";
       firewall.allowedTCPPorts = [22000];
       firewall.allowedUDPPorts = [22000 21027];
-      networkmanager.settings."connection-wol" = {
-        match-device = "interface-name:eno1";
-        "ethernet.wake-on-lan" = "magic";
-      };
+      interfaces.eno1.wakeOnLan.enable = true;
     };
 
     users.users.stalkingwolf = {
