@@ -15,6 +15,7 @@
       naraka-disko
       naraka-drives
       hermes
+      builder
     ];
     system.stateVersion = "26.11";
     networking.hostName = "naraka";
@@ -38,7 +39,7 @@
 
     nix.settings = {
       max-jobs = 1;
-      cores = 4;
+      cores = 2;
     };
   };
 
