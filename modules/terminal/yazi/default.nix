@@ -1,5 +1,11 @@
 {self, ...}: {
   flake.modules.homeManager.yazi = {pkgs, ...}: {
+    imports = [
+      ./_initlua.nix
+      ./_keymap.nix
+      ./_settings.nix
+    ];
+
     programs.yazi = {
       enable = true;
       shellWrapperName = "yy";

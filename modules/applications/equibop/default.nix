@@ -1,5 +1,10 @@
 {self, ...}: {
   flake.modules.homeManager.equibop = {
+    imports = [
+      ./_plugins.nix
+      ./themes/_default.nix
+    ];
+
     programs.equibop = {
       enable = true;
       equicord.settings = {

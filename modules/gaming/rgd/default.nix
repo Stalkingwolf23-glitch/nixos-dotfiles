@@ -9,6 +9,11 @@
   };
 
   flake.modules.homeManager.gameLauncher = {pkgs, ...}: {
+    imports = [
+      ./_script.nix
+      ./_theme.nix
+    ];
+
     nixpkgs.overlays = [
       (import ./_overlay.nix inputs)
     ];

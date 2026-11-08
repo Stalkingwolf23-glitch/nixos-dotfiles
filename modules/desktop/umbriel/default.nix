@@ -43,14 +43,14 @@
     config,
     ...
   }: {
-    imports = with self.modules.homeManager; [
+    imports = [
       inputs.umbriel.homeModules.default
-      umbriel-keybinds
-      umbriel-animations
-      umbriel-autostart
-      umbriel-layout
-      umbriel-output
-      umbriel-rules
+      ./_input.nix
+      ./_animations.nix
+      ./_autostart.nix
+      ./_layout.nix
+      ./_output.nix
+      ./_rules.nix
     ];
 
     config = lib.mkIf (config.compositor == "umbriel") {

@@ -1,4 +1,9 @@
 {self, ...}: {
+  pins.hyprsplit = {
+    url = "https://github.com/shezdy/hyprsplit";
+    follows.nixpkgs = "nixpkgs";
+  };
+
   # Follows nixpkgs hyrpland instead of flake for stability
   flake.modules.nixos.hyprland = {
     config,
@@ -30,15 +35,15 @@
     pkgs,
     ...
   }: {
-    imports = with self.modules.homeManager; [
-      hyprland-keybinds
-      hyprland-layouts
-      hyprland-appearance
-      hyprland-rules
-      hyprland-monitors
-      hyprland-animations
-      hyprland-autostart
-      hyprland-hyprsplit
+    imports = [
+      ./_keybinds.nix
+      ./_layouts.nix
+      ./_appearance.nix
+      ./_rules.nix
+      ./_monitors.nix
+      ./_animations.nix
+      ./_autostart.nix
+      ./plugins/_hyprsplit.nix
     ];
 
     config = lib.mkIf (config.compositor == "hyprland") {

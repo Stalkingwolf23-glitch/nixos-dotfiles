@@ -1,5 +1,7 @@
 {self, ...}: {
   flake.modules.homeManager.noctalia = {
+    imports = [./_settings.nix];
+
     programs.noctalia = {
       enable = true;
     };
