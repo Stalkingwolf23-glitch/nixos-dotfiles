@@ -40,8 +40,8 @@
 
   flake.modules.nixos.gaming.imports = [self.modules.nixos.steam];
 
-  flake.modules.nixos.steam-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.steam-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         ".local/share/Steam"
         ".local/share/Tabletop Simulator"

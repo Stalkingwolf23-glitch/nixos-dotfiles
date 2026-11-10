@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  user,
+  ...
+}: {
   flake.modules.nixos.builder = {
     config,
     pkgs,
@@ -94,7 +98,7 @@
                    -o BatchMode=yes \
                    -o ConnectTimeout=5 \
                    -o ConnectionAttempts=1 \
-                   stalkingwolf@cocytus true
+                   ${user}@cocytus true
                  do
                    sleep 5
                  done
@@ -107,7 +111,7 @@
         	        --exclude='.git/' --exclude='.direnv/' --exclude='.ssh/' \
         	        --exclude='.env' --exclude='.env.*' --exclude='node_modules/' \
         	        --exclude='/result*' \
-        	        stalkingwolf@cocytus:/home/stalkingwolf/local/nixos/ "$source_dir/"
+        	        ${user}@cocytus:/home/${user}/local/nixos/ "$source_dir/"
 
         	      stage=pin-refresh
         	      pnix --project "$source_dir" update --refresh
@@ -142,7 +146,7 @@
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${builder}/bin/nightly-build";
-        User = "stalkingwolf";
+        User = "${user}";
         Group = "users";
         StateDirectory = "nightly-builds";
         StateDirectoryMode = "0700";

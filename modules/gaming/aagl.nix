@@ -21,8 +21,8 @@
 
   flake.modules.nixos.gaming.imports = [self.modules.nixos.aagl];
 
-  flake.modules.nixos.aagl-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.aagl-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".local/share/honkers-railway-launcher"];
     };
   };

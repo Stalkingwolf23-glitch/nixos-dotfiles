@@ -8,8 +8,8 @@
 
   flake.modules.nixos.gaming.imports = [self.modules.nixos.launchers];
 
-  flake.modules.nixos.launcher-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.launcher-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         ".config/r2modman"
         ".config/r2modmanPlus-local"

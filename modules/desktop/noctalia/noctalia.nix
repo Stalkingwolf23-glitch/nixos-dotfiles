@@ -11,8 +11,8 @@
     self.modules.homeManager.noctalia
   ];
 
-  flake.modules.nixos.noctalia-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.noctalia-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".local/state/noctalia"];
     };
   };

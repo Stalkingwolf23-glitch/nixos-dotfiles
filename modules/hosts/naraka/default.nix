@@ -1,11 +1,13 @@
 {
   self,
   inputs,
+  user,
   ...
 }: {
   flake.modules.nixos.naraka = {
     imports = with self.modules.nixos; [
       common
+      self.modules.nixos.user
       networking
       services
       x86-boot
@@ -27,8 +29,7 @@
       };
     };
 
-    users.users.stalkingwolf = {
-      isNormalUser = true;
+    users.users.${user} = {
       extraGroups = ["wheel"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgaw6BukZP98yFopZ0pQMOh/JoP/CSBb+X/jwlPFhTt stalkingwolf@cocytus"
@@ -41,24 +42,23 @@
       max-jobs = 1;
       cores = 2;
     };
+    zramSwap.enable = true;
+
+    systemd.slices."system-lix-daemon".sliceConfig = {
+      MemoryHigh = "3G";
+      MemoryMax = "4G";
+    };
   };
 
   flake.nixosConfigurations.naraka = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = {inherit inputs;};
+    specialArgs = {inherit inputs user;};
     modules = [
       self.modules.nixos.naraka
-      inputs.home-manager.nixosModules.default
       {
-        home-manager = {
-          useUserPackages = true;
-          extraSpecialArgs = {inherit inputs;};
-          users.stalkingwolf = {
-            imports = with self.modules.homeManager; [terminal hermes];
-            home.username = "stalkingwolf";
-            home.homeDirectory = "/home/stalkingwolf";
-            home.stateVersion = "26.11";
-          };
+        home-manager.users.${user} = {
+          imports = [self.modules.homeManager.hermes];
+          home.stateVersion = "26.11";
         };
       }
     ];

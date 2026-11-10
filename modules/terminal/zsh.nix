@@ -1,5 +1,9 @@
 {self, ...}: {
-  flake.modules.homeManager.zsh = {pkgs, ...}: {
+  flake.modules.homeManager.zsh = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs.zsh = {
       enable = true;
       completionInit = "autoload -U compinit && compinit -i";
@@ -48,20 +52,32 @@
         }
       ];
 
-      initContent = ''
-        microfetch
+      initContent = lib.mkMerge [
+        ''
+          microfetch
 
-        PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-          %F{green}→%f "
-        RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-        [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
-        [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+          [ "$TERM" = "dumb" ] && unsetopt zle && PS1='$ '
+          [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-        function zvm_after_init() { bindkey '^ ' autosuggest-accept }
+          function zvm_after_init() { bindkey '^ ' autosuggest-accept }
 
-        zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
-        zstyle ':completion:*' menu no
-      '';
+          zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
+          zstyle ':completion:*' menu no
+        ''
+
+        (lib.mkAfter ''
+          if [[ "$TERM" != "dumb" ]]; then
+            TRANSIENT_PROMPT="''${PROMPT// prompt / prompt --profile transient }"
+
+            function transient-prompt() {
+              PROMPT="$TRANSIENT_PROMPT" RPROMPT="" zle .reset-prompt
+            }
+
+            autoload -Uz add-zle-hook-widget
+            add-zle-hook-widget zle-line-finish transient-prompt
+          fi
+        '')
+      ];
     };
 
     programs.fzf.enable = true;
@@ -83,8 +99,8 @@
     self.modules.nixos.zsh
   ];
 
-  flake.modules.nixos.zsh-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.zsh-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".local/share/zoxide"];
       files = [".zsh_history"];
     };

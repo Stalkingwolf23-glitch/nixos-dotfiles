@@ -475,8 +475,8 @@
 
   flake.modules.homeManager.applications.imports = [self.modules.homeManager.dolphin];
 
-  flake.modules.nixos.dolphin-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.dolphin-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         ".local/share/dolphin/view_properties"
         ".config/session"

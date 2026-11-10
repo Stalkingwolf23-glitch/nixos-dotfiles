@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  user,
+  ...
+}: {
   flake.modules.nixos.hermes-desktop = {
     pkgs,
     inputs,
@@ -41,7 +45,7 @@
   };
 
   flake.modules.nixos.hermes-desktop-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf.directories = [
+    preservation.preserveAt."/persist".users.${user}.directories = [
       ".config/Hermes"
       ".hermes"
     ];

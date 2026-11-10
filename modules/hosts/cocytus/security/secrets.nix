@@ -7,6 +7,7 @@
   flake.modules.nixos.cocytus-secrets = {
     inputs,
     config,
+    user,
     ...
   }: {
     imports = [inputs.nix-secrets.nixosModules.default];
@@ -20,7 +21,7 @@
       secrets = {
         github_token = {
           recipients = ["cocytus"];
-          owner = "stalkingwolf";
+          owner = "${user}";
         };
         password_hash = {
           recipients = ["cocytus"];
@@ -28,8 +29,8 @@
         };
         ssh_id_ed25519 = {
           recipients = ["cocytus"];
-          owner = "stalkingwolf";
-          path = "/home/stalkingwolf/.ssh/id_ed25519";
+          owner = "${user}";
+          path = "/home/${user}/.ssh/id_ed25519";
           mode = "0600";
         };
       };

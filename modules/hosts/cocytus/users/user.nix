@@ -1,7 +1,10 @@
-{self, ...}: {
-  flake.modules.homeManager.cocytus-stalkingwolf = {
+{
+  self,
+  user,
+  ...
+}: {
+  flake.modules.homeManager.cocytus-user = {
     imports = with self.modules.homeManager; [
-      terminal
       zed
       desktop
       applications
@@ -10,19 +13,15 @@
       syncthing
     ];
 
-    home = {
-      username = "stalkingwolf";
-      homeDirectory = "/home/stalkingwolf";
-      stateVersion = "26.05";
-    };
+    home.stateVersion = "26.05";
 
     programs.home-manager.enable = true;
-    home.shellAliases.update = "z ~/local/nixos && git add --intent-to-add . && nh os switch --build-host=stalkingwolf@naraka";
+    home.shellAliases.update = "z ~/local/nixos && git add --intent-to-add . && nh os switch --build-host=${user}@naraka";
     home.shellAliases.penis = "z ~/local/nixos && pnix";
   };
 
   flake.modules.nixos.home-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         "Downloads"
         "Documents"

@@ -2,10 +2,11 @@
   inputs,
   self,
   modules,
+  user,
 }:
 (lib.evalModules {
   specialArgs = {
-    inherit inputs self;
+    inherit inputs self user;
   };
   modules = modules;
 })

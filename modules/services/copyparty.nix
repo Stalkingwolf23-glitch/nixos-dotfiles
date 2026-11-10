@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  user,
+  ...
+}: {
   flake.modules.nixos.copyparty = {
     lib,
     pkgs,
@@ -59,8 +63,8 @@
       };
     };
     systemd.tmpfiles.rules = [
-      "A+ /raurava/music - - - - u:stalkingwolf:rwX,m::rwX,d:u:stalkingwolf:rwx,d:m::rwx"
-      "A+ /raurava/general - - - - u:stalkingwolf:rwX,m::rwX,d:u:stalkingwolf:rwx,d:m::rwx"
+      "A+ /raurava/music - - - - u:${user}:rwX,m::rwX,d:u:${user}:rwx,d:m::rwx"
+      "A+ /raurava/general - - - - u:${user}:rwX,m::rwX,d:u:${user}:rwx,d:m::rwx"
 
       "A+ /raurava/music - - - - u:navidrome:r-X,d:u:navidrome:r-x"
     ];
@@ -77,7 +81,7 @@
           path = "/raurava";
           "read only" = "no";
           "guest ok" = "no";
-          "valid users" = "stalkingwolf";
+          "valid users" = "${user}";
         };
       };
     };
@@ -96,7 +100,7 @@
         "x-systemd.automount"
         "vers=3.1.1"
         "credentials=${config.security.nix-secrets.secrets.naraka-smb.path}"
-        "uid=stalkingwolf"
+        "uid=${user}"
         "gid=users"
         "nosuid"
         "nodev"

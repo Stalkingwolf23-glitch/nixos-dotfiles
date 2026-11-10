@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  user,
+  ...
+}: {
   flake.modules.homeManager.syncthing = {
     services.syncthing = {
       enable = true;
@@ -11,19 +15,19 @@
         folders = {
           Comics = {
             label = "Comics";
-            path = "/home/stalkingwolf/Documents/sync/Comics";
+            path = "/home/${user}/Documents/sync/Comics";
             id = "tygcc-vkduz";
             devices = ["Phone"];
           };
           Wallpapers = {
             label = "Wallpapers";
-            path = "/home/stalkingwolf/Documents/sync/Wallpapers";
+            path = "/home/${user}/Documents/sync/Wallpapers";
             id = "m2kja-39hpz";
             devices = ["Phone"];
           };
           Misc = {
             label = "Misc";
-            path = "/home/stalkingwolf/Documents/sync/Misc";
+            path = "/home/${user}/Documents/sync/Misc";
             id = "05cv7-te2a8";
             devices = ["Phone"];
           };
@@ -33,7 +37,7 @@
   };
 
   flake.modules.nixos.syncthing-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         "Documents/sync"
         ".config/syncthing"

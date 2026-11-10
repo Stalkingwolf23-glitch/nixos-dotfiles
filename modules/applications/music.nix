@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  user,
+  ...
+}: {
   pins.sonora.url = "https://github.com/sonorahq/sonora";
 
   flake.modules.homeManager.scrobbler = {
@@ -29,7 +33,7 @@
           adaptive_theme = false;
         };
         gapless = true;
-        local_folders = ["/home/stalkingwolf/Music"];
+        local_folders = ["/home/${user}/Music"];
       };
     };
   };
@@ -37,7 +41,7 @@
   flake.modules.homeManager.applications.imports = [self.modules.homeManager.scrobbler];
 
   flake.modules.nixos.music-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         ".config/MusicBrainz"
         ".config/rescrobbled"
@@ -62,15 +66,15 @@
     security.nix-secrets.secrets = {
       lastfm_key = {
         recipients = ["cocytus"];
-        owner = "stalkingwolf";
+        owner = "${user}";
       };
       lastfm_secret = {
         recipients = ["cocytus"];
-        owner = "stalkingwolf";
+        owner = "${user}";
       };
       listenbrainz = {
         recipients = ["cocytus"];
-        owner = "stalkingwolf";
+        owner = "${user}";
       };
     };
   };

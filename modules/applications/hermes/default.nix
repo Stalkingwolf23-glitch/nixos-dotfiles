@@ -1,4 +1,4 @@
-{
+{user, ...}: {
   pins = {
     llm-agents = {
       url = "https://github.com/numtide/llm-agents.nix";
@@ -54,7 +54,7 @@
       };
       terminal = {
         backend = "local";
-        cwd = "/home/stalkingwolf/hermes/workspace";
+        cwd = "/home/${user}/hermes/workspace";
         timeout = 31536000;
       };
       web.search_backend = "ddgs";
@@ -112,7 +112,7 @@
 
        ## Boundaries and safety
 
-       - Create and modify task files only under `/home/stalkingwolf/hermes/workspace`. Treat original repositories outside it as read-only.
+       - Create and modify task files only under `/home/${user}/hermes/workspace`. Treat original repositories outside it as read-only.
        - For repository changes, clone or copy the target into the workspace and edit that checkout. Produce standalone patches only when requested.
        - Do not activate system configurations or run destructive Git/filesystem operations without explicit approval.
        - Never expose secrets in output, commits or the Nix store.
@@ -121,7 +121,7 @@
        - Follow repository-specific instructions for structure, formatting and validation.
     '';
   in {
-    home.sessionVariables.HERMES_HOME = "/home/stalkingwolf/hermes/.hermes";
+    home.sessionVariables.HERMES_HOME = "/home/${user}/hermes/.hermes";
     home.packages = hermesPackages;
     home.activation.hermesConfig = lib.hm.dag.entryAfter ["linkGeneration"] ''
       run mkdir -p "$HOME/hermes/.hermes"

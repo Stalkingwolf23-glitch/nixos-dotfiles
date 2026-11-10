@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  user,
   ...
 }: let
   cocytus = {
@@ -16,6 +17,7 @@
       compositor
       gaming
       networking
+      self.modules.nixos.user
 
       hardware
       cocytus-secrets
@@ -36,9 +38,7 @@
       interfaces.eno1.wakeOnLan.enable = true;
     };
 
-    users.users.stalkingwolf = {
-      isNormalUser = true;
-      # description = "Stalkingwolf";
+    users.users.${user} = {
       hashedPasswordFile = config.security.nix-secrets.secrets.password_hash.path;
       extraGroups = [
         "networkmanager"
@@ -49,22 +49,17 @@
     };
     nix.settings.trusted-users = ["@wheel"];
 
-    environment.systemPackages = [
-      pkgs.home-manager
-    ];
+    environment.systemPackages = [pkgs.home-manager];
   };
 in {
   flake.modules.nixos.cocytus = cocytus;
   flake.nixosConfigurations.cocytus = inputs.nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit inputs;};
+    specialArgs = {inherit inputs user;};
     modules = [
       cocytus
-      inputs.home-manager.nixosModules.default
       {
         home-manager = {
-          useUserPackages = true;
-          extraSpecialArgs = {inherit inputs;};
-          users.stalkingwolf = self.modules.homeManager.cocytus-stalkingwolf;
+          users.${user} = self.modules.homeManager.cocytus-user;
         };
       }
     ];

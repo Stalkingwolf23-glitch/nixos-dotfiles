@@ -51,8 +51,8 @@
     self.modules.homeManager.equibop
   ];
 
-  flake.modules.nixos.equibop-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.equibop-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".config/equibop"];
     };
   };

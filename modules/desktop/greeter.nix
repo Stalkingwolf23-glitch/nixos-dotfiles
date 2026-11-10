@@ -1,9 +1,13 @@
 {self, ...}: {
-  flake.modules.nixos.greeter = {pkgs, ...}: {
+  flake.modules.nixos.greeter = {
+    pkgs,
+    user,
+    ...
+  }: {
     services.displayManager.noctalia-greeter = {
       enable = true;
       settings = {
-        user.default = "stalkingwolf";
+        user.default = "${user}";
         appearance = {
           hide_logo = true;
         };

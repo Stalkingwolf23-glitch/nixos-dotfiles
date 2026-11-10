@@ -41,8 +41,8 @@
 
   flake.modules.homeManager.applications.imports = [self.modules.homeManager.zen];
 
-  flake.modules.nixos.zen-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.zen-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".config/zen"];
     };
   };

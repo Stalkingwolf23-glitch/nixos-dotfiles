@@ -19,8 +19,8 @@
 
   flake.modules.homeManager.applications.imports = [self.modules.homeManager.misc];
 
-  flake.modules.nixos.apps-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.apps-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [
         ".config/obsidian"
         ".local/share/applications"

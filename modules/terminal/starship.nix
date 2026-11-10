@@ -4,7 +4,8 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        add_newline = true;
+        add_newline = false;
+        profiles.transient = "$character";
         format = "[╭╴](fg:arrow)$username$os$git_branch(at $directory)
 [╰─](fg:arrow)$character";
         right_format = "$cmd_duration $time";

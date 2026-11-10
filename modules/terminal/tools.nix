@@ -35,8 +35,8 @@
     self.modules.homeManager.tools
   ];
 
-  flake.modules.nixos.tools-preservation = {
-    preservation.preserveAt."/persist".users.stalkingwolf = {
+  flake.modules.nixos.tools-preservation = {user, ...}: {
+    preservation.preserveAt."/persist".users.${user} = {
       directories = [".local/state/lazygit"];
     };
   };
