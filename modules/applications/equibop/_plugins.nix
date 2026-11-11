@@ -902,5 +902,8 @@
       "enabled" = true;
       "disableAnalytics" = false;
     };
+    "BetterSearch" = {
+      "enabled" = true;
+    };
   };
 }
