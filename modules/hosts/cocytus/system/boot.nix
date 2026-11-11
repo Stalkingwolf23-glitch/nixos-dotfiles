@@ -1,8 +1,14 @@
 {self, ...}: {
-  pins.lanzaboote = {
-    url = "https://github.com/nix-community/lanzaboote";
-    ref = "v1.1.0";
-    follows.nixpkgs = "nixpkgs";
+  pins = {
+    lanzaboote = {
+      url = "https://github.com/nix-community/lanzaboote";
+      ref = "v1.1.0";
+      follows.nixpkgs = "nixpkgs";
+    };
+    bootvine = {
+      url = "https://codeberg.org/wvhulle/bootvine";
+      follows.nixpkgs = "nixpkgs";
+    };
   };
 
   flake.modules.nixos.boot = {
@@ -11,7 +17,10 @@
     inputs,
     ...
   }: {
-    imports = [inputs.lanzaboote.nixosModules.lanzaboote];
+    imports = [
+      inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.bootvine.nixosModules.default
+    ];
     boot = {
       lanzaboote = {
         enable = true;
@@ -32,6 +41,7 @@
       };
     };
     environment.systemPackages = [pkgs.sbctl];
+    services.bootvine.enable = true;
   };
   flake.modules.nixos.cocytus-system.imports = [self.modules.nixos.boot];
 }
