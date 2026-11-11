@@ -19,6 +19,7 @@
     @import url('https://raw.githubusercontent.com/echodotvbs/echos-css-snippets/refs/heads/main/misc%20snippets/account-details-hider.css');
 
     @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
+    @import url('https://discordstyles.github.io/HorizontalServerList/HorizontalServerList.css');
 
     /*Configurable Snippet to tone down modern frills*/
     :root {
@@ -211,5 +212,11 @@
 
     /* Hides Active Now column */
     [class^="nowPlayingColumn"] {display: none}
+
+    /* Horizontal Server Column Settings */
+    :root {
+			--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
+			--HSL-server-alignment: flex-start; /* Alignment of the server list. | OPTIONS: flex-start, center, flex-end | DEFAULT: flex-start */
+    }
   '';
 }
