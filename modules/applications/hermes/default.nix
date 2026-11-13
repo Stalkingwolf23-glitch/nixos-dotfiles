@@ -2,7 +2,6 @@
   pins = {
     llm-agents = {
       url = "https://github.com/numtide/llm-agents.nix";
-      rev = "ea188d2f072e0ec8d5b71245e228803672801a22";
     };
     mattpocock-skills = {
       url = "https://github.com/mattpocock/skills";
@@ -29,18 +28,7 @@
     lib,
     ...
   }: let
-    hermesPackage = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.hermes-agent.overridePythonAttrs (old: {
-      # TODO: Drop when unpatched Hermes passes pythonRuntimeDepsCheckHook with pinned nixpkgs.
-      # Source pins: prompt_toolkit==3.0.52, Markdown==3.10.2:
-      # https://github.com/NousResearch/hermes-agent/blob/4d04303818b61bf3aa09278af48356315515965b/pyproject.toml
-      postPatch =
-        (old.postPatch or "")
-        + ''
-          substituteInPlace pyproject.toml \
-            --replace-fail 'prompt_toolkit==3.0.52' 'prompt_toolkit==${pkgs.python3Packages.prompt-toolkit.version}' \
-            --replace-fail 'Markdown==3.10.2' 'Markdown==${pkgs.python3Packages.markdown.version}'
-        '';
-    });
+    hermesPackage = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
     theme = import ./_theme.nix;
     hermesConfig = {
       model = {

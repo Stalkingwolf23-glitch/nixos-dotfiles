@@ -8,39 +8,7 @@
     inputs,
     ...
   }: {
-    nixpkgs.overlays = [
-      inputs.llm-agents.overlays.shared-nixpkgs
-      (final: prev: let
-        hermesAgent = prev.llm-agents.hermes-agent.overridePythonAttrs (old: {
-          # TODO: Drop when unpatched Hermes passes pythonRuntimeDepsCheckHook with pinned nixpkgs.
-          # Source pins: prompt_toolkit==3.0.52, Markdown==3.10.2:
-          # https://github.com/NousResearch/hermes-agent/blob/4d04303818b61bf3aa09278af48356315515965b/pyproject.toml
-          postPatch =
-            (old.postPatch or "")
-            + ''
-              substituteInPlace pyproject.toml \
-                --replace-fail 'prompt_toolkit==3.0.52' 'prompt_toolkit==${final.python3Packages.prompt-toolkit.version}' \
-                --replace-fail 'Markdown==3.10.2' 'Markdown==${final.python3Packages.markdown.version}'
-            '';
-        });
-      in {
-        llm-agents =
-          prev.llm-agents
-          // {
-            hermes-agent = hermesAgent;
-            hermes-desktop =
-              (prev.llm-agents.hermes-desktop.override {
-                hermes-agent = hermesAgent;
-              }).overrideAttrs (old: {
-                env =
-                  (old.env or {})
-                  // {
-                    NODE_OPTIONS = "--max-old-space-size=4096";
-                  };
-              });
-          };
-      })
-    ];
+    nixpkgs.overlays = [ inputs.llm-agents.overlays.shared-nixpkgs ];
     environment.systemPackages = [pkgs.llm-agents.hermes-desktop];
   };
 
