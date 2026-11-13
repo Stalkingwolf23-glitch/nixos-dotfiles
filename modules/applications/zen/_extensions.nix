@@ -49,5 +49,6 @@ in {
     "{5f5950be-7601-4d7e-9971-a2e5c856ffdc}" = "fl-wiki-redirector";
     "{39cfa3ab-7970-43e4-8643-743d501b4486}" = "fl-1-click-wiki";
     "{4d38d9d9-d146-42e5-8349-c9676f55dc0e}" = "fl-time-keeper";
+    "{c84d89d9-a826-4015-957b-affebd9eb603}" = "mal-sync";
   };
 }
