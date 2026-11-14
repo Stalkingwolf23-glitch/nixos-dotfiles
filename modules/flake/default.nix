@@ -1,6 +1,9 @@
 {
   pins = {
-    nixpkgs.url = "https://github.com/NixOS/nixpkgs";
+    nixpkgs = {
+	    url = "https://github.com/NixOS/nixpkgs";
+	    ref = "nixos-unstable";
+    };
     home-manager = {
       url = "https://github.com/nix-community/home-manager";
       follows.nixpkgs = "nixpkgs";
