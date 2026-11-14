@@ -687,7 +687,7 @@
           "id" = "8718b08b-636b-4a7c-95ec-9dafae15c170";
           "name" = "Twitter";
           "onlyIfIncludes" = "/status/";
-          "replace" = "https://fixupx.com/$1";
+          "replace" = "https://fixvx.com/$1";
           "scope" = "myMessages";
         }
         {
