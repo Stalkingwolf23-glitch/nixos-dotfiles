@@ -1,24 +1,21 @@
 {self, ...}: {
-  pins.zen-browser = {
-    url = "https://github.com/0xc000022070/zen-browser-flake";
-    ref = "beta";
-    follows = {
-      nixpkgs = "nixpkgs";
-      home-manager = "home-manager";
-    };
-  };
-
-  pins.firefox-addons = {
-    url = "https://gitlab.com/rycee/nur-expressions";
-    dir = "pkgs/firefox-addons";
-  };
-  pins.betterfox = {
-    url = "https://github.com/yokoffing/Betterfox";
-    flake = false;
-  };
-  pins.catppuccin-zen-sine = {
-    url = "https://github.com/Cole-Abbott/catppuccin-zen-sine";
-    flake = false;
+  pins = {
+	  zen-browser = {
+	    url = "https://github.com/0xc000022070/zen-browser-flake";
+	    ref = "beta";
+	    follows = {
+	      nixpkgs = "nixpkgs";
+	      home-manager = "home-manager";
+	    };
+	  };
+	  betterfox = {
+	    url = "https://github.com/yokoffing/Betterfox";
+	    flake = false;
+	  };
+	  catppuccin-zen-sine = {
+	    url = "https://github.com/Cole-Abbott/catppuccin-zen-sine";
+	    flake = false;
+	  };
   };
 
   flake.modules.homeManager.zen = {inputs, ...}: {
