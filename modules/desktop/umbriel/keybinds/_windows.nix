@@ -12,7 +12,7 @@
     "Mod+M" = "window-toggle-maximize-to-edges";
     "Mod+Shift+F" = "window-toggle-fullscreen";
 
-    "Mod+Print" = "spawn noctalia msg screenshot-fullscreen DP-1";
+    "Mod+Print" = "spawn noctalia msg screenshot-window";
     "Print" = "spawn noctalia msg screenshot-fullscreen all";
     "Mod+Shift+S" = "spawn noctalia msg screenshot-region";
     "Mod+Ctrl+Print" = "spawn noctalia msg screenshot-annotate";
