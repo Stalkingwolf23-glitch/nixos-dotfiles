@@ -898,12 +898,11 @@
     "DraftNavigator" = {
       "enabled" = true;
     };
-    "NoTrack" = {
-      "enabled" = true;
-      "disableAnalytics" = false;
-    };
     "BetterSearch" = {
       "enabled" = true;
+    };
+    "BetterPollDetails" = {
+    	"enable" = true;
     };
   };
 }
