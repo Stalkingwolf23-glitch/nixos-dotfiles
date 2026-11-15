@@ -29,6 +29,11 @@
       enable = true;
       settings.updates.auto_update = true;
     };
+
+    programs.atuin = {
+	    enable = true;
+	    enableZshIntegration = true;
+    };
   };
 
   flake.modules.homeManager.terminal.imports = [
