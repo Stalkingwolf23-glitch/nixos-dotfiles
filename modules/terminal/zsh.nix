@@ -80,8 +80,11 @@
       ];
     };
 
-    programs.fzf.enable = true;
-    programs.fzf.enableZshIntegration = true;
+    programs.fzf = {
+	    enable = true;
+	    enableZshIntegration = true;
+			historyWidget.zsh.command = "";
+    };
     programs.zoxide.enable = true;
     programs.zoxide.enableZshIntegration = true;
   };
