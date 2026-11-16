@@ -28,7 +28,7 @@
     lib,
     ...
   }: let
-    hermesPackage = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+    hermesPackage = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.hermes-agent;
     theme = import ./_theme.nix;
     hermesConfig = {
       model = {
