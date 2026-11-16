@@ -45,7 +45,7 @@
           "tailscaled.service"
           "tailscaled-autoconnect.service"
           "copyparty.service"
-          "tailscale-immich.service"
+          "tailscale-bookorbit.service"
         ];
         serviceConfig = {
           Type = "oneshot";
