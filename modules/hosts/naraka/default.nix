@@ -37,17 +37,7 @@
     };
     security.sudo.wheelNeedsPassword = false;
     boot.kernelParams = ["zfs.zfs_arc_max=2147483648"];
-
-    nix.settings = {
-      max-jobs = 1;
-      cores = 2;
-    };
     zramSwap.enable = true;
-
-    systemd.slices."system-lix-daemon".sliceConfig = {
-      MemoryHigh = "3G";
-      MemoryMax = "4G";
-    };
   };
 
   flake.nixosConfigurations.naraka = inputs.nixpkgs.lib.nixosSystem {
