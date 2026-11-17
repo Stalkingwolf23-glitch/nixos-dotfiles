@@ -6,11 +6,13 @@
   }: {
     services.navidrome = {
       enable = true;
+      withPlugins = p: [
+      	p.discord-rich-presence
+      ];
       settings = {
         Address = "127.0.0.1";
         Port = 4533;
         MusicFolder = "/raurava/music";
-        Plugins.Enabled = false;
       };
     };
 
