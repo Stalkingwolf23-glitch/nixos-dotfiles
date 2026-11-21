@@ -1,15 +1,21 @@
 {self, ...}: {
-  flake.modules.nixos.spindle = {inputs, pkgs, ...}: {
-  services.navidrome.withPlugins = _: [
-      inputs.nix-assets.packages.${pkgs.stdenv.hostPlatform.system}.default
+  flake.modules.nixos.spindle = {
+    inputs,
+    config,
+    pkgs,
+    lib,
+    ...
+  }: {
+    services.navidrome.withPlugins = _: [
+      inputs.nix-assets.packages.${pkgs.stdenv.hostPlatform.system}.spindle
     ];
     virtualisation.oci-containers = {
       backend = "podman";
 
       containers.spindle = {
-        image = "ghcr.io/xmorose/spindle:v0.4.3";
+        image = "ghcr.io/xmorose/spindle:0.4.3";
         ports = ["127.0.0.1:3590:3590"];
-        environmentFiles = ["/var/lib/spindle/spindle.env"];
+        environmentFiles = [config.security.nix-secrets.secrets.spindle-env.path];
 
         environment = {
           WEB_DIR = "/app/web";
@@ -18,11 +24,11 @@
           NAVIDROME_DB_PATH = "/nddata/navidrome.db";
 
           DEFAULT_USER = "stalkingwolf";
-          NAVIDROME_USER="stalkingwolf";
-          NAVIDROME_URL="https://navidrome.tail090b60.ts.net";
+          NAVIDROME_USER = "stalkingwolf";
+          NAVIDROME_URL = "https://navidrome.tail090b60.ts.net";
 
-          AUTH_ENABLED="***";
-          AUTH_COOKIE_SECURE="***";
+          AUTH_ENABLED = "true";
+          AUTH_COOKIE_SECURE = "true";
           TRUST_PROXY = "true";
           SESSION_DAYS = "30";
         };
@@ -35,16 +41,49 @@
     };
 
     systemd.tmpfiles.rules = [
-        "d /var/lib/spindle      0700 root root -"
-        "d /var/lib/spindle/data 0700 root root -"
-      ];
-  };
+      "d /var/lib/spindle      0700 root root -"
+      "d /var/lib/spindle/data 0700 root root -"
+    ];
 
-  flake.modules.services.imports = [self.modules.nixos.spindle];
+    services.tailscale.extraUpFlags = ["--advertise-tags=tag:spindle"];
+    systemd.services = {
+      podman-spindle.serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+      tailscale-spindle = {
+        wantedBy = ["multi-user.target"];
+        wants = [
+          "tailscaled.service"
+          "podman-spindle.service"
+          "tailscale-nitter.service"
+        ];
+        after = [
+          "tailscaled.service"
+          "tailscaled-autoconnect.service"
+          "podman-spindle.service"
+          "tailscale-nitter.service"
+        ];
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = lib.escapeShellArgs [
+            (lib.getExe pkgs.tailscale)
+            "serve"
+            "--yes"
+            "--bg"
+            "--service=svc:spindle"
+            "--https=443"
+            "http://127.0.0.1:3590"
+          ];
+        };
+      };
+    };
+  };
 
   flake.modules.nixos.spindle-secrets = {
     security.nix-secrets.secrets = {
-    	spindle-env.recipients = ["naraka"];
+      spindle-env.recipients = ["naraka"];
     };
   };
 

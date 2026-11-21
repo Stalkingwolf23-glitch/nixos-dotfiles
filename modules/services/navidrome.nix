@@ -4,6 +4,8 @@
     pkgs,
     ...
   }: {
+	  imports = [self.modules.nixos.spindle];
+
     services.navidrome = {
       enable = true;
       withPlugins = p: [
