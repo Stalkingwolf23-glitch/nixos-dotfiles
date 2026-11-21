@@ -28,7 +28,7 @@
         gamescope-wsi
       ];
       extraCompatPackages = with pkgs; [
-        proton-cachyos
+				proton-cachyos-bin_x86_64_v3
       ];
     };
 
