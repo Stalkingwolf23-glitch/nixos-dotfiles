@@ -9,6 +9,7 @@
       wget
       zsh
       git
+      dix
       (pkgs.callPackage "${inputs.pnix}/package.nix" {})
     ];
 
