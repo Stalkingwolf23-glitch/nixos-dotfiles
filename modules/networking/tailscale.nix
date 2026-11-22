@@ -21,7 +21,7 @@
               lib.nameValuePair "svc:${name}" {
                 TCP."443".HTTPS = true;
                 Web."${name}.${url}:443".Handlers."/".Proxy =
-                  "http://127.0.0.1:${toString port}";
+                  "http://localhost:${toString port}";
               }
             ) backends;
           });
