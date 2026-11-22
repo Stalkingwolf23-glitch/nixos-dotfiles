@@ -75,7 +75,7 @@
       memory = {
         memory_enabled = true;
         user_profile = true;
-        write_approval = true;
+        write_approval = false;
         nudge_interval = 10;
         memory_char_limit = 4400;
         user_char_limit = 2750;
