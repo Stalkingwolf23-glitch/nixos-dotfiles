@@ -45,40 +45,11 @@
       "d /var/lib/spindle/data 0700 root root -"
     ];
 
-    services.tailscale.extraUpFlags = ["--advertise-tags=tag:spindle"];
-    systemd.services = {
-      podman-spindle.serviceConfig = {
-        Restart = "on-failure";
-        RestartSec = "5s";
-      };
-      tailscale-spindle = {
-        wantedBy = ["multi-user.target"];
-        wants = [
-          "tailscaled.service"
-          "podman-spindle.service"
-          "tailscale-nitter.service"
-        ];
-        after = [
-          "tailscaled.service"
-          "tailscaled-autoconnect.service"
-          "podman-spindle.service"
-          "tailscale-nitter.service"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = lib.escapeShellArgs [
-            (lib.getExe pkgs.tailscale)
-            "serve"
-            "--yes"
-            "--bg"
-            "--service=svc:spindle"
-            "--https=443"
-            "http://127.0.0.1:3590"
-          ];
-        };
-      };
+    systemd.services.podman-spindle.serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
+    services.tailscale.localServe.spindle = 3590;
   };
 
   flake.modules.nixos.spindle-secrets = {

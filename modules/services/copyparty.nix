@@ -34,33 +34,6 @@
           ];
         };
       };
-      tailscale-copyparty = {
-        wantedBy = ["multi-user.target"];
-        wants = [
-          "tailscaled.service"
-          "copyparty.service"
-          "tailscale-immich.service"
-        ];
-        after = [
-          "tailscaled.service"
-          "tailscaled-autoconnect.service"
-          "copyparty.service"
-          "tailscale-bookorbit.service"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = lib.escapeShellArgs [
-            (lib.getExe pkgs.tailscale)
-            "serve"
-            "--yes"
-            "--bg"
-            "--service=svc:copyparty"
-            "--https=443"
-            "http://127.0.0.1:3923"
-          ];
-        };
-      };
     };
     systemd.tmpfiles.rules = [
       "A+ /raurava/music - - - - u:${user}:rwX,m::rwX,d:u:${user}:rwx,d:m::rwx"
@@ -86,6 +59,7 @@
       };
     };
     networking.firewall.interfaces.tailscale0.allowedTCPPorts = [445];
+    services.tailscale.localServe.copyparty = 3923;
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.copyparty];

@@ -1,10 +1,5 @@
 {self, ...}: {
-  flake.modules.nixos.bookorbit = {
-    lib,
-    pkgs,
-    config,
-    ...
-  }: {
+  flake.modules.nixos.bookorbit = { config, ... }: {
     services.bookorbit = {
       enable = true;
       environment = {
@@ -14,53 +9,11 @@
       environmentFile = config.security.nix-secrets.secrets.bookorbit-env.path;
     };
 
-    users.users.bookorbit = {
-      isSystemUser = true;
-      group = "bookorbit";
+    systemd.services.bookorbit.serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
-    users.groups.bookorbit = {};
-    systemd.services = {
-      bookorbit = {
-        wantedBy = ["multi-user.target"];
-        wants = ["network-online.target"];
-        after = ["network-online.target"];
-        serviceConfig = {
-          User = "bookorbit";
-          Group = "bookorbit";
-          Restart = "on-failure";
-          RestartSec = "5s";
-        };
-      };
-      tailscale-bookorbit = {
-        wantedBy = ["multi-user.target"];
-        wants = [
-          "tailscaled.service"
-          "bookorbit.service"
-          "tailscale-immich.service"
-        ];
-        after = [
-          "tailscaled.service"
-          "tailscaled-autoconnect.service"
-          "bookorbit.service"
-          "tailscale-navidrome.service"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          TimeoutStartSec = "120s";
-          ExecStartPre = "${lib.getExe pkgs.tailscale} wait --timeout=90s";
-          ExecStart = lib.escapeShellArgs [
-            (lib.getExe pkgs.tailscale)
-            "serve"
-            "--yes"
-            "--bg"
-            "--service=svc:bookorbit"
-            "--https=443"
-            "http://127.0.0.1:3001"
-          ];
-        };
-      };
-    };
+		services.tailscale.localServe.bookorbit = 3001;
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.bookorbit];
@@ -71,5 +24,5 @@
     };
   };
 
-  flake.modules.nixos.naraka-secrets.imports = [ self.modules.nixos.bookorbit-secrets ];
+  flake.modules.nixos.naraka-secrets.imports = [self.modules.nixos.bookorbit-secrets];
 }

@@ -1,15 +1,11 @@
 {self, ...}: {
-  flake.modules.nixos.navidrome = {
-    lib,
-    pkgs,
-    ...
-  }: {
-	  imports = [self.modules.nixos.spindle];
+  flake.modules.nixos.navidrome =  {
+  	imports = [self.modules.nixos.spindle];
 
     services.navidrome = {
       enable = true;
       withPlugins = p: [
-      	p.discord-rich-presence
+        p.discord-rich-presence
       ];
       settings = {
         Address = "127.0.0.1";
@@ -19,39 +15,11 @@
     };
 
     services.tailscale.extraUpFlags = ["--advertise-tags=tag:navidrome"];
-    systemd.services = {
-      navidrome.serviceConfig = {
-        Restart = "on-failure";
-        RestartSec = "5s";
-      };
-      tailscale-navidrome = {
-        wantedBy = ["multi-user.target"];
-        wants = [
-          "tailscaled.service"
-          "navidrome.service"
-          "tailscale-nitter.service"
-        ];
-        after = [
-          "tailscaled.service"
-          "tailscaled-autoconnect.service"
-          "navidrome.service"
-          "tailscale-nitter.service"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = lib.escapeShellArgs [
-            (lib.getExe pkgs.tailscale)
-            "serve"
-            "--yes"
-            "--bg"
-            "--service=svc:navidrome"
-            "--https=443"
-            "http://127.0.0.1:4533"
-          ];
-        };
-      };
+    systemd.services.navidrome.serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
+    services.tailscale.localServe.navidrome = 4533;
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.navidrome];

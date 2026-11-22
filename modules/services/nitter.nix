@@ -4,13 +4,7 @@
     rev = "c17757c80527f4688a30b7fcded6df83b0f282a3";
   };
 
-  flake.modules.nixos.nitter = {
-    config,
-    lib,
-    pkgs,
-    inputs,
-    ...
-  }: {
+  flake.modules.nixos.nitter = { config, pkgs, inputs, ... }: {
     services.nitter = {
       enable = true;
       package = inputs.nixpkgs-nitter.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nitter;
@@ -29,37 +23,11 @@
     };
 
     services.tailscale.extraUpFlags = ["--advertise-tags=tag:nitter"];
-    systemd.services = {
-      nitter.serviceConfig = {
-        Restart = "on-failure";
-        RestartSec = "5s";
-      };
-      tailscale-nitter = {
-        wantedBy = ["multi-user.target"];
-        wants = [
-          "tailscaled.service"
-          "nitter.service"
-        ];
-        after = [
-          "tailscaled.service"
-          "tailscaled-autoconnect.service"
-          "nitter.service"
-        ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = lib.escapeShellArgs [
-            (lib.getExe pkgs.tailscale)
-            "serve"
-            "--yes"
-            "--bg"
-            "--service=svc:nitter"
-            "--https=443"
-            "http://127.0.0.1:8080"
-          ];
-        };
-      };
+    systemd.services.nitter.serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
     };
+    services.tailscale.localServe.nitter = 8080;
   };
 
   flake.modules.nixos.services.imports = [self.modules.nixos.nitter];
