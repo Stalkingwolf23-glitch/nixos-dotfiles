@@ -59,7 +59,7 @@
         default_workspace = "Browser";
       }
       {
-        match.app_id = "org.musicbrainz.Picard";
+        match.app_id = ["org.musicbrainz.Picard" "hermes" "sonora"];
         opacity = 0.9;
       }
     ];
