@@ -902,7 +902,7 @@
       "enabled" = true;
     };
     "BetterPollDetails" = {
-    	"enable" = true;
+    	"enabled" = true;
     };
   };
 }
