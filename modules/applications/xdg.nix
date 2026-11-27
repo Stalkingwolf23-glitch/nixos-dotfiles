@@ -34,6 +34,10 @@
         "x-scheme-handler/https" = "zen-beta.desktop";
         "x-scheme-handler/ftp" = "zen-beta.desktop";
 
+        # Wine
+        "application/vnd.microsoft.portable-executable" = [ "wine.desktop" ];
+        "application/x-ms-dos-executable" = [ "wine.desktop" ];
+
         "inode/directory" = "org.kde.dolphin.desktop";
         "x-scheme-handler/discord" = "equibop.desktop";
       };
